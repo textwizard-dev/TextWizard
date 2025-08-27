@@ -1,0 +1,527 @@
+#test: hi_punct_edges_basic_01
+#lang: hi
+#text
+(भारत) «में» —और— दिल्ली।
+#expected_errors_count: 0
+#must_not_contain
+भारत
+में
+और
+दिल्ली
+#end
+
+#test: hi_punct_edges_heavy_02
+#lang: hi
+#text
+«भारत», — में — …और… (दिल्ली)
+#expected_errors_count: 0
+#must_not_contain
+भारत
+में
+और
+दिल्ली
+#end
+
+#test: hi_whitespace_tabs_newlines_03
+#lang: hi
+#text
+भारत
+
+में	और   दिल्ली
+#expected_errors_count: 0
+#must_not_contain
+भारत
+में
+और
+दिल्ली
+#end
+
+#test: hi_numbers_devanagari_04
+#lang: hi
+#text
+१२,३४,५६७ ३,१४१५९ १'००० १०\u00A000०
+#expected_errors_count: 0
+#end
+
+#test: hi_numbers_trailing_punct_05
+#lang: hi
+#text
+१२,३४५। १,२३४, ३.१४!
+#expected_errors_count: 0
+#end
+
+#test: hi_numbers_western_ok_06
+#lang: hi
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: hi_danda_double_danda_edges_07
+#lang: hi
+#text
+।भारत। ॥और॥ (दिल्ली)
+#expected_errors_count: 0
+#must_not_contain
+भारत
+और
+दिल्ली
+#end
+
+#test: hi_apostrophe_ignore_edges_08
+#lang: hi
+#text
+'भारत' “में” «और»
+#expected_errors_count: 0
+#must_not_contain
+भारत
+में
+और
+#end
+
+#test: hi_inner_hyphen_flag_09
+#lang: hi
+#text
+भारत-देश और-भी
+#expected_errors_count: 2
+#must_contain
+भारत-देश
+और-भी
+#end
+
+#test: hi_inner_endash_flag_10
+#lang: hi
+#text
+भारत–देश दिल्ली–एनसीआर
+#expected_errors_count: 2
+#must_contain
+भारत–देश
+दिल्ली–एनसीआर
+#end
+
+#test: hi_underscore_flag_11
+#lang: hi
+#text
+भारत_देश
+#expected_errors_count: 1
+#must_contain
+भारत_देश
+#end
+
+#test: hi_zwnj_zwj_inside_ok_12
+#lang: hi
+#text
+ह\u200dै म\u200cें
+#expected_errors_count: 0
+#must_not_contain
+ह\u200dै
+म\u200cें
+#end
+
+#test: hi_email_flag_13
+#lang: hi
+#text
+नाम.उपनाम+टैग@example.com
+#expected_errors_count: 0
+#end
+
+#test: hi_url_flag_14
+#lang: hi
+#text
+https://उदाहरण.भारत/पथ?क=1&ख=2
+#expected_errors_count: 0
+#end
+
+#test: hi_only_punct_15
+#lang: hi
+#text
+() [] {} «» “” ‘’ — – … । ॥
+#expected_errors_count: 0
+#end
+
+#test: mr_punct_edges_basic_01
+#lang: mr
+#text
+(भारत) «मध्ये» —आणि— पुणे.
+#expected_errors_count: 0
+#must_not_contain
+भारत
+मध्ये
+आणि
+पुणे
+#end
+
+#test: mr_numbers_ok_02
+#lang: mr
+#text
+१२,३४५ ३.१४ १०\u00A000०
+#expected_errors_count: 0
+#end
+
+#test: ne_punct_edges_basic_01
+#lang: ne
+#text
+(१२) «३४» —५६— ७८।
+#expected_errors_count: 0
+#end
+
+#test: ne_numbers_ok_02
+#lang: ne
+#text
+१२,३४५ ३.१४ १०\u00A000०
+#expected_errors_count: 0
+#end
+
+#test: sa_punct_edges_basic_01
+#lang: sa
+#text
+(१२) «३४» —५६— ७८।
+#expected_errors_count: 0
+#end
+
+#test: bn_punct_edges_basic_01
+#lang: bn
+#text
+(বাংলা) «এবং» —এ— ঢাকা।
+#expected_errors_count: 0
+#must_not_contain
+বাংলা
+এবং
+এ
+ঢাকা
+#end
+
+#test: bn_numbers_bengali_02
+#lang: bn
+#text
+১২,৩৪৫ ৩.১৪ ১০\u00A000০
+#expected_errors_count: 0
+#end
+
+#test: bn_inner_hyphen_flag_03
+#lang: bn
+#text
+বাংলা-ভাষা
+#expected_errors_count: 1
+#must_contain
+বাংলা-ভাষা
+#end
+
+#test: as_punct_edges_basic_01
+#lang: as
+#text
+(অসম) «আৰু» —ও— গুৱাহাটী।
+#expected_errors_count: 0
+#must_not_contain
+অসম
+আৰু
+ও
+গুৱাহাটী
+#end
+
+#test: as_numbers_assamese_02
+#lang: as
+#text
+১২,৩৪৫ ৩.১৪ ১০\u00A000০
+#expected_errors_count: 0
+#end
+
+#test: gu_punct_edges_basic_01
+#lang: gu
+#text
+(ગુજરાત) «માં» —અને— અમદાવાદ.
+#expected_errors_count: 0
+#must_not_contain
+ગુજરાત
+માં
+અને
+અમદાવાદ
+#end
+
+#test: gu_numbers_gujarati_02
+#lang: gu
+#text
+૧,૨૩,૪૫૬ ૩.૧૪ ૧૦\u00A000૦
+#expected_errors_count: 0
+#end
+
+#test: gu_inner_hyphen_flag_03
+#lang: gu
+#text
+ગુજરાત-રાજ્ય
+#expected_errors_count: 1
+#must_contain
+ગુજરાત-રાજ્ય
+#end
+
+#test: pa_punct_edges_basic_01
+#lang: pa
+#text
+(੧੨) «੩੪» —੫੬— ੭੮।
+#expected_errors_count: 0
+#end
+
+#test: pa_numbers_gurmukhi_02
+#lang: pa
+#text
+੧,੨੩,੪੫੬ ੩.੧੪ ੧੦\u00A000੦
+#expected_errors_count: 0
+#end
+
+#test: or_punct_edges_basic_01
+#lang: or
+#text
+(୧୨) «୩୪» —୫୬— ୭୮।
+#expected_errors_count: 0
+#end
+
+#test: or_numbers_oriya_02
+#lang: or
+#text
+୧,୨୩,୪୫୬ ୩.୧୪ ୧୦\u00A000୦
+#expected_errors_count: 0
+#end
+
+#test: si_punct_edges_basic_01
+#lang: si
+#text
+(෧෨) «෩෪» —෫෬— ෭෮.
+#expected_errors_count: 0
+#end
+
+#test: si_numbers_sinhala_02
+#lang: si
+#text
+෧,෨෩,෪෫෬ ෩.෧෪ ෧෦\u00A0෦෦
+#expected_errors_count: 0
+#end
+
+#test: ta_punct_edges_basic_01
+#lang: ta
+#text
+(தமிழ்) «மற்றும்» —இல்— சென்னை.
+#expected_errors_count: 0
+#must_not_contain
+தமிழ்
+மற்றும்
+இல்
+சென்னை
+#end
+
+#test: ta_numbers_tamil_02
+#lang: ta
+#text
+௧,௨௩,௪௫௬ ௩.௧௪ ௧௦\u00A0௦௦
+#expected_errors_count: 0
+#end
+
+#test: te_punct_edges_basic_01
+#lang: te
+#text
+(తెలుగు) «మరి» —లో— హైదరాబాద్.
+#expected_errors_count: 0
+#must_not_contain
+తెలుగు
+మరి
+లో
+హైదరాబాద్
+#end
+
+#test: te_numbers_telugu_02
+#lang: te
+#text
+౧,౨౩,౪౫౬ ౩.౧౪ ౧౦\u00A0౦౦
+#expected_errors_count: 0
+#end
+
+#test: kn_punct_edges_basic_01
+#lang: kn
+#text
+(ಕನ್ನಡ) «ಮತ್ತು»  —ಬೆಂಗಳೂರು—.
+#expected_errors_count: 0
+#must_not_contain
+ಕನ್ನಡ
+ಮತ್ತು
+ಬೆಂಗಳೂರು
+#end
+
+#test: kn_numbers_kannada_02
+#lang: kn
+#text
+೧,೨೩,೪೫೬ ೩.೧೪ ೧೦\u00A0೦೦
+#expected_errors_count: 0
+#end
+
+#test: indic_zero_width_inside_ok_agg_01
+#lang: hi
+#text
+क\u200d्ष म\u200cात्र
+#expected_errors_count: 0
+#must_not_contain
+क\u200d्ष
+म\u200cात्र
+#end
+
+#test: indic_only_punct_brackets_agg_02
+#lang: bn
+#text
+() [] {} «» “” ‘’ — – … ।
+#expected_errors_count: 0
+#end
+
+
+#test: hi_nukta_variants_ok_01
+#lang: hi
+#text
+ज़मीन फ़िल्म ख़ुशी क़िला ग़रीब
+#expected_errors_count: 0
+#must_not_contain
+ज़मीन
+फ़िल्म
+ख़ुशी
+क़िला
+ग़रीब
+#end
+
+#test: hi_conjunct_vs_zwj_ok_02
+#lang: hi
+#text
+क्षत्रिय क्\u200dषत्रिय
+#expected_errors_count: 0
+#must_not_contain
+क्षत्रिय
+क्\u200dषत्रिय
+#end
+
+#test: hi_indian_grouping_western_digits_03
+#lang: hi
+#text
+12,34,567 1,23,456
+#expected_errors_count: 0
+#end
+
+#test: hi_zero_width_merge_flag_04
+#lang: hi
+#text
+भारत\u2060में
+#expected_errors_count: 1
+#must_contain
+भारत\u2060में
+#end
+
+#test: hi_hashtag_mention_flag_05
+#lang: hi
+#text
+#दिल्ली @किसी
+#expected_errors_count: 0
+#end
+
+#test: hi_idn_email_url_flags_06
+#lang: hi
+#text
+नाम.उपनाम@example.in https://उदाहरण.भारत/पथ
+#expected_errors_count: 0
+#end
+
+
+#test: pa_hyphen_flag_02
+#lang: pa
+#text
+ਪੰਜਾਬ-ਰਾਜ
+#expected_errors_count: 1
+#must_contain
+ਪੰਜਾਬ-ਰਾਜ
+#end
+
+#test: bn_nukta_ok_01
+#lang: bn
+#text
+ঢেঁকি হুঁশিয়ার
+#expected_errors_count: 0
+#must_not_contain
+ঢেঁকি
+হুঁশিয়ার
+#end
+
+#test: bn_idn_email_url_flags_02
+#lang: bn
+#text
+নাম.উপনাম@example.com https://উদাহরণ.ভারত/পথ
+#expected_errors_count: 0
+#end
+
+#test: bn_indian_grouping_western_digits_03
+#lang: bn
+#text
+12,34,567 1,23,456
+#expected_errors_count: 0
+#end
+
+#test: ta_aytham_ok_01
+#lang: ta
+#text
+தமிழ்
+#expected_errors_count: 0
+#end
+
+#test: ta_inner_hyphen_flag_02
+#lang: ta
+#text
+தமிழ்-நாடு
+#expected_errors_count: 1
+#must_contain
+தமிழ்-நாடு
+#end
+
+#test: te_inner_hyphen_flag_01
+#lang: te
+#text
+తెలుగు-రాష్ట్రం
+#expected_errors_count: 1
+#must_contain
+తెలుగు-రాష్ట్రం
+#end
+
+#test: kn_inner_hyphen_flag_01
+#lang: kn
+#text
+ಕನ್ನಡ-ರಾಜ್ಯ
+#expected_errors_count: 1
+#must_contain
+ಕನ್ನಡ-ರಾಜ್ಯ
+#end
+
+#test: mr_indian_grouping_local_digits_01
+#lang: mr
+#text
+१२,३४,५६७ १,२३,४५६
+#expected_errors_count: 0
+#end
+
+#test: ne_indian_grouping_local_digits_01
+#lang: ne
+#text
+१२,३४,५६७ १,२३,४५६
+#expected_errors_count: 0
+#end
+
+#test: gu_indian_grouping_local_digits_01
+#lang: gu
+#text
+૧,૨૩,૪૫૬ ૧૨,૩૪,૫૬૭
+#expected_errors_count: 0
+#end
+
+#test: or_indian_grouping_local_digits_01
+#lang: or
+#text
+୧,୨୩,୪୫୬ ୧୨,୩୪,୫୬୭
+#expected_errors_count: 0
+#end
+
+#test: si_virama_clusters_ok_01
+#lang: si
+#text
+සිංහල
+#expected_errors_count: 0
+#end

@@ -1,0 +1,337 @@
+This package is a compilation. Each file retains its own license.
+
+Primary source for most files:
+Data derived from Wiktionary via Kaikki.org — CC BY-SA 4.0.
+© Wiktionary contributors. Changes by Mattia Rubino.
+Dump: <2025-08-26> • https://kaikki.org/
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+
+License summary:
+Default license for dictionaries: CC BY-SA 4.0, except where noted below.
+
+- af: LGPL-2.1 — see THIRD-PARTY-LICENSES.txt
+- an: MPL-1.1 (tri-licensed MPL-1.1/GPL-3.0+/LGPL-3.0+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- ar: MPL-1.1 (tri-licensed MPL-1.1/GPL-2.0+/LGPL-2.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- as: GPL-3.0-only — see LICENSES_GPL-3.0.txt
+- bg: GPL-2.0 — see LICENSES_GPL-2.0.txt 
+- bn: GPL-2.0 — see LICENSES_GPL-2.0.txt
+- br: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- bs: Bosnian Hunspell dictionary — MPL-1.1 (tri-licensed GPL-2.0+/LGPL-2.1+/MPL-1.1+; this distribution chooses MPL-1.1).
+- ca: MPL-1.1 (tri-licensed MPL-1.1/GPL-2.0+/LGPL-2.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- da: MPL-1.1 (tri-licensed MPL-1.1/GPL-2.0+/LGPL-2.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- de: GPL-2.0 — see LICENSES_GPL-2.0.txt 
+- el: MPL-1.1 (tri-licensed MPL-1.1/GPL-2.0+/LGPL-2.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- eo: GPL-3.0 — see LICENSES_GPL-3.0.txt
+- es: MPL-1.1 (tri-licensed GPL-3.0+/LGPL-3.0+/MPL-1.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- fa: Apache License 2.0 — see LICENSES_APACHE.txt
+- fr: MPL-2.0 — see LICENSES_MPL-2.0.txt
+- gd: GPL-3.0-or-later — see LICENSES_GPL-3.0.txt
+- gu: GPL  — see THIRD-PARTY-LICENSES.txt
+- he: AGPL-3.0 — see LICENSES_AGPL-3.0.txt
+- hi: GPL-2.0 — see LICENSES_GPL-2.0.txt 
+- hr: MPL-1.1 (tri-licensed GPL-2.0+/LGPL-2.1+/MPL-1.1+; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- id: LGPL-3.0 — see LICENSES_LGPL-3.0.txt
+- it: Italian Writing Aids (spell, thesaurus, hyphenation) — GPL-3.0-only — see LICENSES_GPL-3.0.txt
+- kmr: Kurdish (Kurmanji) Hunspell dictionary — MPL-1.1 (tri-licensed GPL-3.0+/LGPL-3.0+/MPL-1.1; this distribution chooses MPL-1.1) — see LICENSES_MPL-1.1.txt
+- kn: GPL-2.0+ — see LICENSES_GPL-2.0.txt
+- lo: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- lv: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- mr: GPL-2.0 — see LICENSES_GPL-2.0.txt
+- nb/nn: GPL-2.0-or-later — see LICENSES_GPL-2.0.txt
+- ne: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- oc: GPL-2.0-or-later — see LICENSES_GPL-2.0.txt
+- pl: Apache License 2.0 — see LICENSES_APACHE.txt
+- pt: MPL-1.1 — see LICENSES_MPL-1.1.txt
+- ro: MPL-1.1 — see LICENSES_MPL-1.1.txt
+- si: GPL-3.0-or-later — see LICENSES_GPL-3.0.txt
+- sk: MPL-1.1 — see LICENSES_MPL-1.1.txt
+- sl: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- sq: GPL-2.0-or-later — see LICENSES_GPL-2.0.txt
+- sr: MPL-2.0 (tri-licensed GPL-3.0+/LGPL-3.0+/MPL-2.0+); see LICENSES_MPL-2.0.txt
+- sv: LGPL-3.0-only — see LICENSES_LGPL-3.0.txt
+- sw: LGPL-2.1 — see LICENSES_LGPL-2.1.txt
+- ta: MPL-1.1 — see LICENSES_MPL-1.1.txt
+- te: GPL-2.0-or-later — see LICENSES_GPL-2.0.txt
+- th: LGPL-2.1-or-later — see LICENSES_LGPL-2.1.txt
+- uk: MPL-1.1 — see LICENSES_MPL-1.1.txt
+- vi: GPL-2.0-only — see LICENSES_GPL-2.0.txt
+
+
+
+
+Common processing steps (performed by _build_marisa_dict.py):
+- Unicode normalization (NFKC)
+- Strip zero-width characters (e.g., U+200B, U+2060) and ZWJ/ZWNJ
+- Replace typographic apostrophes with ASCII
+- Trim residual tag fragments at boundaries
+- Casefold
+- Deduplicate (preserve first occurrence)
+- Manual additions
+- Integrations/merges where listed below
+
+Per-language extra sources:
+- af: Afrikaans wordlist (Nieuwoudt, Viljoen) + MySpell aff — LGPL-2.1
+      Source at ./sources_ext — Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: © 1993, 2003 Bernard A. Nieuwoudt; © 1998 Danie Viljoen;
+               MySpell aff © 2003 Dwayne Bailey (based on Renier de Vos, BSD).
+               
+- an: Aragonese spelling dictionary — MPL-1.1 (tri-licensed)
+      Source: https://apertium.svn.sourceforge.net/viewvc/apertium/tags/apertium-es-an/release-2.0/
+      Corresponding Source (MPL): ./sources_ext/an.aff, ./sources_ext/an.dic, _build_marisa_dict.py
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: © 2011 Santiago Paricio; © 2011 Juan Pablo Martínez.
+
+- ar: Ayaspell Arabic dictionary — MPL-1.1 (tri-licensed)
+      Source: https://github.com/linuxscout/ayaspell
+      Corresponding Source (MPL): ./sources_ext/ar.aff, ./sources_ext/ar.dic, _build_marisa_dict.py
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Taha Zerrouki et al.
+
+- as: Lachit — Assamese Spell Checker — GPL-3.0-only
+      Source: https://addons.mozilla.org/en-US/firefox/addon/assamese-spell-checker/
+      Files used: ./sources_ext/as_IN.aff, ./sources_ext/as_IN.dic
+      Corresponding Source (GPL-3.0): ./sources_ext/as_IN.aff, ./sources_ext/as_IN.dic, _build_marisa_dict.py
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+            
+- be: CC BY-SA 4.0 — see LICENSES/CC-BY-SA-4.0.txt
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- be: Belarusian Spellchecker Dictionary (official orthography 2008) — CC BY-SA 4.0 (dual: CC BY-SA 4.0 / LGPL-3.0; chosen: CC BY-SA 4.0)
+      Source: Belarusian Grammar Database — https://bnkorpus.info/grammar.html
+      Credits: Aleś Bułojčyk <alex73mail@gmail.com>, Uładzimir Koščanka <koshul@gmail.com>
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+- bg: Bulgarian Hunspell dictionary — GPL-2.0
+      Source at ./sources_ext (files: bg.dic, bg.aff) 
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: https://github.com/LibreOffice/dictionaries/blob/master/bg_BG/.
+
+
+- bn: Bengali Hunspell dictionary — GPL-2.0
+      Source at ./sources_ext (files: bn.dic, bn.aff) 
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: https://github.com/LibreOffice/dictionaries/blob/master/bn_BD/.
+      
+- br: “An Drouizig” Breton spelling dictionary — LGPL-2.1 • Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- bs: Bosnian Hunspell dictionary — MPL-1.1 (tri-licensed GPL-2.0+/LGPL-2.1+/MPL-1.1+; this distribution chooses MPL-1.1).
+      Source: ./sources_ext/bs_BA.aff, ./sources_ext/bs_BA.dic.
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA      
+                   
+- ca: Catalan Hunspell dictionary (upstream tri-licensed).
+      Source: ./sources_ext/ca.aff, ./sources_ext/ca.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA      
+      
+- cs: Czech CC0 dictionaries • https://gitlab.com/strepon/czech-cc0-dictionaries
+      Czech Inflectional Dictionary • https://github.com/plin/slovnik
+      Wikidata Lexicographical data (cs) • https://www.wikidata.org/wiki/Wikidata:Lexicographical_data/cs
+      License: CC0 1.0
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- da: Stavekontrolden Danish Hunspell dictionary (tri-licensed).
+      Source: ./sources_ext/da_DK.aff, ./sources_ext/da_DK.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: © 2020 Foreningen for frit tilgængelige sprogværktøjer; based on data from DSL (dsl.dk).
+      
+- de: Bulgarian Hunspell dictionary — GPL-2.0
+      Source at ./sources_ext (files: de_AT_frami.aff, de_AT_frami.dic) 
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: https://github.com/LibreOffice/dictionaries/blob/master/de/.
+
+- el: Greek Hunspell dictionary (tri-licensed).
+      Source: ./sources_ext/el_GR.aff, ./sources_ext/el_GR.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Steve Stavropoulos; Evripidis Papakostas; contributors.
+        
+- en: SCOWL; Ispell english.aff; WordNet 1.6; UKACD
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA 
+      
+- eo: Esperanto Hunspell dictionary — GPL-3.0
+      Source: ./sources_ext/eo*.aff, ./sources_ext/eo*.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- es: Spanish Hunspell dictionaries (LibreOffice/Apache OpenOffice) — MPL-1.1 (tri-licensed)
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- fa: Lilak — Persian Spell Checking Dictionary — License: Apache-2.0 — © 2015
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- fr: Grammalecte French spellchecking dictionary — MPL-2.0
+      Source: ./sources_ext/fr.aff, ./sources_ext/fr.dic
+      Credits: Olivier R. (Grammalecte) + contributors.
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- gd: Scottish Gaelic Hunspell dictionary — GPL-3.0-or-later
+      Source: ./sources_ext/gd_GB.aff, ./sources_ext/gd_GB.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- gu: Gujarati Hunspell dictionary (OpenOffice.org) — GPL (versione non specificata)
+      Source: ./sources_ext/gu_IN.aff, ./sources_ext/gu_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Maintained by Kartik Mistry; original word list by Utkarsh Project volunteers.
+
+- he: Hebrew dictionary (generated from Hspell 1.4 data) — AGPL-3.0
+      Source: ./sources_ext/he_IL.aff, ./sources_ext/he_IL.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: © 2004–2017 Nadav Har'El; Dan Kenigsberg; Hspell project.
+
+
+- hi: GNU Aspell Hindi Word List Package — GPL-2.0-or-later
+      Source: ./sources_ext/hi_IN.aff, ./sources_ext/hi_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: © 2005 Swapnil Hajare; Swapnil Sant.
+
+- hr: Croatian Hunspell dictionary — MPL-1.1 (tri-licensed)
+      Source: ./sources_ext/hr_HR.aff, ./sources_ext/hr_HR.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Boris Jurić (2017–2018); Mirko Kos (2016–2017);
+               Krunoslav Šebetić (2014–2018); Denis Lacković (2003).
+               
+- id: Indonesian Hunspell dictionary — LGPL-3.0
+      Source: ./sources_ext/id_ID.aff, ./sources_ext/id_ID.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- is: Orðabók Háskólans wordlist — Public Domain
+      Icelandic Wiktionary Project — CC BY-SA 3.0 — https://is.wiktionary.org
+      Hyphenation rules (Árni Magnússon Institute) — CC BY 4.0 — http://www.malfong.is/index.php?lang=en&pg=hyphen
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- it: Italian Writing Aids — GPL-3.0-only
+      Source: ./sources_ext/it_IT.aff, ./sources_ext/it_IT.dic,
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+  
+- kmr: Spelling dictionary for Kurdish (Kurmanji) — MPL-1.1 (tri-licensed)
+      Source: ./sources_ext/kmr_Latn.aff, ./sources_ext/kmr_Latn.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+ 
+  
+- kn: Kannada Spell Checker — GPL-2.0+
+      Source: ./sources_ext/kn_IN.aff, ./sources_ext/kn_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Harisha M G; based on GNU Aspell Kannada word list.
+
+- lo: Lao Hunspell dictionary — LGPL-2.1
+      Source: ./sources_ext/lo_LA.aff, ./sources_ext/lo_LA.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      Credits: Brian Eugene Wilson; Robert Martin Campbell.
+  
+- lt: ispell-lt — https://launchpad.net/ispell-lt — License: BSD-style
+      Credits: Albertas Agejevas; ISDC (Gov. of Lithuania)
+      ispell-lt — https://github.com/ispell-lt/ispell-lt — License: BSD-3-Clause
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- lv: Latvian Hunspell dictionary — LGPL-2.1
+      Source: ./sources_ext/lv_LV.aff, ./sources_ext/lv_LV.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+      
+- mr: Marathi Hunspell dictionary — GPL-2.0
+      Source: ./sources_ext/mr_IN.aff, ./sources_ext/mr_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- nb/nn: Norwegian Bokmål/Nynorsk MySpell/Hunspell dictionary — GPL-2.0-or-later
+      Source: ./sources_ext/nb_NO.aff nn_NO.aff, ./sources_ext/nb_NO.dic nn_NO.dic
+      Origin: generated from spell-norwegian v2.2
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+- ne: Nepali SpellChecking Dictionary — LGPL-2.1
+      Source: ./sources_ext/ne_NP.aff, ./sources_ext/ne_NP.dic
+      Origin: Madan Puraskar Pustakalaya — Release 1.1 (2006-10-17)
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- nl: OpenTaal Dutch word list 2.10G — https://www.opentaal.org
+      License: BSD-3-Clause (alternative: CC BY 3.0)
+      Credits: © 2006–2010 OpenTaal; © 2001–2005 Simon Brouwer et al.; © 1996 Nederlandstalige TeX Gebruikersgroep
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- oc: Occitan (Lengadocian) Hunspell dictionary — GPL-2.0-or-later
+      Source: ./sources_ext/oc_FR.aff, ./sources_ext/oc_FR.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+- pl: Polish Hunspell spellchecker — Apache-2.0 (multi-licensed: GPL-2.0+/LGPL-2.1+/MPL/Apache-2.0/CC-SA-1.0; questa distribuzione sceglie Apache-2.0).
+      Source: ./sources_ext/pl_PL.aff, ./sources_ext/pl_PL.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- pt: Portuguese (Portugal) Hunspell dictionary — MPL-1.1 (tri-licensed GPL-2.0+/LGPL-2.1+/MPL-1.1; this distribution chooses MPL-1.1).
+      Source: ./sources_ext/pt_PT.aff, ./sources_ext/pt_PT.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- ro: Romanian Hunspell dictionary — MPL-1.1 (tri-licensed GPL-2.0/LGPL-2.1/MPL-1.1; this distribution chooses MPL-1.1).
+      Source: ./sources_ext/ro_RO.aff, ./sources_ext/ro_RO.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- ru: Russian word list — © 1997–2008 Alexander I. Lebedev — BSD-3-Clause-like
+      Mod: 2012-08-24 by László Németh (TRY line)     
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- si: Sinhala Hunspell dictionary — GPL-3.0-or-later.
+      Source: ./sources_ext/si_LK.aff, ./sources_ext/si_LK.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- sk: Slovak Hunspell dictionary — MPL-1.1 (tri-licensed GPL-2.0+/LGPL-2.1+/MPL-1.1+; this distribution chooses MPL-1.1).
+      Source: ./sources_ext/sk_SK.aff, ./sources_ext/sk_SK.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+
+- sl: Slovenian Hunspell dictionary — LGPL-2.1 (dual-licensed GPL-2.0+/LGPL-2.1; this distribution chooses LGPL-2.1).
+      Source: ./sources_ext/sl_SI.aff, ./sources_ext/sl_SI.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- sq: Albanian Myspell/Hunspell dictionary — GPL-2.0-or-later
+      Source: ./sources_ext/sq_AL.aff, ./sources_ext/sq_AL.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- sr: Serbian Hunspell dictionaries (Cyrillic & Latin) — MPL-2.0
+      (tri-licensed: GPL-3.0+/LGPL-3.0+/MPL-2.0+)
+      Source: ./sources_ext/sr_RS.aff, ./sources_ext/sr_RS.dic;
+              ./sources_ext/sr_Latn_RS.aff, ./sources_ext/sr_Latn_RS.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- sv: Swedish Hunspell dictionary — LGPL-3.0-only
+      Source: ./sources_ext/sv_SE.aff, ./sources_ext/sv_SE.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+- sw: Swahili Hunspell dictionary — LGPL-2.1
+      Source: ./sources_ext/sw_TZ.aff, ./sources_ext/sw_TZ.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- ta: Tamil Hunspell dictionary — MPL-1.1
+      Source: ./sources_ext/ta_IN.aff, ./sources_ext/ta_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- te: Telugu Hunspell dictionary — GPL-2.0-or-later
+      Source: ./sources_ext/te_IN.aff, ./sources_ext/te_IN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- th: Thai Hunspell dictionary — LGPL-2.1-or-later
+      Source: ./sources_ext/th_TH.aff, ./sources_ext/th_TH.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+- tr: Turkish word list — License: MIT — © 2014 Harun Reşit Zafer
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+      
+- uk: Ukrainian Hunspell dictionary — MPL-1.1
+      Source: ./sources_ext/uk_UA.aff, ./sources_ext/uk_UA.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+- vi: Vietnamese Hunspell dictionary — GPL-2.0-only
+      Source: ./sources_ext/vi_VN.aff, ./sources_ext/vi_VN.dic
+      Mods: normalization (NFKC), deduplication, cleanup; added entries; build to MARISA
+
+
+Offer of Corresponding Source (GPL/LGPL/AGPL components):
+The corresponding source for the included MARISA tries — i.e., the
+normalized wordlists (including any added entries) and the build scripts used
+to produce them — will be provided to any recipient, on request, for a period
+of three (3) years from receipt, at no more than the cost of distribution.
+Contact: <textwizard.dev@gmail.com>.
+
+
+TextWizard — © 2024–2025 Mattia Rubino
+Licensed under the GNU Affero General Public License v3.0 or late

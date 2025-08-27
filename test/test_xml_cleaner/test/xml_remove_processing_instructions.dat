@@ -1,0 +1,399 @@
+#test: remove_processing_instructions_true_easy_01
+#data
+<root><?pi test?>Text1</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Text1</root>
+
+#test: remove_processing_instructions_true_easy_02
+#data
+<root>Text2<?pi foo?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Text2</root>
+
+#test: remove_processing_instructions_true_easy_03
+#data
+<root><?pi?><child>Sub3</child></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><child>Sub3</child></root>
+
+#test: remove_processing_instructions_true_easy_04
+#data
+<root><?pi?><child><?bar?>Inner4</child></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><child>Inner4</child></root>
+
+#test: remove_processing_instructions_true_easy_05
+#data
+<root>Before <?pi abc?> After</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Before  After</root>
+
+#test: remove_processing_instructions_true_easy_06
+#data
+<root>Start<?pi   xyz   ?>End</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Start End</root>
+
+#test: remove_processing_instructions_true_easy_07
+#data
+<root><?pi one?>Mid<?pi two?>Finish</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Mid Finish</root>
+
+#test: remove_processing_instructions_true_easy_08
+#data
+<root><a><?pi?>A</a><b>B<?pi?> </b></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>A</a><b>B </b></root>
+
+#test: remove_processing_instructions_true_easy_09
+#data
+<root><?pi data="something"?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root/>
+
+#test: remove_processing_instructions_true_easy_10
+#data
+<root><?stylesheet type="text/xsl" href="s.xsl"?>X</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>X</root>
+
+#test: remove_processing_instructions_true_intermediate_11
+#data
+<root>Pre11 <?pi?> <child>In11<?pi?>After</child></root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Pre11  <child>In11 After</child></root>
+
+#test: remove_processing_instructions_true_intermediate_12
+#data
+<root><p><?pi?>Para12</p><?pi?>Tail12</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><p>Para12</p>Tail12</root>
+
+#test: remove_processing_instructions_true_intermediate_13
+#data
+<root><?pi?>A<?pi?>B<?pi?>C</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>A B C</root>
+
+#test: remove_processing_instructions_true_intermediate_14
+#data
+<root><outer><?pi?><inner><?pi?>Deep14</inner></outer></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><outer><inner>Deep14</inner></outer></root>
+
+#test: remove_processing_instructions_true_intermediate_15
+#data
+<root><a>Alpha<?pi?>Beta</a><b><?pi?>Gamma</b></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>Alpha Beta</a><b>Gamma</b></root>
+
+#test: remove_processing_instructions_true_intermediate_16
+#data
+<root><parent>Par16</parent><?pi?>After16</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><parent>Par16</parent>After16</root>
+
+#test: remove_processing_instructions_true_intermediate_17
+#data
+<root><parent><?pi?> Par17</parent><child>Ch17</child></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><parent> Par17</parent><child>Ch17</child></root>
+
+#test: remove_processing_instructions_true_intermediate_18
+#data
+<root><a>A18</a><?pi?>Text18</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>A18</a>Text18</root>
+
+#test: remove_processing_instructions_true_intermediate_19
+#data
+<root><?pi?><leaf>Leaf19</leaf><?pi?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><leaf>Leaf19</leaf></root>
+
+#test: remove_processing_instructions_true_intermediate_20
+#data
+<root><?pi?><lvl1><?pi?>L1<?pi?></lvl1><?pi?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><lvl1>L1</lvl1></root>
+
+#test: remove_processing_instructions_true_intermediate_21
+#data
+<root><ns:tag xmlns:ns="u">Content21</ns:tag><?pi?>After21</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><ns:tag xmlns:ns="u">Content21</ns:tag>After21</root>
+
+#test: remove_processing_instructions_true_intermediate_22
+#data
+<root><![CDATA[CD22]]><?pi?>End22</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><![CDATA[CD22]]>End22</root>
+
+#test: remove_processing_instructions_true_intermediate_23
+#data
+<root>Mix<?pi?>ed<?pi?>Case23</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Mix ed Case23</root>
+
+#test: remove_processing_instructions_true_intermediate_24
+#data
+<root attr="v"><?pi?>T24</root>
+#params
+remove_processing_instructions=true
+#expected
+<root attr="v">T24</root>
+
+#test: remove_processing_instructions_true_intermediate_25
+#data
+<root><?pi?><a><?pi?>In25</a><?pi?>Out25</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>In25</a>Out25</root>
+
+#test: remove_processing_instructions_true_intermediate_26
+#data
+<root><a>Start26</a><?pi target data?><b>Mid26</b><?pi?>End26</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>Start26</a><b>Mid26</b>End26</root>
+
+#test: remove_processing_instructions_true_intermediate_27
+#data
+<root><?pi?><?pi?>Dup27</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Dup27</root>
+
+#test: remove_processing_instructions_true_intermediate_28
+#data
+<root>  <?pi?>  Space28</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>  Space28</root>
+
+#test: remove_processing_instructions_true_intermediate_29
+#data
+<root><outer><?pi?> <?pi?> Gap29</outer></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><outer> Gap29</outer></root>
+
+#test: remove_processing_instructions_true_intermediate_30
+#data
+<root><?pi?><a><?pi?>A30<?pi?></a><?pi?>Z30</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>A30</a>Z30</root>
+
+#test: remove_processing_instructions_true_hard_31
+#data
+<root>Before31<?pi?><?pi?>After31</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Before31 After31</root>
+
+#test: remove_processing_instructions_true_hard_32
+#data
+<root><?pi?>Front32<mid><?pi?>Inside32</mid><?pi?>Back32</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Front32<mid>Inside32</mid>Back32</root>
+
+#test: remove_processing_instructions_true_hard_33
+#data
+<root><![CDATA[CD33]]><?pi?><?pi?>Text33</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><![CDATA[CD33]]>Text33</root>
+
+#test: remove_processing_instructions_true_hard_34
+#data
+<root><a attr="<?pi?>val">T34</a></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a attr=""/>val"&gt;T34</root>
+
+#test: remove_processing_instructions_true_hard_35
+#data
+<root><lvl1><?pi?>L1<?pi?><lvl2><?pi?>Deep35</lvl2><?pi?></lvl1></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><lvl1>L1<lvl2>Deep35</lvl2></lvl1></root>
+
+#test: remove_processing_instructions_true_hard_36
+#data
+<root><?pi one?><child>Mid36</child><?pi two?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><child>Mid36</child></root>
+
+#test: remove_processing_instructions_true_hard_37
+#data
+<root><a><?pi?>A37</a><b><?pi?>B37</b><c><?pi?>C37</c></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>A37</a><b>B37</b><c>C37</c></root>
+
+#test: remove_processing_instructions_true_hard_38
+#data
+<root><a><?pi?>X38</a><?pi?> <b>Y38</b></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>X38</a><b>Y38</b></root>
+
+#test: remove_processing_instructions_true_hard_39
+#data
+<root><?pi?><?pi?><?pi?>Triple39</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Triple39</root>
+
+#test: remove_processing_instructions_true_hard_40
+#data
+<root><?pi?><lvl1><?pi?><lvl2><?pi?>D40</lvl2>Tail40</lvl1></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><lvl1><lvl2>D40</lvl2>Tail40</lvl1></root>
+
+#test: remove_processing_instructions_true_hard_41
+#data
+<root><?pi   complicated    data?>Comp41</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Comp41</root>
+
+#test: remove_processing_instructions_true_hard_42
+#data
+<root>Pre42<?pi?></root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Pre42</root>
+
+#test: remove_processing_instructions_true_hard_43
+#data
+<root><?pi?>Pre43<a>A43</a><?pi?>Mid43<b>B43</b><?pi?>Post43</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Pre43<a>A43</a>Mid43<b>B43</b>Post43</root>
+
+#test: remove_processing_instructions_true_hard_44
+#data
+<root><a><?pi?><?pi?>Inside44</a></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>Inside44</a></root>
+
+#test: remove_processing_instructions_true_hard_45
+#data
+<root><a><?pi?>A45</a><?pi?>B45<c>C45</c></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>A45</a>B45<c>C45</c></root>
+
+#test: remove_processing_instructions_true_hard_46
+#data
+<root><?pi?>v<?pi?>Text46</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>v Text46</root>
+
+#test: remove_processing_instructions_true_hard_47
+#data
+<root><?pi?>Before47<?pi?>Mid47<?pi?>After47</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Before47 Mid47 After47</root>
+
+#test: remove_processing_instructions_true_hard_48
+#data
+<root><?pi?> <a>Inner48<?pi?></a> End48</root>
+#params
+remove_processing_instructions=true
+#expected
+<root><a>Inner48</a> End48</root>
+
+#test: remove_processing_instructions_true_hard_49
+#data
+<root>Start49<?pi?>Middle49<?pi?>End49</root>
+#params
+remove_processing_instructions=true
+#expected
+<root>Start49 Middle49 End49</root>
+
+#test: remove_processing_instructions_true_hard_50
+#data
+<root><![CDATA[Lead50]]><?pi?>Body50<?pi?><![CDATA[Tail50]]></root>
+#params
+remove_processing_instructions=true
+#expected
+<root><![CDATA[Lead50]]>Body50<![CDATA[Tail50]]></root>

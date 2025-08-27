@@ -1,0 +1,2112 @@
+#test: combo_01
+#data
+<root><a>  foo  </a><b><![CDATA[bar]]></b></root>
+#params
+collapse_whitespace=true
+remove_cdata_sections=true
+#expected
+<root><a>foo</a><b>bar</b></root>
+
+#test: combo_02
+#data
+<root><!--c--><a> x </a><?pi?></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+collapse_whitespace=true
+#expected
+<root><a>x</a></root>
+
+#test: combo_03
+#data
+<root xmlns:ns="u"><ns:a>1</ns:a><a>2</a></root>
+#params
+remove_namespaces=true
+remove_content_tags=a
+#expected
+<root><a/><a/></root>
+
+#test: combo_04
+#data
+<root><a id="1" class="c">v</a></root>
+#params
+remove_attributes=class
+remove_content_tags=a
+#expected
+<root><a id="1"/></root>
+
+#test: combo_05
+#data
+<root><a><b>1</b><c>2</c></a></root>
+#params
+remove_content_tags=["b","c"]
+#expected
+<root><a><b/><c/></a></root>
+
+#test: combo_06
+#data
+<root>  <a>  foo </a>  </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>foo</a></root>
+
+#test: combo_07
+#data
+<root><a/><a/><b>t</b><b>t</b></root>
+#params
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><b>t</b></root>
+
+#test: combo_08
+#data
+<root><a><![CDATA[x]]>y</a><a><![CDATA[x]]>y</a></root>
+#params
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+#expected
+<root><a>xy</a></root>
+
+#test: combo_09
+#data
+<root><a>1   2</a><b>  </b></root>
+#params
+collapse_whitespace=true
+remove_empty_tags=true
+#expected
+<root><a>1 2</a></root>
+
+#test: combo_10
+#data
+<root><a><b/><c>v</c></a><d/></root>
+#params
+remove_empty_tags=true
+remove_specific_tags=d
+#expected
+<root><a><c>v</c></a></root>
+
+#test: combo_11
+#data
+<root><a x="1" y="2">t</a><a x="1" y="2">t</a></root>
+#params
+remove_duplicate_siblings=true
+remove_attributes=x
+#expected
+<root><a y="2">t</a></root>
+
+#test: combo_12
+#data
+<root><a><![CDATA[ <b> ]]>text<![CDATA[ </b> ]]></a></root>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+#expected
+<root><a>&lt;b&gt; text &lt;/b&gt;</a></root>
+
+#test: combo_13
+#data
+<root><a><!--c-->x</a><a><!--c-->x</a></root>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+#expected
+<root><a>x</a></root>
+
+#test: combo_14
+#data
+<root xmlns:ns="u"><ns:a>1</ns:a><ns:b>2</ns:b></root>
+#params
+remove_content_tags=ns:a
+remove_namespaces=true
+#expected
+<root><a/><b>2</b></root>
+
+#test: combo_15
+#data
+<root><a>   </a><b>  x  </b></root>
+#params
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+<root><b>x</b></root>
+
+#test: combo_16
+#data
+<root><a><b>foo</b></a></root>
+#params
+remove_content_tags=b
+remove_empty_tags=true
+#expected
+
+#test: combo_17
+#data
+<root><a>foo</a><b>foo</b><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+remove_content_tags=b
+#expected
+<root><a>foo</a><b/></root>
+
+#test: combo_18
+#data
+<root><a><b>1</b><c>2</c></a></root>
+#params
+remove_content_tags=["b","c"]
+#expected
+<root><a><b/><c/></a></root>
+
+#test: combo_19
+#data
+<root><a> 1 </a><a> 2 </a></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><a>2</a></root>
+
+#test: combo_20
+#data
+<root><a x="1" y="1"/><a x="1" y="2"/></root>
+#params
+remove_duplicate_siblings=true
+remove_attributes=x
+#expected
+<root><a y="1"/><a y="2"/></root>
+
+#test: combo_21
+#data
+<root><a><![CDATA[a]]></a><b><![CDATA[a]]></b></root>
+#params
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+#expected
+<root><a>a</a><b>a</b></root>
+
+#test: combo_22
+#data
+<root>foo<a>bar</a>baz</root>
+#params
+remove_content_tags=a
+collapse_whitespace=true
+#expected
+<root>foo<a/>baz</root>
+
+#test: combo_23
+#data
+<root>foo<a>bar</a>baz</root>
+#params
+remove_specific_tags=a
+collapse_whitespace=true
+#expected
+<root>foobaz</root>
+
+#test: combo_24
+#data
+<root><a>1<b>2</b>3</a><a>1<b>2</b>3</a></root>
+#params
+remove_duplicate_siblings=true
+remove_specific_tags=b
+#expected
+<root><a>13</a></root>
+
+#test: combo_25
+#data
+<root><a>  <b> 2 </b>  </a></root>
+#params
+remove_specific_tags=b
+remove_empty_tags=true
+#expected
+
+#test: combo_26
+#data
+<root><a><b>1</b><b>1</b><c/></a></root>
+#params
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><a><b>1</b></a></root>
+
+#test: combo_27
+#data
+<root><a><!--c--><b>v</b></a></root>
+#params
+remove_processing_instructions=true
+remove_comments=true
+#expected
+<root><a><b>v</b></a></root>
+
+#test: combo_28
+#data
+<root><a x="1" y=" "><b/></a></root>
+#params
+remove_empty_tags=true
+remove_attributes=y
+#expected
+
+
+#test: combo_29
+#data
+<root><a>1</a><b>2</b><!--c--></root>
+#params
+remove_duplicate_siblings=true
+remove_comments=true
+#expected
+<root><a>1</a><b>2</b></root>
+
+#test: combo_30
+#data
+<root><a><![CDATA[ a b ]]>c</a></root>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+#expected
+<root><a>a b c</a></root>
+
+#test: combo_31
+#data
+<root><a>1</a><b> </b><c>3</c></root>
+#params
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><c>3</c></root>
+
+#test: combo_32
+#data
+<root><a>1</a><a>2</a><a>1</a></root>
+#params
+remove_duplicate_siblings=true
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: combo_33
+#data
+<root><a> a </a><a> a </a></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>a</a></root>
+
+#test: combo_34
+#data
+<root xmlns:ns="u"><ns:a>1</ns:a><ns:b>1</ns:b><ns:a>1</ns:a></root>
+#params
+remove_duplicate_siblings=true
+remove_namespaces=true
+#expected
+<root><a>1</a><b>1</b></root>
+
+#test: combo_35
+#data
+<root xmlns:ns="u"><ns:a> x </ns:a><ns:b><![CDATA[y]]></ns:b></root>
+#params
+remove_namespaces=true
+remove_cdata_sections=true
+collapse_whitespace=true
+#expected
+<root><a>x</a><b>y</b></root>
+
+#test: combo_36
+#data
+<root><a><b>1</b></a><a><b>1</b></a><a>2</a></root>
+#params
+remove_duplicate_siblings=true
+remove_content_tags=b
+#expected
+<root><a><b/></a><a>2</a></root>
+
+#test: combo_37
+#data
+<root> a <b/> b <c/> c </root>
+#params
+collapse_whitespace=true
+#expected
+<root>a<b/>b<c/>c</root>
+
+#test: combo_38
+#data
+<root><a>f</a><b>f</b><a>f</a></root>
+#params
+remove_duplicate_siblings=true
+remove_attributes=*
+#expected
+<root><a>f</a><b>f</b></root>
+
+#test: combo_39
+#data
+<root><a>1</a><a>1</a><b>1</b></root>
+#params
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><a>1</a><b>1</b></root>
+
+#test: combo_40
+#data
+<root><a>  <b>   </b>  </a><c>v</c></root>
+#params
+remove_empty_tags=true
+collapse_whitespace=true
+remove_specific_tags=b
+#expected
+<root><c>v</c></root>
+
+#test: advanced_01
+#data
+<root xmlns:ns="u"><ns:a id="1">  Hello <!--c--> <![CDATA[World]]> <?pi?> </ns:a><ns:a id="1">Hello World</ns:a></root>
+#params
+remove_namespaces=true
+remove_attributes=id
+remove_comments=true
+remove_processing_instructions=true
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>Hello World</a></root>
+
+#test: advanced_02
+#data
+<doc><hdr><title>  T</title><title> T </title></hdr><body> <p> P1 </p><p> P2 </p><p> P1 </p> </body></doc>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<doc><hdr><title>T</title></hdr><body><p>P1</p><p>P2</p></body></doc>
+
+#test: advanced_03
+#data
+<root><a><b>1</b><c>2</c><d>3</d></a></root>
+#params
+remove_content_tags=["b","c"]
+remove_specific_tags=d
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+
+
+#test: advanced_04
+#data
+<root><!--x--><a attr="v" empty="">  X  </a><?pi?><a attr="v">X</a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_attributes=empty
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a attr="v">X</a></root>
+
+#test: advanced_05
+#data
+<root xmlns:ns1="u1" xmlns:ns2="u2"><ns1:x><!--c-->A</ns1:x><ns2:x><![CDATA[B]]></ns2:x></root>
+#params
+remove_namespaces=true
+remove_comments=true
+remove_cdata_sections=true
+collapse_whitespace=true
+#expected
+<root><x>A</x><x>B</x></root>
+
+#test: advanced_06
+#data
+<root><a>  <b> </b> C <![CDATA[D]]>  <e><![CDATA[ ]]></e></a></root>
+#params
+remove_empty_tags=true
+remove_cdata_sections=true
+collapse_whitespace=true
+#expected
+<root><a>C D</a></root>
+
+#test: advanced_07
+#data
+<root><item id="1" type="A">X</item><item id="2" type="A">Y</item><item id="1" type="A">X</item></root>
+#params
+remove_attributes=id
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><item type="A">X</item><item type="A">Y</item></root>
+
+#test: advanced_08
+#data
+<root><a><b>1</b><b>2</b><c>3</c><c>3</c></a></root>
+#params
+remove_specific_tags=b
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><a><c>3</c></a></root>
+
+#test: advanced_09
+#data
+<root><x> A </x><x><y> Y </y></x><x> A </x></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><x>A</x><x><y>Y</y></x></root>
+
+#test: advanced_10
+#data
+<root><![CDATA[<p>]]><p>1</p><![CDATA[</p>]]><!--c--><p>1</p></root>
+#params
+remove_cdata_sections=true
+remove_comments=true
+remove_duplicate_siblings=true
+#expected
+<root>&lt;p&gt;<p>1</p>&lt;/p&gt;<p>1</p></root>
+
+#test: advanced_11
+#data
+<root><a>  foo <?pi?> <!--c--> bar </a></root>
+#params
+remove_processing_instructions=true
+remove_comments=true
+collapse_whitespace=true
+#expected
+<root><a>foo bar</a></root>
+
+#test: advanced_12
+#data
+<root xmlns:ns="u"><ns:a><b>1</b><c>2</c></ns:a></root>
+#params
+remove_namespaces=true
+remove_content_tags=b
+remove_specific_tags=c
+remove_empty_tags=true
+#expected
+
+
+#test: advanced_13
+#data
+<root><a><b>  </b><c><![CDATA[Z]]></c><d> D </d></a></root>
+#params
+remove_empty_tags=true
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_specific_tags=d
+#expected
+<root><a><c>Z</c></a></root>
+
+#test: advanced_14
+#data
+<root><a><b>1<c>2</c>3</b><b>1<c>2</c>3</b></a></root>
+#params
+remove_duplicate_siblings=true
+remove_specific_tags=c
+collapse_whitespace=true
+#expected
+<root><a><b>13</b></a></root>
+
+#test: advanced_15
+#data
+<root><user xml:lang="en" xml:space="preserve"> Hi </user><user xml:lang="en" xml:space="preserve">Hi</user></root>
+#params
+remove_attributes=xml:space
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><user xml:lang="en">Hi</user></root>
+
+#test: advanced_16
+#data
+<root><a>1<b>2</b>3<c>4</c>5</a></root>
+#params
+remove_content_tags=["b","c"]
+collapse_whitespace=true
+#expected
+<root><a>1<b/>3<c/>5</a></root>
+
+#test: advanced_17
+#data
+<root><a><!--c-->X</a><a> X </a><a> <!--c-->X</a></root>
+#params
+remove_comments=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>X</a></root>
+
+#test: advanced_18
+#data
+<root><a><![CDATA[A]]><![CDATA[B]]> C</a><a>AB C</a></root>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>AB C</a></root>
+
+#test: advanced_19
+#data
+<root><a><b/><c>v</c><d></d><e> e </e></a></root>
+#params
+remove_empty_tags=true
+remove_specific_tags=d
+collapse_whitespace=true
+#expected
+<root><a><c>v</c><e>e</e></a></root>
+
+#test: advanced_20
+#data
+<doc xmlns="ns"><item id="1"> A </item><item id="1">A</item><item id="2"> B </item></doc>
+#params
+remove_namespaces=true
+remove_attributes=id
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<doc><item>A</item><item>B</item></doc>
+
+
+#test: hard_all_01
+#data
+<root><!--c--><?pi?> <ns:a xmlns:ns="u"><b attr="x"><![CDATA[y]]></b></ns:a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=["b"]
+remove_specific_tags=ns:a
+remove_attributes=["attr"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_02
+#data
+<root><ns:foo xmlns:ns="u" id="1"><bar>  </bar></ns:foo></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=["bar"]
+remove_specific_tags=ns:foo
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_03
+#data
+<root><?pi?><a class="c"><!--x--><![CDATA[z]]></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=a
+remove_specific_tags=a
+remove_attributes=class
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_04
+#data
+<root><item data-x="1"> <sub/></item><item data-x="1"> <sub/></item></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=sub
+remove_specific_tags=item
+remove_attributes=["data-x"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_05
+#data
+<root><!--c--><x xml:lang="en"> <![CDATA[   ]]></x><!--c--></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=x
+remove_specific_tags=x
+remove_attributes=xml:lang
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_06
+#data
+<root><ns:a xmlns:ns="u"><b id="2"></b><b id="2"></b></ns:a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=b
+remove_specific_tags=ns:a
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_07
+#data
+<root><?pi?><a attr="v"><b> <!--c--> <![CDATA[ x ]]></b></a><?pi?></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=b
+remove_specific_tags=a
+remove_attributes=attr
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_08
+#data
+<root><outer><inner val="1"/></outer><outer><inner val="1"/></outer></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=inner
+remove_specific_tags=outer
+remove_attributes=val
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_09
+#data
+<root><x data-a="1"><!--c--><?pi?></x><x data-a="1"/></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=x
+remove_specific_tags=x
+remove_attributes=["data-a"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_10
+#data
+<root> <ns:item xmlns:ns="u"> <sub> <![CDATA[ t ]]> </sub> </ns:item> </root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=["sub"]
+remove_specific_tags=ns:item
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_11
+#data
+<root><a xml:space="preserve">  </a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=a
+remove_specific_tags=a
+remove_attributes=xml:space
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_12
+#data
+<root><block a="1"><item> <!--c--> </item></block></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=item
+remove_specific_tags=block
+remove_attributes=a
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_13
+#data
+<root>text<a id="x">y</a>text<a id="x">y</a>text</root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=a
+remove_specific_tags=a
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+<root>texttexttext</root>
+
+#test: hard_all_14
+#data
+<root><wrapper><entry code="1"/> <entry code="1"/></wrapper></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=entry
+remove_specific_tags=wrapper
+remove_attributes=code
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_15
+#data
+<root>  <!--c--><![CDATA[x]]><?pi?></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=[]
+remove_attributes=[]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+<root>x</root>
+
+#test: hard_all_16
+#data
+<root><ns:a xmlns:ns="u"><ns:b id="1">z</ns:b></ns:a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=ns:b
+remove_specific_tags=ns:a
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_17
+#data
+<root><a xml:lang="en"> <![CDATA[   ]]></a><a xml:lang="en"></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=a
+remove_specific_tags=a
+remove_attributes=xml:lang
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_18
+#data
+<root><out><mid><in/></mid></out></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=in
+remove_specific_tags=out
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_19
+#data
+<root> <item data="x"/> <item data="x"/> </root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=item
+remove_attributes=data
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_20
+#data
+<root><container><leaf attr="1"></leaf></container></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=leaf
+remove_specific_tags=container
+remove_attributes=attr
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_21
+#data
+<root><a><b attr="y">1</b><b attr="y">1</b></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=b
+remove_specific_tags=a
+remove_attributes=attr
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_22
+#data
+<root><wrap> <inner> t </inner> </wrap></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=inner
+remove_specific_tags=wrap
+remove_attributes=[]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_23
+#data
+<root xmlns="u"><a><!--c--><?pi?> <![CDATA[x]]></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=a
+remove_specific_tags=a
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_24
+#data
+<root><x data-a="1"/><x data-a="1"/></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=x
+remove_attributes=["data-a"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_25
+#data
+<root><a><b><![CDATA[z]]></b></a><a><b>z</b></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=b
+remove_specific_tags=a
+remove_attributes=[]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_26
+#data
+<root><?pi?><tag attr="1"> <!--c--> </tag><?pi?></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=tag
+remove_specific_tags=tag
+remove_attributes=attr
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_27
+#data
+<root><ns:a xmlns:ns="u" id="x"><ns:b val="y"/></ns:a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=ns:b
+remove_specific_tags=ns:a
+remove_attributes=["id","val"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_28
+#data
+<root><array><item>1</item><item>1</item></array></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=item
+remove_specific_tags=array
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_29
+#data
+<root><block><x> A </x><?pi?></block></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=x
+remove_specific_tags=block
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_30
+#data
+<root><![CDATA[<d>]]>content<![CDATA[</d>]]></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=d
+remove_specific_tags=d
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+<root>&lt;d&gt;content&lt;/d&gt;</root>
+
+#test: hard_all_31
+#data
+<root> <a>   <!--c--> x <?pi?> y <![CDATA[z]]>  </a> <a>xyz</a> </root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=[]
+remove_attributes=[]
+collapse_whitespace=true
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><a>x y z</a><a>xyz</a></root>
+
+#test: hard_all_32
+#data
+<root><a xml:lang="en"/><a xml:lang="en"/></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=a
+remove_attributes=["xml:lang"]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_33
+#data
+<root><parent><child code="x"/></parent></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=child
+remove_specific_tags=parent
+remove_attributes=code
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_34
+#data
+<root><dup>v</dup><dup>v</dup></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=dup
+remove_attributes=*
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_35
+#data
+<root><wrp><x y="1"/></wrp><wrp><x y="1"/></wrp></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=x
+remove_specific_tags=wrp
+remove_attributes=y
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_36
+#data
+<root><a><b><![CDATA[ </b> ]]></b></a></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=b
+remove_specific_tags=a
+remove_attributes=[]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_37
+#data
+<root><ns:x xmlns:ns="u" id="x"/><?pi?></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=[]
+remove_specific_tags=ns:x
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_38
+#data
+<root><!--c--><n><m> <![CDATA[   ]]></m></n><!--c--></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=m
+remove_specific_tags=n
+remove_attributes=[]
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_39
+#data
+<root><arr><val id="1"/> <val id="1"/></arr></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=val
+remove_specific_tags=arr
+remove_attributes=id
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+#test: hard_all_40
+#data
+<root>  <!--c--> <tag attr="v"><?pi?></tag> <![CDATA[   ]]></root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_namespaces=true
+remove_cdata_sections=true
+remove_content_tags=tag
+remove_specific_tags=tag
+remove_attributes=attr
+collapse_whitespace=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+#test: hard_real_01
+#data
+<article xmlns="n"><head><!--title--><title><![CDATA[ XML 101 ]]></title></head>
+<body><p class="lead"> Intro </p><p class="lead">Intro</p></body></article>
+#params
+remove_namespaces=true
+remove_comments=true
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+remove_attributes=["class"]
+collapse_whitespace=true
+#expected
+<article><head><title>XML 101</title></head><body><p>Intro</p></body></article>
+
+
+#test: hard_real_02
+#data
+<book><meta xml:lang="en" id="bk1"/><meta xml:lang="en" id="bk2"/>
+<chapter num="1"><title>  <![CDATA[Intro]]>  </title><?pi?></chapter></book>
+#params
+remove_processing_instructions=true
+remove_cdata_sections=true
+remove_attributes=["xml:lang"]
+collapse_whitespace=true
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<book><chapter num="1"><title>Intro</title></chapter></book>
+
+
+#test: hard_real_03
+#data
+<root>
+  <!--c--><section><para> A <b>bold</b> B </para><ad/></section>
+  <section><para>A<b>bold</b>B</para><ad/></section>
+</root>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+remove_specific_tags=ad
+collapse_whitespace=true
+#expected
+<root><section><para>A<b>bold</b>B</para></section></root>
+
+
+#test: hard_real_04
+#data
+<msg><text>  Hi &#10;there </text><text><![CDATA[Hi there]]></text></msg>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<msg><text>Hi there</text></msg>
+
+
+#test: hard_real_05
+#data
+<root>
+  <?p?><data id="1" tmp="x">   <val>1</val> <val>1</val>  </data>
+  <data id="1" tmp="x"><val>1</val></data>
+</root>
+#params
+remove_processing_instructions=true
+remove_attributes=tmp
+remove_duplicate_siblings=true
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+<root><data id="1"><val>1</val></data><data id="1"><val>1</val></data></root>
+
+
+#test: hard_real_06
+#data
+<table><tr><td>1</td><td>2</td></tr><tr><td>1</td><td>2</td></tr></table>
+#params
+remove_duplicate_siblings=true
+remove_content_tags=td
+remove_empty_tags=true
+#expected
+
+
+
+#test: hard_real_07
+#data
+<catalog>
+ <item sku="a1"><desc>foo</desc><price><!--x-->10</price></item>
+ <item sku="a1"><desc>foo</desc><price>10</price></item>
+</catalog>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+remove_attributes=sku
+#expected
+<catalog><item><desc>foo</desc><price>10</price></item></catalog>
+
+
+#test: hard_real_08
+#data
+<root><wrap><img src="x"/><caption> c </caption></wrap><wrap><img src="x"/></wrap></root>
+#params
+remove_specific_tags=caption
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><wrap><img src="x"/></wrap></root>
+
+
+#test: hard_real_09
+#data
+<rss><channel><title>News</title><item><title>t</title></item><item><title>t</title></item></channel></rss>
+#params
+remove_duplicate_siblings=true
+remove_content_tags=title
+collapse_whitespace=true
+#expected
+<rss><channel><title/><item><title/></item></channel></rss>
+
+
+#test: hard_real_10
+#data
+<root xml:space="preserve"><a><b> </b><c> x </c><b> </b></a></root>
+#params
+remove_empty_tags=true
+remove_attributes=xml:space
+collapse_whitespace=true
+#expected
+<root><a><c>x</c></a></root>
+
+
+#test: hard_real_11
+#data
+<page>
+ <header><!--banner--></header>
+ <body><p> A </p><p><![CDATA[A]]></p></body>
+</page>
+#params
+remove_comments=true
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+<page><body><p>A</p></body></page>
+
+
+#test: hard_real_12
+#data
+<root><ns:wrap xmlns:ns="u"><ns:inner id="x">t</ns:inner></ns:wrap></root>
+#params
+remove_namespaces=true
+remove_content_tags=ns:inner
+remove_specific_tags=ns:wrap
+remove_attributes=id
+#expected
+<root/>
+
+
+#test: hard_real_13
+#data
+<form>
+  <field name="a">x</field><field name="a">x</field>
+  <field name="b"><!--c-->y</field>
+</form>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+remove_attributes=name
+#expected
+<form><field>x</field><field>y</field></form>
+
+
+#test: hard_real_14
+#data
+<root>
+ <node attr="1">   1   </node>
+ <node attr="1">1</node>
+ <node attr="2">2</node>
+</root>
+#params
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><node attr="1">1</node><node attr="2">2</node></root>
+
+
+#test: hard_real_15
+#data
+<root>
+  <sec><![CDATA[ <p>abc</p> ]]></sec>
+  <sec><p>abc</p></sec>
+</root>
+#params
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+remove_specific_tags=p
+collapse_whitespace=true
+#expected
+<root><sec>&lt;p&gt;abc&lt;/p&gt;</sec><sec/></root>
+
+
+#test: hard_real_16
+#data
+<doc>
+ <chapter><title>One</title><title>One</title><para/></chapter>
+</doc>
+#params
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<doc><chapter><title>One</title></chapter></doc>
+
+
+#test: hard_real_17
+#data
+<root xml:lang="en"><div><span>t</span></div><div><span>t</span></div></root>
+#params
+remove_attributes=xml:lang
+remove_duplicate_siblings=true
+remove_specific_tags=span
+collapse_whitespace=true
+#expected
+<root><div/></root>
+
+
+#test: hard_real_18
+#data
+<root><?pi?><code><![CDATA[ <b/> ]]></code></root>
+#params
+remove_processing_instructions=true
+remove_cdata_sections=true
+remove_specific_tags=code
+collapse_whitespace=true
+#expected
+<root/>
+
+
+#test: hard_real_19
+#data
+<feed>
+ <entry id="1"><content type="x">a</content></entry>
+ <entry id="1"><content type="x">a</content></entry>
+</feed>
+#params
+remove_attributes=id
+remove_duplicate_siblings=true
+remove_attributes=type
+#expected
+<feed><entry id="1"><content>a</content></entry></feed>
+
+
+#test: hard_real_20
+#data
+<root><box><item/><item/><tail> t </tail></box></root>
+#params
+remove_empty_tags=true
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><box><tail>t</tail></box></root>
+
+
+#test: hard_real_21
+#data
+<root>
+ <section><!--c--><![CDATA[x]]><?pi?></section>
+ <section>x</section>
+</root>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><section>x</section></root>
+
+
+#test: hard_real_22
+#data
+<root><a id="1"/><a id="1"/><a id="2"/></root>
+#params
+remove_attributes=id
+remove_duplicate_siblings=true
+#expected
+<root><a/></root>
+
+
+#test: hard_real_23
+#data
+<list><li> 1 </li><li>2</li><li> 1 </li></list>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<list><li>1</li><li>2</li></list>
+
+
+#test: hard_real_24
+#data
+<root><wrap><img src="x"/><caption>c</caption></wrap></root>
+#params
+remove_specific_tags=caption
+remove_attributes=src
+remove_empty_tags=true
+#expected
+
+
+
+#test: hard_real_25
+#data
+<root><code> &lt;tag/&gt; </code><code>&lt;tag/&gt;</code></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><code>&lt;tag/&gt;</code></root>
+
+
+#test: hard_real_26
+#data
+<root>
+ <data key="x"> <value>1</value> </data>
+ <data key="x"><value>1</value></data>
+ <data key="y"><value> <![CDATA[ 2 ]]></value></data>
+</root>
+#params
+remove_attributes=key
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><data><value>1</value></data><data><value>2</value></data></root>
+
+
+#test: hard_real_27
+#data
+<note><!--c--><to>T</to><from>F</from><?pi?></note>
+#params
+remove_comments=true
+remove_processing_instructions=true
+remove_duplicate_siblings=true
+#expected
+<note><to>T</to><from>F</from></note>
+
+
+#test: hard_real_28
+#data
+<root>
+ <a class="x"><b>1</b><b>1</b></a>
+ <a class="x"><b>2</b></a>
+</root>
+#params
+remove_duplicate_siblings=true
+remove_content_tags=b
+remove_attributes=class
+#expected
+<root><a><b/></a><a><b/></a></root>
+
+
+#test: hard_real_29
+#data
+<root><code><![CDATA[&amp;]]></code><code>&amp;</code></root>
+#params
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+#expected
+<root><code>&amp;</code></root>
+
+
+#test: hard_real_30
+#data
+<root>
+  <block id="b1"><p><!--empty--></p></block>
+  <block id="b1"><p></p></block>
+</root>
+#params
+remove_comments=true
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+
+
+
+#test: hard_real_31
+#data
+<root><ns:a xmlns:ns="u">x</ns:a><ns:a xmlns:ns="u">x</ns:a></root>
+#params
+remove_namespaces=true
+remove_duplicate_siblings=true
+#expected
+<root><a>x</a></root>
+
+
+#test: hard_real_32
+#data
+<root><a attr="1"><b/></a><a attr="2"><b/></a></root>
+#params
+remove_specific_tags=b
+remove_empty_tags=true
+remove_attributes=attr
+#expected
+
+
+
+#test: hard_real_33
+#data
+<root>
+ <seg><w>one</w><w>one</w><w>two</w></seg>
+</root>
+#params
+remove_duplicate_siblings=true
+remove_attributes=[]
+#expected
+<root><seg><w>one</w><w>two</w></seg></root>
+
+
+#test: hard_real_34
+#data
+<root><para> <b>1</b>2<b>1</b> </para></root>
+#params
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><para><b>1</b>2<b>1</b></para></root>
+
+
+#test: hard_real_35
+#data
+<root><a><![CDATA[x]]></a><a><![CDATA[ x ]]></a></root>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><a>x</a></root>
+
+
+#test: hard_real_36
+#data
+<root><wrap outer="1"><inner/></wrap><wrap outer="1"><inner/></wrap></root>
+#params
+remove_attributes=outer
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+
+
+
+#test: hard_real_37
+#data
+<root><a><b id="x">t</b><b id="y">t</b></a></root>
+#params
+remove_attributes=id
+remove_duplicate_siblings=true
+#expected
+<root><a><b>t</b></a></root>
+
+
+#test: hard_real_38
+#data
+<root><x> &#10; A &#10; </x><x>A</x></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><x>A</x></root>
+
+
+#test: hard_real_39
+#data
+<root><log> <entry>e</entry><!--c--><entry>e</entry> </log></root>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><log><entry>e</entry></log></root>
+
+
+#test: hard_real_40
+#data
+<root><html><head><style>p{}</style></head><body><p>t</p></body></html></root>
+#params
+remove_specific_tags=style
+remove_empty_tags=true
+remove_duplicate_siblings=true
+#expected
+<root><html><body><p>t</p></body></html></root>
+
+#test: hard_real_41
+#data
+<root><x attr="a"><y><![CDATA[ 1 ]]></y><!--c--></x><x attr="a"><y>1</y></x></root>
+#params
+remove_comments=true
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+remove_attributes=attr
+collapse_whitespace=true
+#expected
+<root><x><y>1</y></x></root>
+
+#test: hard_real_42
+#data
+<rss xmlns:ns="u"><channel><ns:title>News</ns:title><item><title>t</title></item></channel></rss>
+#params
+remove_namespaces=true
+remove_content_tags=ns:title
+collapse_whitespace=true
+#expected
+<rss><channel><title/><item><title/></item></channel></rss>
+
+#test: hard_real_43
+#data
+<root><?pi?><a class="c"> x <!--c--> </a></root>
+#params
+remove_processing_instructions=true
+remove_comments=true
+remove_attributes=class
+collapse_whitespace=true
+#expected
+<root><a>x</a></root>
+
+#test: hard_real_44
+#data
+<root><box code="a1"/><box code="a1"/><box code="b1"/></root>
+#params
+remove_attributes=code
+remove_duplicate_siblings=true
+#expected
+<root><box/></root>
+
+#test: hard_real_45
+#data
+<root><a><b>1</b><c>2</c></a></root>
+#params
+remove_content_tags=["b","c"]
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_46
+#data
+<doc>
+ <sec id="1"><p>one</p></sec>
+ <sec id="1"><p>one</p></sec>
+ <sec id="2"><p>two</p></sec>
+</doc>
+#params
+remove_duplicate_siblings=true
+remove_attributes=id
+#expected
+<doc><sec><p>one</p></sec><sec><p>two</p></sec></doc>
+
+#test: hard_real_47
+#data
+<root><wrap><img src="x"/><caption>c</caption></wrap></root>
+#params
+remove_specific_tags=["caption"]
+remove_attributes=src
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_48
+#data
+<root><row><cell>1</cell><cell>  </cell></row></root>
+#params
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+<root><row><cell>1</cell></row></root>
+
+#test: hard_real_49
+#data
+<root><section><!--c--><![CDATA[x]]></section><section>x</section></root>
+#params
+remove_comments=true
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+#expected
+<root><section>x</section></root>
+
+#test: hard_real_50
+#data
+<root><ns:tag xmlns:ns="u">t</ns:tag></root>
+#params
+remove_namespaces=true
+remove_specific_tags=tag
+#expected
+<root/>
+
+#test: hard_real_51
+#data
+<root><p> A <br/> B </p></root>
+#params
+remove_specific_tags=br
+collapse_whitespace=true
+#expected
+<root><p>A B</p></root>
+
+#test: hard_real_52
+#data
+<root><a x-1="v"/><a x-1="v"/></root>
+#params
+remove_attributes=x-*
+remove_duplicate_siblings=true
+#expected
+<root><a/></root>
+
+#test: hard_real_53
+#data
+<root><script>ignore()</script><content>Show</content></root>
+#params
+remove_specific_tags=script
+#expected
+<root><content>Show</content></root>
+
+#test: hard_real_54
+#data
+<root><!--keep--><node><!--kill--></node></root>
+#params
+remove_comments=true
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_55
+#data
+<root><group><item id="1">x</item><item id="1">x</item></group></root>
+#params
+remove_duplicate_siblings=true
+remove_attributes=id
+#expected
+<root><group><item>x</item></group></root>
+
+#test: hard_real_56
+#data
+<root><code><![CDATA[&lt;a/&gt;]]></code></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><code>&lt;a/&gt;</code></root>
+
+#test: hard_real_57
+#data
+<root><a>foo</a> <b/> bar <b/> </root>
+#params
+remove_empty_tags=true
+collapse_whitespace=true
+#expected
+<root><a>foo</a>bar</root>
+
+#test: hard_real_58
+#data
+<root><a attr="x"/><b attr="x"/></root>
+#params
+remove_attributes=attr
+remove_specific_tags=a
+#expected
+<root><b/></root>
+
+#test: hard_real_59
+#data
+<root><line>\n  A  \n</line><line>A</line></root>
+#params
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><line>\n A \n</line><line>A</line></root>
+
+#test: hard_real_60
+#data
+<root><div><span>1</span><span>1</span></div><div><span>2</span></div></root>
+#params
+remove_duplicate_siblings=true
+remove_specific_tags=span
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_61
+#data
+<root><entry key="k"><val>1</val><val>1</val></entry></root>
+#params
+remove_content_tags=val
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_62
+#data
+<root><block tmp="1">t</block><block tmp="2">t</block></root>
+#params
+remove_attributes=["tmp"]
+remove_duplicate_siblings=true
+#expected
+<root><block>t</block></root>
+
+#test: hard_real_63
+#data
+<root><?pi?><x><!--c-->x</x></root>
+#params
+remove_processing_instructions=true
+remove_comments=true
+#expected
+<root><x>x</x></root>
+
+#test: hard_real_64
+#data
+<root xmlns="u"><item>1</item><item>1</item></root>
+#params
+remove_namespaces=true
+remove_duplicate_siblings=true
+#expected
+<root><item>1</item></root>
+
+#test: hard_real_65
+#data
+<root><x id="1"/><x id="1"/><y id="1"/></root>
+#params
+remove_attributes=id
+remove_duplicate_siblings=true
+#expected
+<root><x/><y/></root>
+
+#test: hard_real_66
+#data
+<root><a><![CDATA[x]]>x</a><a>xx</a></root>
+#params
+remove_cdata_sections=true
+remove_duplicate_siblings=true
+#expected
+<root><a>xx</a></root>
+
+#test: hard_real_67
+#data
+<root><wrapper><sub>t</sub></wrapper><wrapper><sub>t</sub></wrapper></root>
+#params
+remove_specific_tags=sub
+remove_duplicate_siblings=true
+#expected
+<root><wrapper/></root>
+
+#test: hard_real_68
+#data
+<root><header/><header/><body>t</body></root>
+#params
+remove_duplicate_siblings=true
+remove_empty_tags=true
+#expected
+<root><body>t</body></root>
+
+#test: hard_real_69
+#data
+<root><u><v>1</v></u><?pi?></root>
+#params
+remove_processing_instructions=true
+remove_content_tags=v
+collapse_whitespace=true
+#expected
+<root><u><v/></u></root>
+
+#test: hard_real_70
+#data
+<root><ns:foo xmlns:ns="u" code="x">A</ns:foo></root>
+#params
+remove_namespaces=true
+remove_attributes=code
+#expected
+<root><foo>A</foo></root>
+
+#test: hard_real_71
+#data
+<root><p class="x">t</p><p class="y">t</p></root>
+#params
+remove_attributes=class
+remove_duplicate_siblings=true
+#expected
+<root><p>t</p></root>
+
+#test: hard_real_72
+#data
+<root><a><b/><c/></a></root>
+#params
+remove_empty_tags=true
+remove_content_tags=c
+#expected
+
+
+#test: hard_real_73
+#data
+<root><node value="1"/><node value="2"/><node value="1"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><node value="1"/><node value="2"/></root>
+
+#test: hard_real_74
+#data
+<root><data key="x"><val>1</val></data><data key="x"><val>1</val></data></root>
+#params
+remove_attributes=key
+remove_duplicate_siblings=true
+remove_specific_tags=val
+#expected
+<root><data/></root>
+
+#test: hard_real_75
+#data
+<root><a><![CDATA[ <b> ]]></a></root>
+#params
+remove_cdata_sections=true
+remove_specific_tags=b
+#expected
+<root><a> &lt;b&gt; </a></root>
+
+#test: hard_real_76
+#data
+<root><x>1<b>2</b>1<b>2</b></x></root>
+#params
+remove_duplicate_siblings=true
+collapse_whitespace=true
+#expected
+<root><x>1<b>2</b>1<b>2</b></x></root>
+
+#test: hard_real_77
+#data
+<root><sec><para class="c">t</para></sec><sec><para class="c">t</para></sec></root>
+#params
+remove_attributes=class
+remove_duplicate_siblings=true
+#expected
+<root><sec><para>t</para></sec></root>
+
+#test: hard_real_78
+#data
+<root><block><![CDATA[   ]]></block></root>
+#params
+remove_cdata_sections=true
+remove_empty_tags=true
+#expected
+
+
+#test: hard_real_79
+#data
+<root><line><!--x-->1</line><line>1</line></root>
+#params
+remove_comments=true
+remove_duplicate_siblings=true
+#expected
+<root><line>1</line></root>
+
+#test: hard_real_80
+#data
+<root>
+ <code><![CDATA[ <i>italic</i> ]]></code>
+ <code>&lt;i&gt;italic&lt;/i&gt;</code>
+</root>
+#params
+remove_cdata_sections=true
+collapse_whitespace=true
+remove_duplicate_siblings=true
+#expected
+<root><code>&lt;i&gt;italic&lt;/i&gt;</code></root>

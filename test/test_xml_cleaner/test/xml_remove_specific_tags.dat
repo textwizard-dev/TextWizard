@@ -1,0 +1,482 @@
+# Easy (20)
+#test: remove_specific_easy_01
+#data
+<root><a>foo</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_easy_02
+#data
+<root><a><b>bar</b></a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a/></root>
+
+#test: remove_specific_easy_03
+#data
+<root><a/><b/><a/></root>
+#params
+remove_specific_tags=a
+#expected
+<root><b/></root>
+
+#test: remove_specific_easy_04
+#data
+<root><a id="1">x</a><c>y</c></root>
+#params
+remove_specific_tags=a
+#expected
+<root><c>y</c></root>
+
+#test: remove_specific_easy_05
+#data
+<root>hello<a>foo</a>world</root>
+#params
+remove_specific_tags=a
+#expected
+<root>helloworld</root>
+
+#test: remove_specific_easy_06
+#data
+<root><a/><b>keep</b></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a/></root>
+
+#test: remove_specific_easy_07
+#data
+<root><a>1</a><a>2</a><a>3</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_easy_08
+#data
+<root><x><a>foo</a></x></root>
+#params
+remove_specific_tags=a
+#expected
+<root><x/></root>
+
+#test: remove_specific_easy_09
+#data
+<root><a/><a/></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_easy_10
+#data
+<root><a>foo</a> tail</root>
+#params
+remove_specific_tags=a
+#expected
+<root> tail</root>
+
+#test: remove_specific_easy_11
+#data
+<root><a><![CDATA[data]]></a><b>ok</b></root>
+#params
+remove_specific_tags=a
+#expected
+<root><b>ok</b></root>
+
+#test: remove_specific_easy_12
+#data
+<root><a> </a><b>v</b></root>
+#params
+remove_specific_tags=a
+#expected
+<root><b>v</b></root>
+
+#test: remove_specific_easy_13
+#data
+<root><a>foo<b>bar</b></a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>foo</a></root>
+
+#test: remove_specific_easy_14
+#data
+<root><a><b/><c/></a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a><c/></a></root>
+
+#test: remove_specific_easy_15
+#data
+<root><a><b>1</b><b>2</b></a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a/></root>
+
+#test: remove_specific_easy_16
+#data
+<root><a>first</a><b>keep</b><a>second</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root><b>keep</b></root>
+
+#test: remove_specific_easy_17
+#data
+<root><a><b>bar</b>baz</a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>baz</a></root>
+
+#test: remove_specific_easy_18
+#data
+<root><x><y><z>deep</z></y></x></root>
+#params
+remove_specific_tags=z
+#expected
+<root><x><y/></x></root>
+
+#test: remove_specific_easy_19
+#data
+<root><a>foo</a><b>bar</b></root>
+#params
+remove_specific_tags=c
+#expected
+<root><a>foo</a><b>bar</b></root>
+
+#test: remove_specific_easy_20
+#data
+<root><a>foo</a>bar<a>baz</a>qux</root>
+#params
+remove_specific_tags=a
+#expected
+<root>barqux</root>
+
+
+#test: remove_specific_mid_01
+#data
+<root><item>1</item><item>2</item><keep>ok</keep></root>
+#params
+remove_specific_tags=item
+#expected
+<root><keep>ok</keep></root>
+
+#test: remove_specific_mid_02
+#data
+<root><a1>one</a1><a2>two</a2><b>three</b></root>
+#params
+remove_specific_tags=a*
+#expected
+<root><b>three</b></root>
+
+#test: remove_specific_mid_03
+#data
+<root><foo>f</foo><foobar>fb</foobar><baz>z</baz></root>
+#params
+remove_specific_tags=foo*
+#expected
+<root><baz>z</baz></root>
+
+#test: remove_specific_mid_04
+#data
+<root><a><b><c>deep</c></b></a></root>
+#params
+remove_specific_tags=c
+#expected
+<root><a><b/></a></root>
+
+#test: remove_specific_mid_05
+#data
+<root><a><b>BB</b></a><b>BB2</b></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a/></root>
+
+#test: remove_specific_mid_06
+#data
+<root xmlns="u"><a>1</a><b>2</b></root>
+#params
+remove_specific_tags=a
+#expected
+<root xmlns="u"><b>2</b></root>
+
+#test: remove_specific_mid_07
+#data
+<root xmlns="u"><ns:a xmlns:ns="u"><a>ok</a></ns:a></root>
+#params
+remove_specific_tags=ns:a
+#expected
+<root xmlns="u"/>
+
+#test: remove_specific_mid_08
+#data
+<root><a><sub>1</sub><sub>2</sub></a></root>
+#params
+remove_specific_tags=sub
+#expected
+<root><a/></root>
+
+#test: remove_specific_mid_09
+#data
+<root><a><sub id="x">1</sub>tail</a></root>
+#params
+remove_specific_tags=sub
+#expected
+<root><a>tail</a></root>
+
+#test: remove_specific_mid_10
+#data
+<root><A>up</A><a>low</a></root>
+#params
+remove_specific_tags=A
+#expected
+<root><a>low</a></root>
+
+#test: remove_specific_mid_11
+#data
+<root><X><Y>y</Y><Z>z</Z></X></root>
+#params
+remove_specific_tags=["Y","Z"]
+#expected
+<root><X/></root>
+
+#test: remove_specific_mid_12
+#data
+<root><p2>p</p2><q>q</q><r3>r</r3></root>
+#params
+remove_specific_tags=["p*","r_"]
+#expected
+<root><q>q</q></root>
+
+#test: remove_specific_mid_13
+#data
+<root><a>1<b>2<c>3</c></b>4</a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>14</a></root>
+
+#test: remove_specific_mid_14
+#data
+<root><parent><child>c</child><child>c2</child></parent></root>
+#params
+remove_specific_tags=child
+#expected
+<root><parent/></root>
+
+#test: remove_specific_mid_15
+#data
+<root><n1><n2><n3>v</n3></n2></n1></root>
+#params
+remove_specific_tags=n2
+#expected
+<root><n1/></root>
+
+#test: remove_specific_mid_16
+#data
+<root><a>foo</a><b><a>bar</a></b></root>
+#params
+remove_specific_tags=a
+#expected
+<root><b/></root>
+
+#test: remove_specific_mid_17
+#data
+<root><a><!-- comment --></a><a>keep</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_mid_18
+#data
+<root><a><![CDATA[x]]></a><a>y</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_mid_19
+#data
+<root><b>1</b>text<b>2</b></root>
+#params
+remove_specific_tags=b
+#expected
+<root>text</root>
+
+#test: remove_specific_mid_20
+#data
+<root><a><b>1</b><c>2</c></a><d>3</d></root>
+#params
+remove_specific_tags=["b","c"]
+#expected
+<root><a/><d>3</d></root>
+
+
+#test: remove_specific_hard_01
+#data
+<root xmlns="u"><ns:a xmlns:ns="u"><ns:b>BB</ns:b></ns:a><ns:b>BB2</ns:b></root>
+#params
+remove_specific_tags=ns:b
+#expected
+<root xmlns="u"><ns:a xmlns:ns="u"/></root>
+
+#test: remove_specific_hard_02
+#data
+<root xmlns="u"><a>A</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root xmlns="u"/>
+
+#test: remove_specific_hard_03
+#data
+<root><a><b><c>1</c></b><b><c>2</c></b></a></root>
+#params
+remove_specific_tags=c
+#expected
+<root><a><b/><b/></a></root>
+
+#test: remove_specific_hard_04
+#data
+<root><a>1<b>2<c>3</c>4</b>5</a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>15</a></root>
+
+#test: remove_specific_hard_05
+#data
+<root><x><y1><y2><w>deep</w></y2></y1></x></root>
+#params
+remove_specific_tags=["y*"]
+#expected
+<root><x/></root>
+
+#test: remove_specific_hard_06
+#data
+<root><a><b/><c/></a><b>outside</b></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a><c/></a></root>
+
+#test: remove_specific_hard_07
+#data
+<root><a>foo</a><!-- comment --><b>bar</b></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>foo</a><!-- comment --></root>
+
+#test: remove_specific_hard_08
+#data
+<root><?pi data?><a>t</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root><?pi data?></root>
+
+#test: remove_specific_hard_09
+#data
+<root><a>  <b>  </b>  </a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a/></root>
+
+#test: remove_specific_hard_10
+#data
+<root><ns:a xmlns:ns="u"><ns:a>inner</ns:a></ns:a></root>
+#params
+remove_specific_tags=ns:a
+#expected
+<root/>
+
+#test: remove_specific_hard_11
+#data
+<root><a>1<c>2<d>3</d>4</c>5</a></root>
+#params
+remove_specific_tags=c
+#expected
+<root><a>15</a></root>
+
+#test: remove_specific_hard_12
+#data
+<root><a><![CDATA[<inner>]]></a><a>keep</a></root>
+#params
+remove_specific_tags=a
+#expected
+<root/>
+
+#test: remove_specific_hard_13
+#data
+<root><a>t1</a>mid<a>t2<b>deep</b></a>end</root>
+#params
+remove_specific_tags=a
+#expected
+<root>midend</root>
+
+#test: remove_specific_hard_14
+#data
+<root><x><x><x>v</x></x></x></root>
+#params
+remove_specific_tags=x
+#expected
+<root/>
+
+#test: remove_specific_hard_15
+#data
+<root><a><b>1</b><c>2</c></a><b><c>3</c></b></root>
+#params
+remove_specific_tags=["b","c"]
+#expected
+<root><a/></root>
+
+#test: remove_specific_hard_16
+#data
+<root><e><e:a xmlns:e="u">u</e:a></e></root>
+#params
+remove_specific_tags=e:a
+#expected
+<root><e/></root>
+
+#test: remove_specific_hard_17
+#data
+<root><a>pre<b>mid<c>deep</c>end</b>post</a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a>prepost</a></root>
+
+#test: remove_specific_hard_18
+#data
+<root><a>1<b>2</b>3<c>4</c>5</a></root>
+#params
+remove_specific_tags=["b","c"]
+#expected
+<root><a>135</a></root>
+
+#test: remove_specific_hard_19
+#data
+<root><p>keep<p>remove</p>end</p></root>
+#params
+remove_specific_tags=p
+#expected
+<root/>
+
+#test: remove_specific_hard_20
+#data
+<root><a><!--c--><b>v</b>t</a></root>
+#params
+remove_specific_tags=b
+#expected
+<root><a><!--c-->t</a></root>

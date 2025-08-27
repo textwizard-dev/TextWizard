@@ -1,0 +1,344 @@
+#test: ru_punct_edges_basic_01
+#lang: ru
+#text
+«привет», — мир.
+#expected_errors_count: 0
+#must_not_contain
+привет
+мир
+#end
+
+#test: ru_punct_edges_heavy_02
+#lang: ru
+#text
+(«привет») —мир— …и…
+#expected_errors_count: 0
+#must_not_contain
+привет
+мир
+и
+#end
+
+#test: ru_whitespace_tabs_newlines_03
+#lang: ru
+#text
+привет
+
+и	мир
+#expected_errors_count: 0
+#must_not_contain
+привет
+и
+мир
+#end
+
+#test: ru_casefold_04
+#lang: ru
+#text
+ПРИВЕТ и МИР
+#expected_errors_count: 0
+#must_not_contain
+привет
+и
+мир
+#end
+
+#test: ru_numbers_locale_05
+#lang: ru
+#text
+12\u202F345,67 987\u202F654\u202F321,0
+#expected_errors_count: 0
+#end
+
+#test: ru_numbers_trailing_punct_06
+#lang: ru
+#text
+12\u202F345,67. 1\u202F234, 3,14159!
+#expected_errors_count: 0
+#end
+
+#test: ru_corrupted_suffix_07
+#lang: ru
+#text
+привет мир приветzz
+#expected_errors_count: 1
+#must_contain
+приветzz
+#must_not_contain
+мир
+#end
+
+#test: ru_only_punct_08
+#lang: ru
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { }
+#expected_errors_count: 0
+#end
+
+#test: ru_empty_09
+#lang: ru
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: ru_quotes_nested_10
+#lang: ru
+#text
+(“привет”), ['и']; «мир»
+#expected_errors_count: 0
+#must_not_contain
+привет
+и
+мир
+#end
+
+#test: uk_apostrophe_equiv_11
+#lang: uk
+#text
+п'ять п’ять пʼять
+#expected_errors_count: 0
+#must_not_contain
+п'ять
+п’ять
+пʼять
+#end
+
+#test: bg_punct_edges_12
+#lang: bg
+#text
+«здравей», свят.
+#expected_errors_count: 0
+#must_not_contain
+здравей
+свят
+#end
+
+#test: ru_email_flag_13
+#lang: ru
+#text
+имя.фамилия+тег@example.com
+#expected_errors_count: 0
+#end
+
+#test: ru_url_flag_14
+#lang: ru
+#text
+https://пример.рф/путь?x=1&y=2
+#expected_errors_count: 0
+
+#end
+
+#test: ru_hashtag_mention_flag_15
+#lang: ru
+#text
+#Москва @кто-то
+#expected_errors_count: 0
+#end
+
+#test: ru_zero_width_merge_16
+#lang: ru
+#text
+и\u2060в
+#expected_errors_count: 1
+#must_contain
+и\u2060в
+#end
+
+#test: ru_underscore_flag_17
+#lang: ru
+#text
+змеиный_регистр
+#expected_errors_count: 1
+#must_contain
+змеиный_регистр
+#end
+
+#test: ru_hyphen_flag_18
+#lang: ru
+#text
+абв-где
+#expected_errors_count: 1
+#must_contain
+абв-где
+#end
+
+#test: ru_mixed_digits_ok_19
+#lang: ru
+#text
+123 ٤٥٦ ७८९ １２３
+#expected_errors_count: 0
+#end
+
+#test: ru_zwnj_inside_word_ok_20
+#lang: ru
+#text
+э\u200cто
+#expected_errors_count: 0
+#must_not_contain
+э\u200cто
+#end
+
+#test: be_edges_21
+#lang: be
+#text
+«прывітанне», свет.
+#expected_errors_count: 0
+#must_not_contain
+прывітанне
+свет
+#end
+
+#test: sr_cyr_edges_22
+#lang: sr
+#text
+„непо“, свет.
+#expected_errors_count: 0
+#must_not_contain
+непо
+свет
+#end
+
+#test: uk_numbers_locale_23
+#lang: uk
+#text
+12\u202F345,67 1\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: ru_paired_punct_24
+#lang: ru
+#text
+() [] {} <> «» “” ‘’ 〈〉 《》 【】 〔〕
+#expected_errors_count: 0
+#end
+
+
+#test: ru_mixed_script_split_25
+#lang: ru
+#text
+приветA мирB
+#expected_errors_count: 2
+#must_contain
+приветA
+мирB
+#end
+
+
+
+#test: ru_inner_emdash_flag_26
+#lang: ru
+#text
+что—то как—нибудь
+#expected_errors_count: 0
+#end
+
+#test: ru_inner_hyphen_flag_27
+#lang: ru
+#text
+абв-де жзи-клм
+#expected_errors_count: 2
+#must_contain
+абв-де
+жзи-клм
+#end
+
+#test: ru_apostrophe_edges_ok_28
+#lang: ru
+#text
+(«привет») 'мир' “и”
+#expected_errors_count: 0
+#must_not_contain
+привет
+мир
+и
+#end
+
+#test: uk_apostrophe_variants_edges_29
+#lang: uk
+#text
+(п'ять) [п’ять] {пʼять}
+#expected_errors_count: 0
+#must_not_contain
+п'ять
+п’ять
+пʼять
+#end
+
+#test: ru_numbers_nnbsp_variants_30
+#lang: ru
+#text
+12\u202F345,67 1\u00A0000 9\u202F876\u00A0543,0
+#expected_errors_count: 0
+#end
+
+#test: ru_zero_width_ok_split_31
+#lang: ru
+#text
+э\u200cто и\u200dли
+#expected_errors_count: 0
+#must_not_contain
+э\u200cто
+и\u200dли
+#end
+
+#test: ru_hash_mention_flag_32
+#lang: ru
+#text
+#Москва @Иван
+#expected_errors_count: 0
+#must_contain
+#end
+
+#test: ru_url_ascii_domain_flag_33
+#lang: ru
+#text
+http://example.com/путь/страница
+#expected_errors_count: 0
+#end
+
+#test: ru_email_ascii_domain_flag_34
+#lang: ru
+#text
+имя-фамилия@example.org
+#expected_errors_count: 0
+#end
+
+#test: ru_number_range_endash_ok_35
+#lang: ru
+#text
+2000–2005 10–12
+#expected_errors_count: 0
+#end
+
+#test: ru_inner_endash_flag_36
+#lang: ru
+#text
+как–нибудь что–то
+#expected_errors_count: 0
+#end
+
+#test: ru_mixed_script_token_split_37
+#lang: ru
+#text
+мирA приветB
+#expected_errors_count: 2
+#must_contain
+мирA
+приветB
+#end
+
+
+#test: ru_numbers_apostrophe_grouping_ok_38
+#lang: ru
+#text
+1'234 9'876'543
+#expected_errors_count: 0
+#end
+
+#test: ru_nbsp_grouping_ok_39
+#lang: ru
+#text
+12\u00A0345,67 1\u00A0000
+#expected_errors_count: 0
+#end

@@ -1,0 +1,512 @@
+#test: left_spaces_1
+#data
+  a,  b,  c
+ 1 ,  2 , 3 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+1,2,3
+
+#test: left_spaces_2
+#data
+  Foo ;  Bar ;  Baz 
+  10 ;20  ; 30
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+#expected
+Foo;Bar;Baz
+10;20;30
+
+#test: right_spaces_1
+#data
+a  ,b  ,c  
+1  ,2  ,3  
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+1,2,3
+
+#test: right_spaces_2_tabs
+#data
+x	 , y	 ,  z	 
+ 9	 , 8	 ,7	 
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+x	, y	,  z	
+9	, 8	,7	
+
+#test: mixed_spaces_row1
+#data
+ a , b , c 
+1 , 2 , 3 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+1,2,3
+
+#test: mixed_spaces_row2
+#data
+ a , b , c 
+2 , 3 , 4 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+2,3,4
+
+#test: mixed_spaces_row3
+#data
+ a , b , c 
+3 , 4 , 5 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+3,4,5
+
+#test: mixed_spaces_row4
+#data
+ a , b , c 
+4 , 5 , 6 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+4,5,6
+
+#test: mixed_spaces_row5
+#data
+ a , b , c 
+5 , 6 , 7 
+#params
+csv.trim_whitespace=true
+#expected
+a,b,c
+5,6,7
+
+#test: quoted_cells_unchanged
+#data
+ " a " , " b  ", "c "
+ " 1 " , "2 " , " 3"
+#params
+csv.trim_whitespace=true
+#expected
+" a "," b  ","c "
+" 1 ","2 "," 3"
+
+#test: header_spaces
+#data
+ first , second , third 
+ 1 ,2 , 3 
+#params
+csv.trim_whitespace=true
+#expected
+first,second,third
+1,2,3
+
+#test: blank_lines_preserved
+#data
+a , b
+1 ,2
+   
+3 , 4
+#params
+csv.trim_whitespace=true
+#expected
+a,b
+1,2
+
+3,4
+
+#test: pipe_delim
+#data
+ one | two | three 
+ 10 | 20 |30
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+#expected
+one|two|three
+10|20|30
+
+#test: semicolon_delim_header_only
+#data
+ A ;B ;C
+ 9 ; 8 ;7
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+#expected
+A;B;C
+9;8;7
+
+#test: combo_10
+#data
+ col1 , col2 , col3 
+ 10 , 11 , 12 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+10,11,12
+
+#test: combo_11
+#data
+ col1 , col2 , col3 
+ 11 , 12 , 13 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+11,12,13
+
+#test: combo_12
+#data
+ col1 , col2 , col3 
+ 12 , 13 , 14 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+12,13,14
+
+#test: combo_13
+#data
+ col1 , col2 , col3 
+ 13 , 14 , 15 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+13,14,15
+
+#test: combo_14
+#data
+ col1 , col2 , col3 
+ 14 , 15 , 16 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+14,15,16
+
+#test: combo_15
+#data
+ col1 , col2 , col3 
+ 15 , 16 , 17 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+15,16,17
+
+#test: combo_16
+#data
+ col1 , col2 , col3 
+ 16 , 17 , 18 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+16,17,18
+
+#test: combo_17
+#data
+ col1 , col2 , col3 
+ 17 , 18 , 19 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+17,18,19
+
+#test: combo_18
+#data
+ col1 , col2 , col3 
+ 18 , 19 , 20 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+18,19,20
+
+#test: combo_19
+#data
+ col1 , col2 , col3 
+ 19 , 20 , 21 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+19,20,21
+
+#test: combo_20
+#data
+ col1 , col2 , col3 
+ 20 , 21 , 22 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+20,21,22
+
+#test: combo_21
+#data
+ col1 , col2 , col3 
+ 21 , 22 , 23 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+21,22,23
+
+#test: combo_22
+#data
+ col1 , col2 , col3 
+ 22 , 23 , 24 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+22,23,24
+
+#test: combo_23
+#data
+ col1 , col2 , col3 
+ 23 , 24 , 25 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+23,24,25
+
+#test: combo_24
+#data
+ col1 , col2 , col3 
+ 24 , 25 , 26 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+24,25,26
+
+#test: combo_25
+#data
+ col1 , col2 , col3 
+ 25 , 26 , 27 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+25,26,27
+
+#test: combo_26
+#data
+ col1 , col2 , col3 
+ 26 , 27 , 28 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+26,27,28
+
+#test: combo_27
+#data
+ col1 , col2 , col3 
+ 27 , 28 , 29 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+27,28,29
+
+#test: combo_28
+#data
+ col1 , col2 , col3 
+ 28 , 29 , 30 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+28,29,30
+
+#test: combo_29
+#data
+ col1 , col2 , col3 
+ 29 , 30 , 31 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+29,30,31
+
+#test: combo_30
+#data
+ col1 , col2 , col3 
+ 30 , 31 , 32 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+30,31,32
+
+#test: combo_31
+#data
+ col1 , col2 , col3 
+ 31 , 32 , 33 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+31,32,33
+
+#test: combo_32
+#data
+ col1 , col2 , col3 
+ 32 , 33 , 34 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+32,33,34
+
+#test: combo_33
+#data
+ col1 , col2 , col3 
+ 33 , 34 , 35 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+33,34,35
+
+#test: combo_34
+#data
+ col1 , col2 , col3 
+ 34 , 35 , 36 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+34,35,36
+
+#test: combo_35
+#data
+ col1 , col2 , col3 
+ 35 , 36 , 37 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+35,36,37
+
+#test: combo_36
+#data
+ col1 , col2 , col3 
+ 36 , 37 , 38 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+36,37,38
+
+#test: combo_37
+#data
+ col1 , col2 , col3 
+ 37 , 38 , 39 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+37,38,39
+
+#test: combo_38
+#data
+ col1 , col2 , col3 
+ 38 , 39 , 40 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+38,39,40
+
+#test: combo_39
+#data
+ col1 , col2 , col3 
+ 39 , 40 , 41 
+#params
+csv.trim_whitespace=true
+#expected
+col1,col2,col3
+39,40,41
+
+#test: tabs_mix_1
+#data
+	A 		 B		C
+	1		 2		3
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+	A		B		C
+	1		2		3
+
+#test: tabs_mix_2
+#data
+	A 	,	 B	,	C 	
+	2	,	 3	,	 4	
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+	A	,	B	,	C	
+	2	,	3	,	4	
+
+#test: tabs_mix_3
+#data
+	A		B		C
+	3		4		5
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+	A		B		C
+	3		4		5
+
+#test: tabs_mix_4
+#data
+	A 		 B		C
+	4		 5		 6
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+	A		B		C
+	4		5		6
+
+#test: tabs_mix_5
+#data
+	A 	,	 B		C
+	5	,	 6		 7
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+	A	,	B		C
+	5	,	6		7
+
+#test: inner_spaces_keep
+#data
+"New York" , "Los  Angeles" ," San Francisco "
+ " 100 " , "200" ," 300 "
+#params
+csv.trim_whitespace=true
+#expected
+"New York","Los  Angeles"," San Francisco "
+" 100 ","200"," 300 "

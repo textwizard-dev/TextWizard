@@ -1,0 +1,462 @@
+#test: punct_edges_basic_01
+#lang: en
+#text
+the.' (and) “of” —to— in…
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: punct_edges_basic_02
+#lang: en
+#text
+'the', “and”; «of»: to— in!
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: punct_edges_basic_03
+#lang: en
+#text
+((the)) [[and]] {{of}} —to— “”in”“
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: punct_edges_heavy_04
+#lang: en
+#text
+the!!! ???and;;; ((of)) —to— “”in””
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: punct_edges_heavy_05
+#lang: en
+#text
+…'the'… «and» —of— “to” (in)
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: nested_quotes_06
+#lang: en
+#text
+(“the”), ['and']; «of» —to— …in…
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: edge_dashes_07
+#lang: en
+#text
+— the — and — of — to — in —
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: mixed_brackets_08
+#lang: en
+#text
+<the> {and} [of] (to) «in»
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: ellipses_varia_09
+#lang: en
+#text
+…the… …and… …of… …to… …in…
+#expected_errors_count: 0
+#end
+
+#test: quotes_ascii_10
+#lang: en
+#text
+"the" 'and' 'of' "to" 'in'
+#expected_errors_count: 0
+#end
+
+#test: whitespace_basic_11
+#lang: en
+#text
+the and of to in
+#expected_errors_count: 0
+#end
+
+#test: whitespace_tabs_newlines_12
+#lang: en
+#text
+the
+and	of   to    in
+#expected_errors_count: 0
+#end
+
+#test: whitespace_many_13
+#lang: en
+#text
+the     and              of     to in
+#expected_errors_count: 0
+#end
+
+#test: casefold_ascii_14
+#lang: en
+#text
+THE And Of to IN
+#expected_errors_count: 0
+#end
+
+#test: casefold_mixed_15
+#lang: en
+#text
+The aNd oF TO in
+#expected_errors_count: 0
+#end
+
+#test: apos_equiv_basic_16
+#lang: en
+#text
+it's that's don't
+#expected_errors_count: 0
+#must_not_contain
+it's
+that's
+don't
+#end
+
+#test: apos_equiv_smart_17
+#lang: en
+#text
+it’s that’s don’t
+#expected_errors_count: 0
+#must_not_contain
+it’s
+that’s
+don’t
+#end
+
+#test: apos_equiv_mixed_18
+#lang: en
+#text
+itʼs it’s it's
+#expected_errors_count: 0
+#end
+
+#test: apos_edge_trim_19
+#lang: en
+#text
+'it's' "that's" (don't)
+#expected_errors_count: 0
+#end
+
+#test: zwnj_inside_word_20
+#lang: en
+#text
+t\u200che an\u200dd of to in
+#expected_errors_count: 0
+#must_not_contain
+t\u200che
+an\u200dd
+#end
+
+#test: zwj_inside_word_21
+#lang: en
+#text
+t\u200dhe an\u200dd of to in
+#expected_errors_count: 0
+#end
+
+#test: zero_width_merge_22
+#lang: en
+#text
+the\u200band
+#expected_errors_count: 1
+#must_contain
+the\u200band
+#end
+
+#test: zero_width_merge_23
+#lang: en
+#text
+of\u2060to
+#expected_errors_count: 1
+#must_contain
+of\u2060to
+#end
+
+#test: only_punct_24
+#lang: en
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { } ― – —
+#expected_errors_count: 0
+#end
+
+#test: only_spaces_25
+#lang: en
+#text
+         
+#expected_errors_count: 0
+#end
+
+#test: empty_26
+#lang: en
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_commas_27
+#lang: en
+#text
+12,345 987,654,321
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_dots_28
+#lang: en
+#text
+12.345 3.14159 2.71828
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_apostrophe_29
+#lang: en
+#text
+1'234 9'876'543
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_nnbsp_30
+#lang: en
+#text
+10\u202F000 98\u202F765
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_thinspace_31
+#lang: en
+#text
+12\u2009345 123\u2009000
+#expected_errors_count: 0
+#end
+
+#test: numbers_grouping_nbsp_32
+#lang: en
+#text
+1\u00A0000 2\u00A0000\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: numbers_arabic_digits_33
+#lang: en
+#text
+١٢٣٬٤٥٦٫٧٨
+#expected_errors_count: 0
+#end
+
+#test: numbers_mixed_ok_34
+#lang: en
+#text
+1'000 12,000 12.000 12\u202F000 12\u2009000 12\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: numbers_trailing_punct_35
+#lang: en
+#text
+12,345. 1'234, 3.14159!
+#expected_errors_count: 0
+#end
+
+#test: corrupted_suffix_tail_36
+#lang: en
+#text
+the and of to in andzz
+#expected_errors_count: 1
+#must_contain
+andzz
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: corrupted_suffix_head_37
+#lang: en
+#text
+thezz and of to in
+#expected_errors_count: 1
+#must_contain
+thezz
+#must_not_contain
+and
+of
+to
+in
+#end
+
+#test: corrupted_suffix_multi_38
+#lang: en
+#text
+the and of to in ofzz tozz
+#expected_errors_count: 2
+#must_contain
+ofzz
+tozz
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: corrupted_suffix_mixed_punct_39
+#lang: en
+#text
+(andzz) "ofzz", tozz!
+#expected_errors_count: 3
+#must_contain
+andzz
+ofzz
+tozz
+#end
+
+#test: join_ascii_suffix_ok_40
+#lang: en
+#text
+the and of to inx
+#expected_errors_count: 1
+#must_contain
+inx
+#end
+
+#test: punctuation_clusters_41
+#lang: en
+#text
+the... ,,and;; ::of?? --to-- !!in?!
+#expected_errors_count: 0
+#end
+
+#test: quote_mix_42
+#lang: en
+#text
+“the” 'and' «of» ‘to’ ”in”
+#expected_errors_count: 0
+#end
+
+#test: bracket_mix_43
+#lang: en
+#text
+<([the])> {and} [of] (to) «in»
+#expected_errors_count: 0
+#end
+
+#test: dash_mix_44
+#lang: en
+#text
+the–and—in―of—to
+#expected_errors_count: 1
+#must_contain
+the–and—in―of—to
+#end
+
+#test: dash_edges_45
+#lang: en
+#text
+–the– —and— ―of― —to— –in–
+#expected_errors_count: 0
+#end
+
+#test: mixed_language_digits_ok_46
+#lang: en
+#text
+123 ٤٥٦ ७८९
+#expected_errors_count: 0
+#end
+
+#test: trailing_leading_punct_47
+#lang: en
+#text
+...the ,and; :of ?to! in.
+#expected_errors_count: 0
+#end
+
+#test: paired_punct_all_48
+#lang: en
+#text
+() [] {} <> «» “” ‘’ 〈〉 《》 【】 〔〕
+#expected_errors_count: 0
+#end
+
+#test: control_chars_trim_49
+#lang: en
+#text
+the\u200band of\u2060to in
+#expected_errors_count: 2
+#must_contain
+the\u200band
+of\u2060to
+#end
+
+#test: mixed_space_controls_50
+#lang: en
+#text
+the\tand\nof  to    in
+#expected_errors_count: 0
+#end
+
+#test: edge_quotes_stacked_51
+#lang: en
+#text
+“'the'” «"and"» (‘of’) "”to”" ''in''
+#expected_errors_count: 0
+#end
+
+#test: repeated_words_lots_52
+#lang: en
+#text
+the the the and and of of to to in in
+#expected_errors_count: 0
+#end

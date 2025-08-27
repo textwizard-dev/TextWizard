@@ -1,0 +1,648 @@
+#test: easy_1_no_empty
+#data
+a,b,c
+1,2,3
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_2_empty_between
+#data
+a,b,c
+
+1,2,3
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_3_leading_empty
+#data
+
+a,b,c
+1,2,3
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_4_trailing_empty
+#data
+a,b,c
+1,2,3
+
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_5_multiple_consecutive_empty
+#data
+a,b,c
+
+
+1,2,3
+
+
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_6_whitespace_only_line
+#data
+a,b,c
+
+1,2,3
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: easy_7_tabs_whitespace_line
+#data
+a	b	c
+
+1	2	3
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+a	b	c
+1	2	3
+
+#test: easy_8_only_empty_rows
+#data
+
+
+
+
+#params
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: easy_9_single_empty
+#data
+
+#params
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: easy_10_separator_only
+#data
+,,,
+1,2,3,
+,,,
+4,5,6,
+#params
+csv.remove_empty_rows=true
+#expected
+1,2,3,
+4,5,6,
+
+#test: easy_11_semicolon_sep
+#data
+one;two;three
+
+10;20;30
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+one;two;three
+10;20;30
+
+#test: easy_12_mixed_ws
+#data
+ a , b , c
+
+ 1 , 2 , 3
+#params
+csv.remove_empty_rows=true
+#expected
+ a , b , c
+ 1 , 2 , 3
+
+#test: easy_13_no_data_after_removal
+#data
+a,b
+,c
+#params
+csv.remove_empty_rows=true
+#expected
+a,b
+,c
+
+#test: easy_14_blank_header
+#data
+,,
+1,2,
+#params
+csv.remove_empty_rows=true
+#expected
+1,2,
+
+#test: easy_15_header_only
+#data
+h1,h2,h3
+#params
+csv.remove_empty_rows=true
+#expected
+h1,h2,h3
+
+#test: easy_16_space_and_tabs
+#data
+x 	 y 	 z
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+x 	 y 	 z
+
+#test: easy_17_trailing_spaces
+#data
+a , b , c
+
+1 ,2 ,3
+#params
+csv.remove_empty_rows=true
+#expected
+a , b , c
+1 ,2 ,3
+
+#test: easy_18_leading_tabs
+#data
+	A	B	C
+1	2	3	
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+	A	B	C
+1	2	3	
+
+#test: easy_19_blank_with_delimiters
+#data
+ ; ;
+
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+
+#test: easy_20_complex_empty
+#data
+a,b,c
+
+ , ,
+1,2,3
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+
+#test: med_1_quoted_empty_kept
+#data
+"a","b",""
+1,2,
+#params
+csv.remove_empty_rows=true
+#expected
+"a","b",""
+1,2,
+
+#test: med_2_quoted_blank_removed
+#data
+"","", ""
+,a,b
+#params
+csv.remove_empty_rows=true
+#expected
+"","", ""
+,a,b
+
+#test: med_3_whitespace_inside_quotes
+#data
+"  "," x ",""
+#params
+csv.remove_empty_rows=true
+#expected
+"  "," x ",""
+
+#test: med_4_semicolon_quotes
+#data
+"ID";"Name";""
+; ; 
+"ID";"Name";""
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+"ID";"Name";""
+"ID";"Name";""
+
+#test: med_5_tab_quotes
+#data
+"x	","y"
+
+"x	","y"
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+"x	","y"
+"x	","y"
+
+#test: med_6_mixed_line_endings
+#data
+a,b,c
+,,
+1,2,3
+
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: med_7_unicode_blank
+#data
+café,naïve,""
+,,
+#params
+csv.remove_empty_rows=true
+#expected
+café,naïve,""
+
+#test: med_8_blank_after_removal
+#data
+A,B,C
+,,
+,D,E
+
+#params
+csv.remove_empty_rows=true
+#expected
+A,B,C
+,D,E
+
+
+#test: med_9_header_and_blank
+#data
+col1,col2
+
+#params
+csv.remove_empty_rows=true
+#expected
+col1,col2
+
+#test: med_10_empty_field_only
+#data
+,,a,b
+1,2,,3
+#params
+csv.remove_empty_rows=true
+#expected
+,,a,b
+1,2,,3
+
+#test: med_11_spaces_quoted
+#data
+" "," "
+"",""
+#params
+csv.remove_empty_rows=true
+#expected
+" "," "
+"",""
+
+#test: med_12_newline_in_quotes
+#data
+"a
+b","c"
+
+#params
+csv.remove_empty_rows=true
+#expected
+"a
+b","c"
+
+#test: med_13_whitespace_delim
+#data
+ x | y | z
+
+ 1 | 2 | 3
+#params
+csv.delimiter=|
+csv.remove_empty_rows=true
+#expected
+ x | y | z
+ 1 | 2 | 3
+
+#test: med_14_mixed_quotes_and_empty
+#data
+"a","",b
+
+#params
+csv.remove_empty_rows=true
+#expected
+"a","",b
+
+#test: med_15_tricky_blank
+#data
+"",""
+,
+#params
+csv.remove_empty_rows=true
+#expected
+"",""
+
+#test: med_16_leading_trailing_quotes
+#data
+" a ","b "
+,
+" a ","b "
+,
+#params
+csv.remove_empty_rows=true
+#expected
+" a ","b "
+" a ","b "
+
+#test: med_17_embedded_comma
+#data
+"1,000","data"
+
+#params
+csv.remove_empty_rows=true
+#expected
+"1,000","data"
+
+#test: med_18_semicolon_empty
+#data
+;;;
+1;2;3;
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+1;2;3;
+
+#test: med_19_tab_and_space
+#data
+
+
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: med_20_quotes_spacey
+#data
+"  ","   "
+"",""
+#params
+csv.remove_empty_rows=true
+#expected
+"  ","   "
+"",""
+
+
+#test: hard_1_multiline_record
+#data
+"a
+b
+c",x
+,
+,a,b
+#params
+csv.remove_empty_rows=true
+#error
+CSVValidationError('Row 3 has 3 columns; expected 2')
+#expected
+...
+
+#test: hard_2_escaped_quotes
+#data
+"She said ""Hi""",42
+
+#params
+csv.remove_empty_rows=true
+#expected
+"She said ""Hi""",42
+
+#test: hard_3_mixed_delimiters_quotes
+#data
+1;"A;B";3
+;;
+1;"A;B";3
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+1;"A;B";3
+1;"A;B";3
+
+#test: hard_4_very_blank_fields
+#data
+"""" ,""","
+,
+#params
+csv.remove_empty_rows=true
+#expected
+"""" ,""","
+
+#test: hard_5_unicode_and_ws
+#data
+" café "," naïve "
+
+#params
+csv.remove_empty_rows=true
+#expected
+" café "," naïve "
+
+#test: hard_6_complex_tabs
+#data
+	A		B	C
+
+	A		B	C
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+	A		B	C
+	A		B	C
+
+#test: hard_7_delimiter_only_spaces
+#data
+  ; ;
+
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+
+#test: hard_8_quoted_newline_and_ws
+#data
+"Line1
+Line2","End"
+
+#params
+csv.remove_empty_rows=true
+#expected
+"Line1
+Line2","End"
+
+#test: hard_9_edge_semicolon
+#data
+;"";;
+;;;
+;"";;
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+#expected
+;"";;
+;"";;
+
+#test: hard_10_nested_quotes
+#data
+"Quote ""Nested"" Example",ok
+
+#params
+csv.remove_empty_rows=true
+#expected
+"Quote ""Nested"" Example",ok
+
+#test: hard_11_crlf_and_lf
+#data
+a,b,c
+
+d,e,f
+#params
+csv.remove_empty_rows=true
+#expected
+a,b,c
+d,e,f
+
+#test: hard_12_tricky_unicode
+#data
+ś,ğ,ž
+
+#params
+csv.remove_empty_rows=true
+#expected
+ś,ğ,ž
+
+#test: hard_13_tab_space_mix
+#data
+
+
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: hard_14_empty_header
+#data
+
+#params
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: hard_15_large_empty_block
+#data
+a,b
+1,2
+
+3,4
+
+5,6
+#params
+csv.remove_empty_rows=true
+#expected
+a,b
+1,2
+3,4
+5,6
+
+#test: hard_16_quote_with_commas_and_newlines
+#data
+"X,Y
+Z",100
+
+#params
+csv.remove_empty_rows=true
+#expected
+"X,Y
+Z",100
+
+#test: hard_17_multiple_blank_varied
+#data
+a,b
+
+ ,
+
+
+c,d
+
+#params
+csv.remove_empty_rows=true
+#expected
+a,b
+c,d
+
+#test: hard_18_quoted_semicolon_edge
+#data
+";;;",value
+
+#params
+csv.remove_empty_rows=true
+#expected
+";;;",value
+
+#test: hard_19_whitespace_rich
+#data
+
+
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: hard_20_all_empty_after_trim
+#data
+  ,  ,
+ , ,
+
+#params
+csv.remove_empty_rows=true
+#expected
+

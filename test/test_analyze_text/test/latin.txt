@@ -1,0 +1,486 @@
+#test: en_apostrophes_equiv_01
+#lang: en
+#text
+it's that's don't
+#expected_errors_count: 0
+#must_not_contain
+it's
+that's
+don't
+#end
+
+#test: en_apostrophes_equiv_02_smart
+#lang: en
+#text
+it’s that’s don’t
+#expected_errors_count: 0
+#must_not_contain
+it’s
+that’s
+don’t
+#end
+
+#test: en_apostrophes_equiv_03_mixed
+#lang: en
+#text
+itʼs it’s it's
+#expected_errors_count: 0
+#end
+
+#test: en_possessive_04
+#lang: en
+#text
+James's James’s
+#expected_errors_count: 0
+#must_not_contain
+James's
+James’s
+#end
+
+#test: en_punct_edges_05
+#lang: en
+#text
+'the', “and”; «of»: to— in!
+#expected_errors_count: 0
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: en_hyphen_compound_flag_06
+#lang: en
+#text
+foo-bar-baz
+#expected_errors_count: 1
+#must_contain
+foo-bar-baz
+#end
+
+#test: en_underscore_flag_07
+#lang: en
+#text
+foo_bar
+#expected_errors_count: 1
+#must_contain
+foo_bar
+#end
+
+#test: en_email_flag_08
+#lang: en
+#text
+user.name+tag@example.com
+#expected_errors_count: 0
+#end
+
+
+#test: en_url_flag_09
+#lang: en
+#text
+https://example.org/path?x=1&y=2
+#expected_errors_count: 0
+#end
+
+
+#test: en_hashtag_mention_flag_10
+#lang: en
+#text
+#OpenAI @someone
+#expected_errors_count: 0
+#end
+
+#test: en_corrupted_suffix_11
+#lang: en
+#text
+the and of to in ofzz
+#expected_errors_count: 1
+#must_contain
+ofzz
+#must_not_contain
+the
+and
+of
+to
+in
+#end
+
+#test: it_elisione_apostrofi_equiv_01
+#lang: it
+#text
+l'acqua all'ombra dell'amico
+#expected_errors_count: 0
+#must_not_contain
+l'acqua
+all'ombra
+dell'amico
+#end
+
+#test: it_elisione_apostrofi_equiv_02_smart
+#lang: it
+#text
+l’acqua all’ombra dell’amico
+#expected_errors_count: 0
+#must_not_contain
+l’acqua
+all’ombra
+dell’amico
+#end
+
+#test: it_punct_edges_03
+#lang: it
+#text
+(questo) «test» —funziona— bene.
+#expected_errors_count: 0
+#end
+
+#test: it_mixed_quotes_04
+#lang: it
+#text
+“l'acqua” «all’ombra» 'dell'amico'
+#expected_errors_count: 0
+#end
+
+#test: it_hyphen_flag_05
+#lang: it
+#text
+abc-def
+#expected_errors_count: 1
+#must_contain
+abc-def
+#end
+
+#test: fr_elision_apostrophes_01
+#lang: fr
+#text
+l'été aujourd'hui
+#expected_errors_count: 0
+#must_not_contain
+l'été
+aujourd'hui
+#end
+
+#test: fr_elision_apostrophes_02_smart
+#lang: fr
+#text
+l’été aujourd’hui
+#expected_errors_count: 0
+#must_not_contain
+l’été
+aujourd’hui
+#end
+
+#test: fr_upper_prep_03
+#lang: fr
+#text
+À la carte
+#expected_errors_count: 0
+#must_not_contain
+À
+la
+carte
+#end
+
+#test: fr_punct_edges_04
+#lang: fr
+#text
+«bonjour», — monde.
+#expected_errors_count: 0
+#must_not_contain
+bonjour
+monde
+#end
+
+#test: es_accents_common_01
+#lang: es
+#text
+más año niño
+#expected_errors_count: 0
+#must_not_contain
+más
+año
+niño
+#end
+
+#test: es_punct_edges_02
+#lang: es
+#text
+(¡hola!) «mundo»
+#expected_errors_count: 0
+#must_not_contain
+hola
+mundo
+#end
+
+#test: es_hyphen_flag_03
+#lang: es
+#text
+foo-bar
+#expected_errors_count: 1
+#must_contain
+foo-bar
+#end
+
+#test: de_core_words_casefold_01
+#lang: de
+#text
+DER DIE UND zu IN
+#expected_errors_count: 0
+#must_not_contain
+der
+die
+und
+zu
+in
+#end
+
+#test: de_eszett_lower_02
+#lang: de
+#text
+fuß
+#expected_errors_count: 0
+#must_not_contain
+fuß
+#end
+
+#test: de_hyphen_flag_03
+#lang: de
+#text
+abc-def-ghi
+#expected_errors_count: 1
+#must_contain
+abc-def-ghi
+#end
+
+#test: pt_accents_common_01
+#lang: pt
+#text
+não ação de e em
+#expected_errors_count: 0
+#must_not_contain
+não
+ação
+de
+e
+em
+#end
+
+#test: pt_punct_edges_02
+#lang: pt
+#text
+«olá» — mundo!
+#expected_errors_count: 0
+#must_not_contain
+olá
+mundo
+#end
+
+#test: multi_lang_spaces_01
+#lang: it
+#text
+il    e   di  a  in  per
+#expected_errors_count: 0
+#must_not_contain
+il
+e
+di
+a
+in
+per
+#end
+
+#test: nbsp_between_words_flag_01
+#lang: en
+#text
+a\u00A0b
+#expected_errors_count: 0
+#end
+
+#test: mixed_quotes_edges_ok_01
+#lang: en
+#text
+“'the'” «"and"» (‘of’) "”to”" ''in''
+#expected_errors_count: 0
+#end
+
+#test: ascii_word_with_accent_combining_01
+#lang: fr
+#text
+cafe\u0301
+#expected_errors_count: 0
+#must_not_contain
+cafe\u0301
+#end
+
+#test: es_combining_tilde_02
+#lang: es
+#text
+man\u0303ana
+#expected_errors_count: 0
+#must_not_contain
+man\u0303ana
+#end
+
+#test: it_numbers_locale_01
+#lang: it
+#text
+1.234 10\u00A0000 12,34
+#expected_errors_count: 0
+#end
+
+#test: fr_numbers_locale_02
+#lang: fr
+#text
+1\u00A0000 12\u00A0345 3,14159
+#expected_errors_count: 0
+#end
+
+#test: de_numbers_locale_03
+#lang: de
+#text
+1.234 12.345 3,14
+#expected_errors_count: 0
+#end
+
+#test: pt_numbers_locale_04
+#lang: pt
+#text
+1.234 12.345 3,14
+#expected_errors_count: 0
+#end
+
+#test: en_mixed_tokens_flag_01
+#lang: en
+#text
+camelCase snake_case kebab-case
+#expected_errors_count: 3
+#must_contain
+camelCase
+snake_case
+kebab-case
+#end
+
+
+#test: it_elision_punct_edges_advanced_02
+#lang: it
+#text
+(“l’acqua”), 'all'ombra'; «dell’amico» —bene—
+#expected_errors_count: 0
+#end
+
+#test: fr_apostrophe_variants_advanced_03
+#lang: fr
+#text
+l\u02BCété l\u2019été l'été aujourd\u2019hui aujourd'hui
+#expected_errors_count: 0
+#must_not_contain
+l\u02BCété
+l\u2019été
+l'été
+aujourd\u2019hui
+aujourd'hui
+#end
+
+#test: es_inverted_punct_edges_04
+#lang: es
+#text
+¡hola! ¿qué tal?
+#expected_errors_count: 0
+#must_not_contain
+hola
+qué
+tal
+#end
+
+#test: ca_punt_volat_01
+#lang: ca
+#text
+col·legi paral·lel
+#expected_errors_count: 0
+#must_not_contain
+col·legi
+paral·lel
+#end
+
+#test: ca_punt_volat_edges_02
+#lang: ca
+#text
+(«col·legi») —paral·lel—
+#expected_errors_count: 0
+#must_not_contain
+col·legi
+paral·lel
+#end
+
+#test: it_apostrofo_po_curly_01
+#lang: it
+#text
+un po’ di tempo
+#expected_errors_count: 0
+#must_not_contain
+po’
+#end
+
+#test: it_apostrofo_po_straight_02
+#lang: it
+#text
+un po' di tempo
+#expected_errors_count: 0
+#must_not_contain
+po'
+#end
+
+#test: fr_elision_common_01
+#lang: fr
+#text
+l'heure d'accord
+#expected_errors_count: 0
+#must_not_contain
+l'heure
+d'accord
+#end
+
+#test: fr_typo_spaces_nbsp_context_02
+#lang: fr
+#text
+«\u00A0bonjour\u00A0» :\u00A0oui !
+#expected_errors_count: 0
+#must_not_contain
+bonjour
+oui
+#end
+
+#test: es_inverted_punct_edges_02
+#lang: es
+#text
+¡hola!, ¿qué?
+#expected_errors_count: 0
+#must_not_contain
+hola
+qué
+#end
+
+#test: nl_rock_n_roll_flag_01
+#lang: nl
+#text
+rock-'n-roll
+#expected_errors_count: 0
+#end
+
+#test: en_email_like_flag_02
+#lang: en
+#text
+name_surname-o'reilly@example.co.uk
+#expected_errors_count: 0
+#end
+
+
+#test: de_compound_hyphen_flag_04
+#lang: de
+#text
+abc-def-ghi
+#expected_errors_count: 1
+#must_contain
+abc-def-ghi
+#end

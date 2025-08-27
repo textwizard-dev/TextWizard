@@ -1,0 +1,2809 @@
+#test: remove_columns_easy_01
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=0
+#expected
+name,age
+Alice,30
+Bob,25
+
+#test: remove_columns_easy_02
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=2
+#expected
+id,name
+1,Alice
+2,Bob
+
+#test: remove_columns_easy_03
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=name
+#expected
+id,age
+1,30
+2,25
+
+#test: remove_columns_easy_04
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=age
+#expected
+id,name
+1,Alice
+2,Bob
+
+#test: remove_columns_easy_05
+#data
+a;b;c;d
+x;y;z;w
+#params
+csv.delimiter=;
+csv.remove_columns=1
+#expected
+a;c;d
+x;z;w
+
+#test: remove_columns_easy_06
+#data
+a;b;c;d
+x;y;z;w
+#params
+csv.delimiter=;
+csv.remove_columns=d
+#expected
+a;b;c
+x;y;z
+
+#test: remove_columns_easy_07
+#data
+col1|col2|col3
+v1|v2|v3
+#params
+csv.delimiter=|
+csv.remove_columns=1
+#expected
+col1|col3
+v1|v3
+
+#test: remove_columns_easy_08
+#data
+col1|col2|col3
+v1|v2|v3
+#params
+csv.delimiter=|
+csv.remove_columns=col3
+#expected
+col1|col2
+v1|v2
+
+#test: remove_columns_easy_09
+#data
+x	y	z
+1	2	3
+4	5	6
+#params
+csv.delimiter=\t
+csv.remove_columns=0
+#expected
+y	z
+2	3
+5	6
+
+#test: remove_columns_easy_10
+#data
+x	y	z
+1	2	3
+4	5	6
+#params
+csv.delimiter=\t
+csv.remove_columns=z
+#expected
+x	y
+1	2
+4	5
+
+#test: remove_columns_easy_11
+#data
+id,name,age,city
+1,Alice,30,NY
+2,Bob,25,LA
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+name,age,city
+Alice,30,NY
+Bob,25,LA
+
+#test: remove_columns_easy_12
+#data
+id,name,age,city
+1,Alice,30,NY
+2,Bob,25,LA
+#params
+csv.delimiter=,
+csv.remove_columns=["city"]
+#expected
+id,name,age
+1,Alice,30
+2,Bob,25
+
+#test: remove_columns_easy_13
+#data
+id;name;age;city
+1;Alice;30;NY
+2;Bob;25;LA
+#params
+csv.delimiter=;
+csv.remove_columns=[1]
+#expected
+id;age;city
+1;30;NY
+2;25;LA
+
+#test: remove_columns_easy_14
+#data
+id;name;age;city
+1;Alice;30;NY
+2;Bob;25;LA
+#params
+csv.delimiter=;
+csv.remove_columns=["id"]
+#expected
+name;age;city
+Alice;30;NY
+Bob;25;LA
+
+#test: remove_columns_easy_15
+#data
+A|B|C|D
+a|b|c|d
+#params
+csv.delimiter=|
+csv.remove_columns=[2]
+#expected
+A|B|D
+a|b|d
+
+#test: remove_columns_easy_16
+#data
+A|B|C|D
+a|b|c|d
+#params
+csv.delimiter=|
+csv.remove_columns=["A"]
+#expected
+B|C|D
+b|c|d
+
+#test: remove_columns_easy_17
+#data
+a	b	c	d
+x	y	z	w
+#params
+csv.delimiter=\t
+csv.remove_columns=[3]
+#expected
+a	b	c
+x	y	z
+
+#test: remove_columns_easy_18
+#data
+a	b	c	d
+x	y	z	w
+#params
+csv.delimiter=\t
+csv.remove_columns=["b"]
+#expected
+a	c	d
+x	z	w
+
+#test: remove_columns_easy_19
+#data
+only
+single
+#params
+csv.delimiter=,
+csv.remove_columns=0
+#expected
+
+
+#test: remove_columns_easy_20
+#data
+only,col
+first,second
+#params
+csv.delimiter=,
+csv.remove_columns=col
+#expected
+only
+first
+
+
+#test: remove_columns_mid_01
+#data
+id;name;comment;age
+1;John;"hello, world";30
+2;Jane;"foo,bar";25
+#params
+csv.delimiter=;
+csv.remove_columns=["name","comment"]
+#expected
+id;age
+1;30
+2;25
+
+#test: remove_columns_mid_02
+#data
+id,name,city,age,salary
+1,Alice,New York,30,50000
+2,Bob,Los Angeles,25,40000
+#params
+csv.delimiter=,
+csv.remove_columns=[0,4]
+#expected
+name,city,age
+Alice,New York,30
+Bob,Los Angeles,25
+
+#test: remove_columns_mid_03
+#data
+A|B|C|B
+a|1|x|2
+#params
+csv.delimiter=|
+csv.remove_columns=["B"]
+#expected
+A|C|B
+a|x|2
+
+#test: remove_columns_mid_04
+#data
+col1,col2,col3,col4
+v1,v2,v3,v4
+#params
+csv.delimiter=,
+csv.remove_columns=[1,"col4"]
+#expected
+col1,col3
+v1,v3
+
+#test: remove_columns_mid_05
+#data
+x;y;z;x
+1;2;3;4
+#params
+csv.delimiter=;
+csv.remove_columns=[0,"x"]
+#expected
+y;z
+2;3
+
+#test: remove_columns_mid_06
+#data
+id	name	name2	age
+1	A	B	30
+2	C	D	25
+#params
+csv.delimiter=\t
+csv.remove_columns=["name","name2"]
+#expected
+id	age
+1	30
+2	25
+
+#test: remove_columns_mid_07
+#data
+"first,part",second,third
+"a,1",b,c
+#params
+csv.delimiter=,
+csv.remove_columns=["first,part","third"]
+#expected
+second
+b
+
+#test: remove_columns_mid_08
+#data
+id;v1;v2;v3;v4
+1;10;20;30;40
+#params
+csv.delimiter=;
+csv.remove_columns=[1,3]
+#expected
+id;v2;v4
+1;20;40
+
+#test: remove_columns_mid_09
+#data
+u|v|w|x|y|z
+1|2|3|4|5|6
+#params
+csv.delimiter=|
+csv.remove_columns=[0,2,5]
+#expected
+v|x|y
+2|4|5
+
+#test: remove_columns_mid_10
+#data
+a	b	c	d	e
+1	2	3	4	5
+#params
+csv.delimiter=\t
+csv.remove_columns=[2,4]
+#expected
+a	b	d
+1	2	4
+
+#test: remove_columns_mid_11
+#data
+id,name,age,city,salary
+1,Ann,30,NY,100
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2,4]
+#expected
+name,city
+Ann,NY
+
+#test: remove_columns_mid_12
+#data
+X;Y;Z;W
+foo;bar;baz;qux
+#params
+csv.delimiter=;
+csv.remove_columns=["Y","W"]
+#expected
+X;Z
+foo;baz
+
+#test: remove_columns_mid_13
+#data
+a|b|c|d|e|f
+1|2|3|4|5|6
+#params
+csv.delimiter=|
+csv.remove_columns=[1,2,3]
+#expected
+a|e|f
+1|5|6
+
+#test: remove_columns_mid_14
+#data
+a	b	c	d	e
+x	y	z	w	v
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,4]
+#expected
+b	c	d
+y	z	w
+
+#test: remove_columns_mid_15
+#data
+id,name,score1,score2,score3
+1,Alice,10,20,30
+#params
+csv.delimiter=,
+csv.remove_columns=["score1","score3"]
+#expected
+id,name,score2
+1,Alice,20
+
+#test: remove_columns_mid_16
+#data
+id;name;age;notes
+1;Bob;25;"n/a"
+#params
+csv.delimiter=;
+csv.remove_columns=[3]
+#expected
+id;name;age
+1;Bob;25
+
+#test: remove_columns_mid_17
+#data
+colA|colB|colC|colD
+A|B|C|D
+#params
+csv.delimiter=|
+csv.remove_columns=["colA","colC"]
+#expected
+colB|colD
+B|D
+
+#test: remove_columns_mid_18
+#data
+a,b,c,d,e
+1,2,3,4,5
+#params
+csv.delimiter=,
+csv.remove_columns=[1,3]
+#expected
+a,c,e
+1,3,5
+
+#test: remove_columns_mid_19
+#data
+x;y;z
+1;2;3
+#params
+csv.delimiter=;
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_mid_20
+#data
+A	B	C
+foo	bar	baz
+#params
+csv.delimiter=\t
+csv.remove_columns=["A","B","C"]
+#expected
+
+
+#test: remove_columns_hard_01
+#data
+a,b,a,c
+1,2,3,4
+#params
+csv.delimiter=,
+csv.remove_columns=[0,"a"]
+#expected
+b,c
+2,4
+
+#test: remove_columns_hard_02
+#data
+id,name,name,age
+1,X,X,30
+2,Y,Y,25
+#params
+csv.delimiter=,
+csv.remove_columns=["name"]
+#expected
+id,name,age
+1,X,30
+2,Y,25
+
+#test: remove_columns_hard_03
+#data
+;;;
+;;;
+#params
+csv.delimiter=;
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_hard_04
+#data
+a|b|c|b
+x|1|2|3
+#params
+csv.delimiter=|
+csv.remove_columns=[3]
+#expected
+a|b|c
+x|1|2
+
+#test: remove_columns_hard_05
+#data
+a	b	c	b
+1	2	3	4
+#params
+csv.delimiter=\t
+csv.remove_columns=["b"]
+#expected
+a	c	b
+1	3	4
+
+#test: remove_columns_hard_06
+#data
+col1,col2,col3
+"1,2",x,y
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+col2,col3
+x,y
+
+#test: remove_columns_hard_07
+#data
+id,name,complex,age
+1,A,"x,y,z",30
+#params
+csv.delimiter=,
+csv.remove_columns=["complex"]
+#expected
+id,name,age
+1,A,30
+
+#test: remove_columns_hard_08
+#data
+a;b;c;d;e;f
+1;2;3;4;5;6
+#params
+csv.delimiter=;
+csv.remove_columns=[1,3,5]
+#expected
+a;c;e
+1;3;5
+
+#test: remove_columns_hard_09
+#data
+x|y|z
+only|one|row
+#params
+csv.delimiter=|
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_hard_10
+#data
+solo
+one
+#params
+csv.delimiter=,
+csv.remove_columns=["solo"]
+#expected
+
+#test: remove_columns_hard_11
+#data
+a,b
+1,2
+#params
+csv.delimiter=,
+csv.remove_columns=[-1]
+#expected
+a,b
+1,2
+
+#test: remove_columns_hard_12
+#data
+a,b,c
+1,2,3
+#params
+csv.delimiter=,
+csv.remove_columns=[10]
+#expected
+a,b,c
+1,2,3
+
+#test: remove_columns_hard_13
+#data
+a	b	c
+foo	bar	baz
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,2,5]
+#expected
+b
+bar
+
+#test: remove_columns_hard_14
+#data
+hdr1,hdr2,hdr3
+val1,val2,val3
+#params
+csv.delimiter=,
+csv.remove_columns=[1,"hdr2",2]
+#expected
+hdr1
+val1
+
+#test: remove_columns_hard_15
+#data
+id;name;age;city;salary
+1;A;30;NY;100
+#params
+csv.delimiter=;
+csv.remove_columns=[0,2,4]
+#expected
+name;city
+A;NY
+
+#test: remove_columns_hard_16
+#data
+c1|c2|c3|c4
+v1|v2|"v|3"|v4
+#params
+csv.delimiter=|
+csv.remove_columns=["c3"]
+#expected
+c1|c2|c4
+v1|v2|v4
+
+#test: remove_columns_hard_17
+#data
+a,b,c
+"","x",""
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2]
+#expected
+b
+x
+
+#test: remove_columns_hard_18
+#data
+a,b,c
+ , ,
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2]
+#expected
+b
+
+#test: remove_columns_hard_19
+#data
+onlycol
+val
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+
+#test: remove_columns_hard_20
+#data
+h1,h2,h3,h4,h5,h6,h7
+1,2,3,4,5,6,7
+#params
+csv.delimiter=,
+csv.remove_columns=[1,3,5]
+#expected
+h1,h3,h5,h7
+1,3,5,7
+
+
+#test: interm_01
+#data
+ a  ,  b  ,  c
+ 1  ,     , 3
+ alpha ,beta , gamma
+
+#params
+csv.delimiter=,
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,,3
+alpha,beta,gamma
+
+#test: interm_02
+#data
+X , Y , Z
+X , Y , Z
+ , ,
+ x, y ,z
+
+#params
+csv.delimiter=,
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+X,Y,Z
+X,Y,Z
+x,y,z
+
+#test: interm_03
+#data
+first , second , third
+ 10 , , 30
+ , ,
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+first,second,third
+10,,30
+
+#test: interm_04
+#data
+ a , b , c
+1,2,3
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+a,b,c
+1,2,3
+
+#test: interm_05
+#data
+  foo ,  , bar
+ , ,
+ baz , qux ,
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+foo,,bar
+baz,qux,
+
+#test: interm_06
+#data
+ A , B , C
+ , ,
+ ,Y,
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+A,B,C
+,Y,
+
+#test: interm_07
+#data
+key , value , note
+ id1, val1 ,
+ id2, , note2
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+key,value,note
+id1,val1,
+id2,,note2
+
+#test: interm_08
+#data
+ name , age , city
+ "Alice" , " 30" , "NY"
+ , ,
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+name,age,city
+"Alice"," 30","NY"
+
+#test: interm_09
+#data
+score , grade ,
+100 , A ,
+, ,
+95,B,
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+score,grade,
+100,A,
+95,B,
+
+#test: interm_10
+#data
+ col1 , col2 , col3
+  ,  ,
+ x , y , z
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+col1,col2,col3
+x,y,z
+
+
+#test: interm_11
+#data
+x , y ,z
+x , y , z
+X,Y,Z
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+x,y,z
+X,Y,Z
+
+#test: interm_12
+#data
+1 ,2 ,3
+1,2,3
+2,3,4
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+1,2,3
+2,3,4
+
+#test: interm_13
+#data
+"a","b","c"
+"a","b","c"
+"A","B","C"
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+"a","b","c"
+"A","B","C"
+
+#test: interm_14
+#data
+alpha, beta, gamma
+ALPHA,BETA,GAMMA
+alpha ,beta,gamma
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+alpha,beta,gamma
+ALPHA,BETA,GAMMA
+
+#test: interm_15
+#data
+k1, v1, note
+k2, v2, note
+k1, v1, note
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+k1,v1,note
+k2,v2,note
+
+#test: interm_16
+#data
+"id","text"
+"1","hello"
+"1","hello"
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+"id","text"
+"1","hello"
+
+#test: interm_17
+#data
+#hdr1,#hdr2,#hdr3
+10,20,30
+10,20,30
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+#hdr1,#hdr2,#hdr3
+10,20,30
+
+#test: interm_18
+#data
+, ,
+ , ,
+x,y,z
+x,y,z
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+,,
+x,y,z
+
+#test: interm_19
+#data
+foo ,bar,
+foo , bar,
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+foo,bar,
+
+#test: interm_20
+#data
+val1 , val2 ,
+Val1,Val2,
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+val1,val2,
+Val1,Val2,
+
+#test: interm_01_trim_and_remove_empty_rows
+#data
+Product, Price , Quantity
+
+Apple , 1.20 , 10
+Banana, , 5
+
+Cherry, 2.50, 0
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+Product,Price,Quantity
+Apple,1.20,10
+Banana,,5
+Cherry,2.50,0
+
+#test: interm_02_trim_and_remove_duplicates
+#data
+ID, Name ,Score
+1 , Alice , 80
+2, Bob, 90
+1 , Alice , 80
+3, Charlie, 85
+
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+ID,Name,Score
+1,Alice,80
+2,Bob,90
+3,Charlie,85
+
+#test: interm_03_remove_columns_and_trim
+#data
+Date,User,Action,Details
+2021-01-01,alice,login,success
+2021-01-02,bob,logout,timeout
+
+#params
+csv.remove_columns=[2,3]
+csv.trim_whitespace=true
+#expected
+Date,User
+2021-01-01,alice
+2021-01-02,bob
+
+#test: interm_04_remove_columns_and_empty_columns
+#data
+X,Y,Z
+1, ,
+2,hello,
+3, ,world
+
+#params
+csv.remove_columns=["X"]
+csv.remove_empty_columns=true
+#expected
+Y,Z
+hello,
+ ,world
+
+#test: interm_05_remove_columns_trim_and_remove_empty_rows
+#data
+Name , Age ,Email
+John Doe , 30 ,
+, ,
+Jane Smith,25,jane@example.com
+
+#params
+csv.remove_columns=["Age"]
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+Name,Email
+John Doe,
+Jane Smith,jane@example.com
+
+#test: interm_06_remove_values_and_trim
+#data
+Item,Category,Price
+Pencil,Toys,1.00
+Eraser,Stationery,0.50
+Pen,Toys,1.50
+
+#params
+csv.remove_values=["Toys"]
+csv.trim_whitespace=true
+#expected
+Item,Category,Price
+Pencil,,1.00
+Eraser,Stationery,0.50
+Pen,,1.50
+
+#test: interm_07_remove_values_and_empty_rows
+#data
+User,Status
+alice,active
+bob,inactive
+
+charlie,active
+
+#params
+csv.remove_values=["inactive"]
+csv.remove_empty_rows=true
+#expected
+User,Status
+alice,active
+bob,
+charlie,active
+
+#test: interm_08_remove_values_and_duplicates
+#data
+Code,Value
+A,10
+B,20
+A,10
+C,20
+
+#params
+csv.remove_values=["20"]
+csv.remove_duplicates_rows=true
+#expected
+Code,Value
+A,10
+B,
+C,
+
+#test: interm_09_remove_row_index_and_trim
+#data
+Header1,Header2
+val1 , val2
+val3 , val4
+val5 , val6
+
+#params
+csv.remove_row_index=[0]
+csv.trim_whitespace=true
+#expected
+val1,val2
+val3,val4
+val5,val6
+
+#test: interm_10_remove_row_index_and_empty_rows
+#data
+A,B
+1,2
+
+3,4
+
+#params
+csv.remove_row_index=[1]
+csv.remove_empty_rows=true
+#expected
+A,B
+3,4
+
+#test: interm_11_remove_row_index_and_duplicates
+#data
+X,Y
+a,1
+b,2
+c,3
+a,1
+b,2
+
+#params
+csv.remove_row_index=[4]
+csv.remove_duplicates_rows=true
+#expected
+X,Y
+a,1
+b,2
+c,3
+
+#test: interm_12_remove_columns_and_values_and_trim
+#data
+Col1,Col2,Col3,Col4
+v1 , x , y , z
+v2 , x , y , y
+
+#params
+csv.remove_columns=["Col4"]
+csv.remove_values=["y"]
+csv.trim_whitespace=true
+#expected
+Col1,Col2,Col3
+v1,x,
+v2,x,
+
+#test: interm_13_remove_columns_row_and_trim
+#data
+A,B,C,D
+1 ,2,3,4
+5,6 ,7,8
+9,10,11,12
+#params
+csv.remove_columns=[1]
+csv.remove_row_index=[2]
+csv.trim_whitespace=true
+#expected
+A,C,D
+1,3,4
+9,11,12
+
+#test: interm_14_remove_columns_and_duplicates
+#data
+Name,Score,Date
+John,90,2020-01-01
+Jane,85,2020-01-02
+John,90,2020-01-01
+Mike,95,2020-01-03
+
+#params
+csv.remove_columns=["Date"]
+csv.remove_duplicates_rows=true
+#expected
+Name,Score
+John,90
+Jane,85
+Mike,95
+
+#test: interm_15_remove_values_and_empty_columns_and_trim
+#data
+P, Q, R
+ ,10 ,20
+5, ,30
+ , ,
+
+#params
+csv.remove_values=[""]
+csv.remove_empty_columns=true
+csv.trim_whitespace=true
+#expected
+P,Q,R
+,10,20
+5,,30
+,,
+
+#test: interm_16_empty_cols_and_rows
+#data
+A,B,C
+1,,3
+,,
+4,,6
+
+#params
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+A,B,C
+1,,3
+4,,6
+
+#test: interm_17_trim_empty_cols_duplicates
+#data
+Item , Cat , Price
+ P1 , A , 10
+ P2 ,  , 20
+ P1 , A , 10
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_columns=true
+csv.remove_duplicates_rows=true
+#expected
+Item,Cat,Price
+P1,A,10
+P2,,20
+
+#test: interm_18_remove_row_empty_cols_rows
+#data
+X,Y,Z
+a,,1
+b, ,2
+c,,
+,,
+#params
+csv.remove_row_index=[2]
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+X,Y,Z
+a,,1
+c,,
+
+#test: interm_19_remove_values_empty_cols_rows
+#data
+User,Role,Active
+alice,admin,true
+bob,,false
+charlie,user,true
+dave,,false
+
+#params
+csv.remove_values=["false"]
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+User,Role,Active
+alice,admin,true
+bob,,
+charlie,user,true
+dave,,
+
+#test: interm_20_full_mix
+#data
+Col1 , Col2 , Col3 , Col4
+1 , A , , X
+2, B, Y,
+3 , A , Y , X
+, , ,
+
+#params
+csv.trim_whitespace=true
+csv.remove_values=["Y"]
+csv.remove_columns=["Col4"]
+csv.remove_empty_rows=true
+#expected
+Col1,Col2,Col3
+1,A,
+2,B,
+3,A,
+
+#test: interm_21_semicolon_trim_and_empty_rows
+#data
+Name ; Value ; Status
+
+John ; 100 ; ok
+ ; ;
+Jane ; 200 ; fail
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+Name;Value;Status
+John;100;ok
+Jane;200;fail
+
+#test: interm_22_semicolon_duplicates_trim
+#data
+ID ; Score ; Remarks
+1 ; 50 ; good
+2 ; 60 ; average
+1 ; 50 ; good
+3 ; 70 ; excellent
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+ID;Score;Remarks
+1;50;good
+2;60;average
+3;70;excellent
+
+#test: interm_23_semicolon_remove_columns_and_empty_cols
+#data
+A;B;C;D
+x ; ; 3; 4
+y ; 2 ;;
+
+#params
+csv.delimiter=;
+csv.remove_columns=["B","D"]
+csv.remove_empty_columns=true
+#expected
+A;C
+x ; 3
+y ;
+
+#test: interm_24_semicolon_remove_row_and_trim
+#data
+Year ; Month ; Day
+2020 ; 01 ; 01
+2020 ; 02 ; 15
+2020 ; 03 ; 10
+
+#params
+csv.delimiter=;
+csv.remove_row_index=2
+csv.trim_whitespace=true
+#expected
+Year;Month;Day
+2020;01;01
+2020;03;10
+
+#test: interm_25_semicolon_remove_values_and_empty_rows
+#data
+User ; Active
+alice ; true
+bob ;Fals
+charlie ; true
+dave ;Fals
+#params
+csv.delimiter=;
+csv.remove_values=Fals
+csv.remove_empty_rows=true
+#expected
+User ; Active
+alice ; true
+bob ;
+charlie ; true
+dave ;
+
+#test: interm_26_semicolon_empty_columns_and_rows
+#data
+X ;  ; Z
+1 ; ;
+ ;  ;
+3 ; ; C
+
+#params
+csv.delimiter=;
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+X ; Z
+1 ;
+3 ; C
+
+#test: interm_27_semicolon_mix_trim_columns_duplicates
+#data
+Name ; Dept ; Salary ; Location
+Alice ; HR ; 50000 ; NY
+Bob ; IT ; 60000 ; SF
+Alice ; HR ; 50000 ; NY
+Charlie ; HR ; 55000 ; NY
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_columns=["Location"]
+csv.remove_duplicates_rows=true
+#expected
+Name;Dept;Salary
+Alice;HR;50000
+Bob;IT;60000
+Charlie;HR;55000
+
+#test: interm_28_semicolon_mix_row_values
+#data
+Code ; Val ; Flag
+A ; 10 ; yes
+B ; 20 ;no
+C ; 30 ; yes
+D ; 40 ;no
+
+#params
+csv.delimiter=;
+csv.remove_row_index=[3]
+csv.remove_values=["no"]
+#expected
+Code ; Val ; Flag
+A ; 10 ; yes
+B ; 20 ;
+D ; 40 ;
+
+#test: interm_29_semicolon_full_mix
+#data
+A ; B ; C ; D
+1 ; x ; ; 100
+2 ; y ; z ;
+1 ; x ; ; 100
+ ; ; ;
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_values=["z"]
+csv.remove_columns=["D"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+A;B;C
+1;x;
+2;y;
+
+#test: interm_30_semicolon_empty_cols_trim_duplicates
+#data
+M ; N ; O
+100 ; ;
+ ; 200 ;
+100 ; ;
+300 ; ; 300
+
+#params
+csv.delimiter=;
+csv.remove_empty_columns=true
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+M;N;O
+100;;
+;200;
+300;;300
+
+#test: interm_31_semicolon_trim_and_empty_rows2
+#data
+Val ; Desc
+
+10 ; Ten
+
+20 ; Twenty
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+Val;Desc
+10;Ten
+20;Twenty
+
+#test: interm_32_semicolon_remove_single_column
+#data
+P ; Q ; R
+1 ; 2 ; 3
+4 ; 5 ; 6
+#params
+csv.delimiter=;
+csv.remove_columns=[1]
+#expected
+P ; R
+1 ; 3
+4 ; 6
+
+#test: interm_33_semicolon_remove_header_row
+#data
+skip ; keep
+a ; 1
+b ; 2
+
+#params
+csv.delimiter=;
+csv.remove_row_index=[0,2,1]
+#expected
+
+
+
+#test: interm_34_semicolon_remove_specific_values
+#data
+A ; B ; C
+;rem ove;
+4 ; keep ; 6
+
+#params
+csv.delimiter=;
+csv.remove_values=["rem ove",1,3]
+csv.remove_empty_rows=true
+#expected
+A ; B ; C
+4 ; keep ; 6
+
+#test: interm_35_semicolon_remove_duplicates_only
+#data
+X ; Y
+a ; b
+c ; d
+a ; b
+
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+X ; Y
+a ; b
+c ; d
+
+#test: interm_36_semicolon_trim_and_empty_columns
+#data
+ A ;  ; C
+ 1 ; ; 3
+ 2 ; ;
+
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_empty_columns=true
+#expected
+A;C
+1;3
+2;
+
+#test: interm_37_semicolon_empty_rows_and_columns
+#data
+U;V;
+;;
+1;;
+;2;
+
+#params
+csv.delimiter=;
+csv.remove_empty_rows=true
+csv.remove_empty_columns=true
+#expected
+U;V
+1;
+;2
+
+#test: interm_38_semicolon_remove_row_and_column
+#data
+A;B;C
+h;i;j
+k;l;m
+n;o;p
+#params
+csv.delimiter=;
+csv.remove_row_index=[2]
+csv.remove_columns=["B"]
+#expected
+A;C
+h;j
+n;p
+
+#test: interm_39_semicolon_row_and_empty_rows
+#data
+A ; B
+1 ; 2
+;
+3 ; 4
+5 ; 6
+
+#params
+csv.delimiter=;
+csv.remove_row_index=[1]
+csv.remove_empty_rows=true
+#expected
+A ; B
+3 ; 4
+5 ; 6
+
+#test: interm_40_semicolon_values_duplicates_and_trim
+#data
+Product ; Price ; Stock
+Item1 ; 10 ; in_stock
+Item2 ; 20 ; out_of_stock
+Item1 ; 10 ; in_stock
+
+#params
+csv.delimiter=;
+csv.remove_values=["out_of_stock"]
+csv.remove_duplicates_rows=true
+csv.trim_whitespace=true
+#expected
+Product;Price;Stock
+Item1;10;in_stock
+Item2;20;
+
+#test: interm_41_tab_trim_and_empty_rows
+#data
+ID	Name	Score
+
+1 	Alice	80
+
+2	Bob	90
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+#expected
+ID	Name	Score
+1	Alice	80
+2	Bob	90
+
+#test: interm_42_tab_remove_duplicates
+#data
+Key	Value	Flag
+A	10	yes
+B	20	no
+A	10	yes
+C	30	yes
+
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+Key	Value	Flag
+A	10	yes
+B	20	no
+C	30	yes
+
+#test: interm_43_tab_remove_columns_and_trim
+#data
+X	Y	Z
+1 	2 	3
+4	 5	6
+
+#params
+csv.delimiter=\t
+csv.remove_columns=[1]
+csv.trim_whitespace=true
+#expected
+X	Z
+1	3
+4	6
+
+#test: interm_44_tab_remove_row_and_trim
+#data
+A	B	C
+a	1	x
+b	2	y
+c	3	z
+
+#params
+csv.delimiter=\t
+csv.remove_row_index=[1]
+csv.trim_whitespace=true
+#expected
+A	B	C
+b	2	y
+c	3	z
+
+#test: interm_45_tab_remove_values_and_empty_rows
+#data
+User	Active
+alice	true
+bob	false
+charlie	true
+
+false	false
+
+#params
+csv.delimiter=\t
+csv.remove_values=["false"]
+csv.remove_empty_rows=true
+#expected
+User	Active
+alice	true
+bob	
+charlie	true
+
+
+#test: interm_46_tab_empty_columns_and_rows
+#data
+M		O
+1	 	3
+
+4		6
+
+#params
+csv.delimiter=\t
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+M	O
+1	3
+4	6
+
+#test: interm_47_tab_mix_trim_remove_columns_duplicates
+#data
+Name	Dept	Salary
+Eve	HR	50000
+Adam	IT	60000
+Eve	HR	50000
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_columns=["Dept"]
+csv.remove_duplicates_rows=true
+#expected
+Name	Salary
+Eve	50000
+Adam	60000
+
+#test: interm_48_tab_mix_row_values
+#data
+Code	Val	Flag
+A	10	yes
+B	20	no
+C	30	yes
+D	no	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=[3]
+csv.remove_values=["no"]
+#expected
+Code	Val	Flag
+A	10	yes
+B	20	
+D		30
+
+#test: interm_49_tab_full_mix
+#data
+C1	C2	C3	C4
+1 	A		Y
+2 	B	Z	
+1	A		Y
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_values=["Y"]
+csv.remove_columns=[3]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+C1	C2	C3
+1	A	
+2	B	Z
+
+#test: interm_50_tab_mix_empty_columns_trim
+#data
+F	G	H
+ a	 	3
+ 	b	
+
+#params
+csv.delimiter=\t
+csv.remove_empty_columns=true
+csv.trim_whitespace=true
+#expected
+F	G	H
+a		3
+	b	
+
+#test: interm_51_tab_trim_only
+#data
+ A	B	C
+ 1	2	3
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+#expected
+A	B	C
+1	2	3
+
+#test: interm_52_tab_remove_empty_rows_only
+#data
+X	Y	Z
+
+1	2	3
+
+4	5	6
+
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+X	Y	Z
+1	2	3
+4	5	6
+
+#test: interm_53_tab_remove_duplicates_and_empty_rows
+#data
+K	L
+a	b
+a	b
+
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+K	L
+a	b
+
+#test: interm_54_tab_remove_row_and_empty_columns_rows
+#data
+A		C
+1	 	3
+	2	
+4	 	6
+#params
+csv.delimiter=\t
+csv.remove_row_index=[2]
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+A	C
+1	3
+4	6
+
+
+#test: interm_55_tab_remove_columns_and_values
+#data
+X	Y	Z
+p	q	r
+s:q	t	u
+v	w	x
+
+#params
+csv.delimiter=\t
+csv.remove_columns=["Y"]
+csv.remove_values=["u"]
+#expected
+X	Z
+p	r
+s:q	
+v	x
+
+#test: interm_56_tab_remove_empty_cols_and_rows
+#data
+Name	Age	City
+Alice	30	New York
+Bob		Los Angeles
+Charlie	25	
+
+#params
+csv.delimiter=\t
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+Name	Age	City
+Alice	30	New York
+Bob		Los Angeles
+Charlie	25	
+
+#test: interm_57_tab_mix_four_params
+#data
+A	B	C	D
+1	2	x	foo
+2		y	bar
+1	2	x	foo
+	 	 	# blank
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_values=["bar"]
+csv.remove_columns=[3]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+A	B	C
+1	2	x
+2		y
+
+#test: interm_58_tab_complex
+#data
+Date	Prod	Qty	Price
+2020-01-01	P1	10	1.5
+2020-01-02	P2		2.0
+2020-01-01	P1	10	1.5
+2020-01-03	P3	5	
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+#expected
+Date	Prod	Qty	Price
+2020-01-01	P1	10	1.5
+2020-01-02	P2		2.0
+2020-01-03	P3	5	
+
+#test: interm_59_tab_drop_columns_rows
+#data
+A	B	C
+v1	v2	v3
+v4	v5	v6
+v7	v8	v9
+
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,2]
+csv.remove_row_index=[1]
+#expected
+B
+v5
+v8
+
+#test: interm_60_tab_full_extreme_mix
+#data
+X	Y	Z	W
+a	1	foo	bar
+b	2		u
+a	1	foo	bar
+	 	 	# blank
+
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_values=["foo"]
+csv.remove_columns=[3]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+X	Y	Z
+a	1	
+b	2	
+
+#test: hard_01_multiline_quoted
+#data
+"ID","Description","Notes"
+"1","First line
+Second line"," Note A "
+"1","First line
+Second line"," Note A "
+"2","Single","Note B"
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+"ID","Description","Notes"
+"1","First line
+Second line"," Note A "
+"2","Single","Note B"
+
+#test: hard_02_embedded_commas
+#data
+Record,Value,Comment
+"R,1",100,"Good, OK"
+"R,2",200,"Needs, review"
+"R,1",100,"Good, OK"
+#params
+csv.remove_duplicates_rows=true
+csv.trim_whitespace=true
+#expected
+Record,Value,Comment
+"R,1",100,"Good, OK"
+"R,2",200,"Needs, review"
+
+#test: hard_03_wildcard_remove_values
+#data
+Level,Message,Count
+1,Error,5
+2,Warning: Low,3
+3,Error,1
+4,Info: Start,2
+#params
+csv.remove_values=["Err*"]
+csv.remove_empty_rows=true
+#expected
+Level,Message,Count
+1,,5
+2,Warning: Low,3
+3,,1
+4,Info: Start,2
+
+#test: hard_04_remove_columns_mixed
+#data
+A,B,C,D,E
+1,2,3,4,5
+6, ,8,9,
+,11,12, ,14
+#params
+csv.remove_columns=[1,"D","Z"]
+csv.remove_empty_columns=true
+#expected
+A,C,E
+1,3,5
+6,8,
+,12,14
+
+#test: hard_05_rows_values_mix
+#data
+User,Status,Score
+alice  ,active,10
+bob, inactive,20
+charlie,   active,30
+#params
+csv.remove_row_index=[1]
+csv.remove_values=["30"]
+csv.trim_whitespace=true
+#expected
+User,Status,Score
+bob,inactive,20
+charlie,active,
+
+#test: hard_06_header_only_blank_remove_rows
+#data
+Col1,Col2,Col3
+
+
+#params
+csv.remove_empty_rows=true
+#expected
+Col1,Col2,Col3
+
+#test: hard_07_case_sensitive_values
+#data
+Type,Value
+X,Test
+Y,test
+X,Test
+#params
+csv.remove_values=["test"]
+csv.remove_duplicates_rows=true
+#expected
+Type,Value
+X,Test
+Y,
+
+#test: hard_08_nested_quotes_and_commas
+#data
+ID,Text,Flag
+1,"She said, ""Hello, world!""",Y
+2,"No quotes",N
+1,"She said, ""Hello, world!""",Y
+#params
+csv.remove_duplicates_rows=true
+csv.trim_whitespace=true
+#expected
+ID,Text,Flag
+1,"She said, ""Hello, world!""",Y
+2,"No quotes",N
+
+#test: hard_09_numeric_formats_and_remove_values
+#data
+Item,Price,Qty
+A,"1,000.50",10
+B,"2,500.00",5
+A,"1,000.50",10
+#params
+csv.remove_duplicates_rows=true
+csv.remove_values=["5*"]
+#expected
+Item,Price,Qty
+A,"1,000.50",10
+B,"2,500.00",
+
+
+#test: hard_10_complex_list_remove
+#data
+Col1,Col2,Col3
+a,apple,red
+b,banana,yellow
+c,cherry,red
+d,date,brown
+#params
+csv.remove_values=["red","b*"]
+csv.remove_empty_rows=true
+#expected
+Col1,Col2,Col3
+a,apple,
+,,yellow
+c,cherry,
+d,date,
+
+#test: hard_11_quoted_blanks_preserved
+#data
+A,B,C
+,,
+x,y,z
+#params
+csv.remove_empty_rows=true
+csv.trim_whitespace=true
+#expected
+A,B,C
+x,y,z
+
+#test: hard_12_full_mix_one
+#data
+X , Y , Z , W
+1 , a , , test
+2,b,keep,
+1 , a , , test
+, , ,
+#params
+csv.trim_whitespace=true
+csv.remove_values=["test"]
+csv.remove_columns=["W"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+X,Y,Z
+1,a,
+2,b,keep
+
+#test: hard_13_quotes_inside_and_trim
+#data
+ID,Desc
+1,"He said ""OK"""
+2,"She said ""No"""
+1,"He said ""OK"""
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+ID,Desc
+1,"He said ""OK"""
+2,"She said ""No"""
+
+#test: hard_14_unicode_and_empty
+#data
+Name,City,Emoji
+José,São Paulo,😊
+Ana,Montréal,🚀
+José,São Paulo,😊
+#params
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+#expected
+Name,City,Emoji
+José,São Paulo,😊
+Ana,Montréal,🚀
+
+#test: hard_15_all_params_combined
+#data
+A , B , C , D
+1 ,2,keep,yes
+2, ,remove,no
+1 ,2,keep,yes
+, , ,
+#params
+csv.trim_whitespace=true
+csv.remove_columns=[3]
+csv.remove_row_index=[2]
+csv.remove_values=["remove","no"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+A,B,C
+1,2,keep
+
+#test: hard_16_semicolon_multiline
+#data
+"Key" ; "Text" ; "Flag"
+"1" ; "Line1;
+Line2" ; "X";
+"2" ; "Solo" ; "Y"
+"1" ; "Line1;
+Line2" ; "X";
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+"Key";"Text";"Flag"
+"1";"Line1;
+Line2";"X";
+"2";"Solo";"Y"
+
+#test: hard_17_semicolon_embedded_semis
+#data
+ID;Descr;Val
+1;"A;B;C";10
+2;"X;Y";20
+1;"A;B;C";10
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+ID;Descr;Val
+1;"A;B;C";10
+2;"X;Y";20
+
+#test: hard_18_semicolon_wildcard_remove
+#data
+L;M;N
+a;error_01;100
+b;warning;200
+c;error_02;300
+#params
+csv.delimiter=;
+csv.remove_values=["error*","c*","*00"]
+csv.remove_empty_rows=true
+#expected
+L;M;N
+a;;
+b;warning;
+
+#test: hard_19_semicolon_cols_rows_mix
+#data
+A;B;C;D;E
+1;2;3;4;5
+;;3; ;
+6;7;8;9;10
+#params
+csv.delimiter=;
+csv.remove_columns=[0,"D"]
+csv.remove_row_index=[1]
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+B;C;E
+;3;
+7;8;10
+
+#test: hard_20_semicolon_quotes_blanks
+#data
+X,Y,Z
+""," ", ""
+a,b,c
+#params
+csv.delimiter=,
+csv.remove_empty_rows=true
+#expected
+X,Y,Z
+""," ", ""
+a,b,c
+
+#test: hard_21_semicolon_numeric_remove
+#data
+Item;Price;Qty
+A;"1.000,50";10
+B;"2.500,00";5
+A;"1.000,50";10
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+csv.remove_values=["5*"]
+#expected
+Item;Price;Qty
+A;"1.000,50";10
+B;"2.500,00";
+
+#test: hard_22_semicolon_full_combination
+#data
+P;Q;R;S
+1 ; alpha ; ; X
+2;beta;Y;
+1 ; alpha ; ; X
+;;;
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_values=["Y","X"]
+csv.remove_columns=["S"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+P;Q;R
+1;alpha;
+2;beta;
+
+
+#test: hard_23_pipe_multiline_and_quotes
+#data
+"ID"|"Desc"|"Notes"
+"1"|"Line A
+Line B"|"OK"
+"2"|"Solo"|"Check"
+"1"|"Line A
+Line B"|"OK"
+#params
+csv.delimiter=|
+csv.remove_duplicates_rows=true
+#expected
+"ID"|"Desc"|"Notes"
+"1"|"Line A
+Line B"|"OK"
+"2"|"Solo"|"Check"
+
+#test: hard_24_pipe_embedded_pipe
+#data
+A|B|C
+1|"X|Y"|100
+2|"Z"|200
+1|"X|Y"|100
+#params
+csv.delimiter=|
+csv.remove_duplicates_rows=true
+#expected
+A|B|C
+1|"X|Y"|100
+2|"Z"|200
+
+#test: hard_25_pipe_wildcard_and_trim
+#data
+U|V|W
+u1|ERR_CODE|100
+u2|WARN|200
+u3|ERR_FATAL|300
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+csv.remove_values=["ERR*"]
+csv.remove_empty_rows=true
+#expected
+U|V|W
+u1||100
+u2|WARN|200
+u3||300
+
+#test: hard_26_pipe_cols_and_rows
+#data
+X|Y|Z|W
+a|b|c|d
+e|f|g|h
+| | |
+i|j|k|l
+#params
+csv.delimiter=|
+csv.remove_columns=[2]
+csv.remove_row_index=[2]
+csv.remove_empty_rows=true
+#expected
+X|Y|W
+a|b|d
+i|j|l
+
+#test: hard_27_pipe_quotes_blanks
+#data
+A|B|C
+""," ",""
+x|y|z
+#params
+csv.delimiter=|
+csv.remove_empty_rows=true
+#error
+CSVValidationError('Row 2 has 1 columns; expected 3')
+#expected
+...
+
+
+#test: hard_28_pipe_duplicate_trim
+#data
+K|L|M
+one | two | three
+one | two | three
+four|five|six
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+K|L|M
+one|two|three
+four|five|six
+
+#test: hard_29_pipe_complex_mix
+#data
+P|Q|R|S
+1| 2|X|A
+2|3|Y|B
+1| 2|X|A
+| | |
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+csv.remove_values=["Y","B"]
+csv.remove_columns=["S"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+P|Q|R
+1|2|X
+2|3|
+
+#test: hard_30_pipe_all_params
+#data
+A|B|C|D
+x|y|z|w
+X|Y|Z|W
+x|y|z|w
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+csv.remove_columns=[1,3]
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+#expected
+A|C
+x|z
+X|Z
+#test: hard_31_tab_multiline
+#data
+"Key"	"Text"	"Flag"
+"1"	"Line1
+Line2"	"OK"
+"2"	"Solo"	"NO"
+"1"	"Line1
+Line2"	"OK"
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+"Key"	"Text"	"Flag"
+"1"	"Line1
+Line2"	"OK"
+"2"	"Solo"	"NO"
+
+#test: hard_32_tab_embedded_tab
+#data
+A	B	C
+1	"X	Y"	100
+2	"Z"	200
+1	"X	Y"	100
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+A	B	C
+1	"X	Y"	100
+2	"Z"	200
+
+#test: hard_33_tab_wildcard_rows
+#data
+ID	Message	Count
+10	Error42	5
+11	Error99	1
+12	Warning	7
+#params
+csv.delimiter=\t
+csv.remove_values=["Error*","1*"]
+csv.remove_empty_rows=true
+#expected
+ID	Message	Count
+		5
+	Warning	7
+
+#test: hard_34_tab_cols_and_trim
+#data
+X	Y	Z	W
+ 1	2	3	4
+5	6	7	8
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,2]
+csv.trim_whitespace=true
+#expected
+Y	W
+2	4
+6	8
+
+#test: hard_35_tab_rows_values_mix
+#data
+U	V	W
+u1	v1	w1
+u2	v2	w2
+u3	v3	w3
+#params
+csv.delimiter=\t
+csv.remove_row_index=[0,2]
+csv.remove_values=["w3"]
+#expected
+u1	v1	w1
+u3	v3	
+
+#test: hard_36_tab_quotes_blanks
+#data
+A	B	C
+"""	" "	""
+x	y	z
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#error
+CSVValidationError('Row 2 has 2 columns; expected 3')
+#expected
+...
+
+#test: hard_37_tab_duplicate_full
+#data
+K	L	M
+a	 b	 c
+a	 b	 c
+d	e	f
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+K	L	M
+a	b	c
+d	e	f
+
+#test: hard_38_tab_complex_mix
+#data
+P	Q	R	S
+1	 2	 X	A
+2	3	 Y	B
+|	blank		|
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_values=["Y","B"]
+csv.remove_columns=["S"]
+csv.remove_empty_rows=true
+#expected
+P	Q	R
+1	2	X
+2	3	
+|	blank	
+
+#test: hard_39_tab_all_params
+#data
+A	B	C	D
+x	y	z	w
+X	Y	Z	W
+x	y	z	w
+#params
+csv.delimiter=\t
+csv.trim_whitespace=true
+csv.remove_columns=[1,3]
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+#expected
+A	C
+x	z
+X	Z
+
+
+#test: hard_40_tab_unicode_duplicate
+#data
+Name	Place	Emoji
+João	São Paulo	😀
+Ana	München	🎉
+João	São Paulo	😀
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+#expected
+Name	Place	Emoji
+João	São Paulo	😀
+Ana	München	🎉
+
+#test: hard_41_tab_nested_quotes
+#data
+ID	Quote
+1	"He said ""Yes"""
+2	"She replied ""No"""
+1	"He said ""Yes"""
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+ID	Quote
+1	"He said ""Yes"""
+2	"She replied ""No"""
+
+#test: hard_42_tab_remove_empty_columns_rows
+#data
+A		C
+1		3
+		
+4		6
+#params
+csv.delimiter=\t
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+A	C
+1	3
+4	6
+
+#test: hard_43_tab_remove_row_and_cols
+#data
+X	Y	Z
+a	b	c
+d	e	f
+g	h	i
+#params
+csv.delimiter=\t
+csv.remove_row_index=[1]
+csv.remove_columns=["Y"]
+#expected
+X	Z
+d	f
+g	i
+
+
+#test: hard_44_tab_remove_values_and_duplicates
+#data
+U	V	W
+foo	bar	1
+baz,qux	42	2
+foo	bar	1
+#params
+csv.delimiter=\t
+csv.remove_values=["foo","1"]
+csv.remove_duplicates_rows=true
+#expected
+U	V	W
+	bar	
+baz,qux	42	2
+
+#test: hard_45_tab_full_edge_case
+#data
+A	B
+; ;	; 
+, ,	,
+A	B
+#params
+csv.delimiter=\t
+csv.remove_empty_rows=true
+#expected
+A	B
+; ;	; 
+, ,	,
+A	B
+
+#test: hard_46_mixed_complex_1
+#data
+Col1,Col2;Col3|Col4	Col5
+1, a;X|y	 Z
+2, b;Y|z	 W
+#params
+csv.delimiter=,
+csv.remove_columns=[1]
+csv.trim_whitespace=true
+#expected
+Col1
+1
+2
+
+#test: hard_47_mixed_complex_2
+#data
+A|B,C;D	E
+x|1,2;3	4
+#params
+csv.delimiter=|
+csv.remove_values=["1,2;3	4"]
+#expected
+A|B,C;D	E
+x|
+
+#test: hard_48_mixed_extreme
+#data
+X;Y, Z|W	 V
+1;2, 3|4	5
+#params
+csv.delimiter=;
+csv.trim_whitespace=true
+csv.remove_values=["3|4"]
+csv.remove_empty_rows=true
+#expected
+X;Y, Z|W	 V
+1;2, 3|4	5
+
+#test: hard_49_weird_quotes_and_delims
+#data
+"X,1";"Y|2","Z"	"W"
+a;"b, c","d"|e	f
+a;"b, c","d"|e	f
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+"X,1";"Y|2","Z"	"W"
+a;"b, c","d"|e	f
+
+#test: hard_50_edge_only_single_column
+#data
+A
+a
+a
+b
+ 
+#params
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+A
+a
+b
+
+#test: hard_51_empty_input_mix
+#data
+
+#params
+csv.trim_whitespace=true
+csv.remove_empty_rows=true
+csv.remove_duplicates_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+#test: hard_52_header_only_mix
+#data
+H1,H2,H3
+#params
+csv.remove_empty_rows=true
+csv.remove_duplicates_rows=true
+#expected
+H1,H2,H3
+
+#test: hard_53_only_blank_lines
+#data
+
+   
+ 
+#params
+csv.remove_empty_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+
+#test: hard_54_only_quotes_blank
+#data
+"",""
+"",""
+#params
+csv.remove_duplicates_rows=true
+csv.remove_empty_rows=true
+#expected
+"",""
+
+#test: hard_55_only_delimiters
+#data
+,,,
+,,,
+#params
+csv.remove_empty_rows=true
+#expected
+
+#test: hard_56_single_row_all_empty
+#data
+A,B,C
+
+#params
+csv.remove_empty_rows=true
+#expected
+A,B,C
+
+#test: hard_57_complex_unicode_and_trim
+#data
+N,Ł,Σ
+ ą , Łódź , Σigma 
+ą ,Łódź,Σigma
+#params
+csv.trim_whitespace=true
+csv.remove_duplicates_rows=true
+#expected
+N,Ł,Σ
+ą,Łódź,Σigma
+
+#test: hard_58_csv_delim_as_quoted_string
+#data
+A|B|C
+1|2|3
+#params
+csv.delimiter=|
+csv.trim_whitespace=true
+#expected
+A|B|C
+1|2|3
+
+#test: hard_59_mixed_list_remove_and_trim
+#data
+X,Y,Z
+a1 , b1 , c1
+a2 , b2 , c2
+a3 , b3 , c3
+#params
+csv.trim_whitespace=true
+csv.remove_values=["b1","c3"]
+#expected
+X,Y,Z
+a1,,c1
+a2,b2,c2
+a3,b3,
+
+#test: hard_60_extreme_full_mix
+#data
+A,B,C,D,E
+1 ,  , x , y , z
+2 , w ,  , y , 
+1 ,  , x , y , z
+ ,  ,  ,  , 
+#params
+csv.trim_whitespace=true
+csv.remove_columns=[4]
+csv.remove_row_index=[2,4]
+csv.remove_values=["x","y"]
+csv.remove_duplicates_rows=true
+csv.remove_empty_columns=true
+csv.remove_empty_rows=true
+#expected
+A,B,C,D
+1,,,

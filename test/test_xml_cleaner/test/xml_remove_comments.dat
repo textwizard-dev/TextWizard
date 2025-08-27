@@ -1,0 +1,490 @@
+#test: remove_comments_true_easy_01
+#data
+<root>Easy1<!--C1-->Text1</root>
+#params
+remove_comments=true
+#expected
+<root>Easy1 Text1</root>
+
+#test: remove_comments_true_easy_02
+#data
+<root>Easy2<!--C2-->Text2</root>
+#params
+remove_comments=true
+#expected
+<root>Easy2 Text2</root>
+
+#test: remove_comments_true_easy_03
+#data
+<root>Easy3<!--C3-->Text3</root>
+#params
+remove_comments=true
+#expected
+<root>Easy3 Text3</root>
+
+#test: remove_comments_true_easy_04
+#data
+<root>Easy4<!--C4-->Text4</root>
+#params
+remove_comments=true
+#expected
+<root>Easy4 Text4</root>
+
+#test: remove_comments_true_easy_05
+#data
+<root>Easy5<!--C5-->Text5</root>
+#params
+remove_comments=true
+#expected
+<root>Easy5 Text5</root>
+
+#test: remove_comments_true_easy_06
+#data
+<root>Easy6<!--C6-->Text6</root>
+#params
+remove_comments=true
+#expected
+<root>Easy6 Text6</root>
+
+#test: remove_comments_true_easy_07
+#data
+<root>Easy7<!--C7-->Text7</root>
+#params
+remove_comments=true
+#expected
+<root>Easy7 Text7</root>
+
+#test: remove_comments_true_easy_08
+#data
+<root>Easy8<!--C8-->Text8</root>
+#params
+remove_comments=true
+#expected
+<root>Easy8 Text8</root>
+
+#test: remove_comments_true_easy_09
+#data
+<root>Easy9<!--C9-->Text9</root>
+#params
+remove_comments=true
+#expected
+<root>Easy9 Text9</root>
+
+#test: remove_comments_true_easy_10
+#data
+<root>Easy10<!--C10-->Text10</root>
+#params
+remove_comments=true
+#expected
+<root>Easy10 Text10</root>
+
+#test: remove_comments_true_easy_11
+#data
+<root>Easy11<!--C11-->Text11</root>
+#params
+remove_comments=true
+#expected
+<root>Easy11 Text11</root>
+
+#test: remove_comments_true_easy_12
+#data
+<root>Easy12<!--C12-->Text12</root>
+#params
+remove_comments=true
+#expected
+<root>Easy12 Text12</root>
+
+#test: remove_comments_true_easy_13
+#data
+<root>Easy13<!--C13-->Text13</root>
+#params
+remove_comments=true
+#expected
+<root>Easy13 Text13</root>
+
+#test: remove_comments_true_easy_14
+#data
+<root>Easy14<!--C14-->Text14</root>
+#params
+remove_comments=true
+#expected
+<root>Easy14 Text14</root>
+
+#test: remove_comments_true_easy_15
+#data
+<root>Easy15<!--C15-->Text15</root>
+#params
+remove_comments=true
+#expected
+<root>Easy15 Text15</root>
+
+#test: remove_comments_true_easy_16
+#data
+<root>Easy16<!--C16-->Text16</root>
+#params
+remove_comments=true
+#expected
+<root>Easy16 Text16</root>
+
+#test: remove_comments_true_easy_17
+#data
+<root>Easy17<!--C17-->Text17</root>
+#params
+remove_comments=true
+#expected
+<root>Easy17 Text17</root>
+
+#test: remove_comments_true_easy_18
+#data
+<root>Easy18<!--C18-->Text18</root>
+#params
+remove_comments=true
+#expected
+<root>Easy18 Text18</root>
+
+#test: remove_comments_true_easy_19
+#data
+<root>Easy19<!--C19-->Text19</root>
+#params
+remove_comments=true
+#expected
+<root>Easy19 Text19</root>
+
+#test: remove_comments_true_easy_20
+#data
+<root>Easy20<!--C20-->Text20</root>
+#params
+remove_comments=true
+#expected
+<root>Easy20 Text20</root>
+
+#test: remove_comments_true_intermediate_01
+#data
+<root><a>A1</a><!--C1--><b>B1</b></root>
+#params
+remove_comments=true
+#expected
+<root><a>A1</a><b>B1</b></root>
+
+
+#test: remove_comments_true_intermediate_01
+#data
+<root><a>A1</a><!--C1--><b>B1</b></root>
+#params
+remove_comments=true
+#expected
+<root><a>A1</a><b>B1</b></root>
+
+#test: remove_comments_true_intermediate_02
+#data
+<root><item>It1</item><!--C2--><item>It2</item></root>
+#params
+remove_comments=true
+#expected
+<root><item>It1</item><item>It2</item></root>
+
+#test: remove_comments_true_intermediate_03
+#data
+<root><p>P3</p><!--C3--><p>P4</p></root>
+#params
+remove_comments=true
+#expected
+<root><p>P3</p><p>P4</p></root>
+
+#test: remove_comments_true_intermediate_04
+#data
+<root><div>D4</div><!--C4--><span>S4</span></root>
+#params
+remove_comments=true
+#expected
+<root><div>D4</div><span>S4</span></root>
+
+#test: remove_comments_true_intermediate_05
+#data
+<root><u>U5</u><!--C5--><strong>S5</strong></root>
+#params
+remove_comments=true
+#expected
+<root><u>U5</u><strong>S5</strong></root>
+
+#test: remove_comments_true_intermediate_06
+#data
+<root>Start<!--C6--><p>P6</p>End</root>
+#params
+remove_comments=true
+#expected
+<root>Start<p>P6</p>End</root>
+
+#test: remove_comments_true_intermediate_07
+#data
+<root>Alpha<!--C7--><section>S7</section>Omega</root>
+#params
+remove_comments=true
+#expected
+<root>Alpha<section>S7</section>Omega</root>
+
+#test: remove_comments_true_intermediate_08
+#data
+<root>Foo<!--C8--><bar:tag xmlns:bar="url">Bar8</bar:tag>Baz</root>
+#params
+remove_comments=true
+#expected
+<root>Foo<bar:tag xmlns:bar="url">Bar8</bar:tag>Baz</root>
+
+#test: remove_comments_true_intermediate_09
+#data
+<root>Value<!--C9--><item>9</item>!</root>
+#params
+remove_comments=true
+#expected
+<root>Value<item>9</item>!</root>
+
+#test: remove_comments_true_intermediate_10
+#data
+<root>Pre<!--C10--><child><sub>10</sub></child>Post</root>
+#params
+remove_comments=true
+#expected
+<root>Pre<child><sub>10</sub></child>Post</root>
+
+#test: remove_comments_true_intermediate_11
+#data
+<root>One<!--C11-->Two<!--C11b-->Three</root>
+#params
+remove_comments=true
+#expected
+<root>One Two Three</root>
+
+#test: remove_comments_true_intermediate_12
+#data
+<root><a>A12</a><!--C12--><!--C12b--><b>B12</b></root>
+#params
+remove_comments=true
+#expected
+<root><a>A12</a><b>B12</b></root>
+
+#test: remove_comments_true_intermediate_13
+#data
+<root>Mix<!--C13-->ed<!--C13b--><span>S13</span></root>
+#params
+remove_comments=true
+#expected
+<root>Mix ed<span>S13</span></root>
+
+#test: remove_comments_true_intermediate_14
+#data
+<root><x>X14</x><!--C14--><y>Y14</y><!--C14b--></root>
+#params
+remove_comments=true
+#expected
+<root><x>X14</x><y>Y14</y></root>
+
+#test: remove_comments_true_intermediate_15
+#data
+<root><!--C15--><z>Z15</z><!--C15b--></root>
+#params
+remove_comments=true
+#expected
+<root><z>Z15</z></root>
+
+#test: remove_comments_true_intermediate_16
+#data
+<root><parent>Par16<!--Inner16--></parent><!--C16-->After16</root>
+#params
+remove_comments=true
+#expected
+<root><parent>Par16</parent>After16</root>
+
+#test: remove_comments_true_intermediate_17
+#data
+<root><parent><!--Inner17-->Par17</parent><!--C17--><child>Ch17<!--C17b--></child></root>
+#params
+remove_comments=true
+#expected
+<root><parent>Par17</parent><child>Ch17</child></root>
+
+#test: remove_comments_true_intermediate_18
+#data
+<root><a>A18<!--C18--></a><!--C18b-->Text18</root>
+#params
+remove_comments=true
+#expected
+<root><a>A18</a>Text18</root>
+
+#test: remove_comments_true_intermediate_19
+#data
+<root><div>Div19</div><!--C19--></root>
+#params
+remove_comments=true
+#expected
+<root><div>Div19</div></root>
+
+#test: remove_comments_true_intermediate_20
+#data
+<root><leaf><!--C20-->Leaf20<!--C20b--></leaf></root>
+#params
+remove_comments=true
+#expected
+<root><leaf>Leaf20</leaf></root>
+
+
+#test: remove_comments_true_hard_01
+#data
+<root>Before<!--C1--> <ns:tag xmlns:ns="u">Content1<!--Inner1--></ns:tag><?pi proc1?>After<![CDATA[Data1]]></root>
+#params
+remove_comments=true
+#expected
+<root>Before <ns:tag xmlns:ns="u">Content1</ns:tag><?pi proc1?>After<![CDATA[Data1]]></root>
+
+#test: remove_comments_true_hard_02
+#data
+<root><?pi proc2?>R2<!--C2-->T2</root>
+#params
+remove_comments=true
+#expected
+<root><?pi proc2?>R2 T2</root>
+
+#test: remove_comments_true_hard_03
+#data
+<root xmlns:ns="u"><ns:child>Ch3<!--C3-->End3</ns:child><!--C3b--></root>
+#params
+remove_comments=true
+#expected
+<root xmlns:ns="u"><ns:child>Ch3 End3</ns:child></root>
+
+#test: remove_comments_true_hard_04
+#data
+<root><tag attr="v"/><!--C4--><tag2/></root>
+#params
+remove_comments=true
+#expected
+<root><tag attr="v"/><tag2/></root>
+
+#test: remove_comments_true_hard_05
+#data
+<root><a><!--C5--><b>B5</b></a></root>
+#params
+remove_comments=true
+#expected
+<root><a><b>B5</b></a></root>
+
+#test: remove_comments_true_hard_06
+#data
+<root><![CDATA[CD6<!--C6-->]]>More<!--C6b--></root>
+#params
+remove_comments=true
+#expected
+<root><![CDATA[CD6<!--C6-->]]>More</root>
+
+#test: remove_comments_true_hard_07
+#data
+<root><![CDATA[Data7]]><!--C7-->End7</root>
+#params
+remove_comments=true
+#expected
+<root><![CDATA[Data7]]>End7</root>
+
+#test: remove_comments_true_hard_08
+#data
+<root><x>X8</x><!--C8--><!--C8b--><y>Y8</y></root>
+#params
+remove_comments=true
+#expected
+<root><x>X8</x><y>Y8</y></root>
+
+#test: remove_comments_true_hard_09
+#data
+<root>Val9<!--C9-->Val9b</root>
+#params
+remove_comments=true
+#expected
+<root>Val9 Val9b</root>
+
+#test: remove_comments_true_hard_10
+#data
+<root><lvl1><!--C10--><lvl2><!--C10b-->Deep10</lvl2></lvl1></root>
+#params
+remove_comments=true
+#expected
+<root><lvl1><lvl2>Deep10</lvl2></lvl1></root>
+
+#test: remove_comments_true_hard_11
+#data
+<root><ns:elem xmlns:ns="u">E11<!--C11-->X11</ns:elem></root>
+#params
+remove_comments=true
+#expected
+<root><ns:elem xmlns:ns="u">E11 X11</ns:elem></root>
+
+#test: remove_comments_true_hard_12
+#data
+<root><e12 a="1">T12<!--C12--></e12><!--C12b-->End12</root>
+#params
+remove_comments=true
+#expected
+<root><e12 a="1">T12</e12>End12</root>
+
+#test: remove_comments_true_hard_13
+#data
+<root><!--C13--><child>C13</child></root>
+#params
+remove_comments=true
+#expected
+<root><child>C13</child></root>
+
+#test: remove_comments_true_hard_14
+#data
+<root><child>C14</child><!--C14--></root>
+#params
+remove_comments=true
+#expected
+<root><child>C14</child></root>
+
+#test: remove_comments_true_hard_15
+#data
+<root><!--C15--><?pi pr15?>X15</root>
+#params
+remove_comments=true
+#expected
+<root><?pi pr15?>X15</root>
+
+#test: remove_comments_true_hard_16
+#data
+<root xmlns:ns1="u1" xmlns:ns2="u2"><ns1:a>A16<!--C16--></ns1:a><!--C16b--></root>
+#params
+remove_comments=true
+#expected
+<root xmlns:ns1="u1" xmlns:ns2="u2"><ns1:a>A16</ns1:a></root>
+
+#test: remove_comments_true_hard_17
+#data
+<root><![CDATA[<tag>Data17</tag><!--C17-->]]><!--C17b-->End17</root>
+#params
+remove_comments=true
+#expected
+<root><![CDATA[<tag>Data17</tag><!--C17-->]]>End17</root>
+
+#test: remove_comments_true_hard_18
+#data
+<root><a>A18</a><!--C18--><b>B18</b><!--C18b--><c>C18</c></root>
+#params
+remove_comments=true
+#expected
+<root><a>A18</a><b>B18</b><c>C18</c></root>
+
+#test: remove_comments_true_hard_19
+#data
+<root><?pi pr19?><!--C19-->B19</root>
+#params
+remove_comments=true
+#expected
+<root><?pi pr19?>B19</root>
+
+#test: remove_comments_true_hard_20
+#data
+<root><!--C20--><a><!--C20a-->A20<!--C20b--></a><!--C20c--><b>B20<!--C20d--></b></root>
+#params
+remove_comments=true
+#expected
+<root><a>A20</a><b>B20</b></root>
+

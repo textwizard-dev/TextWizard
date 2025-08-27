@@ -1,0 +1,1601 @@
+#test: easy_01
+#text
+cat dog rat bat
+#patterns
+cat
+#expected
+cat
+
+#test: easy_02
+#text
+cat dog rat bat
+#patterns
+*at
+#expected
+cat
+rat
+bat
+
+#test: easy_03
+#text
+cat dog rat bat
+#patterns
+d*g
+#expected
+dog
+
+#test: easy_04
+#text
+cat dog rat bat
+#patterns
+??t
+#expected
+cat
+rat
+bat
+
+#test: easy_05
+#text
+cat dog rat bat
+#patterns
+[cbr]at
+#expected
+cat
+rat
+bat
+
+#test: easy_06
+#text
+cat dog rat bat
+#patterns
+*o*
+#expected
+dog
+
+#test: easy_07
+#text
+cat dog rat bat
+#patterns
+*xyz*
+#expected
+
+#test: easy_08
+#text
+cat dog rat bat
+#patterns
+%at
+#expected
+cat
+rat
+bat
+
+#test: easy_09
+#text
+cat dog rat bat
+#patterns
+_bt
+#expected
+
+
+
+#test: easy_10
+#text
+cat dog rat bat
+#patterns
+r_t
+#expected
+rat
+
+#test: easy_11
+#text
+file1 file2 file3
+#patterns
+file*
+#expected
+file1
+file2
+file3
+
+#test: easy_12
+#text
+file1 file2 file3
+#patterns
+*1
+#expected
+file1
+
+#test: easy_13
+#text
+file1 file2 file3
+#patterns
+fi?e2
+#expected
+file2
+
+#test: easy_14
+#text
+file1 file2 file3
+#patterns
+file[13]
+#expected
+file1
+file3
+
+#test: easy_15
+#text
+file1 file2 file3
+#patterns
+*4*
+#expected
+
+#test: easy_16
+#text
+alpha beta gamma
+#patterns
+alp*
+#expected
+alpha
+
+#test: easy_17
+#text
+alpha beta gamma
+#patterns
+*ma
+#expected
+gamma
+
+#test: easy_18
+#text
+alpha beta gamma
+#patterns
+_bet_
+#expected
+
+
+
+#test: easy_19
+#text
+alpha beta gamma
+#patterns
+%ha
+#expected
+alpha
+
+#test: easy_20
+#text
+alpha beta gamma
+#patterns
+gamm?
+#expected
+gamma
+
+#test: easy_21
+#text
+one two three four five
+#patterns
+t*
+#expected
+two
+three
+
+#test: easy_22
+#text
+one two three four five
+#patterns
+*e
+#expected
+one
+three
+five
+
+#test: easy_23
+#text
+one two three four five
+#patterns
+?our
+#expected
+four
+
+#test: easy_24
+#text
+one two three four five
+#patterns
+f[io]ve
+#expected
+five
+
+#test: easy_25
+#text
+one two three four five
+#patterns
+*z*
+#expected
+
+#test: easy_26
+#text
+123 456 789
+#patterns
+1*
+#expected
+123
+
+#test: easy_27
+#text
+123 456 789
+#patterns
+*6
+#expected
+456
+
+#test: easy_28
+#text
+123 456 789
+#patterns
+7?9
+#expected
+789
+
+#test: easy_29
+#text
+123 456 789
+#patterns
+[14]56
+#expected
+456
+
+#test: easy_30
+#text
+123 456 789
+#patterns
+%0%
+#expected
+
+#test: easy_31
+#text
+apple application applet
+#patterns
+appl*
+#expected
+apple
+application
+applet
+
+#test: easy_32
+#text
+apple application applet
+#patterns
+*tion
+#expected
+application
+
+#test: easy_33
+#text
+apple application applet
+#patterns
+appl?
+#expected
+apple
+applet
+application
+
+#test: easy_34
+#text
+apple application applet
+#patterns
+appl[et]
+#expected
+apple
+
+
+#test: easy_35
+#text
+apple application applet
+#patterns
+*_x_
+#expected
+
+#test: easy_36
+#text
+fooBar Foo foo
+#patterns
+foo*
+#expected
+fooBar
+Foo
+foo
+
+#test: easy_37
+#text
+fooBar Foo foo
+#patterns
+*Bar
+#expected
+fooBar
+
+#test: easy_38
+#text
+fooBar Foo foo
+#patterns
+Fo?
+#expected
+Foo
+foo
+fooBar
+
+#test: easy_39
+#text
+fooBar Foo foo
+#patterns
+[bB]ar
+#expected
+
+
+#test: easy_40
+#text
+fooBar Foo foo
+#patterns
+*XYZ*
+#expected
+
+#test: easy_41
+#text
+data1 data2 data10 data20
+#patterns
+data1*
+#expected
+data1
+data10
+
+#test: easy_42
+#text
+data1 data2 data10 data20
+#patterns
+*20
+#expected
+data20
+
+#test: easy_43
+#text
+data1 data2 data10 data20
+#patterns
+data_
+#expected
+data1
+data2
+
+#test: easy_44
+#text
+data1 data2 data10 data20
+#patterns
+data[12]
+#expected
+data1
+data2
+
+#test: easy_45
+#text
+data1 data2 data10 data20
+#patterns
+*30*
+#expected
+
+#test: easy_46
+#text
+a1 a2 b1 b2
+#patterns
+a*
+#expected
+a1
+a2
+
+#test: easy_47
+#text
+a1 a2 b1 b2
+#patterns
+*b2
+#expected
+b2
+
+#test: easy_48
+#text
+a1 a2 b1 b2
+#patterns
+?1
+#expected
+a1
+b1
+
+#test: easy_49
+#text
+a1 a2 b1 b2
+#patterns
+[a-b]2
+#expected
+a2
+b2
+
+#test: easy_50
+#text
+a1 a2 b1 b2
+#patterns
+*c*
+#expected
+
+#test: easy_51
+#text
+red green blue
+#patterns
+g*
+#expected
+green
+
+#test: easy_52
+#text
+red green blue
+#patterns
+*e
+#expected
+blue
+
+#test: easy_53
+#text
+red green blue
+#patterns
+r_d
+#expected
+red
+
+#test: easy_54
+#text
+red green blue
+#patterns
+[bg]lue
+#expected
+blue
+
+#test: easy_55
+#text
+red green blue
+#patterns
+*yellow*
+#expected
+
+#test: easy_56
+#text
+Monday Tuesday Wednesday
+#patterns
+*day
+#expected
+Monday
+Tuesday
+Wednesday
+
+#test: easy_57
+#text
+Monday Tuesday Wednesday
+#patterns
+Tues*
+#expected
+Tuesday
+
+#test: easy_58
+#text
+Monday Tuesday Wednesday
+#patterns
+???day
+#expected
+Monday
+Tuesday
+Wednesday
+
+#test: easy_59
+#text
+Monday Tuesday Wednesday
+#patterns
+[MW]ednesday
+#expected
+Wednesday
+
+
+#test: easy_60
+#text
+Monday Tuesday Wednesday
+#patterns
+*fri*
+#expected
+
+
+#test: mid_01
+#text
+alpha ALPHA alpaca
+#patterns
+["alp*", "*lph*"]
+#expected
+alpha
+ALPHA
+alpaca
+
+#test: mid_02
+#text
+alpha ALPHA alpaca
+#patterns
+["alp*", "*lph*"]
+#params
+ignore_case=false
+#expected
+alpha
+alpaca
+
+#test: mid_03
+#text
+dog DOG catalogue
+#patterns
+d*g
+#expected
+dog
+DOG
+
+#test: mid_04
+#text
+dog DOG catalogue
+#patterns
+d?g
+#expected
+dog
+DOG
+
+#test: mid_05
+#text
+archive arch archery
+#patterns
+arch%
+#expected
+arch
+archive
+archery
+
+#test: mid_06
+#text
+archive arch archery
+#patterns
+arch_
+#expected
+
+
+#test: mid_07
+#text
+fooX fooY fooZ barX
+#patterns
+foo[XYZ]
+#expected
+fooX
+fooY
+fooZ
+
+#test: mid_08
+#text
+fooX fooY fooZ barX
+#patterns
+foo[^Z]
+#expected
+fooX
+fooY
+
+#test: mid_09
+#text
+prefix_middle_suffix
+#patterns
+*middle*
+#expected
+prefix_middle_suffix
+
+#test: mid_10
+#text
+prefix__suffix
+#patterns
+*__suffix
+#expected
+prefix__suffix
+
+#test: mid_11
+#text
+a1 a2 a3 b1 b2 b3
+#patterns
+["a*", "*3"]
+#expected
+a1
+a2
+a3
+b3
+
+#test: mid_12
+#text
+a1 a2 a3 b1 b2 b3
+#patterns
+["a*", "*3"]
+#params
+ignore_case=false
+#expected
+a1
+a2
+a3
+b3
+
+#test: mid_13
+#text
+camel camera cameo
+#patterns
+cam?l
+#expected
+camel
+
+#test: mid_14
+#text
+123abc 456def 789ghi
+#patterns
+%[a-z][a-z][a-z]
+#expected
+123abc
+456def
+789ghi
+
+#test: mid_15
+#text
+onetwo threefour
+#patterns
+*two
+#expected
+onetwo
+
+#test: mid_16
+#text
+onetwo threefour
+#patterns
+two*
+#expected
+
+#test: mid_17
+#text
+red green blue
+#patterns
+*r?e*
+#expected
+green
+
+#test: mid_18
+#text
+red green blue
+#patterns
+*_re*
+#expected
+green
+
+#test: mid_19
+#text
+Monday-Tue Wednesday_Thu
+#patterns
+???day_*
+#expected
+Monday-Tue
+Wednesday_Thu
+
+#test: mid_20
+#text
+Monday Tuesday Wednesday
+#patterns
+[Mm]onday
+#expected
+Monday
+
+#test: mid_21
+#text
+xy1 xy2 xy3
+#patterns
+xy_
+#expected
+xy1
+xy2
+xy3
+
+#test: mid_22
+#text
+xy1 xy2 xy3
+#patterns
+xy[13]
+#expected
+xy1
+xy3
+
+#test: mid_23
+#text
+foo1 foo2 bar1
+#patterns
+["foo*", "*1"]
+#expected
+foo1
+foo2
+bar1
+
+#test: mid_24
+#text
+foo1 foo2 bar1
+#patterns
+["foo*", "*1"]
+#params
+ignore_case=false
+#expected
+foo1
+foo2
+bar1
+
+#test: mid_25
+#text
+a-b a_c a d
+#patterns
+a?*
+#expected
+a-b
+a_c
+
+#test: mid_26
+#text
+a-b a_c a d
+#patterns
+a[_-]b
+#expected
+a-b
+
+#test: mid_27
+#text
+<open> <close> <> <
+#patterns
+<*>
+#expected
+<>
+<open>
+<close>
+
+#test: mid_28
+#text
+<open> <close> <> <
+#patterns
+<*>
+#expected
+<open>
+<close>
+<>
+
+#test: mid_29
+#text
+foo.bar foo-bar foobar
+#patterns
+foo[-.]bar
+#expected
+foo.bar
+foo-bar
+
+#test: mid_30
+#text
+file.tar.gz file.tgz file.zip
+#patterns
+file.*gz
+#expected
+file.tar.gz
+file.tgz
+
+#test: mid_31
+#text
+file.tar.gz file.tgz file.zip
+#patterns
+file.%gz
+#expected
+file.tar.gz
+file.tgz
+
+#test: mid_32
+#text
+123 12a3 1b23
+#patterns
+1?23
+#expected
+1b23
+
+#test: mid_33
+#text
+abc1 abc2 abd3
+#patterns
+ab[cd]?
+#expected
+abc1
+abc2
+abd3
+
+#test: mid_34
+#text
+abc1 abc2 abd3
+#patterns
+ab[ce]?
+#expected
+abc1
+abc2
+
+#test: mid_35
+#text
+hello HellO HELlo
+#patterns
+h*o
+#expected
+hello
+HellO
+HELlo
+
+#test: mid_36
+#text
+hello HellO HELlo
+#patterns
+h*o
+#params
+ignore_case=false
+#expected
+hello
+
+#test: mid_37
+#text
+foo1bar foo2xbar foo4fbar
+#patterns
+foo[0-9]*bar
+#expected
+foo1bar
+foo2xbar
+foo4fbar
+
+#test: mid_38
+#text
+foo123bar fooxbar foo456bar
+#patterns
+foo[^0-9]*bar
+#expected
+fooxbar
+
+#test: mid_39
+#text
+abc def ghi
+#patterns
+%j%
+#expected
+
+#test: mid_40
+#text
+abc def ghi
+#patterns
+[a-c][b-f][c-i]
+#expected
+abc
+
+
+#test: mid_41
+#text
+a1b a2c a3d
+#patterns
+a[1-2]?
+#expected
+a1b
+a2c
+
+#test: mid_42
+#text
+foo fooo foooo
+#patterns
+foo%
+#expected
+foo
+fooo
+foooo
+
+#test: mid_43
+#text
+foo fooo foooo
+#patterns
+foo_
+#expected
+fooo
+
+#test: mid_44
+#text
+x.y x_y x-y
+#patterns
+x?y
+#expected
+x.y
+x_y
+x-y
+
+#test: mid_45
+#text
+x.y x_y x-y
+#patterns
+x[^._-]y
+#expected
+
+#test: mid_46
+#text
+<xyTag>Middle</xyTag>
+#patterns
+xyT*g
+#expected
+xyTag
+
+#test: mid_47
+#text
+<xyTag>Middle</xyTag>
+#patterns
+*Midd%
+#expected
+Middle
+
+#test: mid_48
+#text
+Section-1 Section-2 Section_3
+#patterns
+Section[_-]?
+#expected
+Section-1
+Section-2
+Section_3
+
+#test: mid_49
+#text
+Section-1 Section-2 Section_3
+#patterns
+Section_%
+#expected
+Section-1
+Section-2
+Section_3
+
+#test: mid_50
+#text
+a a1 a12 a123
+#patterns
+a[0-9][0-9]
+#expected
+a12
+
+#test: mid_51
+#text
+a a1 a12 a123
+#patterns
+a[0-9][0-9]%
+#expected
+a12
+a123
+
+#test: mid_52
+#text
+fooBar fooxx baz
+#patterns
+foo[^B]*
+#expected
+fooxx
+
+#test: mid_53
+#text
+fooBar foo baz
+#patterns
+foo%B%
+#expected
+fooBar
+
+#test: mid_54
+#text
+red-green red_green red.green
+#patterns
+red*green
+#expected
+red-green
+red_green
+red.green
+
+#test: mid_55
+#text
+red-green red_green red.green
+#patterns
+red[^-]*green
+#expected
+red_green
+red.green
+
+#test: mid_56
+#text
+abc_def_ghi abcXdefXghi
+#patterns
+abc?def?ghi
+#expected
+abc_def_ghi
+abcXdefXghi
+
+#test: mid_57
+#text
+abc_def_ghi abcXdefXghi
+#patterns
+abc_def_ghi
+#expected
+abc_def_ghi
+abcXdefXghi
+
+#test: mid_58
+#text
+123abc456 789abc012
+#patterns
+%abc%
+#expected
+123abc456
+789abc012
+
+#test: mid_59
+#text
+123abc456 789abc012
+#patterns
+%xyz%
+#expected
+
+#test: mid_60
+#text
+line1
+line2
+line3
+#patterns
+line_
+#expected
+line1
+line2
+line3
+
+
+#test: hard_01
+#text
+Alpha-Beta_Gamma delta‐epsilon ZETA123
+#patterns
+["*-Bet?_G*", "zeta*", "*123"]
+#expected
+Alpha-Beta_Gamma
+ZETA123
+
+#test: hard_02
+#text
+file-01.tar.gz file-99.TAR.GZ file-abc.tar.gz
+#patterns
+["file-??.tar.gz", "file-*.[Tt][Aa][Rr].gz"]
+#expected
+file-01.tar.gz
+file-99.TAR.GZ
+file-abc.tar.gz
+
+#test: hard_03
+#text
+fooBarBaz FooBar foo-baz
+#patterns
+["foo*bar*", "foo[^a-z]*baz"]
+#expected
+fooBarBaz
+FooBar
+foo-baz
+
+#test: hard_04
+#text
+a1b2c3 a12b34c56 abc123
+#patterns
+["a[0-9]*b[0-9]*c[0-9]*", "a??b??c??"]
+#expected
+a1b2c3
+a12b34c56
+
+#test: hard_05
+#text
+section-A.1 section-B.2 section-AA.10
+#patterns
+section-%[A-Z]%.*1%
+#expected
+section-A.1
+section-AA.10
+
+#test: hard_06
+#text
+CamelCase snake_case kebab-case
+#patterns
+["*Case", "*_case", "*-case"]
+#expected
+CamelCase
+snake_case
+kebab-case
+
+#test: hard_07
+#text
+foo@bar.com foo.bar@baz.co foobar@co
+#patterns
+["*@[a-z]*.[a-z][a-z]", "*@*co"]
+#expected
+foo.bar@baz.co
+foobar@co
+
+#test: hard_08
+#text
+path/to/file path\\to\\file path|to|file
+#patterns
+["path?to?file", "path*file"]
+#expected
+path/to/file
+path\\to\\file
+path|to|file
+
+#test: hard_09
+#text
+<open-tag> text </open-tag> <closeTag/>
+#patterns
+["*tag*", "<close*"]
+#expected
+open-tag
+closeTag
+
+#test: hard_10
+#text
+👍good 👍👍 great bad😞
+#patterns
+["*good", "*great", "*😞"]
+#expected
+👍good
+great
+bad😞
+
+#test: hard_11
+#text
+汉字 字符 编码
+#patterns
+["汉*", "*码"]
+#expected
+汉字
+编码
+
+#test: hard_12
+#text
+id_100 id_101 id_200
+#patterns
+["id_[1][0-9][0-9]", "id_2??"]
+#expected
+id_100
+id_101
+id_200
+
+#test: hard_13
+#text
+10.0.0.1 192.168.0.1 fe80::1
+#patterns
+["[0-9]*.[0-9]*.[0-9]*.[0-9]*", "*::*"]
+#expected
+10.0.0.1
+192.168.0.1
+fe80::1
+
+#test: hard_14
+#text
+προβλήμα λύση παράδειγμα
+#patterns
+["*λή*", "*μα"]
+#expected
+προβλήμα
+παράδειγμα
+
+#test: hard_15
+#text
+2024-04-28T12:00:00Z 1999-12-31
+#patterns
+["????-??-??T*", "199?-12-*"]
+#expected
+2024-04-28T12:00:00Z
+1999-12-31
+
+#test: hard_16
+#text
+abcXYZ abcXyZ ABCxyz
+#patterns
+abc*xyz
+#expected
+ABCxyz
+abcXYZ
+abcXyZ
+
+#test: hard_17
+#text
+abcXYZ abcXyZ ABCxyz
+#patterns
+abc*xyz
+#expected
+abcXYZ
+ABCxyz
+abcXyZ
+
+#test: hard_18
+#text
+foo123 foo12 foo1 foo
+#patterns
+foo[0-9][0-9][0-9]
+#expected
+foo123
+
+#test: hard_19
+#text
+foo123 foo12 foo1 foo
+#patterns
+foo[0-9]%
+#expected
+foo123
+foo12
+foo1
+
+#test: hard_20
+#text
+mixCase MIXcase mixCASE
+#patterns
+["mix*cASe", "mix*case"]
+#expected
+mixCase
+MIXcase
+mixCASE
+
+#test: hard_21
+#text
+😀 😁 😂 🤣 😃😄
+#patterns
+"*😃*"
+#expected
+😃😄
+
+#test: hard_22
+#text
+PREFIX_middle_suffix PREFIX_MIDDLE_SUFFIX
+#patterns
+["*middle*", "*MIDDLE*"]
+#expected
+PREFIX_MIDDLE_SUFFIX
+PREFIX_middle_suffix
+
+#test: hard_23
+#text
+user+mail@host user_mail@host user-mail@host
+#patterns
+"user?mail@host"
+#expected
+user+mail@host
+user_mail@host
+user-mail@host
+
+#test: hard_24
+#text
+C:\\path\\to\\file /usr/local/bin
+#patterns
+["C:%*file", "*/bin"]
+#expected
+C:\\path\\to\\file
+/usr/local/bin
+
+#test: hard_25
+#text
+abc-def ghi-jkl mno-pqr
+#patterns
+"*-d*f"
+#expected
+abc-def
+
+#test: hard_26
+#text
+abc-def ghi-jkl mno-pqr
+#patterns
+"*-*l"
+#expected
+ghi-jkl
+
+#test: hard_27
+#text
+abc123def abc1234def
+#patterns
+"abc[0-9][0-9][0-9]def"
+#expected
+abc123def
+
+#test: hard_28
+#text
+abc123def abc1234def
+#patterns
+"abc[0-9]%def"
+#expected
+abc123def
+abc1234def
+
+#test: hard_29
+#text
+START middle END another_END
+#patterns
+["START*END", "*_END"]
+#expected
+another_END
+
+#test: hard_30
+#text
+xx1 yy2 zz3
+#patterns
+["x?1", "y?[0-9]", "z*3"]
+#expected
+xx1
+yy2
+zz3
+
+#test: hard_31
+#text
+foo123bar foo456baz
+#patterns
+foo[0-9][0-9][0-9][a-z]%
+#expected
+foo123bar
+foo456baz
+
+#test: hard_32
+#text
+a-b-c d-e-f g-h-i
+#patterns
+a?b?c
+#expected
+a-b-c
+
+#test: hard_33
+#text
+123-abc 123-abc 123_abc
+#patterns
+"123[-_-]abc"
+#expected
+123-abc
+123_abc
+
+#test: hard_34
+#text
+LoremIpsum DolorSit AmetConsectetur
+#patterns
+["*Ipsum", "*Sit", "*tur"]
+#expected
+LoremIpsum
+DolorSit
+AmetConsectetur
+
+#test: hard_35
+#text
+s1 s2 s3 s4 s5
+#patterns
+s[2-4]
+#expected
+s2
+s3
+s4
+
+#test: hard_36
+#text
+value=100 value=200 value=abc
+#patterns
+"value=*00"
+#expected
+value=100
+value=200
+
+#test: hard_37
+#text
+foo-bar foo.bar foo_bar
+#patterns
+foo[-._]bar
+#expected
+foo-bar
+foo.bar
+foo_bar
+
+#test: hard_38
+#text
+אחת שתיים שלוש
+#patterns
+"*ת*"
+#expected
+אחת
+שתיים
+
+#test: hard_39
+#text
+два три четыре
+#patterns
+три
+#expected
+три
+
+#test: hard_40
+#text
+line01 line02 line10 line20
+#patterns
+line[0-1][0-9]
+#expected
+line01
+line02
+line10
+
+#test: hard_41
+#text
+abcDEF ghiJKL
+#patterns
+abc*def
+#params
+ignore_case=false
+#expected
+
+#test: hard_42
+#text
+abcDEF ghiJKL
+#patterns
+abc*def
+#expected
+abcDEF
+
+#test: hard_43
+#text
+foo1BAR foo2bar Foo3Bar
+#patterns
+foo_[Bb][Aa][Rr]
+#expected
+foo1BAR
+foo2bar
+Foo3Bar
+
+#test: hard_44
+#text
+foo1BAR foo2bar Foo3Bar
+#patterns
+"foo%bar"
+#expected
+foo1BAR
+foo2bar
+Foo3Bar
+
+#test: hard_45
+#text
+start_end startMiddleEnd
+#patterns
+start*end
+#expected
+start_end
+startMiddleEnd
+
+#test: hard_46
+#text
+αβγ δειζη θικ
+#patterns
+"*β*γ"
+#expected
+αβγ
+
+#test: hard_47
+#text
+foo\ta\tbar foo\tbar
+#patterns
+"foo%bar"
+#expected
+foo\ta\tbar
+foo\tbar
+
+#test: hard_48
+#text
+foo@ example@example.com @bar
+#patterns
+"*@*.*"
+#expected
+example@example.com
+
+#test: hard_49
+#text
+[section] {section} <section>
+#patterns
+["[*]", "{*}", "<*tion*>"]
+#expected
+<section>
+
+#test: hard_50
+#text
+path/to Dir\\File C:\\
+#patterns
+["*/to", "Dir\\*"]
+#expected
+path/to
+Dir\\File
+
+#test: hard_51
+#text
+snake_case kebab-case camelCase
+#patterns
+%c%ase
+#expected
+snake_case
+camelCase
+kebab-case
+
+#test: hard_52
+#text
+v1.0.0 v1.0.1 v2.0.0
+#patterns
+"v[12].0.[01]"
+#expected
+v1.0.0
+v1.0.1
+v2.0.0
+
+#test: hard_53
+#text
+v1.0.0 v1.0.1 v2.0.0
+#patterns
+"v2.0.%"
+#expected
+v2.0.0
+
+#test: hard_54
+#text
+AA BB CC12 DD34
+#patterns
+"[A-Z][A-Z][0-9][0-9]"
+#expected
+CC12
+DD34
+
+#test: hard_55
+#text
+foo foofoo fofoofo
+#patterns
+"foo%foo"
+#expected
+foofoo
+
+
+#test: hard_56
+#text
+abc_123_xyz abc_456_xyz
+#patterns
+"abc_%_xyz"
+#expected
+abc_123_xyz
+abc_456_xyz
+
+#test: hard_57
+#text
+http://site https://secure ftp://file
+#patterns
+"*://*"
+#expected
+http://site
+https://secure
+ftp://file
+
+#test: hard_58
+#text
+0x1A 0x2B 0x3C
+#patterns
+"0x[0-9,A-F][0-9,A-F]"
+#expected
+0x1A
+0x2B
+0x3C
+
+#test: hard_59
+#text
+foo.css foo.js foo.min.css
+#patterns
+"foo.*.css"
+#expected
+foo.min.css
+
+#test: hard_60
+#text
+end.
+#patterns
+"*."
+#expected
+end.

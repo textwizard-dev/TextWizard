@@ -1,0 +1,959 @@
+#test: remove_phrasing_true_easy_01
+#data
+<html><body><em>Emphasis text</em></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_02
+#data
+<html><body><b>Bold text</b></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_03
+#data
+<html><body><i>Italic text</i></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_04
+#data
+<html><body><span>Span text</span></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_05
+#data
+<html><body>Before<b>middle</b>after</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Before after</body></html>
+
+#test: remove_phrasing_true_easy_06
+#data
+<html><body><strong>Strong text</strong></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_07
+#data
+<html><body>Outside<em>Inside em</em></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Outside</body></html>
+
+#test: remove_phrasing_true_easy_08
+#data
+<html><body><code>Code snippet</code></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_09
+#data
+<html><body><u>Underlined</u></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_10
+#data
+<html><body>Plain <i>italic</i> text</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Plain  text</body></html>
+
+#test: remove_phrasing_true_easy_11
+#data
+<html><body><br></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_12
+#data
+<html><body><s>Strikethrough</s></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_13
+#data
+<html><body><audio src="music.mp3"></audio></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_14
+#data
+<html><body><img src="image.jpg" alt="img"></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_15
+#data
+<html><body>Text <small>small text</small> end</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Text  end</body></html>
+
+#test: remove_phrasing_true_easy_16
+#data
+<html><body><mark>Highlight</mark></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_17
+#data
+<html><body><button>Click me</button></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_phrasing_true_easy_18
+#data
+<html><body>Leading <sub>subscript</sub> trailing</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: remove_phrasing_true_easy_19
+#data
+<html><body><sup>Superscript</sup>some text</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>some text</body></html>
+
+#test: remove_phrasing_true_easy_20
+#data
+<html><body>No phrasing tags here</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>No phrasing tags here</body></html>
+
+#test: remove_phrasing_true_intermediate_21
+#data
+<html><body>Start21 <em>Mid</em> End21</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Start21  End21</body></html>
+
+#test: remove_phrasing_true_intermediate_22
+#data
+<html><body>Intro <b>Bold22</b> plus text</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Intro  plus text</body></html>
+
+#test: remove_phrasing_true_intermediate_23
+#data
+<html><body><span>Span23</span> Outside23</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> Outside23</body></html>
+
+#test: remove_phrasing_true_intermediate_24
+#data
+<html><body>Alpha24<i>Italic24</i>Omega24</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Alpha24 Omega24</body></html>
+
+#test: remove_phrasing_true_intermediate_25
+#data
+<html><body><strong>Strong25</strong> plus <s>Strike25</s></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus </body></html>
+
+#test: remove_phrasing_true_intermediate_26
+#data
+<html><body>Leading26 <br> with a break</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Leading26  with a break</body></html>
+
+#test: remove_phrasing_true_intermediate_27
+#data
+<html><body>Text27 <img src="img27.png" alt="img27"></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Text27 </body></html>
+
+#test: remove_phrasing_true_intermediate_28
+#data
+<html><body><audio src="sound28.mp3"></audio> plus text28</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus text28</body></html>
+
+#test: remove_phrasing_true_intermediate_29
+#data
+<html><body>Start29 <button>Btn29</button> End29</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Start29  End29</body></html>
+
+#test: remove_phrasing_true_intermediate_30
+#data
+<html><body><p>Para text <em>em inside p</em> rest</p></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><p>Para text  rest</p></body></html>
+
+#test: remove_phrasing_true_intermediate_31
+#data
+<html><body>Intro31 <select><option>Opt31</option></select> more text31</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Intro31  more text31</body></html>
+
+#test: remove_phrasing_true_intermediate_32
+#data
+<html><body><template>Template32</template> plus outside32</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus outside32</body></html>
+
+#test: remove_phrasing_true_intermediate_33
+#data
+<html><body>Alpha33 <sub>Sub33</sub> Beta33 <sup>Sup33</sup></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Alpha33  Beta33 </body></html>
+
+#test: remove_phrasing_true_intermediate_34
+#data
+<html><body>Leading34 <svg><rect/></svg> trailing34</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Leading34  trailing34</body></html>
+
+#test: remove_phrasing_true_intermediate_35
+#data
+<html><body><strong>Bold35</strong> plain <em>Em35</em> text</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plain  text</body></html>
+
+#test: remove_phrasing_true_intermediate_36
+#data
+<html><body>One <span>Two <i>Three</i></span> Four</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>One  Four</body></html>
+
+#test: remove_phrasing_true_intermediate_37
+#data
+<html><body>Text37 <input type="text" value="val37"></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Text37 </body></html>
+
+#test: remove_phrasing_true_intermediate_38
+#data
+<html><body>Lead38 <label>Label38</label> Trail38</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Lead38  Trail38</body></html>
+
+#test: remove_phrasing_true_intermediate_39
+#data
+<html><body><q>Quote39</q> plus text39</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus text39</body></html>
+
+#test: remove_phrasing_true_intermediate_40
+#data
+<html><body>Alpha40 <time datetime="2020-01-01">Time40</time> Omega40</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Alpha40  Omega40</body></html>
+
+#test: remove_phrasing_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><b>Bold41</b><div>Text41</div></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>Text41</div></body></html>
+
+#test: remove_phrasing_true_complex_42
+#data
+<html><body>Start42 <em>em42</em><p>Paragraph42</p></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Start42 <p>Paragraph42</p></body></html>
+
+#test: remove_phrasing_true_complex_43
+#data
+<html><body><div><span>Span43</span><strong>Strong43</strong></div>End43</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><div></div>End43</body></html>
+
+#test: remove_phrasing_true_complex_44
+#data
+<html><body><audio src="sound44.mp3"></audio> text44 <small>Small44</small> end44</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> text44  end44</body></html>
+
+#test: remove_phrasing_true_complex_45
+#data
+<html><body><p>Inside45 <i>italic45</i> more text</p></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><p>Inside45  more text</p></body></html>
+
+#test: remove_phrasing_true_complex_46
+#data
+<html><body><span>Outer46 <em>Inner46</em></span> trailing46</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> trailing46</body></html>
+
+#test: remove_phrasing_true_complex_47
+#data
+<html><body><div>Div47 <b>Bold47</b> text <br> linebreak47</div></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><div>Div47  text  linebreak47</div></body></html>
+
+#test: remove_phrasing_true_complex_48
+#data
+<html><body>Intro48 <noscript>No script48</noscript> outro48</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Intro48  outro48</body></html>
+
+#test: remove_phrasing_true_complex_49
+#data
+<html><body><sub>Sub49</sub><sup>Sup49</sup> plus text49</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus text49</body></html>
+
+#test: remove_phrasing_true_complex_50
+#data
+<html><body><div><select><option>Opt50</option></select> Div text50</div></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><div> Div text50</div></body></html>
+
+#test: remove_phrasing_true_complex_51
+#data
+<html><body>leading51 <object data="file51"></object> trailing51</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>leading51  trailing51</body></html>
+
+#test: remove_phrasing_true_complex_52
+#data
+<html><body>Alpha52 <mark>Mark52</mark> Beta52 <ruby>Ruby52</ruby></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Alpha52  Beta52 </body></html>
+
+#test: remove_phrasing_true_complex_53
+#data
+<html><body><strong>Strong53 <em>NestedEm53</em></strong> final53</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> final53</body></html>
+
+#test: remove_phrasing_true_complex_54
+#data
+<html><body><audio><source src="sound54.mp3"></audio> plus <i>italic54</i></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> plus </body></html>
+
+#test: remove_phrasing_true_complex_55
+#data
+<html><body>outer55 <span>inner55 <b>bold55</b></span> tail55</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>outer55  tail55</body></html>
+
+#test: remove_phrasing_true_complex_56
+#data
+<html><body><p>Para56 <samp>Samp56</samp> done56</p></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><p>Para56  done56</p></body></html>
+
+#test: remove_phrasing_true_complex_57
+#data
+<html><body>start57 <button>Btn57</button><time>Time57</time> end57</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>start57  end57</body></html>
+
+#test: remove_phrasing_true_complex_58
+#data
+<html><body><div><label>Label58</label><input type="text" value="Val58"></div> text58</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><div></div> text58</body></html>
+
+#test: remove_phrasing_true_complex_59
+#data
+<html><body>Pre59 <svg><circle /></svg> Post59</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body>Pre59  Post59</body></html>
+
+#test: remove_phrasing_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><p>Para60 <em>em60</em> <img src="img60.png"></p> tail60</body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><p>Para60  </p> tail60</body></html>
+
+#test: remove_phrasing_false_easy_01
+#data
+<html><body><em>Emphasis text</em></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<em>Emphasis text</em>
+
+#test: remove_phrasing_false_easy_02
+#data
+<html><body><b>Bold text</b></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<b>Bold text</b>
+
+#test: remove_phrasing_false_easy_03
+#data
+<html><body><i>Italic text</i></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<i>Italic text</i>
+
+#test: remove_phrasing_false_easy_04
+#data
+<html><body><span>Span text</span></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<span>Span text</span>
+
+#test: remove_phrasing_false_easy_05
+#data
+<html><body>Before <strong>strong</strong> After</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Before <strong>strong</strong> After
+
+#test: remove_phrasing_false_easy_06
+#data
+<html><body><code>Code snippet</code></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<code>Code snippet</code>
+
+#test: remove_phrasing_false_easy_07
+#data
+<html><body><abbr title="abbr">abbr</abbr></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<abbr title="abbr">abbr</abbr>
+
+#test: remove_phrasing_false_easy_08
+#data
+<html><body><audio src="music.mp3"></audio></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<audio src="music.mp3"></audio>
+
+#test: remove_phrasing_false_easy_09
+#data
+<html><body><br></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<br>
+
+#test: remove_phrasing_false_easy_10
+#data
+<html><body><button>Click me</button></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<button>Click me</button>
+
+#test: remove_phrasing_false_easy_11
+#data
+<html><body><input type="text" value="test"></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<input type="text" value="test">
+
+#test: remove_phrasing_false_easy_12
+#data
+<html><body><kbd>Ctrl</kbd></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<kbd>Ctrl</kbd>
+
+#test: remove_phrasing_false_easy_13
+#data
+<html><body><label>Label text</label></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<label>Label text</label>
+
+#test: remove_phrasing_false_easy_14
+#data
+<html><body><q>Quote text</q></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<q>Quote text</q>
+
+#test: remove_phrasing_false_easy_15
+#data
+<html><body><ruby>Ruby text</ruby></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<ruby>Ruby text</ruby>
+
+#test: remove_phrasing_false_easy_16
+#data
+<html><body><samp>Sample text</samp></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<samp>Sample text</samp>
+
+#test: remove_phrasing_false_easy_17
+#data
+<html><body><select><option>Option text</option></select></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<select><option>Option text</option></select>
+
+#test: remove_phrasing_false_easy_18
+#data
+<html><body><small>Small text</small></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<small>Small text</small>
+
+#test: remove_phrasing_false_easy_19
+#data
+<html><body><textarea>Area text</textarea></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<textarea>Area text</textarea>
+
+#test: remove_phrasing_false_easy_20
+#data
+<html><body>No phrasing tags here</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+No phrasing tags here
+
+#test: remove_phrasing_false_intermediate_21
+#data
+<html><body>Start <em>Mid</em> End</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Start <em>Mid</em> End
+
+#test: remove_phrasing_false_intermediate_22
+#data
+<html><body>Intro <b>Bold22</b> with text</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Intro <b>Bold22</b> with text
+
+#test: remove_phrasing_false_intermediate_23
+#data
+<html><body>Before <i>Italic23</i> after</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Before <i>Italic23</i> after
+
+#test: remove_phrasing_false_intermediate_24
+#data
+<html><body>Alpha <span>Span24</span> Omega</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Alpha <span>Span24</span> Omega
+
+#test: remove_phrasing_false_intermediate_25
+#data
+<html><body><strong>Strong25</strong> plus <abbr title="abbr">abbr25</abbr></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<strong>Strong25</strong> plus <abbr title="abbr">abbr25</abbr>
+
+#test: remove_phrasing_false_intermediate_26
+#data
+<html><body>Leading26 <br> break</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Leading26 <br> break
+
+#test: remove_phrasing_false_intermediate_27
+#data
+<html><body>Text27 <img src="img27.png" alt="Img27"></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Text27 <img src="img27.png" alt="Img27">
+
+#test: remove_phrasing_false_intermediate_28
+#data
+<html><body><audio src="sound28.mp3"></audio> plus text28</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<audio src="sound28.mp3"></audio> plus text28
+
+#test: remove_phrasing_false_intermediate_29
+#data
+<html><body>Start29 <button>Btn29</button> End29</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Start29 <button>Btn29</button> End29
+
+#test: remove_phrasing_false_intermediate_30
+#data
+<html><body><p>Para text <em>inside</em> rest</p></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Para text <em>inside</em> rest
+
+#test: remove_phrasing_false_intermediate_31
+#data
+<html><body>Intro31 <select><option>Opt31</option></select> extra31</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Intro31 <select><option>Opt31</option></select> extra31
+
+#test: remove_phrasing_false_intermediate_32
+#data
+<html><body><template>Temp32</template> and outside32</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<template>Temp32</template> and outside32
+
+#test: remove_phrasing_false_intermediate_33
+#data
+<html><body>Alpha33 <sub>Sub33</sub> Beta33 <sup>Sup33</sup></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Alpha33 <sub>Sub33</sub> Beta33 <sup>Sup33</sup>
+
+#test: remove_phrasing_false_intermediate_34
+#data
+<html><body>Lead34 <svg><rect/></svg> trail34</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Lead34 <svg><rect></rect></svg> trail34
+
+#test: remove_phrasing_false_intermediate_35
+#data
+<html><body><strong>Bold35</strong> plain <em>Em35</em> text</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<strong>Bold35</strong> plain <em>Em35</em> text
+
+#test: remove_phrasing_false_intermediate_36
+#data
+<html><body>One <span>Two <i>Three</i></span> Four</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+One <span>Two <i>Three</i></span> Four
+
+#test: remove_phrasing_false_intermediate_37
+#data
+<html><body>Text37 <input type="text" value="val37"></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Text37 <input type="text" value="val37">
+
+#test: remove_phrasing_false_intermediate_38
+#data
+<html><body>Lead38 <label>Label38</label> Trail38</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Lead38 <label>Label38</label> Trail38
+
+#test: remove_phrasing_false_intermediate_39
+#data
+<html><body><q>Quote39</q> plus text39</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<q>Quote39</q> plus text39
+
+#test: remove_phrasing_false_intermediate_40
+#data
+<html><body>Alpha40 <time datetime="2020-01-01">Time40</time> Omega40</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Alpha40 <time datetime="2020-01-01">Time40</time> Omega40
+
+#test: remove_phrasing_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><b>Bold41</b><div>Text41</div></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Doc41<b>Bold41</b>Text41
+
+#test: remove_phrasing_false_complex_42
+#data
+<html><body>Start42 <em>em42</em><p>Paragraph42</p></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Start42 <em>em42</em>Paragraph42
+
+#test: remove_phrasing_false_complex_43
+#data
+<html><body><div><span>Span43</span><strong>Strong43</strong></div>Extra43</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<span>Span43</span><strong>Strong43</strong>Extra43
+
+#test: remove_phrasing_false_complex_44
+#data
+<html><body><audio src="sound44.mp3"></audio> text44 <small>Small44</small> end44</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<audio src="sound44.mp3"></audio> text44 <small>Small44</small> end44
+
+#test: remove_phrasing_false_complex_45
+#data
+<html><body><p>Inside45 <i>Italic45</i> more text</p></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Inside45 <i>Italic45</i> more text
+
+#test: remove_phrasing_false_complex_46
+#data
+<html><body><span>Outer46 <em>Inner46</em></span> trailing46</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<span>Outer46 <em>Inner46</em></span> trailing46
+
+#test: remove_phrasing_false_complex_47
+#data
+<html><body><div>Div47 <b>Bold47</b> text <br> linebreak47</div></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Div47 <b>Bold47</b> text <br> linebreak47
+
+#test: remove_phrasing_false_complex_48
+#data
+<html><body>Intro48 <noscript>No script48</noscript> outro48</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Intro48 <noscript>No script48</noscript> outro48
+
+#test: remove_phrasing_false_complex_49
+#data
+<html><body><sub>Sub49</sub><sup>Sup49</sup> plus text49</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<sub>Sub49</sub><sup>Sup49</sup> plus text49
+
+#test: remove_phrasing_false_complex_50
+#data
+<html><body><div><select><option>Opt50</option></select> Div text50</div></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<select><option>Opt50</option></select> Div text50
+
+#test: remove_phrasing_false_complex_51
+#data
+<html><body>leading51 <object data="file51"></object> trailing51</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+leading51 <object data="file51"></object> trailing51
+
+#test: remove_phrasing_false_complex_52
+#data
+<html><body>Alpha52 <mark>Mark52</mark> Beta52 <ruby>Ruby52</ruby></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Alpha52 <mark>Mark52</mark> Beta52 <ruby>Ruby52</ruby>
+
+#test: remove_phrasing_false_complex_53
+#data
+<html><body><strong>Strong53 <em>NestedEm53</em></strong> final53</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<strong>Strong53 <em>NestedEm53</em></strong> final53
+
+#test: remove_phrasing_false_complex_54
+#data
+<html><body><audio><source src="sound54.mp3"></audio> plus <i>italic54</i></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<audio><source src="sound54.mp3"></audio> plus <i>italic54</i>
+
+#test: remove_phrasing_false_complex_55
+#data
+<html><body>outer55 <span>inner55 <b>bold55</b></span> tail55</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+outer55 <span>inner55 <b>bold55</b></span> tail55
+
+#test: remove_phrasing_false_complex_56
+#data
+<html><body><p>Para56 <samp>Samp56</samp> done56</p></body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Para56 <samp>Samp56</samp> done56
+
+#test: remove_phrasing_false_complex_57
+#data
+<html><body>start57 <button>Btn57</button><time>Time57</time> end57</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+start57 <button>Btn57</button><time>Time57</time> end57
+
+#test: remove_phrasing_false_complex_58
+#data
+<html><body><div><label>Label58</label><input type="text" value="Val58"></div> text58</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+<label>Label58</label><input type="text" value="Val58"> text58
+
+#test: remove_phrasing_false_complex_59
+#data
+<html><body>Pre59 <svg><circle /></svg> Post59</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Pre59 <svg><circle></circle></svg> Post59
+
+#test: remove_phrasing_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><p>Para60 <em>em60</em> <img src="img60.png"></p> tail60</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Doc60 Para60 <em>em60</em><img src="img60.png"> tail60

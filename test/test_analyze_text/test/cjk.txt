@@ -1,0 +1,374 @@
+#test: ja_punct_edges_basic_01
+#lang: ja
+#text
+「こんにちは」、—世界。
+#expected_errors_count: 0
+#must_not_contain
+こんにちは
+世界
+#end
+
+#test: ja_punct_edges_heavy_02
+#lang: ja
+#text
+（『日本』）――「東京」 …大阪…
+#expected_errors_count: 0
+#must_not_contain
+日本
+東京
+大阪
+#end
+
+#test: ja_quotes_mix_03
+#lang: ja
+#text
+「『漢字』と“カナ”と'かな'」
+#expected_errors_count: 0
+#must_not_contain
+漢字
+カナ
+かな
+#end
+
+#test: ja_brackets_full_set_04
+#lang: ja
+#text
+【東京】〈大阪〉《名古屋》〔京都〕
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+名古屋
+京都
+#end
+
+#test: ja_ideographic_punct_05
+#lang: ja
+#text
+今日は、東京。明日は、京都。
+#expected_errors_count: 0
+#must_not_contain
+今日は
+東京
+明日は
+京都
+#end
+
+#test: ja_middle_dot_list_06
+#lang: ja
+#text
+東京・大阪・名古屋
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+名古屋
+#end
+
+#test: ja_long_vowel_ok_07
+#lang: ja
+#text
+スーパー コーヒー ゲームセンター
+#expected_errors_count: 0
+#end
+
+#test: ja_whitespace_newlines_tabs_08
+#lang: ja
+#text
+東京
+
+と	大阪  名古屋
+#expected_errors_count: 0
+#must_not_contain
+東京
+と
+大阪
+名古屋
+#end
+
+#test: ja_case_ascii_edges_ok_09
+#lang: ja
+#text
+「Tokyo」と『OSAKA』
+expected_errors_count: 10
+#end
+
+#test: ja_mixed_script_ascii_inside_10
+#lang: ja
+#text
+日本A国 B東京
+#expected_errors_count: 2
+#must_contain
+A
+B
+#must_not_contain
+日本
+国
+東京
+#end
+
+#test: ja_only_punct_fullwidth_11
+#lang: ja
+#text
+。 、 ・ 「 」 『 』 （ ） ［ ］ ｛ ｝ 〈 〉 《 》 【 】 〔 〕 …
+#expected_errors_count: 0
+#end
+
+#test: ja_empty_12
+#lang: ja
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: ja_numbers_western_ok_13
+#lang: ja
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: ja_numbers_fullwidth_digits_ok_14
+#lang: ja
+#text
+１２３４５ ３．１４１５９
+#expected_errors_count: 0
+#end
+
+#test: ja_number_range_endash_ok_15
+#lang: ja
+#text
+2000–2005 10–12
+#expected_errors_count: 0
+#end
+
+#test: ja_dash_edges_ok_16
+#lang: ja
+#text
+—東京— —大阪—
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_inner_dash_split_ok_17
+#lang: ja
+#text
+東京―大阪 東京—大阪 東京–大阪
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_hyphen_ascii_split_ok_18
+#lang: ja
+#text
+東京-大阪
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_middle_dot_edges_ok_19
+#lang: ja
+#text
+・東京・
+#expected_errors_count: 0
+#must_not_contain
+東京
+#end
+
+#test: ja_repeat_punct_ok_20
+#lang: ja
+#text
+。。。 、、、 …… ――
+#expected_errors_count: 0
+#end
+
+#test: ja_corrupt_extra_kana_22
+#lang: ja
+#text
+かなかなな
+#expected_errors_count: 0
+#end
+
+#test: ja_corrupt_long_vowel_21
+#lang: ja
+#text
+東京ーー
+#expected_errors_count: 0
+#end
+
+#test: ja_corrupt_rare_kana_tail_23
+#lang: ja
+#text
+東京ゐ
+#expected_errors_count: 0
+#end
+
+#test: ja_ascii_suffix_yields_ascii_errors_24
+#lang: ja
+#text
+東京xyz
+#expected_errors_count: 1
+#must_contain
+xyz
+#must_not_contain
+東京
+#end
+
+#test: ja_token_split_on_middle_dot_25
+#lang: ja
+#text
+日本・東京・駅
+#expected_errors_count: 0
+#must_not_contain
+日本
+東京
+駅
+#end
+
+#test: ja_pairing_all_ok_26
+#lang: ja
+#text
+（「『【〈《〔漢字〕》〉】』」）
+#expected_errors_count: 0
+#must_not_contain
+漢字
+#end
+
+#test: ja_halfwidth_katakana_ok_27
+#lang: ja
+#text
+ｶﾀｶﾅ ﾃｽﾄ
+#expected_errors_count: 0
+#end
+
+#test: ja_full_mixed_brackets_ascii_ok_28
+#lang: ja
+#text
+("日本") ['東京'] {大阪}
+#expected_errors_count: 0
+#must_not_contain
+日本
+東京
+大阪
+#end
+
+#test: ja_nbsp_in_numbers_ok_29
+#lang: ja
+#text
+1\u00A0000 12\u202F345
+#expected_errors_count: 0
+#end
+
+
+#test: ja_wave_dash_range_ok_31
+#lang: ja
+#text
+東京〜大阪 1〜3
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_tilde_ascii_edges_ok_32
+#lang: ja
+#text
+~東京~ ~大阪~
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_emoji_edges_ok_33
+#lang: ja
+#text
+（東京🗼大阪）
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_fullwidth_latin_flag_34
+#lang: ja
+#text
+ＡＢＣ
+#expected_errors_count: 1
+#must_contain
+ＡＢＣ
+#end
+
+#test: ja_ascii_letters_in_mixed_token_35
+#lang: ja
+#text
+AI東京2025
+#expected_errors_count: 1
+#must_contain
+AI
+#end
+
+#test: ja_fullwidth_parens_quotes_ok_36
+#lang: ja
+#text
+（「東京」）『大阪』
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_nbsp_thinspace_numbers_ok_37
+#lang: ja
+#text
+1\u00A0000 12\u202F345
+#expected_errors_count: 0
+#end
+
+#test: ja_prolong_mark_edges_ok_38
+#lang: ja
+#text
+ー東京ー
+#expected_errors_count: 0
+#must_not_contain
+東京
+#end
+
+#test: ja_middle_dot_series_ok_39
+#lang: ja
+#text
+・東京・大阪・
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: ja_url_email_flags_40
+#lang: ja
+#text
+東京 https://example.com メール test@example.com
+#expected_errors_count: 0
+#end
+
+#test: ja_hashtag_mention_flags_41
+#lang: ja
+#text
+#東京 @誰か
+#expected_errors_count: 0
+#end
+
+#test: ja_ascii_chunk_flag_42
+#lang: ja
+#text
+abc 東京
+#expected_errors_count: 1
+#must_contain
+abc
+#end

@@ -1,0 +1,571 @@
+#test: easy_1_simple_pair
+#data
+1,alpha,100
+1,alpha,100
+2,beta,200
+#params
+csv.remove_duplicates_rows=true
+#expected
+1,alpha,100
+2,beta,200
+
+
+#test: easy_2_all_same
+#data
+@a,b,c
+a,b,c
+a,b,c
+#params
+csv.remove_duplicates_rows=true
+#expected
+@a,b,c
+a,b,c
+
+
+#test: easy_3_no_duplicates
+#data
+a,b
+c,d
+#params
+csv.remove_duplicates_rows=true
+#expected
+a,b
+c,d
+
+#test: easy_4_multiple_scattered
+#data
+x,y
+z,w
+x,y
+z,w
+x,y
+#params
+csv.remove_duplicates_rows=true
+#expected
+x,y
+z,w
+
+#test: easy_5_single_row
+#data
+1,1,1
+#params
+csv.remove_duplicates_rows=true
+#expected
+1,1,1
+
+#test: easy_6_numeric_triple
+#data
+10,20,30
+10,20,30
+10,20,30
+#params
+csv.remove_duplicates_rows=true
+#expected
+10,20,30
+
+#test: easy_7_noncontiguous
+#data
+A,B
+C,D
+A,B
+E,F
+#params
+csv.remove_duplicates_rows=true
+#expected
+A,B
+C,D
+E,F
+
+#test: easy_8_mixed_case
+#data
+foo,bar
+Foo,Bar
+foo,bar
+#params
+csv.remove_duplicates_rows=true
+#expected
+foo,bar
+Foo,Bar
+
+#test: easy_9_leading_zero
+#data
+007,James
+007,James
+008,Bond
+#params
+csv.remove_duplicates_rows=true
+#expected
+007,James
+008,Bond
+
+#test: easy_10_empty_row
+#data
+
+
+
+#params
+csv.remove_duplicates_rows=true
+#error
+CSVValidationError('CSV is empty')
+#expected
+...
+
+
+
+#test: easy_11_numbers_and_text
+#data
+1,one
+2,two
+1,one
+#params
+csv.remove_duplicates_rows=true
+#expected
+1,one
+2,two
+
+#test: easy_12_hyphens
+#data
+a-b,c-d
+a-b,c-d
+e-f,g-h
+#params
+csv.remove_duplicates_rows=true
+#expected
+a-b,c-d
+e-f,g-h
+
+#test: easy_13_special_chars
+#data
+@,!
+@,!
+#,$
+#params
+csv.remove_duplicates_rows=true
+#expected
+@,!
+#,$
+
+#test: easy_14_reversed
+#data
+A,1
+B,2
+A,1
+#params
+csv.remove_duplicates_rows=true
+#expected
+A,1
+B,2
+
+#test: easy_15_double_quote_literal
+#data
+"X","Y"
+"X","Y"
+Z,W
+#params
+csv.remove_duplicates_rows=true
+#expected
+"X","Y"
+Z,W
+
+#test: easy_16_semicolon_delim
+#data
+1;2;3
+1;2;3
+2;3;4
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+1;2;3
+2;3;4
+
+#test: easy_17_pipe_delim
+#data
+A|B|C
+A|B|C
+D|E|F
+#params
+csv.delimiter=|
+csv.remove_duplicates_rows=true
+#expected
+A|B|C
+D|E|F
+
+#test: easy_18_tab_delim
+#data
+x	y	z
+x	y	z
+u	v	w
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+x	y	z
+u	v	w
+
+#test: easy_19_mixed_delim
+#data
+1,2;3
+1,2;3
+4,5;6
+#params
+csv.delimiter=,
+csv.remove_duplicates_rows=true
+#expected
+1,2;3
+4,5;6
+
+#test: easy_20_special_empty
+#data
+"",""
+"",""
+#params
+csv.remove_duplicates_rows=true
+#expected
+"",""
+
+#test: medium_1_header_and_duplicates
+#data
+id,name,score
+1,Alice,100
+1,Alice,100
+2,Bob,200
+#params
+csv.remove_duplicates_rows=true
+#expected
+id,name,score
+1,Alice,100
+2,Bob,200
+
+#test: medium_2_blank_lines_preserved
+#data
+id,val
+
+1,100
+1,100
+2,200
+
+#params
+csv.remove_duplicates_rows=true
+#expected
+id,val
+
+1,100
+2,200
+
+#test: medium_3_whitespace_distinct
+#data
+ A , B
+A,B
+#params
+csv.remove_duplicates_rows=true
+#expected
+ A , B
+A,B
+
+#test: medium_4_quoted_fields
+#data
+"a","b,b","c"
+"a","b,b","c"
+#params
+csv.remove_duplicates_rows=true
+#expected
+"a","b,b","c"
+
+#test: medium_5_quoted_whitespace
+#data
+" A "," B "," C "
+" A "," B "," C "
+#params
+csv.remove_duplicates_rows=true
+#expected
+" A "," B "," C "
+
+#test: medium_6_semicolon_and_quotes
+#data
+"ID";"Desc";"Val"
+"ID";"Desc";"Val"
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+"ID";"Desc";"Val"
+
+#test: medium_7_pipe_and_blank
+#data
+X|Y|Z
+
+X|Y|Z
+#params
+csv.delimiter=|
+csv.remove_duplicates_rows=true
+#expected
+X|Y|Z
+
+
+#test: medium_8_mixed_case_header
+#data
+Id,Name
+id,name
+Id,Name
+#params
+csv.remove_duplicates_rows=true
+#expected
+Id,Name
+id,name
+
+#test: medium_9_embedded_comma
+#data
+"1,000","data"
+"1,000","data"
+#params
+csv.remove_duplicates_rows=true
+#expected
+"1,000","data"
+
+#test: medium_10_unicode_chars
+#data
+café,naïve
+café,naïve
+#params
+csv.remove_duplicates_rows=true
+#expected
+café,naïve
+
+#test: medium_11_trailing_spaces
+#data
+A ,B
+A ,B
+#params
+csv.remove_duplicates_rows=true
+#expected
+A ,B
+
+#test: medium_12_leading_tabs
+#data
+	A	,	B
+	A	,	B
+#params
+csv.delimiter=,
+csv.remove_duplicates_rows=true
+#expected
+	A	,	B
+
+#test: medium_13_header_repeat_later
+#data
+h1,h2
+1,2
+h1,h2
+3,4
+#params
+csv.remove_duplicates_rows=true
+#expected
+h1,h2
+1,2
+3,4
+
+#test: medium_14_multiduplicate
+#data
+x,y
+x,y
+x,y
+z,w
+#params
+csv.remove_duplicates_rows=true
+#expected
+x,y
+z,w
+
+#test: medium_15_semicolon_mixed
+#data
+A;B
+A;B
+C;D
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+A;B
+C;D
+
+#test: medium_16_tab_quoted
+#data
+"x	y","y"
+"x	y","y"
+#params
+csv.delimiter=\t
+csv.remove_duplicates_rows=true
+#expected
+"x	y","y"
+
+#test: medium_17_numeric_strings
+#data
+01,02
+1,2
+01,02
+#params
+csv.remove_duplicates_rows=true
+#expected
+01,02
+1,2
+
+#test: medium_18_empty_and_blank
+#data
+"",""
+"",""
+#params
+csv.remove_duplicates_rows=true
+#expected
+"",""
+
+#test: medium_19_mixed_line_endings
+#data
+A,B
+A,B
+#params
+csv.remove_duplicates_rows=true
+#expected
+A,B
+
+#test: medium_20_complex_mixture
+#data
+"A,1",B,100
+"A,1",B,100
+#params
+csv.remove_duplicates_rows=true
+#expected
+"A,1",B,100
+
+#test: hard_1_multiline_quoted
+#data
+ID,Note
+1,"Line1
+Line1"
+1,"Line1
+Line1"
+#params
+csv.remove_duplicates_rows=true
+#expected
+ID,Note
+1,"Line1
+Line1"
+
+#test: hard_2_quotes_inside
+#data
+"ID","He said ""Hello"""
+"ID","He said ""Hello"""
+#params
+csv.remove_duplicates_rows=true
+#expected
+"ID","He said ""Hello"""
+
+#test: hard_3_mixed_delimiters
+#data
+1;"A,B";3
+1;"A,B";3
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+1;"A,B";3
+
+#test: hard_4_embedded_newline
+#data
+X,Y
+"A
+B",C
+"A
+B",C
+#params
+csv.remove_duplicates_rows=true
+#expected
+X,Y
+"A
+B",C
+
+#test: hard_5_escaped_quotes
+#data
+"a""b",c
+"a""b",c
+#params
+csv.remove_duplicates_rows=true
+#expected
+"a""b",c
+
+#test: hard_6_mixed_case_and_whitespace
+#data
+ A , B
+ A , B
+#params
+csv.remove_duplicates_rows=true
+#expected
+ A , B
+
+#test: hard_7_long_rows
+#data
+1,2,3,4,5,6
+1,2,3,4,5,6
+#params
+csv.remove_duplicates_rows=true
+#expected
+1,2,3,4,5,6
+
+#test: hard_8_semicolon_quotes_newline
+#data
+"1";"Line
+Break"
+"1";"Line
+Break"
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+"1";"Line
+Break"
+
+#test: hard_9_tab_and_semicolon
+#data
+A;B;C
+A;B;C
+#params
+csv.delimiter=;
+csv.remove_duplicates_rows=true
+#expected
+A;B;C
+
+#test: hard_10_numeric_precision
+#data
+1.00,100
+1.00,100
+#params
+csv.remove_duplicates_rows=true
+#expected
+1.00,100
+
+#test: hard_11_unicode_and_quotes
+#data
+"café","naïve"
+"café","naïve"
+#params
+csv.remove_duplicates_rows=true
+#expected
+"café","naïve"
+
+#test: hard_12_leading_trailing_whitespace_quotes
+#data
+" A","B "
+" A","B "
+#params
+csv.remove_duplicates_rows=true
+#expected
+" A","B "
+
+#test: hard_13_mixed_empty_and_values
+#data
+,100
+,100
+#params
+csv.remove_duplicates_rows=true
+#expected
+,100
+

@@ -1,0 +1,201 @@
+#test: special_case_1
+#lang: nb
+#text
+univ.
+#expected_errors_count: 0
+#must_not_contain
+univ.
+#end
+
+
+#test: special_case_2
+#lang: ca
+#text
+escarramiquen-lo
+#expected_errors_count: 0
+#must_not_contain
+escarramiquen-lo
+#end
+
+#test: special_case_3
+#lang: it
+#text
+'ciao''cxxiao' cixxxao
+#expected_errors_count: 2
+#must_contain
+cxxiao
+cixxxao
+#must_not_contain
+ciao
+#end
+
+
+#test: special_case_4
+#lang: en
+#text
+{"key":"valuxe"}
+#expected_errors_count: 1
+#must_contain
+valuxe
+#end
+
+#test: special_case_5
+#lang: as
+#text
+ইন্টাৰভেল' লেটাই
+#expected_errors_count: 0
+#end
+
+#test: special_case_5.1
+#lang: as
+#text
+মোকলাওঁ''
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_6
+#lang: en
+#text
+{"key":"valuxe"}
+#expected_errors_count: 1
+#must_contain
+valuxe
+#end
+
+
+#test: special_case_7
+#lang: fa
+#text
+پیردختری‌مان غیرمسلمانت آبسالانید قلمدوشهایش اقدامی‌اند تصویبنامه‌تان منحصرانه‌ها یکروزه‌ترید میرجهانیهاست قمرودند بایکوتمان
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_8
+#lang: de
+#text
+fallschirmspringertüre
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_9
+#lang: en
+#text
+polyoxyethylene'sccc
+#expected_errors_count: 1
+#must_contain
+polyoxyethylene'sccc
+#end
+
+
+
+#test: special_case_10
+#lang: ar
+#text
+تونجا:تونغا
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_11
+#lang: he
+#text
+תל־אביב ירוש־לים
+#expected_errors_count: 2
+#must_contain
+תל־אביב 
+ירוש־לים
+#end
+
+
+#test: special_case_12
+#lang: ar
+#text
+تونجا:تونغاccc
+#expected_errors_count: 1
+#end
+
+
+
+#test: special_case_13
+#lang: as
+#text
+প্ৰডাকচনৰ'ccc
+#expected_errors_count: 1
+#must_contain
+প্ৰডাকচনৰ'ccc
+#end
+
+
+
+#test: special_case_14
+#lang: hi
+#text
+खुद-ब-खुदccc
+#expected_errors_count: 1
+#must_contain
+खुद-ब-खुदccc
+#end
+
+
+
+#test: special_case_15
+#lang: nb
+#text
+univ.
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_16
+#lang: si
+#text
+දිළිඳුතම පි කලට වාහන කොච්චියා ස්ථානවලද සතියෙම මැටියගහආර
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_17
+#lang: sr
+#text
+najprepečenosti  najgojačićima   nepričešćene
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_18
+#lang: ta
+#text
+சாரின்-movie
+#expected_errors_count: 0
+#end
+
+
+#test: special_case_19
+#lang: uk
+#text
+будо-літківськеccc
+#expected_errors_count: 1
+#end
+
+
+#test: special_case_20
+#lang: gd
+#text
+n-uisg'-airgid-se
+#expected_errors_count: 0
+#must_not_contain
+n-uisg'-airgid-se
+#end
+
+
+#test: special_case_21
+#lang: si
+#text
+හික්කඩුව“ccc
+#expected_errors_count: 1
+#must_contain
+හික්කඩුව“ccc
+#end

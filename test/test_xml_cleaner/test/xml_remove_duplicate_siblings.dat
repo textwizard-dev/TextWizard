@@ -1,0 +1,480 @@
+#test: remove_dup_easy_01
+#data
+<root><a/><a/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a/></root>
+
+#test: remove_dup_easy_02
+#data
+<root><a>1</a><a>1</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a></root>
+
+#test: remove_dup_easy_03
+#data
+<root><a>1</a><a>2</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><a>2</a></root>
+
+#test: remove_dup_easy_04
+#data
+<root><a x="1"/><a x="1"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a x="1"/></root>
+
+#test: remove_dup_easy_05
+#data
+<root><a>foo</a><b>foo</b><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><b>foo</b></root>
+
+#test: remove_dup_easy_06
+#data
+<root><a>foo</a><a>foo</a><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a></root>
+
+#test: remove_dup_easy_07
+#data
+<root><a/><b/><b/><c/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a/><b/><c/></root>
+
+#test: remove_dup_easy_08
+#data
+<root><x> </x><x> </x></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><x> </x></root>
+
+#test: remove_dup_easy_09
+#data
+<root><a>1</a><a>1</a><b>2</b><b>2</b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><b>2</b></root>
+
+#test: remove_dup_easy_10
+#data
+<root><a> </a><a> </a><a> </a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a> </a></root>
+
+#test: remove_dup_easy_11
+#data
+<root><p q="v"/><p q="v"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><p q="v"/></root>
+
+#test: remove_dup_easy_12
+#data
+<root><a>foo</a><b>bar</b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><b>bar</b></root>
+
+#test: remove_dup_easy_13
+#data
+<root><a/><a/><b/><b/><b/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a/><b/></root>
+
+#test: remove_dup_easy_14
+#data
+<root><c>1</c><c>1</c><a>2</a><c>1</c></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><c>1</c><a>2</a></root>
+
+#test: remove_dup_easy_15
+#data
+<root><a>1</a><A>1</A><a>1</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><A>1</A></root>
+
+#test: remove_dup_easy_16
+#data
+<root><a>1</a><!-- comment --><a>1</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><!-- comment --></root>
+
+#test: remove_dup_easy_17
+#data
+<root><a>1</a><a> 1 </a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><a> 1 </a></root>
+
+#test: remove_dup_easy_18
+#data
+<root><a/><b> </b><b> </b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a/><b> </b></root>
+
+#test: remove_dup_easy_19
+#data
+<root><a>x</a><b>x</b><a>x</a><b>x</b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>x</a><b>x</b></root>
+
+#test: remove_dup_easy_20
+#data
+<root>text</root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root>text</root>
+
+
+#test: remove_dup_mid_01
+#data
+<root><a><b/></a><a><b/></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b/></a></root>
+
+#test: remove_dup_mid_02
+#data
+<root><a>1<b>2</b></a><a>1<b>2</b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2</b></a></root>
+
+#test: remove_dup_mid_03
+#data
+<root><a>1<b>2</b>3</a><a>1<b>2</b>3</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2</b>3</a></root>
+
+#test: remove_dup_mid_04
+#data
+<root><a><b>foo</b><c>bar</c></a><a><b>foo</b><c>bar</c></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>foo</b><c>bar</c></a></root>
+
+#test: remove_dup_mid_05
+#data
+<root><x y="1"/><x y="1"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><x y="1"/></root>
+
+#test: remove_dup_mid_06
+#data
+<root><a> text </a><a> text </a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a> text </a></root>
+
+#test: remove_dup_mid_07
+#data
+<root><a><!--c--></a><a><!--c--></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><!--c--></a></root>
+
+#test: remove_dup_mid_08
+#data
+<root><a>foo</a><a>foo</a><a>bar</a><a>bar</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><a>bar</a></root>
+
+#test: remove_dup_mid_09
+#data
+<root><a><b/><c/></a><a><b/><c/></a><a><b/></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b/><c/></a><a><b/></a></root>
+
+#test: remove_dup_mid_10
+#data
+<root><a/><b><c/></b><b><c/></b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a/><b><c/></b></root>
+
+#test: remove_dup_mid_11
+#data
+<root><a>1</a><b>1</b><a>1</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><b>1</b></root>
+
+#test: remove_dup_mid_12
+#data
+<root><a>1</a><a> 1</a><a>1 </a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><a> 1</a><a>1 </a></root>
+
+#test: remove_dup_mid_13
+#data
+<root><ns:a xmlns:ns="u"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><ns:a xmlns:ns="u"/></root>
+
+#test: remove_dup_mid_14
+#data
+<root><a>1<b>2<c>3</c></b></a><a>1<b>2<c>3</c></b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2<c>3</c></b></a></root>
+
+#test: remove_dup_mid_15
+#data
+<root><a>foo</a><b>foo</b><c>foo</c><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><b>foo</b><c>foo</c></root>
+
+#test: remove_dup_mid_16
+#data
+<root><a>foo<b/>bar</a><a>foo<b/>bar</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo<b/>bar</a></root>
+
+#test: remove_dup_mid_17
+#data
+<root><a>foo<![CDATA[x]]></a><a>foo<![CDATA[x]]></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo<![CDATA[x]]></a></root>
+
+#test: remove_dup_mid_18
+#data
+<root><a>foo&amp;bar</a><a>foo&amp;bar</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo&amp;bar</a></root>
+
+#test: remove_dup_mid_19
+#data
+<root><a>foo</a><a>bar</a><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><a>bar</a></root>
+
+#test: remove_dup_mid_20
+#data
+<root><a><b>1</b><c>2</c></a><d/><d/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>1</b><c>2</c></a><d/></root>
+
+#test: remove_dup_hard_01
+#data
+<root><a><b>1</b><c><d/></c></a><a><b>1</b><c><d/></c></a><a><b>1</b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>1</b><c><d/></c></a><a><b>1</b></a></root>
+
+#test: remove_dup_hard_02
+#data
+<root><a><b attr="v"/></a><a><b attr="v"/></a><a><b attr="w"/></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b attr="v"/></a><a><b attr="w"/></a></root>
+
+#test: remove_dup_hard_03
+#data
+<root><a>1<b>2</b>3<c>4</c></a><a>1<b>2</b>3<c>4</c></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2</b>3<c>4</c></a></root>
+
+#test: remove_dup_hard_04
+#data
+<root><a>1<b>2<c>3</c></b></a><a>1<b>2<c>3</c></b></a><b>1<b>2<c>3</c></b></b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2<c>3</c></b></a><b>1<b>2<c>3</c></b></b></root>
+
+#test: remove_dup_hard_05
+#data
+<root><a>foo</a><a>foo </a><a> foo</a><a>foo</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo</a><a>foo </a><a> foo</a></root>
+
+#test: remove_dup_hard_06
+#data
+<root><a><b>1</b><c>2</c></a><b><c>2</c><b>1</b></b><b><c>2</c><b>1</b></b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>1</b><c>2</c></a><b><c>2</c><b>1</b></b></root>
+
+#test: remove_dup_hard_07
+#data
+<root><a><!--c--><b>v</b></a><a><!--c--><b>v</b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><!--c--><b>v</b></a></root>
+
+#test: remove_dup_hard_08
+#data
+<root><a>1<![CDATA[2]]><b>3</b></a><a>1<![CDATA[2]]><b>3</b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<![CDATA[2]]><b>3</b></a></root>
+
+#test: remove_dup_hard_09
+#data
+<root><a>1<b>2<c>3<d>4</d></c></b></a><a>1<b>2<c>3<d>4</d></c></b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2<c>3<d>4</d></c></b></a></root>
+
+#test: remove_dup_hard_10
+#data
+<root><x xmlns="u"><y>z</y></x><x xmlns="u"><y>z</y></x></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><x xmlns="u"><y>z</y></x></root>
+
+#test: remove_dup_hard_11
+#data
+<root><a>1<b>2</b>3</a><a>1<b>2</b>4</a><a>1<b>2</b>3</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2</b>3</a><a>1<b>2</b>4</a></root>
+
+#test: remove_dup_hard_12
+#data
+<root><a>foo&amp;bar</a><a>foo&amp;bar</a><a>foo&bar</a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>foo&amp;bar</a><a>foo</a></root>
+
+#test: remove_dup_hard_13
+#data
+<root><a attr="1"><b attr="2"/></a><a attr="1"><b attr="2"/></a><a attr="1"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a attr="1"><b attr="2"/></a><a attr="1"/></root>
+
+#test: remove_dup_hard_14
+#data
+<root><a>1<b>2</b></a><b>1<b>2</b></b><a>1<b>2</b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2</b></a><b>1<b>2</b></b></root>
+
+#test: remove_dup_hard_15
+#data
+<root>text<a>t</a>text<a>t</a>text</root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root>text<a>t</a>text</root>
+
+#test: remove_dup_hard_16
+#data
+<root><a><b>1</b><c>2</c></a><c>2</c><a><b>1</b><c>2</c></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>1</b><c>2</c></a><c>2</c></root>
+
+#test: remove_dup_hard_17
+#data
+<root><a>1</a><b>1</b><a>1</a><c>1</c><b>1</b></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1</a><b>1</b><c>1</c></root>
+
+#test: remove_dup_hard_18
+#data
+<root><a>1<b>2<c>3</c></b></a><a>1<b>2<c></c></b></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a>1<b>2<c>3</c></b></a><a>1<b>2<c/></b></a></root>
+
+#test: remove_dup_hard_19
+#data
+<root><a x="1" y="2"/></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a x="1" y="2"/></root>
+
+#test: remove_dup_hard_20
+#data
+<root><a><b>1</b></a><a><b>1</b><c>2</c></a><a><b>1</b><c>2</c></a></root>
+#params
+remove_duplicate_siblings=true
+#expected
+<root><a><b>1</b></a><a><b>1</b><c>2</c></a></root>

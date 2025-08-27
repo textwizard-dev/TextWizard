@@ -1,0 +1,483 @@
+# Easy (20)
+#test: remove_attr_easy_01
+#data
+<root a="1"/>
+#params
+remove_attributes=a
+#expected
+<root/>
+
+#test: remove_attr_easy_02
+#data
+<root a="1" b="2"/>
+#params
+remove_attributes=a
+#expected
+<root b="2"/>
+
+#test: remove_attr_easy_03
+#data
+<root><item x="1">text</item></root>
+#params
+remove_attributes=x
+#expected
+<root><item>text</item></root>
+
+#test: remove_attr_easy_04
+#data
+<root a="1"/><root a="2"/>
+#params
+remove_attributes=a
+#expected
+<root/>
+
+#test: remove_attr_easy_05
+#data
+<root a="1" keep="yes"/>
+#params
+remove_attributes=a
+#expected
+<root keep="yes"/>
+
+#test: remove_attr_easy_06
+#data
+<root abc="foo"/>
+#params
+remove_attributes=a*
+#expected
+<root/>
+
+#test: remove_attr_easy_07
+#data
+<root x1="1" x2="2" y="3"/>
+#params
+remove_attributes=x?
+#expected
+<root y="3"/>
+
+#test: remove_attr_easy_08
+#data
+<root id="123" class="btn"/>
+#params
+remove_attributes=["i_","c_as_"]
+#expected
+<root/>
+
+#test: remove_attr_easy_09
+#data
+<root data-id="5"/>
+#params
+remove_attributes=da*
+#expected
+<root/>
+
+#test: remove_attr_easy_10
+#data
+<root data_id="5"/>
+#params
+remove_attributes=data_*
+#expected
+<root/>
+
+#test: remove_attr_easy_11
+#data
+<root a="1">foo</root>
+#params
+remove_attributes=a
+#expected
+<root>foo</root>
+
+#test: remove_attr_easy_12
+#data
+<root><a b="v"/></root>
+#params
+remove_attributes=b
+#expected
+<root><a/></root>
+
+#test: remove_attr_easy_13
+#data
+<root a="v" A="V"/>
+#params
+remove_attributes=A
+#expected
+<root a="v"/>
+
+#test: remove_attr_easy_14
+#data
+<root xml:lang="en"/>
+#params
+remove_attributes=["xml:lang"]
+#expected
+<root/>
+
+#test: remove_attr_easy_15
+#data
+<root val="x" value="y"/>
+#params
+remove_attributes=val
+#expected
+<root value="y"/>
+
+#test: remove_attr_easy_16
+#data
+<root><p a="1"/><p a="2"/></root>
+#params
+remove_attributes=a
+#expected
+<root><p/><p/></root>
+
+#test: remove_attr_easy_17
+#data
+<root x="1" y="2" z="3"/>
+#params
+remove_attributes=z
+#expected
+<root x="1" y="2"/>
+
+#test: remove_attr_easy_18
+#data
+<root><a test="t">t</a></root>
+#params
+remove_attributes=test
+#expected
+<root><a>t</a></root>
+
+#test: remove_attr_easy_19
+#data
+<root/>
+#params
+remove_attributes=any
+#expected
+<root/>
+
+#test: remove_attr_easy_20
+#data
+<root a="1" a2="2" acc="3"/>
+#params
+remove_attributes=a*
+#expected
+<root/>
+
+
+#test: remove_attr_mid_01
+#data
+<root xmlns:ns="u" ns:id="1" id="2"/>
+#params
+remove_attributes=ns:id
+#expected
+<root xmlns:ns="u" id="2"/>
+
+#test: remove_attr_mid_02
+#data
+<root xmlns:ns="u" ns:id="1" id="2"/>
+#params
+remove_attributes=id
+#expected
+<root xmlns:ns="u"/>
+
+#test: remove_attr_mid_03
+#data
+<root data-test="x" data-val="y" keep="k"/>
+#params
+remove_attributes=data-*
+#expected
+<root keep="k"/>
+
+#test: remove_attr_mid_04
+#data
+<root><a x="1"><b x="2"/></a></root>
+#params
+remove_attributes=x
+#expected
+<root><a><b/></a></root>
+
+#test: remove_attr_mid_05
+#data
+<root a1="v1" a2="v2" b="v3"/>
+#params
+remove_attributes=a*
+#expected
+<root b="v3"/>
+
+#test: remove_attr_mid_06
+#data
+<root xmlns:ns1="u" xmlns:ns2="u" ns1:foo="v1" ns2:foo="v2"/>
+#params
+remove_attributes=ns1:foo
+#expected
+<root xmlns:ns1="u" xmlns:ns2="u"/>
+
+#test: remove_attr_mid_07
+#data
+<root xml:lang="en" xml:space="preserve" id="1"/>
+#params
+remove_attributes=["xml:lang","xml:space"]
+#expected
+<root id="1"/>
+
+#test: remove_attr_mid_08
+#data
+<root user-id="u1" system-id="s1"/>
+#params
+remove_attributes=system-id
+#expected
+<root user-id="u1"/>
+
+#test: remove_attr_mid_09
+#data
+<root a="1" ab="2" abc="3"/>
+#params
+remove_attributes=?b
+#expected
+<root a="1" abc="3"/>
+
+#test: remove_attr_mid_10
+#data
+<root a="1" b="2" c="3"/>
+#params
+remove_attributes=["b","c"]
+#expected
+<root a="1"/>
+
+#test: remove_attr_mid_11
+#data
+<root xmlns="u" id="1" class="c"/>
+#params
+remove_attributes=id
+#expected
+<root xmlns="u" class="c"/>
+
+#test: remove_attr_mid_12
+#data
+<root xmlns="u"><a id="1" id2="2"/></root>
+#params
+remove_attributes=id*
+#expected
+<root xmlns="u"><a/></root>
+
+#test: remove_attr_mid_13
+#data
+<root x1="1" x2="2" y="3"/>
+#params
+remove_attributes=x*
+#expected
+<root y="3"/>
+
+
+#test: remove_attr_mid_14
+#data
+<root><p class="c" style="s"/></root>
+#params
+remove_attributes=["class","style"]
+#expected
+<root><p/></root>
+
+#test: remove_attr_mid_15
+#data
+<root a="1" b="2"><c d="3"/></root>
+#params
+remove_attributes=["b","d"]
+#expected
+<root a="1"><c/></root>
+
+#test: remove_attr_mid_16
+#data
+<root><a><b x="1"/></a><b x="2"/></root>
+#params
+remove_attributes=x
+#expected
+<root><a><b/></a><b/></root>
+
+#test: remove_attr_mid_17
+#data
+<root><a id="1">t</a><b id="2">u</b></root>
+#params
+remove_attributes=id
+#expected
+<root><a>t</a><b>u</b></root>
+
+#test: remove_attr_mid_18
+#data
+<root data-one="1" data-two="2" data_three="3"/>
+#params
+remove_attributes=["data-*","data_*"]
+#expected
+<root/>
+
+#test: remove_attr_mid_19
+#data
+<root attr="x" ATTR="X"/>
+#params
+remove_attributes=attr
+#expected
+<root ATTR="X"/>
+
+#test: remove_attr_mid_20
+#data
+<root><e a1="1" a2="2"/></root>
+#params
+remove_attributes=["a*"]
+#expected
+<root><e/></root>
+
+
+#test: remove_attr_hard_01
+#data
+<root xmlns:ns="u" ns:id="1" id="2" class="c"/>
+#params
+remove_attributes=["ns:id","id","class"]
+#expected
+<root xmlns:ns="u"/>
+
+#test: remove_attr_hard_02
+#data
+<root xmlns:ns1="u" xmlns:ns2="u" ns1:foo="x" ns2:foo="y" foo="z"/>
+#params
+remove_attributes=["*:foo","foo"]
+#expected
+<root xmlns:ns1="u" xmlns:ns2="u"/>
+
+#test: remove_attr_hard_03
+#data
+<root a="1" ab="2" abc="3" bc="4"/>
+#params
+remove_attributes=["a*","*c"]
+#expected
+<root/>
+
+#test: remove_attr_hard_04
+#data
+<root xml:lang="en" xml:space="p" lang="it"/>
+#params
+remove_attributes=["xml:lang","lang","xml:space"]
+#expected
+<root/>
+
+#test: remove_attr_hard_05
+#data
+<root><n a="1"><m a="2" b="x"/></n></root>
+#params
+remove_attributes=["a","b"]
+#expected
+<root><n><m/></n></root>
+
+#test: remove_attr_hard_06
+#data
+<root data-1="x" data-2="y" data="z"/>
+#params
+remove_attributes=data-?
+#expected
+<root data="z"/>
+
+#test: remove_attr_hard_07
+#data
+<root><a x="1" y="2"/>text<b x="3"/></root>
+#params
+remove_attributes=x
+#expected
+<root><a y="2"/>text<b/></root>
+
+#test: remove_attr_hard_08
+#data
+<root xmlns="u" a="1" b="2"/>
+#params
+remove_attributes=["a","b"]
+#expected
+<root xmlns="u"/>
+
+#test: remove_attr_hard_09
+#data
+<root A1="v1" A2="v2" B1="v3"/>
+#params
+remove_attributes=A?
+#expected
+<root B1="v3"/>
+
+#test: remove_attr_hard_10
+#data
+<root><a xml:lang="en" xml:base="b"/></root>
+#params
+remove_attributes=xml:base
+#expected
+<root><a xml:lang="en"/></root>
+
+#test: remove_attr_hard_11
+#data
+<root p="x" pa="y" paa="z"/>
+#params
+remove_attributes=pa*
+#expected
+<root p="x"/>
+
+#test: remove_attr_hard_12
+#data
+<root><x><y z="1"/></x><y z="2"/></root>
+#params
+remove_attributes=z
+#expected
+<root><x><y/></x><y/></root>
+
+#test: remove_attr_hard_13
+#data
+<root a="1"><b a="2"><c a="3"/></b></root>
+#params
+remove_attributes=a
+#expected
+<root><b><c/></b></root>
+
+#test: remove_attr_hard_14
+#data
+<root><a a1="x" a2="y"><b b1="z"/></a></root>
+#params
+remove_attributes=["a?","b?"]
+#expected
+<root><a><b/></a></root>
+
+#test: remove_attr_hard_15
+#data
+<root xmlns:ns="u" ns:foo="x" foo="y"/>
+#params
+remove_attributes=["ns:foo","foo"]
+#expected
+<root xmlns:ns="u"/>
+
+#test: remove_attr_hard_16
+#data
+<root><a attr="1"/> tail <b attr="2"/></root>
+#params
+remove_attributes=attr
+#expected
+<root><a/> tail <b/></root>
+
+#test: remove_attr_hard_17
+#data
+<root x="1"><child x="2"/></root>
+#params
+remove_attributes=x
+#expected
+<root><child/></root>
+
+#test: remove_attr_hard_18
+#data
+<root><a data-one="1"><b data-two="2"/></a></root>
+#params
+remove_attributes=data-*
+#expected
+<root><a><b/></a></root>
+
+#test: remove_attr_hard_19
+#data
+<root attr="v">T</root>
+#params
+remove_attributes=a*
+#expected
+<root>T</root>
+
+#test: remove_attr_hard_20
+#data
+<root><a A="x" a="y"/></root>
+#params
+remove_attributes=A
+#expected
+<root><a a="y"/></root>

@@ -1,0 +1,479 @@
+#test: empty_tags_easy_01
+#data
+<html><body><custom></custom></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_02
+#data
+<html><body><div>   </div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_03
+#data
+<html><body><p></p></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_04
+#data
+<html><body><div><p>Text</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p></div></body></html>
+
+#test: empty_tags_easy_05
+#data
+<html><body>Start<div></div>End</body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body>StartEnd</body></html>
+
+#test: empty_tags_easy_06
+#data
+<html><body><div><span>   </span></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_07
+#data
+<html><body><header></header><footer>Foot</footer></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><footer>Foot</footer></body></html>
+
+#test: empty_tags_easy_08
+#data
+<html><body><article><p></p></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_09
+#data
+<html><body>Before<div></div>After</body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body>BeforeAfter</body></html>
+
+#test: empty_tags_easy_10
+#data
+<html><body><span>Text</span><span></span></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><span>Text</span></body></html>
+
+#test: empty_tags_easy_11
+#data
+<html><body><div></div><p>Para</p><div></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><p>Para</p></body></html>
+
+#test: empty_tags_easy_12
+#data
+<html><body><div><custom></custom></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_13
+#data
+<html><body><p>Keep</p><p>   </p></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><p>Keep</p></body></html>
+
+#test: empty_tags_easy_14
+#data
+<html><body><div class="test"></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_15
+#data
+<html><body><article><section></section></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_16
+#data
+<html><body><div><p>Content</p><span></span></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Content</p></div></body></html>
+
+#test: empty_tags_easy_17
+#data
+<html><body><div><br></br></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_easy_18
+#data
+<html><body><p>Alpha</p><p>   </p><p>Beta</p></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><p>Alpha</p><p>Beta</p></body></html>
+
+#test: empty_tags_easy_19
+#data
+<html><body><div></div><div>Data</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Data</div></body></html>
+
+#test: empty_tags_easy_20
+#data
+<html><body><span></span>Text<span></span></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body>Text</body></html>
+
+#test: empty_tags_intermediate_21
+#data
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div>Text1<div>   </div>Text2</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div>Text1Text2</div></body></html>
+
+#test: empty_tags_intermediate_22
+#data
+<html><body><section><p></p><p>Content</p></section></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><section><p>Content</p></section></body></html>
+
+#test: empty_tags_intermediate_23
+#data
+<html><body><div><p>Keep</p><div></div></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Keep</p></div></body></html>
+
+#test: empty_tags_intermediate_24
+#data
+<html><body><div>Before<div>   </div>After</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>BeforeAfter</div></body></html>
+
+#test: empty_tags_intermediate_25
+#data
+<html><body><article><header>   </header><p>Text</p></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><article><p>Text</p></article></body></html>
+
+#test: empty_tags_intermediate_26
+#data
+<html><body><div><span>   </span><span>Data</span></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><span>Data</span></div></body></html>
+
+#test: empty_tags_intermediate_27
+#data
+<html><body><div><p>Alpha</p><p> </p><p>Beta</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Alpha</p><p>Beta</p></div></body></html>
+
+#test: empty_tags_intermediate_28
+#data
+<html><body><div><custom></custom><p>Text</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p></div></body></html>
+
+#test: empty_tags_intermediate_29
+#data
+<html><body><div>  <p></p>  </div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_intermediate_30
+#data
+<html><body><ul><li></li><li>Item</li><li></li></ul></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><ul><li>Item</li></ul></body></html>
+
+#test: empty_tags_intermediate_31
+#data
+<html><body><header>Header</header><div>   </div><footer>Footer</footer></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><header>Header</header><footer>Footer</footer></body></html>
+
+#test: empty_tags_intermediate_32
+#data
+<html><body><div><p>Keep</p><p>   </p></div><div>Again</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Keep</p></div><div>Again</div></body></html>
+
+#test: empty_tags_intermediate_33
+#data
+<html><body><article><section><p>Content</p><p>   </p></section></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><article><section><p>Content</p></section></article></body></html>
+
+#test: empty_tags_intermediate_34
+#data
+<html><body><div>Before <p></p> After</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Before  After</div></body></html>
+
+#test: empty_tags_intermediate_35
+#data
+<html><body><div><p>Text</p><p>   </p><p>More</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p><p>More</p></div></body></html>
+
+#test: empty_tags_intermediate_36
+#data
+<html><body><section><p>Keep</p><p> </p></section><aside></aside></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><section><p>Keep</p></section></body></html>
+
+#test: empty_tags_intermediate_37
+#data
+<html><body><div><header></header><p>Data</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Data</p></div></body></html>
+
+#test: empty_tags_intermediate_38
+#data
+<html><body><div><p></p><p></p></div><div>Content</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Content</div></body></html>
+
+#test: empty_tags_intermediate_39
+#data
+<html><body><div><p>  </p></div><div>   </div><div>Good</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Good</div></body></html>
+
+#test: empty_tags_intermediate_40
+#data
+<html><body><div><span></span><span></span>Text</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Text</div></body></html>
+
+#test: empty_tags_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>Before<div>   <span></span></div>After</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>BeforeAfter</div></body></html>
+
+#test: empty_tags_complex_42
+#data
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><header>Header</header><div>   </div><footer>Footer</footer></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><header>Header</header><footer>Footer</footer></body></html>
+
+#test: empty_tags_complex_43
+#data
+<html><body><section><div>   </div><p>Data</p><div></div></section></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><section><p>Data</p></section></body></html>
+
+#test: empty_tags_complex_44
+#data
+<html><body><div>Outer<div>Inner <p>   </p></div>End</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Outer<div>Inner </div>End</div></body></html>
+
+#test: empty_tags_complex_45
+#data
+<html><body><article><header>   </header><section><p></p></section></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+#test: empty_tags_complex_46
+#data
+<html><body><div><p>Text</p><div><span>   </span><em></em></div></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p></div></body></html>
+
+#test: empty_tags_complex_47
+#data
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><section>Start<div>   </div><article><header></header><p>Keep</p></article> End</section></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><section>Start<article><p>Keep</p></article> End</section></body></html>
+
+#test: empty_tags_complex_48
+#data
+<html><body><div><p>   </p><p>   </p></div><div><p>Valid</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Valid</p></div></body></html>
+
+#test: empty_tags_complex_49
+#data
+<html><body><ul><li>Item1</li><li>  </li><li>Item2</li><li>    </li></ul><div>  </div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><ul><li>Item1</li><li>Item2</li></ul></body></html>
+
+#test: empty_tags_complex_50
+#data
+<html><body><div><p>Start</p><div><span>   </span></div><p>End</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Start</p><p>End</p></div></body></html>
+
+#test: empty_tags_complex_51
+#data
+<!DOCTYPE html><html><head><title>Doc51</title></head><body><div><header>  </header><div>  </div></div><p>Paragraph</p></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc51</title></head><body><p>Paragraph</p></body></html>
+
+#test: empty_tags_complex_52
+#data
+<html><body><aside><p>   </p></aside><main><section><div>  </div></section></main></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+
+
+#test: empty_tags_complex_53
+#data
+<html><body><div><p>Text</p><div><span>   </span><span>More</span></div></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p><div><span>More</span></div></div></body></html>
+
+#test: empty_tags_complex_54
+#data
+<html><body><article><header></header><p>Content</p><footer>   </footer></article></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><article><p>Content</p></article></body></html>
+
+#test: empty_tags_complex_55
+#data
+<html><body><div><p></p><p>   </p><p>Text</p></div><div><p>More</p><div></div></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>Text</p></div><div><p>More</p></div></body></html>
+
+#test: empty_tags_complex_56
+#data
+<html><body><div>Start<div></div>Middle<div>   </div>End</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>StartMiddleEnd</div></body></html>
+
+#test: empty_tags_complex_57
+#data
+<html><body><section><div>  <p>Keep</p></div><div>   </div></section></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><section><div>  <p>Keep</p></div></section></body></html>
+
+#test: empty_tags_complex_58
+#data
+<html><body><header>  </header><nav>Menu</nav><footer>   </footer></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><nav>Menu</nav></body></html>
+
+#test: empty_tags_complex_59
+#data
+<html><body><div>   <p>   </p></div><div>   </div><div>Something</div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div>Something</div></body></html>
+
+#test: empty_tags_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><div><p>Keep this</p><div>   </div></div><div>   </div><p>End</p></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><div><p>Keep this</p></div><p>End</p></body></html>
+

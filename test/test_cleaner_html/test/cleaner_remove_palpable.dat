@@ -1,0 +1,959 @@
+#test: remove_palpable_true_easy_01
+#data
+<html><body><p>Paragraph</p></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_02
+#data
+<html><body><h1>Heading</h1></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_03
+#data
+<html><body><div>Content</div></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_04
+#data
+<html><body><article>Article text</article></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_05
+#data
+<html><body><aside>Aside text</aside></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_06
+#data
+<html><body>Outside <p>Inside</p> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Outside  End</body></html>
+
+#test: remove_palpable_true_easy_07
+#data
+<html><body>Before <h2>Header</h2> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_easy_08
+#data
+<html><body><footer>Footer text</footer></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_09
+#data
+<html><body><address>Address info</address></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_10
+#data
+<html><body><em>Emphasis</em></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_11
+#data
+<html><body><strong>Strong</strong></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_12
+#data
+<html><body><span>Span text</span></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_13
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_14
+#data
+<html><body><form>Form content</form></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_15
+#data
+<html><body><section>Section text</section></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_16
+#data
+<html><body><nav>Navigation</nav></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_17
+#data
+<html><body><dl><dt>Term</dt><dd>Definition</dd></dl></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_18
+#data
+<html><body><table><tr><td>Data</td></tr></table></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_19
+#data
+<html><body><ul><li>Item1</li><li>Item2</li></ul></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_easy_20
+#data
+<html><body>Plain text only</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Plain text only</body></html>
+
+#test: remove_palpable_true_intermediate_21
+#data
+<html><body>Start <div>Content</div> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_palpable_true_intermediate_22
+#data
+<html><body>Before <p>Paragraph</p> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_intermediate_23
+#data
+<html><body>Text <h1>Heading</h1> more</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Text  more</body></html>
+
+#test: remove_palpable_true_intermediate_24
+#data
+<html><body>Alpha <article>Article content</article> Omega</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Alpha  Omega</body></html>
+
+#test: remove_palpable_true_intermediate_25
+#data
+<html><body>Lead <aside>Aside info</aside> Trail</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Lead  Trail</body></html>
+
+#test: remove_palpable_true_intermediate_26
+#data
+<html><body>Pre <header>Header</header> Post</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Pre  Post</body></html>
+
+#test: remove_palpable_true_intermediate_27
+#data
+<html><body>Text before <footer>Footer</footer> text after</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Text before  text after</body></html>
+
+#test: remove_palpable_true_intermediate_28
+#data
+<html><body>Leading <div>Div content</div> trailing</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: remove_palpable_true_intermediate_29
+#data
+<html><body>Outer <article><p>Inner</p></article> Extra</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Outer  Extra</body></html>
+
+#test: remove_palpable_true_intermediate_30
+#data
+<html><body>Before <div><p>Nested text</p></div> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_intermediate_31
+#data
+<html><body>Start <h2>Heading</h2> Middle <h3>Subheading</h3> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start  Middle  End</body></html>
+
+#test: remove_palpable_true_intermediate_32
+#data
+<html><body>Intro <div>Block content</div> Outro</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: remove_palpable_true_intermediate_33
+#data
+<html><body>Pretext <section>Section info</section> Posttext</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Pretext  Posttext</body></html>
+
+#test: remove_palpable_true_intermediate_34
+#data
+<html><body>Alpha <aside>Aside content</aside> Beta <p>Paragraph</p></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Alpha  Beta </body></html>
+
+#test: remove_palpable_true_intermediate_35
+#data
+<html><body>Before <div>Div content</div> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_intermediate_36
+#data
+<html><body><footer>Footer text</footer> and extra</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body> and extra</body></html>
+
+#test: remove_palpable_true_intermediate_37
+#data
+<html><body><address>Addr info</address> trailing text</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body> trailing text</body></html>
+
+#test: remove_palpable_true_intermediate_38
+#data
+<html><body><form>Form data</form> plus more</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body> plus more</body></html>
+
+#test: remove_palpable_true_intermediate_39
+#data
+<html><body><div>Content <p>Paragraph</p></div> outside</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body> outside</body></html>
+
+#test: remove_palpable_true_intermediate_40
+#data
+<html><body>Start text <article>Article info</article> End text</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start text  End text</body></html>
+
+#test: remove_palpable_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div><h1>Heading</h1><p>Para</p></div> Extra41</body></html>
+#params
+html.remove_palpable=True
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body> Extra41</body></html>
+
+#test: remove_palpable_true_complex_42
+#data
+<html><body>Start <article><header>Head</header><p>Content</p><footer>Foot</footer></article> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_palpable_true_complex_43
+#data
+<html><body>Pre <aside>Aside info</aside> Post</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Pre  Post</body></html>
+
+#test: remove_palpable_true_complex_44
+#data
+<html><body>Text before <div>Div content</div> text after</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Text before  text after</body></html>
+
+#test: remove_palpable_true_complex_45
+#data
+<html><body>Alpha <section>Section data</section> Omega</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Alpha  Omega</body></html>
+
+#test: remove_palpable_true_complex_46
+#data
+<html><body>Before <footer>Footer info</footer> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_complex_47
+#data
+<html><body><div>Wrapper <article><h2>Title</h2><p>Text</p></article> End</div></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_complex_48
+#data
+<html><body>Start <div>Mixed <p>Para</p> and <aside>Info</aside></div> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_palpable_true_complex_49
+#data
+<html><body>Outer <div><header>Head</header><p>Paragraph</p></div> Extra</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Outer  Extra</body></html>
+
+#test: remove_palpable_true_complex_50
+#data
+<html><body>Begin <main>Main content</main> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Begin  End</body></html>
+
+#test: remove_palpable_true_complex_51
+#data
+<html><body><div>Start <p>Text</p></div><footer>Foot</footer></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_complex_52
+#data
+<html><body>Intro <section>Section <div>Nested</div></section> Outro</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: remove_palpable_true_complex_53
+#data
+<html><body>Before <nav>Navigation</nav> After</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_palpable_true_complex_54
+#data
+<html><body><div>Outer <article>Article <p>Para</p></article> end</div></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_palpable_true_complex_55
+#data
+<html><body>Start complex55 <footer>Footer complex55</footer> End complex55</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Start complex55  End complex55</body></html>
+
+#test: remove_palpable_true_complex_56
+#data
+<html><body>Pre complex56 <aside>Aside complex56</aside> Post complex56</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Pre complex56  Post complex56</body></html>
+
+#test: remove_palpable_true_complex_57
+#data
+<html><body>Begin <em>Emphasis</em> <article>Article complex57</article> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Begin   End</body></html>
+
+#test: remove_palpable_true_complex_58
+#data
+<html><body><section>Section complex58 <div>Div inside</div></section> Outside complex58</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body> Outside complex58</body></html>
+
+#test: remove_palpable_true_complex_59
+#data
+<html><body>Text <menu>Menu info</menu> trailing</body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body>Text  trailing</body></html>
+
+#test: remove_palpable_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start <form>Form data</form> End</body></html>
+#params
+html.remove_palpable=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start  End</body></html>
+
+#test: remove_palpable_false_easy_01
+#data
+<html><body><p>Simple paragraph.</p></body></html>
+#params
+html.remove_palpable=False
+#expected
+<p>Simple paragraph.</p>
+
+#test: remove_palpable_false_easy_02
+#data
+<html><body><h1>Main heading</h1></body></html>
+#params
+html.remove_palpable=False
+#expected
+<h1>Main heading</h1>
+
+#test: remove_palpable_false_easy_03
+#data
+<html><body><div>Content inside div</div></body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Content inside div</div>
+
+#test: remove_palpable_false_easy_04
+#data
+<html><body><article>Article text.</article></body></html>
+#params
+html.remove_palpable=False
+#expected
+<article>Article text.</article>
+
+#test: remove_palpable_false_easy_05
+#data
+<html><body><aside>Sidebar info</aside></body></html>
+#params
+html.remove_palpable=False
+#expected
+<aside>Sidebar info</aside>
+
+#test: remove_palpable_false_easy_06
+#data
+<html><body><footer>Footer text.</footer></body></html>
+#params
+html.remove_palpable=False
+#expected
+<footer>Footer text.</footer>
+
+#test: remove_palpable_false_easy_07
+#data
+<html><body><header>Header content</header></body></html>
+#params
+html.remove_palpable=False
+#expected
+<header>Header content</header>
+
+#test: remove_palpable_false_easy_08
+#data
+<html><body><div>Mixed <span>inline</span> content</div></body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Mixed <span>inline</span> content</div>
+
+#test: remove_palpable_false_easy_09
+#data
+<html><body><b>Bold text</b></body></html>
+#params
+html.remove_palpable=False
+#expected
+<b>Bold text</b>
+
+#test: remove_palpable_false_easy_10
+#data
+<html><body><i>Italic text</i></body></html>
+#params
+html.remove_palpable=False
+#expected
+<i>Italic text</i>
+
+#test: remove_palpable_false_easy_11
+#data
+<html><body><u>Underlined</u></body></html>
+#params
+html.remove_palpable=False
+#expected
+<u>Underlined</u>
+
+#test: remove_palpable_false_easy_12
+#data
+<html><body><abbr title="abbr">Abbr</abbr></body></html>
+#params
+html.remove_palpable=False
+#expected
+<abbr title="abbr">Abbr</abbr>
+
+#test: remove_palpable_false_easy_13
+#data
+<html><body><em>Emphasized</em></body></html>
+#params
+html.remove_palpable=False
+#expected
+<em>Emphasized</em>
+
+#test: remove_palpable_false_easy_14
+#data
+<html><body><iframe src="page.html"></iframe></body></html>
+#params
+html.remove_palpable=False
+#expected
+<iframe src="page.html"></iframe>
+
+#test: remove_palpable_false_easy_15
+#data
+<html><body><video src="video.mp4"></video></body></html>
+#params
+html.remove_palpable=False
+#expected
+<video src="video.mp4"></video>
+
+#test: remove_palpable_false_easy_16
+#data
+<html><body><img src="pic.jpg" alt="pic"></body></html>
+#params
+html.remove_palpable=False
+#expected
+<img src="pic.jpg" alt="pic">
+
+#test: remove_palpable_false_easy_17
+#data
+<html><body>Text only, no palpable tags.</body></html>
+#params
+html.remove_palpable=False
+#expected
+Text only, no palpable tags.
+
+#test: remove_palpable_false_easy_18
+#data
+<html><body><nav>Navigation</nav></body></html>
+#params
+html.remove_palpable=False
+#expected
+<nav>Navigation</nav>
+
+#test: remove_palpable_false_easy_19
+#data
+<html><body><form>Form data</form></body></html>
+#params
+html.remove_palpable=False
+#expected
+<form>Form data</form>
+
+#test: remove_palpable_false_easy_20
+#data
+<html><body><video src="v.mp4"></video> extra text</body></html>
+#params
+html.remove_palpable=False
+#expected
+<video src="v.mp4"></video> extra text
+
+#test: remove_palpable_false_intermediate_21
+#data
+<html><body>Start <div>Div content</div> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start <div>Div content</div> End
+
+#test: remove_palpable_false_intermediate_22
+#data
+<html><body>Before <p>Paragraph</p> After</body></html>
+#params
+html.remove_palpable=False
+#expected
+Before <p>Paragraph</p> After
+
+#test: remove_palpable_false_intermediate_23
+#data
+<html><body>Intro <article>Article text</article> Conclusion</body></html>
+#params
+html.remove_palpable=False
+#expected
+Intro <article>Article text</article> Conclusion
+
+#test: remove_palpable_false_intermediate_24
+#data
+<html><body>Leading <aside>Aside info</aside> trailing</body></html>
+#params
+html.remove_palpable=False
+#expected
+Leading <aside>Aside info</aside> trailing
+
+#test: remove_palpable_false_intermediate_25
+#data
+<html><body>Text <div>Inside div</div> more text</body></html>
+#params
+html.remove_palpable=False
+#expected
+Text <div>Inside div</div> more text
+
+#test: remove_palpable_false_intermediate_26
+#data
+<html><body>Pre <footer>Footer text</footer> Post</body></html>
+#params
+html.remove_palpable=False
+#expected
+Pre <footer>Footer text</footer> Post
+
+#test: remove_palpable_false_intermediate_27
+#data
+<html><body>Start <h1>Heading</h1> middle <h2>Subheading</h2> end</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start <h1>Heading</h1> middle <h2>Subheading</h2> end
+
+#test: remove_palpable_false_intermediate_28
+#data
+<html><body>Text with <div>mixed <p>paragraph</p> content</div> outside</body></html>
+#params
+html.remove_palpable=False
+#expected
+Text with <div>mixed <p>paragraph</p> content</div> outside
+
+#test: remove_palpable_false_intermediate_29
+#data
+<html><body>Before <article>Article info</article> After</body></html>
+#params
+html.remove_palpable=False
+#expected
+Before <article>Article info</article> After
+
+#test: remove_palpable_false_intermediate_30
+#data
+<html><body>Start <div>Block text</div> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start <div>Block text</div> End
+
+#test: remove_palpable_false_intermediate_31
+#data
+<html><body>Outside <header>Header content</header> inside</body></html>
+#params
+html.remove_palpable=False
+#expected
+Outside <header>Header content</header> inside
+
+#test: remove_palpable_false_intermediate_32
+#data
+<html><body>Lead <section>Section details</section> Trail</body></html>
+#params
+html.remove_palpable=False
+#expected
+Lead <section>Section details</section> Trail
+
+#test: remove_palpable_false_intermediate_33
+#data
+<html><body>Pretext <nav>Navigation</nav> Posttext</body></html>
+#params
+html.remove_palpable=False
+#expected
+Pretext <nav>Navigation</nav> Posttext
+
+#test: remove_palpable_false_intermediate_34
+#data
+<html><body>Alpha <div>Div content</div> Omega</body></html>
+#params
+html.remove_palpable=False
+#expected
+Alpha <div>Div content</div> Omega
+
+#test: remove_palpable_false_intermediate_35
+#data
+<html><body>Starttext <p>Paragraph</p> Endtext</body></html>
+#params
+html.remove_palpable=False
+#expected
+Starttext <p>Paragraph</p> Endtext
+
+#test: remove_palpable_false_intermediate_36
+#data
+<html><body>Intro <article>Article</article> plus more</body></html>
+#params
+html.remove_palpable=False
+#expected
+Intro <article>Article</article> plus more
+
+#test: remove_palpable_false_intermediate_37
+#data
+<html><body>Before <aside>Aside info</aside> after</body></html>
+#params
+html.remove_palpable=False
+#expected
+Before <aside>Aside info</aside> after
+
+#test: remove_palpable_false_intermediate_38
+#data
+<html><body>Text <div>Div block</div> extra</body></html>
+#params
+html.remove_palpable=False
+#expected
+Text <div>Div block</div> extra
+
+#test: remove_palpable_false_intermediate_39
+#data
+<html><body>Leading text <footer>Footer info</footer></body></html>
+#params
+html.remove_palpable=False
+#expected
+Leading text <footer>Footer info</footer>
+
+#test: remove_palpable_false_intermediate_40
+#data
+<html><body>Start <p>Paragraph</p> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start <p>Paragraph</p> End
+
+#test: remove_palpable_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div><h1>Heading</h1><p>Para</p></div> Extra</body></html>
+#params
+html.remove_palpable=False
+#expected
+Doc41<div><h1>Heading</h1><p>Para</p></div> Extra
+
+#test: remove_palpable_false_complex_42
+#data
+<html><body>Start <article><header>Head</header><p>Content</p><footer>Foot</footer></article> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start <article><header>Head</header><p>Content</p><footer>Foot</footer></article> End
+
+#test: remove_palpable_false_complex_43
+#data
+<html><body><div>Wrapper <aside>Aside info</aside> Additional</div> Final</body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Wrapper <aside>Aside info</aside> Additional</div> Final
+
+#test: remove_palpable_false_complex_44
+#data
+<html><body>Before <div><p>Nested text</p></div> After</body></html>
+#params
+html.remove_palpable=False
+#expected
+Before <div><p>Nested text</p></div> After
+
+#test: remove_palpable_false_complex_45
+#data
+<html><body>Alpha <section>Section content <div>Nested</div></section> Omega</body></html>
+#params
+html.remove_palpable=False
+#expected
+Alpha <section>Section content <div>Nested</div></section> Omega
+
+#test: remove_palpable_false_complex_46
+#data
+<html><body>Pre <footer>Footer content</footer> Post</body></html>
+#params
+html.remove_palpable=False
+#expected
+Pre <footer>Footer content</footer> Post
+
+#test: remove_palpable_false_complex_47
+#data
+<html><body><div>Before <article><h2>Title</h2><p>Text</p></article> After</div></body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Before <article><h2>Title</h2><p>Text</p></article> After</div>
+
+#test: remove_palpable_false_complex_48
+#data
+<html><body>Intro <div>Mixed <p>Paragraph</p> and <aside>Info</aside></div> Outro</body></html>
+#params
+html.remove_palpable=False
+#expected
+Intro <div>Mixed <p>Paragraph</p> and <aside>Info</aside></div> Outro
+
+#test: remove_palpable_false_complex_49
+#data
+<html><body>Outer <div><header>Head</header><p>Para</p></div> Extra</body></html>
+#params
+html.remove_palpable=False
+#expected
+Outer <div><header>Head</header><p>Para</p></div> Extra
+
+#test: remove_palpable_false_complex_50
+#data
+<html><body>One <article>Article content</article> Two <div>Div text</div></body></html>
+#params
+html.remove_palpable=False
+#expected
+One <article>Article content</article> Two <div>Div text</div>
+
+#test: remove_palpable_false_complex_51
+#data
+<html><body><div>Start <p>Text</p></div><footer>Footer</footer></body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Start <p>Text</p></div><footer>Footer</footer>
+
+#test: remove_palpable_false_complex_52
+#data
+<html><body>Intro <section>Section <div>Nested</div></section> Outro</body></html>
+#params
+html.remove_palpable=False
+#expected
+Intro <section>Section <div>Nested</div></section> Outro
+
+#test: remove_palpable_false_complex_53
+#data
+<html><body>Before <nav>Navigation</nav> After</body></html>
+#params
+html.remove_palpable=False
+#expected
+Before <nav>Navigation</nav> After
+
+#test: remove_palpable_false_complex_54
+#data
+<html><body><div>Outer <article>Article <p>Para</p></article> end</div></body></html>
+#params
+html.remove_palpable=False
+#expected
+<div>Outer <article>Article <p>Para</p></article> end</div>
+
+#test: remove_palpable_false_complex_55
+#data
+<html><body>Start complex55 <footer>Footer complex55</footer> End complex55</body></html>
+#params
+html.remove_palpable=False
+#expected
+Start complex55 <footer>Footer complex55</footer> End complex55
+
+#test: remove_palpable_false_complex_56
+#data
+<html><body>Pre complex56 <aside>Aside complex56</aside> Post complex56</body></html>
+#params
+html.remove_palpable=False
+#expected
+Pre complex56 <aside>Aside complex56</aside> Post complex56
+
+#test: remove_palpable_false_complex_57
+#data
+<html><body>Begin <em>Emphasis</em> <article>Article complex57</article> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Begin <em>Emphasis</em><article>Article complex57</article> End
+
+#test: remove_palpable_false_complex_58
+#data
+<html><body><section>Section complex58 <div>Div inside</div></section> Outside complex58</body></html>
+#params
+html.remove_palpable=False
+#expected
+<section>Section complex58 <div>Div inside</div></section> Outside complex58
+
+#test: remove_palpable_false_complex_59
+#data
+<html><body>Text <menu>Menu info</menu> trailing</body></html>
+#params
+html.remove_palpable=False
+#expected
+Text <menu>Menu info</menu> trailing
+
+#test: remove_palpable_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start <form>Form data</form> End</body></html>
+#params
+html.remove_palpable=False
+#expected
+Doc60 Start <form>Form data</form> End

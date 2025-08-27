@@ -1,0 +1,480 @@
+#test: remove_tags_and_contents_easy_01
+#data
+<html><body><custom>Some content</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_02
+#data
+<html><body>Start<custom>Content</custom>End</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Start End</body></html>
+
+#test: remove_tags_and_contents_easy_03
+#data
+<html><body><x-tag>Data</x-tag></body></html>
+#params
+html.remove_tags_and_contents=x-tag
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_04
+#data
+<html><body><myTag>Something</myTag></body></html>
+#params
+html.remove_tags_and_contents=myTag
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_05
+#data
+<html><body>Alpha <custom>Beta</custom> Gamma</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Alpha  Gamma</body></html>
+
+#test: remove_tags_and_contents_easy_06
+#data
+<html><body><tag1>123</tag1></body></html>
+#params
+html.remove_tags_and_contents=tag1
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_07
+#data
+<html><body><custom></custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_08
+#data
+<html><body>Prefix<custom>Mid</custom>Suffix</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Prefix Suffix</body></html>
+
+#test: remove_tags_and_contents_easy_09
+#data
+<html><body><custom>   </custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_10
+#data
+<html><body>Before<custom>Inner</custom>After</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Before After</body></html>
+
+#test: remove_tags_and_contents_easy_11
+#data
+<html><body><custom>Text&nbsp;with&nbsp;entities</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_12
+#data
+<html><body><my_tag>Content</my_tag></body></html>
+#params
+html.remove_tags_and_contents=my_tag
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_13
+#data
+<html><body>Before<custom>Data</custom>After</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Before After</body></html>
+
+#test: remove_tags_and_contents_easy_14
+#data
+<html><body><aa>One</aa><bb>Two</bb><cc>Three</cc></body></html>
+#params
+html.remove_tags_and_contents=["aa","bb","cc"]
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_15
+#data
+<html><body>Plain text without tag removal</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Plain text without tag removal</body></html>
+
+#test: remove_tags_and_contents_easy_16
+#data
+<html><body><custom attr="val">Content</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_17
+#data
+<html><body><tagX>DataX</tagX></body></html>
+#params
+html.remove_tags_and_contents=tagX
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_18
+#data
+<html><body>Alpha<custom>Data</custom>Omega</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Alpha Omega</body></html>
+
+#test: remove_tags_and_contents_easy_19
+#data
+<html><body><custom>12345</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_easy_20
+#data
+<html><body><custom>Mixed<span>Ignore</span>Text</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_intermediate_21
+#data
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div>Start<custom>Inner Content</custom>End</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div>Start End</div></body></html>
+
+#test: remove_tags_and_contents_intermediate_22
+#data
+<html><body><p>Before<custom>Mid <b>Bold</b></custom>After</p></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><p>Before After</p></body></html>
+
+#test: remove_tags_and_contents_intermediate_23
+#data
+<html><body><div>Alpha<custom>Beta</custom>Gamma</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><div>Alpha Gamma</div></body></html>
+
+#test: remove_tags_and_contents_intermediate_24
+#data
+<html><body><section>Start<custom>Content with <i>italic</i></custom> End</section></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><section>Start End</section></body></html>
+
+#test: remove_tags_and_contents_intermediate_25
+#data
+<html><body><div><custom>Nested Text</custom></div><p>Extra</p></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><div></div><p>Extra</p></body></html>
+
+#test: remove_tags_and_contents_intermediate_26
+#data
+<html><body>Some <custom>Content</custom> between text</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Some  between text</body></html>
+
+#test: remove_tags_and_contents_intermediate_27
+#data
+<html><body><div>Text<custom attr="x">Inside</custom>More</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><div>Text More</div></body></html>
+
+#test: remove_tags_and_contents_intermediate_28
+#data
+<html><body><p>Start <custom>ABC</custom> End</p></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><p>Start  End</p></body></html>
+
+#test: remove_tags_and_contents_intermediate_29
+#data
+<html><body><custom>Data1</custom> and <custom>Data2</custom></body></html>
+#params
+html.remove_tags_and_contents=["custom"]
+#expected
+<html><head></head><body> and </body></html>
+
+#test: remove_tags_and_contents_intermediate_30
+#data
+<html><body>Before<custom>Mix <em>Emph</em> Text</custom>After</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Before After</body></html>
+
+#test: remove_tags_and_contents_intermediate_31
+#data
+<!DOCTYPE html><html><head><title>Doc31</title></head><body><div>Content<custom>to Remove</custom> End</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<!DOCTYPE html><html><head><title>Doc31</title></head><body><div>Content End</div></body></html>
+
+#test: remove_tags_and_contents_intermediate_32
+#data
+<html><body><custom>Wild*</custom></body></html>
+#params
+html.remove_tags_and_contents=bo*
+#expected
+<html><head></head></html>
+
+#test: remove_tags_and_contents_intermediate_33
+#data
+<html><body><custom>Test?</custom></body></html>
+#params
+html.remove_tags_and_contents=body
+#expected
+<html><head></head></html>
+
+#test: remove_tags_and_contents_intermediate_34
+#data
+<html><body><custom>[abc]</custom></body></html>
+#params
+html.remove_tags_and_contents=html
+#expected
+
+#test: remove_tags_and_contents_intermediate_35
+#data
+<html><body><custom>Data%20</custom></body></html>
+#params
+html.remove_tags_and_contents=Data%20
+#expected
+<html><head></head><body><custom>Data%20</custom></body></html>
+
+#test: remove_tags_and_contents_intermediate_36
+#data
+<html><body><custom>Another_test</custom></body></html>
+#params
+html.remove_tags_and_contents=_ustom
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_intermediate_37
+#data
+<html><body><custom>KeepThis</custom> And <other>Other</other></body></html>
+#params
+html.remove_tags_and_contents=["custom","other"]
+#expected
+<html><head></head><body> And </body></html>
+
+#test: remove_tags_and_contents_intermediate_38
+#data
+<html><body><div><custom>Inner <b>bold</b></custom> Text</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><div> Text</div></body></html>
+
+
+#test: remove_tags_and_contents_intermediate_39
+#data
+<html><body>Start <custom>Content with spaces</custom> End</body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_tags_and_contents_intermediate_40
+#data
+<html><body><div>Pre<custom>Mid</custom>Post</div></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body><div>Pre Post</div></body></html>
+
+#test: remove_tags_and_contents_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>Prefix<customTag>Nested <b>Bold</b> and <i>Italic</i></customTag>Suffix</div></body></html>
+#params
+html.remove_tags_and_contents=custom*
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>Prefix Suffix</div></body></html>
+
+#test: remove_tags_and_contents_complex_42
+#data
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><section>Start<mytagX>Content X</mytagX> End</section></body></html>
+#params
+html.remove_tags_and_contents=mytag?
+#expected
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><section>Start End</section></body></html>
+
+#test: remove_tags_and_contents_complex_43
+#data
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><article>Before<custom1>Data1</custom1><custom2>Data2</custom2>After</article></body></html>
+#params
+html.remove_tags_and_contents=["custom*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><article>Before After</article></body></html>
+
+#test: remove_tags_and_contents_complex_44
+#data
+<html><body><div>Test<myTagA attr="v">Inner A</myTagA><myTagB>Inner B</myTagB></div></body></html>
+#params
+html.remove_tags_and_contents=["myTag[AB]"]
+#expected
+<html><head></head><body><div>Test</div></body></html>
+
+#test: remove_tags_and_contents_complex_45
+#data
+<html><body><custom1>Level1 <custom2>Level2 <custom3>Level3</custom3></custom2></custom1></body></html>
+#params
+html.remove_tags_and_contents=custom*
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_tags_and_contents_complex_46
+#data
+<html><body><div>Outer <tagX>Inner <tagY>Deep</tagY></tagX> End</div></body></html>
+#params
+html.remove_tags_and_contents=["tagX","tagY"]
+#expected
+<html><head></head><body><div>Outer  End</div></body></html>
+
+#test: remove_tags_and_contents_complex_47
+#data
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><article>Text <custom>Remove me <em>and Emphasize</em></custom> More text</article></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><article>Text  More text</article></body></html>
+
+#test: remove_tags_and_contents_complex_48
+#data
+<html><body><div>Start<custom_1>Data1</custom_1><custom_2>Data2</custom_2></div></body></html>
+#params
+html.remove_tags_and_contents=["custom_?"]
+#expected
+<html><head></head><body><div>Start</div></body></html>
+
+#test: remove_tags_and_contents_complex_49
+#data
+<html><body><div>Alpha <testTag>Content <subTag>Inner</subTag></testTag> Omega</div></body></html>
+#params
+html.remove_tags_and_contents=test*
+#expected
+<html><head></head><body><div>Alpha  Omega</div></body></html>
+
+#test: remove_tags_and_contents_complex_50
+#data
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><section>Pre <customX>Data with <i>formatting</i></customX> Post</section></body></html>
+#params
+html.remove_tags_and_contents=customX
+#expected
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><section>Pre  Post</section></body></html>
+
+#test: remove_tags_and_contents_complex_51
+#data
+<html><body>Before<customOne>Content One</customOne>Between<customTwo>Content Two</customTwo>After</body></html>
+#params
+html.remove_tags_and_contents=["customO*","customT*"]
+#expected
+<html><head></head><body>Before Between After</body></html>
+
+#test: remove_tags_and_contents_complex_52
+#data
+<html><body><p>Paragraph with <customTag>embedded <strong>bold</strong></customTag> text</p></body></html>
+#params
+html.remove_tags_and_contents=customTag
+#expected
+<html><head></head><body><p>Paragraph with  text</p></body></html>
+
+#test: remove_tags_and_contents_complex_53
+#data
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><div>Outer <tagA>Inner <tagB>Deep</tagB></tagA> End</div></body></html>
+#params
+html.remove_tags_and_contents=["tagA","tagB"]
+#expected
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><div>Outer  End</div></body></html>
+
+#test: remove_tags_and_contents_complex_54
+#data
+<html><body><custom>[Data]</custom></body></html>
+#params
+html.remove_tags_and_contents=custom
+#expected
+<html><head></head><body></body></html>
+
+
+#test: remove_tags_and_contents_complex_55
+#data
+<html><body><div>Before<customAttr>Content</customAttr>After</div></body></html>
+#params
+html.remove_tags_and_contents=custom*
+#expected
+<html><head></head><body><div>Before After</div></body></html>
+
+#test: remove_tags_and_contents_complex_56
+#data
+<html><body><div>Test <x1>Data1</x1> <x2>Data2</x2></div></body></html>
+#params
+html.remove_tags_and_contents=["x[12]"]
+#expected
+<html><head></head><body><div>Test  </div></body></html>
+
+#test: remove_tags_and_contents_complex_57
+#data
+<html><body><article>Intro <cTag>Content <subTag>Deep</subTag></cTag> Outro</article></body></html>
+#params
+html.remove_tags_and_contents=cTag
+#expected
+<html><head></head><body><article>Intro  Outro</article></body></html>
+
+#test: remove_tags_and_contents_complex_58
+#data
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><div><custom_A>Alpha</custom_A><custom_B>Beta <i>italic</i></custom_B></div></body></html>
+#params
+html.remove_tags_and_contents=["custom_*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><div></div></body></html>
+
+#test: remove_tags_and_contents_complex_59
+#data
+<html><body><p>Pre <customX>DataX</customX> Post</p></body></html>
+#params
+html.remove_tags_and_contents=customX
+#expected
+<html><head></head><body><p>Pre  Post</p></body></html>
+
+#test: remove_tags_and_contents_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body><footer>Footer <fXX>XX <fYY>YY</fYY></fXX></footer></body></html>
+#params
+html.remove_tags_and_contents=["f*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body></body></html>

@@ -1,0 +1,2048 @@
+#test: remove_row_easy_01
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=1
+#expected
+id,val
+2,20
+3,30
+
+#test: remove_row_easy_02
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=2
+#expected
+id,val
+1,10
+3,30
+
+#test: remove_row_easy_03
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=0
+#expected
+1,10
+2,20
+3,30
+
+#test: remove_row_easy_04
+#data
+id,val
+1,10
+#params
+csv.delimiter=,
+csv.remove_row_index=1
+#expected
+id,val
+
+#test: remove_row_easy_05
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_easy_06
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=1
+#expected
+id;val
+2;20
+3;30
+
+#test: remove_row_easy_07
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=2
+#expected
+id;val
+1;10
+3;30
+
+#test: remove_row_easy_08
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=0
+#expected
+1;10
+2;20
+3;30
+
+#test: remove_row_easy_09
+#data
+id;val
+1;10
+#params
+csv.delimiter=;
+csv.remove_row_index=1
+#expected
+id;val
+
+#test: remove_row_easy_10
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_easy_11
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=1
+#expected
+id|val
+2|20
+3|30
+
+#test: remove_row_easy_12
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=2
+#expected
+id|val
+1|10
+3|30
+
+#test: remove_row_easy_13
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=0
+#expected
+1|10
+2|20
+3|30
+
+#test: remove_row_easy_14
+#data
+id|val
+1|10
+#params
+csv.delimiter=|
+csv.remove_row_index=1
+#expected
+id|val
+
+#test: remove_row_easy_15
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_easy_16
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=1
+#expected
+id	val
+2	20
+3	30
+
+#test: remove_row_easy_17
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=2
+#expected
+id	val
+1	10
+3	30
+
+#test: remove_row_easy_18
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=0
+#expected
+1	10
+2	20
+3	30
+
+#test: remove_row_easy_19
+#data
+id	val
+1	10
+#params
+csv.delimiter=\t
+csv.remove_row_index=1
+#expected
+id	val
+
+#test: remove_row_easy_20
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=0
+#expected
+
+
+#test: remove_row_mid_01
+#data
+id,val
+1,10
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=10
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_02
+#data
+id,val
+1,10
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=-1
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_03
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+#params
+csv.delimiter=,
+csv.remove_row_index=4
+#expected
+id,val
+1,10
+2,20
+3,30
+
+#test: remove_row_mid_04
+#data
+id,val
+1,10
+,
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=2
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_05
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=5
+#expected
+id,val
+
+
+#test: remove_row_mid_06
+#data
+id;val
+1;10
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=10
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_07
+#data
+id;val
+1;10
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=-1
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_08
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+#params
+csv.delimiter=;
+csv.remove_row_index=4
+#expected
+id;val
+1;10
+2;20
+3;30
+
+#test: remove_row_mid_09
+#data
+id;val
+1;10
+;
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=2
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_10
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=5
+#expected
+id;val
+
+
+#test: remove_row_mid_11
+#data
+id|val
+1|10
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=10
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_12
+#data
+id|val
+1|10
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=-1
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_13
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+#params
+csv.delimiter=|
+csv.remove_row_index=4
+#expected
+id|val
+1|10
+2|20
+3|30
+
+#test: remove_row_mid_14
+#data
+id|val
+1|10
+|
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=2
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_15
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=5
+#expected
+id|val
+
+
+#test: remove_row_mid_16
+#data
+id	val
+1	10
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=10
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_17
+#data
+id	val
+1	10
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=-1
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_18
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+#params
+csv.delimiter=\t
+csv.remove_row_index=4
+#expected
+id	val
+1	10
+2	20
+3	30
+
+#test: remove_row_mid_19
+#data
+id	val
+1	10
+1	110
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=2
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_20
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=5
+#expected
+id	val
+
+
+#test: remove_row_hard_01
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=5
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+6,60
+7,70
+8,80
+9,90
+10,100
+
+#test: remove_row_hard_02
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=0
+#expected
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+
+#test: remove_row_hard_03
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=10
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+
+#test: remove_row_hard_04
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_hard_05
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+11,110
+12,120
+13,130
+14,140
+15,150
+#params
+csv.delimiter=,
+csv.remove_row_index=30
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+11,110
+12,120
+13,130
+14,140
+15,150
+
+
+#test: remove_row_hard_06
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=5
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+6;60
+7;70
+8;80
+9;90
+10;100
+
+#test: remove_row_hard_07
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=0
+#expected
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+
+#test: remove_row_hard_08
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=10
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+
+#test: remove_row_hard_09
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_hard_10
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+11;110
+12;120
+13;130
+14;140
+15;150
+#params
+csv.delimiter=;
+csv.remove_row_index=30
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+11;110
+12;120
+13;130
+14;140
+15;150
+
+
+#test: remove_row_hard_11
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=5
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+6|60
+7|70
+8|80
+9|90
+10|100
+
+#test: remove_row_hard_12
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=0
+#expected
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+
+#test: remove_row_hard_13
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=10
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+
+#test: remove_row_hard_14
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_hard_15
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+11|110
+12|120
+13|130
+14|140
+15|150
+#params
+csv.delimiter=|
+csv.remove_row_index=30
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+11|110
+12|120
+13|130
+14|140
+15|150
+
+
+#test: remove_row_hard_16
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=5
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+6	60
+7	70
+8	80
+9	90
+10	100
+
+#test: remove_row_hard_17
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=0
+#expected
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+
+#test: remove_row_hard_18
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=10
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+
+#test: remove_row_hard_19
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=0
+#expected
+
+#test: remove_row_hard_20
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+11	110
+12	120
+13	130
+14	140
+15	150
+#params
+csv.delimiter=\t
+csv.remove_row_index=30
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+11	110
+12	120
+13	130
+14	140
+15	150
+
+
+#test: remove_row_easy_01
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=[1]
+#expected
+id,val
+2,20
+3,30
+
+#test: remove_row_easy_02
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=[2]
+#expected
+id,val
+1,10
+3,30
+
+#test: remove_row_easy_03
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=[0]
+#expected
+1,10
+2,20
+3,30
+
+#test: remove_row_easy_04
+#data
+id,val
+1,10
+#params
+csv.delimiter=,
+csv.remove_row_index=[1]
+#expected
+id,val
+
+#test: remove_row_easy_05
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_easy_06
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=[1]
+#expected
+id;val
+2;20
+3;30
+
+#test: remove_row_easy_07
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=[2]
+#expected
+id;val
+1;10
+3;30
+
+#test: remove_row_easy_08
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=[0]
+#expected
+1;10
+2;20
+3;30
+
+#test: remove_row_easy_09
+#data
+id;val
+1;10
+#params
+csv.delimiter=;
+csv.remove_row_index=[1]
+#expected
+id;val
+
+#test: remove_row_easy_10
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_easy_11
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=[1]
+#expected
+id|val
+2|20
+3|30
+
+#test: remove_row_easy_12
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=[2]
+#expected
+id|val
+1|10
+3|30
+
+#test: remove_row_easy_13
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=[0]
+#expected
+1|10
+2|20
+3|30
+
+#test: remove_row_easy_14
+#data
+id|val
+1|10
+#params
+csv.delimiter=|
+csv.remove_row_index=[1]
+#expected
+id|val
+
+#test: remove_row_easy_15
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_easy_16
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=[1]
+#expected
+id	val
+2	20
+3	30
+
+#test: remove_row_easy_17
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=[2]
+#expected
+id	val
+1	10
+3	30
+
+#test: remove_row_easy_18
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=[0]
+#expected
+1	10
+2	20
+3	30
+
+#test: remove_row_easy_19
+#data
+id	val
+1	10
+#params
+csv.delimiter=\t
+csv.remove_row_index=[1]
+#expected
+id	val
+
+#test: remove_row_easy_20
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_mid_01
+#data
+id,val
+1,10
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=[10]
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_02
+#data
+id,val
+1,10
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=[-1]
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_03
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_row_index=[3]
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_04
+#data
+id,val
+1,10
+,
+2,20
+#params
+csv.delimiter=,
+csv.remove_row_index=[2]
+#expected
+id,val
+1,10
+2,20
+
+#test: remove_row_mid_05
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=[5]
+#expected
+id,val
+
+#test: remove_row_mid_06
+#data
+id;val
+1;10
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=[10]
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_07
+#data
+id;val
+1;10
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=[-1]
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_08
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_row_index=[3]
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_09
+#data
+id;val
+1;10
+;
+2;20
+#params
+csv.delimiter=;
+csv.remove_row_index=[2]
+#expected
+id;val
+1;10
+2;20
+
+#test: remove_row_mid_10
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=[5]
+#expected
+id;val
+
+#test: remove_row_mid_11
+#data
+id|val
+1|10
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=[10]
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_12
+#data
+id|val
+1|10
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=[-1]
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_13
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_row_index=[3]
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_14
+#data
+id|val
+1|10
+|
+2|20
+#params
+csv.delimiter=|
+csv.remove_row_index=[2]
+#expected
+id|val
+1|10
+2|20
+
+#test: remove_row_mid_15
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=[5]
+#expected
+id|val
+
+#test: remove_row_mid_16
+#data
+id	val
+1	10
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=[10]
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_17
+#data
+id	val
+1	10
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=[-1]
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_18
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_row_index=[3]
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_19
+#data
+id	val
+1	10
+2	20
+2	20
+#params
+csv.delimiter=\t
+csv.remove_row_index=[2]
+#expected
+id	val
+1	10
+2	20
+
+#test: remove_row_mid_20
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=[5]
+#expected
+id	val
+
+#test: remove_row_hard_01
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=[5]
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+6,60
+7,70
+8,80
+9,90
+10,100
+
+#test: remove_row_hard_02
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=[0]
+#expected
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+
+#test: remove_row_hard_03
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+#params
+csv.delimiter=,
+csv.remove_row_index=[10]
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+
+#test: remove_row_hard_04
+#data
+id,val
+#params
+csv.delimiter=,
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_hard_05
+#data
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+11,110
+12,120
+13,130
+14,140
+15,150
+#params
+csv.delimiter=,
+csv.remove_row_index=[30]
+#expected
+id,val
+1,10
+2,20
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+11,110
+12,120
+13,130
+14,140
+15,150
+
+#test: remove_row_hard_06
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=[5]
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+6;60
+7;70
+8;80
+9;90
+10;100
+
+#test: remove_row_hard_07
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=[0]
+#expected
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+
+#test: remove_row_hard_08
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+#params
+csv.delimiter=;
+csv.remove_row_index=[10]
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+
+#test: remove_row_hard_09
+#data
+id;val
+#params
+csv.delimiter=;
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_hard_10
+#data
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+11;110
+12;120
+13;130
+14;140
+15;150
+#params
+csv.delimiter=;
+csv.remove_row_index=[30]
+#expected
+id;val
+1;10
+2;20
+3;30
+4;40
+5;50
+6;60
+7;70
+8;80
+9;90
+10;100
+11;110
+12;120
+13;130
+14;140
+15;150
+
+#test: remove_row_hard_11
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=[5]
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+6|60
+7|70
+8|80
+9|90
+10|100
+
+#test: remove_row_hard_12
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=[0]
+#expected
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+
+#test: remove_row_hard_13
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+#params
+csv.delimiter=|
+csv.remove_row_index=[10]
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+
+#test: remove_row_hard_14
+#data
+id|val
+#params
+csv.delimiter=|
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_hard_15
+#data
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+11|110
+12|120
+13|130
+14|140
+15|150
+#params
+csv.delimiter=|
+csv.remove_row_index=[30]
+#expected
+id|val
+1|10
+2|20
+3|30
+4|40
+5|50
+6|60
+7|70
+8|80
+9|90
+10|100
+11|110
+12|120
+13|130
+14|140
+15|150
+
+#test: remove_row_hard_16
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=[5]
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+6	60
+7	70
+8	80
+9	90
+10	100
+
+#test: remove_row_hard_17
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=[0]
+#expected
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+
+#test: remove_row_hard_18
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+#params
+csv.delimiter=\t
+csv.remove_row_index=[10]
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+
+#test: remove_row_hard_19
+#data
+id	val
+#params
+csv.delimiter=\t
+csv.remove_row_index=[0]
+#expected
+
+#test: remove_row_hard_20
+#data
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+11	110
+12	120
+13	130
+14	140
+15	150
+#params
+csv.delimiter=\t
+csv.remove_row_index=[30]
+#expected
+id	val
+1	10
+2	20
+3	30
+4	40
+5	50
+6	60
+7	70
+8	80
+9	90
+10	100
+11	110
+12	120
+13	130
+14	140
+15	150

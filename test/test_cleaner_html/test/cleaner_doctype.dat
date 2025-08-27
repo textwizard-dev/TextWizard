@@ -1,0 +1,960 @@
+#test: doctype_true_easy_01
+#data
+<!DOCTYPE html><html><body>Content</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Content</body></html>
+
+#test: doctype_true_easy_02
+#data
+<!DOCTYPE html><html><body>Hello World</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Hello World</body></html>
+
+#test: doctype_true_easy_03
+#data
+<!DOCTYPE html><html><body>Test</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Test</body></html>
+
+#test: doctype_true_easy_04
+#data
+<!DOCTYPE html><html><head></head><body>123</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>123</body></html>
+
+#test: doctype_true_easy_05
+#data
+<!DOCTYPE html><html><body>Simple text</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Simple text</body></html>
+
+#test: doctype_true_easy_06
+#data
+<!DOCTYPE html><html><body><p>Paragraph</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Paragraph</p></body></html>
+
+#test: doctype_true_easy_07
+#data
+<!DOCTYPE html><html><body><h1>Title</h1></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><h1>Title</h1></body></html>
+
+#test: doctype_true_easy_08
+#data
+<!DOCTYPE html><html><body><div>Div content</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><div>Div content</div></body></html>
+
+#test: doctype_true_easy_09
+#data
+<!DOCTYPE html><html><body>Text only</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Text only</body></html>
+
+#test: doctype_true_easy_10
+#data
+<!DOCTYPE html><html><body>Alpha Beta</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Alpha Beta</body></html>
+
+#test: doctype_true_easy_11
+#data
+<!DOCTYPE html><html><body>A</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>A</body></html>
+
+#test: doctype_true_easy_12
+#data
+<!DOCTYPE html><html><body>B</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>B</body></html>
+
+#test: doctype_true_easy_13
+#data
+<!DOCTYPE html><html><body><p>Test1</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Test1</p></body></html>
+
+#test: doctype_true_easy_14
+#data
+<!DOCTYPE html><html><body><p>Test2</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Test2</p></body></html>
+
+#test: doctype_true_easy_15
+#data
+<!DOCTYPE html><html><body>Numbers 12345</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Numbers 12345</body></html>
+
+#test: doctype_true_easy_16
+#data
+<!DOCTYPE html><html><body>Whitespace   test</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Whitespace   test</body></html>
+
+#test: doctype_true_easy_17
+#data
+<!DOCTYPE html><html><body>Mixed Content 789</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Mixed Content 789</body></html>
+
+#test: doctype_true_easy_18
+#data
+<!DOCTYPE html><html><body>One more test</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>One more test</body></html>
+
+#test: doctype_true_easy_19
+#data
+<!DOCTYPE html><html><body>Simple<br>Line break</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Simple<br>Line break</body></html>
+
+#test: doctype_true_easy_20
+#data
+<!DOCTYPE html><html><body><p>Paragraph with <em>emphasis</em></p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Paragraph with <em>emphasis</em></p></body></html>
+
+#test: doctype_true_intermediate_21
+#data
+<!DOCTYPE html><html><head><title>Doc21</title></head><body>Content21</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc21</title></head><body>Content21</body></html>
+
+#test: doctype_true_intermediate_22
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><p>Paragraph 22</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta charset="utf-8"></head><body><p>Paragraph 22</p></body></html>
+
+#test: doctype_true_intermediate_23
+#data
+<!DOCTYPE html><html><head><link rel="stylesheet"></head><body><div>Div 23</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><link rel="stylesheet"></head><body><div>Div 23</div></body></html>
+
+#test: doctype_true_intermediate_24
+#data
+<!DOCTYPE html><html><head><title>Doc24</title></head><body><section>Section24</section></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc24</title></head><body><section>Section24</section></body></html>
+
+#test: doctype_true_intermediate_25
+#data
+<!DOCTYPE html><html><body>Start <p>Paragraph 25</p> End</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Start <p>Paragraph 25</p> End</body></html>
+
+#test: doctype_true_intermediate_26
+#data
+<!DOCTYPE html><html><head><title>T26</title></head><body><div>Div 26</div><p>P26</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>T26</title></head><body><div>Div 26</div><p>P26</p></body></html>
+
+#test: doctype_true_intermediate_27
+#data
+<!DOCTYPE html><html><head><title>Title27</title></head><body>Text27</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Title27</title></head><body>Text27</body></html>
+
+#test: doctype_true_intermediate_28
+#data
+<!DOCTYPE html><html><head><meta name="description" content="Desc28"></head><body><ul><li>Item1</li></ul></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta name="description" content="Desc28"></head><body><ul><li>Item1</li></ul></body></html>
+
+#test: doctype_true_intermediate_29
+#data
+<!DOCTYPE html><html><head><title>Doc29</title></head><body><div>Content29</div><footer>Footer29</footer></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc29</title></head><body><div>Content29</div><footer>Footer29</footer></body></html>
+
+#test: doctype_true_intermediate_30
+#data
+<!DOCTYPE html><html><head></head><body><p>Paragraph 30</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Paragraph 30</p></body></html>
+
+#test: doctype_true_intermediate_31
+#data
+<!DOCTYPE html><html><head><title>Doc31</title></head><body>Alpha Beta Gamma</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc31</title></head><body>Alpha Beta Gamma</body></html>
+
+#test: doctype_true_intermediate_32
+#data
+<!DOCTYPE html><html><head><title>Doc32</title><link rel="stylesheet"></head><body>Content32</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc32</title><link rel="stylesheet"></head><body>Content32</body></html>
+
+#test: doctype_true_intermediate_33
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><h1>Heading33</h1></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta charset="utf-8"></head><body><h1>Heading33</h1></body></html>
+
+#test: doctype_true_intermediate_34
+#data
+<!DOCTYPE html><html><head><title>Title34</title></head><body><div>Div34</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Title34</title></head><body><div>Div34</div></body></html>
+
+#test: doctype_true_intermediate_35
+#data
+<!DOCTYPE html><html><head><title>Doc35</title></head><body>Test 35</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc35</title></head><body>Test 35</body></html>
+
+#test: doctype_true_intermediate_36
+#data
+<!DOCTYPE html><html><head><title>Example36</title></head><body><p>Text36</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Example36</title></head><body><p>Text36</p></body></html>
+
+#test: doctype_true_intermediate_37
+#data
+<!DOCTYPE html><html><head><title>Doc37</title></head><body><section>Sec37</section></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc37</title></head><body><section>Sec37</section></body></html>
+
+#test: doctype_true_intermediate_38
+#data
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"></head><body><div>Div38</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta name="viewport" content="width=device-width"></head><body><div>Div38</div></body></html>
+
+#test: doctype_true_intermediate_39
+#data
+<!DOCTYPE html><html><head><title>Doc39</title></head><body><p>Text39</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc39</title></head><body><p>Text39</p></body></html>
+
+#test: doctype_true_intermediate_40
+#data
+<!DOCTYPE html><html><head><title>Title40</title></head><body>Content40</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Title40</title></head><body>Content40</body></html>
+
+#test: doctype_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title><meta charset="utf-8"></head><body><div><p>Paragraph41</p></div> Extra</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc41</title><meta charset="utf-8"></head><body><div><p>Paragraph41</p></div> Extra</body></html>
+
+#test: doctype_true_complex_42
+#data
+<!DOCTYPE html><html><head><link rel="stylesheet"><title>Doc42</title></head><body><article><header>Header42</header><p>Content42</p><footer>Footer42</footer></article></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><link rel="stylesheet"><title>Doc42</title></head><body><article><header>Header42</header><p>Content42</p><footer>Footer42</footer></article></body></html>
+
+#test: doctype_true_complex_43
+#data
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><div>Start <section>Section43</section> End</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc43</title></head><body><div>Start <section>Section43</section> End</div></body></html>
+
+#test: doctype_true_complex_44
+#data
+<!DOCTYPE html><html><head><meta name="description" content="Desc44"></head><body><header>Header44</header><div>Body44</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta name="description" content="Desc44"></head><body><header>Header44</header><div>Body44</div></body></html>
+
+#test: doctype_true_complex_45
+#data
+<!DOCTYPE html><html><head><title>Doc45</title></head><body><div><p>Nested 45</p><ul><li>Item45</li></ul></div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc45</title></head><body><div><p>Nested 45</p><ul><li>Item45</li></ul></div></body></html>
+
+#test: doctype_true_complex_46
+#data
+<!DOCTYPE html><html><head><title>Doc46</title><meta charset="utf-8"></head><body>Text46 with <div>Div46</div> and more</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc46</title><meta charset="utf-8"></head><body>Text46 with <div>Div46</div> and more</body></html>
+
+#test: doctype_true_complex_47
+#data
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><section><article><p>Deep nested 47</p></article></section> End47</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc47</title></head><body><section><article><p>Deep nested 47</p></article></section> End47</body></html>
+
+#test: doctype_true_complex_48
+#data
+<!DOCTYPE html><html><head><title>Complex48</title><meta name="viewport" content="width=device-width"></head><body><div>Outer <div>Inner</div></div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Complex48</title><meta name="viewport" content="width=device-width"></head><body><div>Outer <div>Inner</div></div></body></html>
+
+#test: doctype_true_complex_49
+#data
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><header><h1>Heading49</h1></header><main><p>Para49</p></main><footer>Foot49</footer></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc49</title></head><body><header><h1>Heading49</h1></header><main><p>Para49</p></main><footer>Foot49</footer></body></html>
+
+#test: doctype_true_complex_50
+#data
+<!DOCTYPE html><html><head><title>Title50</title></head><body><div>Block50 <p>Para in block</p></div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Title50</title></head><body><div>Block50 <p>Para in block</p></div></body></html>
+
+#test: doctype_true_complex_51
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doc51</title></head><body><article><h2>Heading</h2><p>Article text</p></article></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta charset="utf-8"><title>Doc51</title></head><body><article><h2>Heading</h2><p>Article text</p></article></body></html>
+
+#test: doctype_true_complex_52
+#data
+<!DOCTYPE html><html><head><title>Doc52</title><link rel="stylesheet"></head><body>Complex 52 text</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc52</title><link rel="stylesheet"></head><body>Complex 52 text</body></html>
+
+#test: doctype_true_complex_53
+#data
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><p>Para53</p><div>Extra53</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc53</title></head><body><p>Para53</p><div>Extra53</div></body></html>
+
+#test: doctype_true_complex_54
+#data
+<!DOCTYPE html><html><head><title>Doc54</title></head><body>Text54 <article>Article54</article> More54</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc54</title></head><body>Text54 <article>Article54</article> More54</body></html>
+
+#test: doctype_true_complex_55
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><p>Paragraph55</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><meta charset="utf-8"></head><body><p>Paragraph55</p></body></html>
+
+#test: doctype_true_complex_56
+#data
+<!DOCTYPE html><html><head><title>Test56</title></head><body><div>Div56</div><p>Text56</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Test56</title></head><body><div>Div56</div><p>Text56</p></body></html>
+
+#test: doctype_true_complex_57
+#data
+<!DOCTYPE html><html><head><title>T57</title></head><body><section>Sec57</section> and <div>Div57</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>T57</title></head><body><section>Sec57</section> and <div>Div57</div></body></html>
+
+#test: doctype_true_complex_58
+#data
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><header>Header58</header><main>Main58 content</main></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc58</title></head><body><header>Header58</header><main>Main58 content</main></body></html>
+
+#test: doctype_true_complex_59
+#data
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><p>Some complex text 59</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc59</title></head><body><p>Some complex text 59</p></body></html>
+
+#test: doctype_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body><div>Content60</div></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body><div>Content60</div></body></html>
+
+#test: doctype_false_easy_01
+#data
+<!DOCTYPE html><html><body>Simple text.</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Simple text.
+
+#test: doctype_false_easy_02
+#data
+<!DOCTYPE html><html><body>Example</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Example
+
+#test: doctype_false_easy_03
+#data
+<!DOCTYPE html><html><body>12345</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>12345
+
+#test: doctype_false_easy_04
+#data
+<!DOCTYPE html><html><body>Text with    extra spaces</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Text with    extra spaces
+
+#test: doctype_false_easy_05
+#data
+<!DOCTYPE html><html><body><p>Ignored tags</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Ignored tags
+
+#test: doctype_false_easy_06
+#data
+<!DOCTYPE html><html><body>Hello, World!</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Hello, World!
+
+#test: doctype_false_easy_07
+#data
+<!DOCTYPE html><html><body><h1>Heading</h1></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Heading
+
+#test: doctype_false_easy_08
+#data
+<!DOCTYPE html><html><body><p>Paragraph</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Paragraph
+
+#test: doctype_false_easy_09
+#data
+<!DOCTYPE html><html><body>Start End</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Start End
+
+#test: doctype_false_easy_10
+#data
+<!DOCTYPE html><html><body>Alphanumeric 123</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Alphanumeric 123
+
+#test: doctype_false_easy_11
+#data
+<!DOCTYPE html><html><body>Special &amp; characters</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Special & characters
+
+#test: doctype_false_easy_12
+#data
+<!DOCTYPE html><html><body>One</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>One
+
+#test: doctype_false_easy_13
+#data
+<!DOCTYPE html><html><body>Two</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Two
+
+#test: doctype_false_easy_14
+#data
+<!DOCTYPE html><html><body>Text-only</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Text-only
+
+#test: doctype_false_easy_15
+#data
+<!DOCTYPE html><html><body>Lowercase letters</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Lowercase letters
+
+#test: doctype_false_easy_16
+#data
+<!DOCTYPE html><html><body>UPPERCASE</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>UPPERCASE
+
+#test: doctype_false_easy_17
+#data
+<!DOCTYPE html><html><body>Mixed Case Test</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Mixed Case Test
+
+#test: doctype_false_easy_18
+#data
+<!DOCTYPE html><html><body>   Leading and trailing   </body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>   Leading and trailing
+
+#test: doctype_false_easy_19
+#data
+<!DOCTYPE html><html><body>SingleWord</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>SingleWord
+
+#test: doctype_false_easy_20
+#data
+<!DOCTYPE html><html><body>Test&nbsp;case</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Test case
+
+
+#test: doctype_false_intermediate_21
+#data
+<!DOCTYPE html><html><head><title>XXX</title></head><body><p>Paragraph text</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>XXX Paragraph text
+
+#test: doctype_false_intermediate_22
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>Content here</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Content here
+
+#test: doctype_false_intermediate_23
+#data
+<!DOCTYPE html><html><head><link rel="stylesheet"></head><body><div>Div content</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Div content
+
+#test: doctype_false_intermediate_24
+#data
+<!DOCTYPE html><html><head><title>T24</title></head><body><section>Section24 content</section></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>T24 Section24 content
+
+#test: doctype_false_intermediate_25
+#data
+<!DOCTYPE html><html><body>Start <p>Mid</p> End</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Start Mid End
+
+#test: doctype_false_intermediate_26
+#data
+<!DOCTYPE html><html><head><title>Test26</title></head><body><div>Div26</div><p>P26</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Test26 Div26 P26
+
+#test: doctype_false_intermediate_27
+#data
+<!DOCTYPE html><html><head><title>Title27</title></head><body>Some text 27</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Title27 Some text 27
+
+#test: doctype_false_intermediate_28
+#data
+<!DOCTYPE html><html><head><meta name="desc" content="Desc28"></head><body><ul><li>Item1</li></ul></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Item1
+
+#test: doctype_false_intermediate_29
+#data
+<!DOCTYPE html><html><head><title>Doc29</title></head><body><div>Content29</div><footer>Footer29</footer></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc29 Content29 Footer29
+
+#test: doctype_false_intermediate_30
+#data
+<!DOCTYPE html><html><head></head><body><p>Paragraph 30</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Paragraph 30
+
+#test: doctype_false_intermediate_31
+#data
+<!DOCTYPE html><html><head><title>Doc31</title></head><body>Alpha Beta Gamma</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc31 Alpha Beta Gamma
+
+#test: doctype_false_intermediate_32
+#data
+<!DOCTYPE html><html><head><title>Doc32</title><link rel="stylesheet"></head><body>Content32</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc32 Content32
+
+#test: doctype_false_intermediate_33
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><h1>Heading33</h1></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Heading33
+
+#test: doctype_false_intermediate_34
+#data
+<!DOCTYPE html><html><head><title>Title34</title></head><body><div>Div34</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Title34 Div34
+
+#test: doctype_false_intermediate_35
+#data
+<!DOCTYPE html><html><head><title>Doc35</title></head><body>Test 35</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc35 Test 35
+
+#test: doctype_false_intermediate_36
+#data
+<!DOCTYPE html><html><head><title>Example36</title></head><body><p>Text36</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Example36 Text36
+
+#test: doctype_false_intermediate_37
+#data
+<!DOCTYPE html><html><head><title>Doc37</title></head><body><section>Sec37</section></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc37 Sec37
+
+#test: doctype_false_intermediate_38
+#data
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"></head><body><div>Div38</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Div38
+
+#test: doctype_false_intermediate_39
+#data
+<!DOCTYPE html><html><head><title>Doc39</title></head><body><p>Text39</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc39 Text39
+
+#test: doctype_false_intermediate_40
+#data
+<!DOCTYPE html><html><head><title>Title40</title></head><body>Content40</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Title40 Content40
+
+#test: doctype_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title><link rel="stylesheet"></head><body><div><p>Paragraph41</p></div> Extra</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc41 Paragraph41 Extra
+
+#test: doctype_false_complex_42
+#data
+<!DOCTYPE html><html><head><link rel="stylesheet"><title>Doc42</title></head><body><article><header>Header42</header><p>Content42</p><footer>Footer42</footer></article></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc42 Header42 Content42 Footer42
+
+#test: doctype_false_complex_43
+#data
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><div>Start <section>Section43</section> End</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc43 Start Section43 End
+
+#test: doctype_false_complex_44
+#data
+<!DOCTYPE html><html><head><meta name="description" content="Desc44"></head><body><header>Header44</header><div>Body44</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Header44 Body44
+
+#test: doctype_false_complex_45
+#data
+<!DOCTYPE html><html><head><title>Doc45</title></head><body><div><p>Nested 45</p><ul><li>Item45</li></ul></div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc45 Nested 45 Item45
+
+#test: doctype_false_complex_46
+#data
+<!DOCTYPE html><html><head><title>Doc46</title><meta charset="utf-8"></head><body>Text46 with <div>Div46</div> and more</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc46 Text46 with Div46 and more
+
+#test: doctype_false_complex_47
+#data
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><section><article><p>Deep nested 47</p></article></section> End47</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc47 Deep nested 47 End47
+
+#test: doctype_false_complex_48
+#data
+<!DOCTYPE html><html><head><title>Complex48</title><meta name="viewport" content="width=device-width"></head><body><div>Outer <div>Inner</div></div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Complex48 Outer Inner
+
+#test: doctype_false_complex_49
+#data
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><header><h1>Heading49</h1></header><main><p>Para49</p></main><footer>Foot49</footer></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc49 Heading49 Para49 Foot49
+
+#test: doctype_false_complex_50
+#data
+<!DOCTYPE html><html><head><title>Title50</title></head><body><div>Block50 <p>Para in block</p></div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Title50 Block50 Para in block
+
+#test: doctype_false_complex_51
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doc51</title></head><body><article><h2>Heading</h2><p>Article text</p></article></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc51 Heading Article text
+
+#test: doctype_false_complex_52
+#data
+<!DOCTYPE html><html><head><title>Doc52</title><link rel="stylesheet"></head><body>Complex 52 text</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc52 Complex 52 text
+
+#test: doctype_false_complex_53
+#data
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><p>Para53</p><div>Extra53</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc53 Para53 Extra53
+
+#test: doctype_false_complex_54
+#data
+<!DOCTYPE html><html><head><title>Doc54</title></head><body>Text54 <article>Article54</article> More54</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc54 Text54 Article54 More54
+
+#test: doctype_false_complex_55
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><p>Paragraph55</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Paragraph55
+
+#test: doctype_false_complex_56
+#data
+<!DOCTYPE html><html><head><title>Test56</title></head><body><div>Div56</div><p>Text56</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Test56 Div56 Text56
+
+#test: doctype_false_complex_57
+#data
+<!DOCTYPE html><html><head><title>T57</title></head><body><section>Sec57</section> and <div>Div57</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>T57 Sec57 and Div57
+
+#test: doctype_false_complex_58
+#data
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><header>Header58</header><main>Main58 content</main></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc58 Header58 Main58 content
+
+#test: doctype_false_complex_59
+#data
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><p>Some complex text 59</p></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc59 Some complex text 59
+
+#test: doctype_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body><div>Content60</div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Doc60 Content60

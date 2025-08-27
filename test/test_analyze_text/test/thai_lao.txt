@@ -1,0 +1,458 @@
+#test: th_punct_edges_basic_01
+#lang: th
+#text
+(ไทย) «และ» —ใน— กรุงเทพ
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+และ
+ใน
+กรุงเทพ
+#end
+
+#test: th_punct_edges_heavy_02
+#lang: th
+#text
+«ไทย», — ใน — …และ… (กรุงเทพ)
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+ใน
+และ
+กรุงเทพ
+#end
+
+#test: th_whitespace_tabs_newlines_03
+#lang: th
+#text
+ไทย
+
+และ	ใน   กรุงเทพ
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+และ
+ใน
+กรุงเทพ
+#end
+
+#test: th_numbers_thai_digits_04
+#lang: th
+#text
+๑๒,๓๔๕ ๙๘๗,๖๕๔ ๓.๑๔๑๕๙
+#expected_errors_count: 0
+#end
+
+#test: th_numbers_western_ok_05
+#lang: th
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: th_numbers_trailing_punct_06
+#lang: th
+#text
+๑๒,๓๔๕. ๑,๒๓๔, ๓.๑๔!
+#expected_errors_count: 0
+#end
+
+#test: th_nbsp_thinspace_numbers_ok_07
+#lang: th
+#text
+๑๐\u00A0000 ๑๒\u202F๓๔๕
+#expected_errors_count: 0
+#end
+
+#test: th_corrupted_suffix_08
+#lang: th
+#text
+และ ใน ไทยzz
+#expected_errors_count: 1
+#must_contain
+ไทยzz
+#must_not_contain
+และ
+ใน
+#end
+
+#test: th_mixed_script_split_09
+#lang: th
+#text
+ไทยA ในB
+#expected_errors_count: 2
+#must_contain
+ไทยA
+ในB
+#end
+
+#test: th_email_flag_10
+#lang: th
+#text
+ชื่อ.นามสกุล+ป้าย@example.com
+#expected_errors_count: 0
+#end
+
+#test: th_url_flag_11
+#lang: th
+#text
+https://ตัวอย่าง.ไทย/เส้นทาง?ก=1&ข=2
+#expected_errors_count: 0
+#end
+
+#test: th_hashtag_mention_flag_12
+#lang: th
+#text
+#กรุงเทพ @ใครสักคน
+#expected_errors_count: 0
+#end
+
+#test: th_underscore_flag_13
+#lang: th
+#text
+งูใหญ่_รูปแบบ
+#expected_errors_count: 1
+#must_contain
+งูใหญ่_รูปแบบ
+#end
+
+#test: th_hyphen_flag_14
+#lang: th
+#text
+ไทย-ลาว ภาษา-ไทย
+#expected_errors_count: 2
+#must_contain
+ไทย-ลาว
+ภาษา-ไทย
+#end
+
+#test: th_zero_width_inside_ok_15
+#lang: th
+#text
+ไ\u200dทย ใ\u200cน
+#expected_errors_count: 0
+#must_not_contain
+ไ\u200dทย
+ใ\u200cน
+#end
+
+#test: th_zero_width_merge_flag_16
+#lang: th
+#text
+ไท\u2060ย
+#expected_errors_count: 1
+#must_contain
+ไท\u2060ย
+#end
+
+#test: th_only_punct_17
+#lang: th
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { }
+#expected_errors_count: 0
+#end
+
+#test: th_empty_18
+#lang: th
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: th_paired_punct_all_19
+#lang: th
+#text
+() [] {} <> «» “” ‘’ 〈〉 《》 【】 〔〕
+#expected_errors_count: 0
+#end
+
+#test: th_dash_edges_ok_20
+#lang: th
+#text
+—ไทย— —กรุงเทพ—
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+กรุงเทพ
+#end
+
+#test: th_emoji_edges_ok_21
+#lang: th
+#text
+(ไทย🛫ลาว)
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+ลาว
+#end
+
+#test: lo_punct_edges_basic_01
+#lang: lo
+#text
+(ລາວ) «ແລະ» —ໃນ— ວຽງຈັນ.
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ແລະ
+ໃນ
+ວຽງຈັນ
+#end
+
+#test: lo_punct_edges_heavy_02
+#lang: lo
+#text
+«ລາວ», — ໃນ — …ແລະ… (ວຽງຈັນ)
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ໃນ
+ແລະ
+ວຽງຈັນ
+#end
+
+#test: lo_whitespace_tabs_newlines_03
+#lang: lo
+#text
+ລາວ
+
+ແລະ	ໃນ   ວຽງຈັນ
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ແລະ
+ໃນ
+ວຽງຈັນ
+#end
+
+#test: lo_numbers_lao_digits_04
+#lang: lo
+#text
+໑໒,໓໔໕ ໙໘໗,໖໕໔ ໓.໑໔໑໕໙
+#expected_errors_count: 0
+#end
+
+#test: lo_numbers_western_ok_05
+#lang: lo
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: lo_numbers_trailing_punct_06
+#lang: lo
+#text
+໑໒,໓໔໕. ໑,໒໓໔, ໓.໑໔!
+#expected_errors_count: 0
+#end
+
+#test: lo_nbsp_thinspace_numbers_ok_07
+#lang: lo
+#text
+໑໐\u00A0000 ໑໒\u202F໓໔໕
+#expected_errors_count: 0
+#end
+
+#test: lo_corrupted_suffix_08
+#lang: lo
+#text
+ແລະ ໃນ ລາວzz
+#expected_errors_count: 1
+#must_contain
+ລາວzz
+#end
+
+#test: lo_mixed_script_split_09
+#lang: lo
+#text
+ລາວA ໙B
+#expected_errors_count: 2
+#must_contain
+ລາວA
+໙B
+#end
+
+#test: lo_email_flag_10
+#lang: lo
+#text
+ຊື່.ນາມສະກຸນ+ປ້າຍ@example.com
+#expected_errors_count: 0
+#end
+
+#test: lo_url_flag_11
+#lang: lo
+#text
+https://ຕົວຢ່າງ.ລາວ/ເສັ້ນທາງ?ກ=1&ຂ=2
+#expected_errors_count: 0
+#end
+
+#test: lo_hashtag_mention_flag_12
+#lang: lo
+#text
+#ວຽງຈັນ @ໃຜຄົນໜຶ່ງ
+#expected_errors_count: 0
+#end
+
+#test: lo_underscore_flag_13
+#lang: lo
+#text
+ຮູບແບບ_ງູໃຫຍ່
+#expected_errors_count: 1
+#must_contain
+ຮູບແບບ_ງູໃຫຍ່
+#end
+
+#test: lo_hyphen_flag_14
+#lang: lo
+#text
+ພາສາ-ລາວ ລາວ-ໄທ
+#expected_errors_count: 2
+#must_contain
+ພາສາ-ລາວ
+ລາວ-ໄທ
+#end
+
+#test: lo_zero_width_inside_ok_15
+#lang: lo
+#text
+ລ\u200dາວ ໃ\u200cນ
+#expected_errors_count: 0
+#must_not_contain
+ລ\u200dາວ
+ໃ\u200cນ
+#end
+
+
+#test: lo_only_punct_17
+#lang: lo
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { }
+#expected_errors_count: 0
+#end
+
+#test: lo_empty_18
+#lang: lo
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: lo_paired_punct_all_19
+#lang: lo
+#text
+() [] {} <> «» “” ‘’ 〈〉 《》 【】 〔〕
+#expected_errors_count: 0
+#end
+
+#test: lo_dash_edges_ok_20
+#lang: lo
+#text
+—ລາວ— —ວຽງຈັນ—
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ວຽງຈັນ
+#end
+
+#test: th_repetition_mark_ok_01
+#lang: th
+#text
+ไทยๆ ดีๆ
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+ดี
+#end
+
+#test: th_paiyannoi_edges_ok_02
+#lang: th
+#text
+ฯไทยฯ
+#expected_errors_count: 0
+#must_not_contain
+ไทย
+#end
+
+#test: th_inner_endash_flag_03
+#lang: th
+#text
+ไทย–ลาว ภาษา–ไทย
+#expected_errors_count: 2
+#must_contain
+ไทย–ลาว
+ภาษา–ไทย
+#end
+
+#test: th_mixed_digits_ok_04
+#lang: th
+#text
+123 ๔๕๖ ۷۸۹ １２３
+#expected_errors_count: 0
+#end
+
+
+#test: th_fullwidth_latin_flag_06
+#lang: th
+#text
+ＡＢＣ
+#expected_errors_count: 1
+#must_contain
+ＡＢＣ
+#end
+
+#test: th_ascii_chunk_flag_07
+#lang: th
+#text
+abc ไทย
+#expected_errors_count: 1
+#must_contain
+abc
+#end
+
+#test: lo_repetition_mark_ok_01
+#lang: lo
+#text
+ລາວໆ ດີໆ
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ດີ
+#end
+
+#test: lo_inner_endash_flag_02
+#lang: lo
+#text
+ລາວ–ໄທ ພາສາ–ລາວ
+#expected_errors_count: 2
+#must_contain
+ລາວ–ໄທ
+ພາສາ–ລາວ
+#end
+
+#test: lo_emoji_edges_ok_03
+#lang: lo
+#text
+(ລາວ🛕ໄທ)
+#expected_errors_count: 0
+#must_not_contain
+ລາວ
+ໄທ
+#end
+
+
+#test: lo_fullwidth_latin_flag_05
+#lang: lo
+#text
+ＡＢＣ
+#expected_errors_count: 1
+#must_contain
+ＡＢＣ
+#end
+
+#test: lo_ascii_chunk_flag_06
+#lang: lo
+#text
+abc ລາວ
+#expected_errors_count: 1
+#must_contain
+abc
+#end

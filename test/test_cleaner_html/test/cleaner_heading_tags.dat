@@ -1,0 +1,962 @@
+#test: remove_heading_true_easy_01
+#data
+<html><body><h1>Title</h1></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_02
+#data
+<html><body><h2>Subtitle</h2></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_03
+#data
+<html><body><h3>Heading 3</h3></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_04
+#data
+<html><body><h4>Heading 4</h4></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_05
+#data
+<html><body><h5>Heading 5</h5></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_06
+#data
+<html><body><h6>Heading 6</h6></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_07
+#data
+<html><body><h1>Title</h1><h2>Subtitle</h2></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_08
+#data
+<html><body><h3>Heading</h3><h4>Subheading</h4></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_09
+#data
+<html><body><h1>Only one heading</h1></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_10
+#data
+<html><body><h2></h2></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_11
+#data
+<html><body><h3>   </h3></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_12
+#data
+<html><body><h4>Heading with extra text</h4></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_13
+#data
+<html><body><h5>1234567890</h5></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_14
+#data
+<html><body><h6>!@#$%^&*()</h6></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_15
+#data
+<html><body><h1>Mixed</h1><h2>Case</h2></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_easy_16
+#data
+<html><body><h3>Only Heading</h3>Text outside</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Text outside</body></html>
+
+#test: remove_heading_true_easy_17
+#data
+<html><body>Start <h4>Mid</h4> End</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_heading_true_easy_18
+#data
+<html><body>Pre <h5>Content</h5></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Pre </body></html>
+
+#test: remove_heading_true_easy_19
+#data
+<html><body><h6>Alpha</h6> and <h1>Beta</h1></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> and </body></html>
+
+#test: remove_heading_true_easy_20
+#data
+<html><body>Only text without headings</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Only text without headings</body></html>
+
+#test: remove_heading_true_intermediate_21
+#data
+<html><body>Start <h1>Heading1</h1> End</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_heading_true_intermediate_22
+#data
+<html><body>Intro <h2>Subheading</h2> Conclusion</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Intro  Conclusion</body></html>
+
+#test: remove_heading_true_intermediate_23
+#data
+<html><body><h3>Heading3</h3>Only text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Only text</body></html>
+
+#test: remove_heading_true_intermediate_24
+#data
+<html><body>Before <h4>Mid Heading</h4> After</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_heading_true_intermediate_25
+#data
+<html><body>Lead <h5>Heading</h5> Trail</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Lead  Trail</body></html>
+
+#test: remove_heading_true_intermediate_26
+#data
+<html><body>Start<h6>H6</h6>Middle<h1>H1</h1>End</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start Middle End</body></html>
+
+#test: remove_heading_true_intermediate_27
+#data
+<html><body>Text before <h2>Sub</h2> text after</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Text before  text after</body></html>
+
+#test: remove_heading_true_intermediate_28
+#data
+<html><body><h3>Only Heading</h3> and some extra text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> and some extra text</body></html>
+
+#test: remove_heading_true_intermediate_29
+#data
+<html><body>Pretext <h4>Midtext</h4> Posttext</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Pretext  Posttext</body></html>
+
+#test: remove_heading_true_intermediate_30
+#data
+<html><body>Start<h1>Title</h1><p>Paragraph</p></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start<p>Paragraph</p></body></html>
+
+#test: remove_heading_true_intermediate_31
+#data
+<html><body><h2>Header</h2>Direct text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Direct text</body></html>
+
+#test: remove_heading_true_intermediate_32
+#data
+<html><body>Intro <h3>Mid</h3> Outro</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: remove_heading_true_intermediate_33
+#data
+<html><body>Some text <h4></h4> more text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Some text  more text</body></html>
+
+#test: remove_heading_true_intermediate_34
+#data
+<html><body>Alpha <h5>Beta</h5> Gamma</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Alpha  Gamma</body></html>
+
+#test: remove_heading_true_intermediate_35
+#data
+<html><body>Start <h6>Mid</h6> <h1>Another</h1> End</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start   End</body></html>
+
+#test: remove_heading_true_intermediate_36
+#data
+<html><body><h2>Hi</h2> there</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> there</body></html>
+
+#test: remove_heading_true_intermediate_37
+#data
+<html><body>Before<h3>Something</h3></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Before</body></html>
+
+#test: remove_heading_true_intermediate_38
+#data
+<html><body><h4>Only</h4>Text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: remove_heading_true_intermediate_39
+#data
+<html><body>Text<h5></h5></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: remove_heading_true_intermediate_40
+#data
+<html><body><h6>Gone</h6>Then remaining text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Then remaining text</body></html>
+
+
+#test: remove_heading_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc</title></head><body><h1>Title41</h1><div>Text41</div></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc</title></head><body><div>Text41</div></body></html>
+
+#test: remove_heading_true_complex_42
+#data
+<html><body>Start42 <h2>Sub</h2><p>Para42</p></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start42 <p>Para42</p></body></html>
+
+#test: remove_heading_true_complex_43
+#data
+<html><body><div><h3>Head3</h3><span>Inline</span></div>Extra43</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body><div><span>Inline</span></div>Extra43</body></html>
+
+#test: remove_heading_true_complex_44
+#data
+<html><body><h4>Complex</h4> text <h5>Mixed</h5> content</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> text  content</body></html>
+
+#test: remove_heading_true_complex_45
+#data
+<html><body>Before <h6>Heading</h6> Middle <h1>Another</h1> End</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Before  Middle  End</body></html>
+
+#test: remove_heading_true_complex_46
+#data
+<html><body><div>Wrapper <h2>Inner Head</h2> still inside div</div> Outside46</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body><div>Wrapper  still inside div</div> Outside46</body></html>
+
+#test: remove_heading_true_complex_47
+#data
+<html><body><h3>Lonely Heading</h3></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_heading_true_complex_48
+#data
+<html><body>Intro48 <div><h4>Deep Head</h4><p>Para48</p></div> Outro48</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Intro48 <div><p>Para48</p></div> Outro48</body></html>
+
+#test: remove_heading_true_complex_49
+#data
+<html><body><h5></h5>Just text after empty heading</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Just text after empty heading</body></html>
+
+#test: remove_heading_true_complex_50
+#data
+<html><body><h6>Heading</h6><h1>Another</h1><h2>Yet Another</h2>End50</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>End50</body></html>
+
+#test: remove_heading_true_complex_51
+#data
+<html><body>Pre <div><h3>Nested</h3><span>Keep</span></div> Post</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Pre <div><span>Keep</span></div> Post</body></html>
+
+#test: remove_heading_true_complex_52
+#data
+<html><body><h4>Heading with <em>emphasis</em></h4> Extra text</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> Extra text</body></html>
+
+#test: remove_heading_true_complex_53
+#data
+<html><body><div>Wrapper <h5>Inner heading</h5> and more</div> Final</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body><div>Wrapper  and more</div> Final</body></html>
+
+#test: remove_heading_true_complex_54
+#data
+<html><body>Text before <h6>Heading</h6> and after</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Text before  and after</body></html>
+
+#test: remove_heading_true_complex_55
+#data
+<html><body><div><h1>First</h1><p>Paragraph</p></div>Extra55</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body><div><p>Paragraph</p></div>Extra55</body></html>
+
+#test: remove_heading_true_complex_56
+#data
+<html><body>Start complex56 <h2>Head</h2> Middle complex56</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Start complex56  Middle complex56</body></html>
+
+#test: remove_heading_true_complex_57
+#data
+<html><body><h3>Nested <span>Inline</span></h3> after nested</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body> after nested</body></html>
+
+#test: remove_heading_true_complex_58
+#data
+<html><body>Only text complex58 <h4>Heading to remove</h4></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Only text complex58 </body></html>
+
+#test: remove_heading_true_complex_59
+#data
+<html><body>Before complex59 <h5>Head removed</h5> After complex59</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body>Before complex59  After complex59</body></html>
+
+#test: remove_heading_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><h6>Complex60</h6> Ending complex60</body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body> Ending complex60</body></html>
+
+
+#test: remove_heading_false_easy_01
+#data
+<html><body><h1>Title</h1></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h1>Title</h1>
+
+#test: remove_heading_false_easy_02
+#data
+<html><body><h2>Subtitle</h2></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h2>Subtitle</h2>
+
+#test: remove_heading_false_easy_03
+#data
+<html><body><h3>Heading 3</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Heading 3</h3>
+
+#test: remove_heading_false_easy_04
+#data
+<html><body><h4>Heading 4</h4></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h4>Heading 4</h4>
+
+#test: remove_heading_false_easy_05
+#data
+<html><body><h5>Heading 5</h5></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h5>Heading 5</h5>
+
+#test: remove_heading_false_easy_06
+#data
+<html><body><h6>Heading 6</h6></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h6>Heading 6</h6>
+
+#test: remove_heading_false_easy_07
+#data
+<html><body><h1>Title</h1><h2>Subtitle</h2></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h1>Title</h1><h2>Subtitle</h2>
+
+#test: remove_heading_false_easy_08
+#data
+<html><body><h3>Only Heading</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Only Heading</h3>
+
+#test: remove_heading_false_easy_09
+#data
+<html><body><h4>Complex Heading</h4></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h4>Complex Heading</h4>
+
+#test: remove_heading_false_easy_10
+#data
+<html><body><h5>1234567890</h5></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h5>1234567890</h5>
+
+#test: remove_heading_false_easy_11
+#data
+<html><body><h6>!@#$%^&*()</h6></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h6>!@#$%^&amp;*()</h6>
+
+#test: remove_heading_false_easy_12
+#data
+<html><body>Text outside <h1>Heading</h1></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Text outside <h1>Heading</h1>
+
+#test: remove_heading_false_easy_13
+#data
+<html><body><h2>Heading Only</h2>Trailing text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h2>Heading Only</h2>Trailing text
+
+#test: remove_heading_false_easy_14
+#data
+<html><body>Leading text<h3>Mid Heading</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Leading text<h3>Mid Heading</h3>
+
+#test: remove_heading_false_easy_15
+#data
+<html><body>Before<h4>Heading</h4>After</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Before<h4>Heading</h4>After
+
+#test: remove_heading_false_easy_16
+#data
+<html><body><h5></h5>Direct text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h5></h5>Direct text
+
+#test: remove_heading_false_easy_17
+#data
+<html><body>Only text without headings</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Only text without headings
+
+#test: remove_heading_false_easy_18
+#data
+<html><body><h1>Title</h1> and extra text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h1>Title</h1> and extra text
+
+#test: remove_heading_false_easy_19
+#data
+<html><body>Intro <h2>Sub</h2> Outro</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Intro <h2>Sub</h2> Outro
+
+#test: remove_heading_false_easy_20
+#data
+<html><body><h3>Heading</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Heading</h3>
+
+#test: remove_heading_false_intermediate_21
+#data
+<html><body>Start <h1>Title</h1> End</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start <h1>Title</h1> End
+
+#test: remove_heading_false_intermediate_22
+#data
+<html><body>Intro <h2>Subtitle</h2> Conclusion</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Intro <h2>Subtitle</h2> Conclusion
+
+#test: remove_heading_false_intermediate_23
+#data
+<html><body><h3>Heading3</h3>Additional text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Heading3</h3>Additional text
+
+#test: remove_heading_false_intermediate_24
+#data
+<html><body>Before <h4>Mid Heading</h4> After</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Before <h4>Mid Heading</h4> After
+
+#test: remove_heading_false_intermediate_25
+#data
+<html><body>Lead <h5>Heading</h5> Trail</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Lead <h5>Heading</h5> Trail
+
+#test: remove_heading_false_intermediate_26
+#data
+<html><body>Start<h6>H6</h6>Middle<h1>H1</h1>End</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start<h6>H6</h6>Middle<h1>H1</h1>End
+
+#test: remove_heading_false_intermediate_27
+#data
+<html><body>Text before <h2>Heading</h2> text after</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Text before <h2>Heading</h2> text after
+
+#test: remove_heading_false_intermediate_28
+#data
+<html><body><h3>Only Heading</h3> and some extra text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Only Heading</h3> and some extra text
+
+#test: remove_heading_false_intermediate_29
+#data
+<html><body>Pretext <h4>Midtext</h4> Posttext</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Pretext <h4>Midtext</h4> Posttext
+
+#test: remove_heading_false_intermediate_30
+#data
+<html><body>Start<h1>Title</h1><p>Paragraph</p>End</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start<h1>Title</h1>Paragraph End
+
+
+#test: remove_heading_false_intermediate_31
+#data
+<html><body>Intro <h2>Header</h2> more text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Intro <h2>Header</h2> more text
+
+#test: remove_heading_false_intermediate_32
+#data
+<html><body><h3>Heading</h3>Direct text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Heading</h3>Direct text
+
+#test: remove_heading_false_intermediate_33
+#data
+<html><body>Some text <h4></h4> more text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Some text <h4></h4> more text
+
+#test: remove_heading_false_intermediate_34
+#data
+<html><body>Alpha <h5>Beta</h5> Gamma</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Alpha <h5>Beta</h5> Gamma
+
+#test: remove_heading_false_intermediate_35
+#data
+<html><body>Start <h6>Mid</h6> <h1>Another</h1> End</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start <h6>Mid</h6><h1>Another</h1> End
+
+#test: remove_heading_false_intermediate_36
+#data
+<html><body><h2>Hi</h2> there</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h2>Hi</h2> there
+
+#test: remove_heading_false_intermediate_37
+#data
+<html><body>Before<h3>Something</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Before<h3>Something</h3>
+
+#test: remove_heading_false_intermediate_38
+#data
+<html><body><h4>Only</h4>Text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h4>Only</h4>Text
+
+#test: remove_heading_false_intermediate_39
+#data
+<html><body>Text<h5></h5></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Text<h5></h5>
+
+#test: remove_heading_false_intermediate_40
+#data
+<html><body><h6>Gone</h6> Then remaining text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h6>Gone</h6> Then remaining text
+
+#test: remove_heading_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc</title></head><body><h1>Title41</h1><div>Text41</div></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Doc<h1>Title41</h1>Text41
+
+#test: remove_heading_false_complex_42
+#data
+<html><body>Start42 <h2>Subheading</h2><p>Paragraph42</p></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start42 <h2>Subheading</h2>Paragraph42
+
+#test: remove_heading_false_complex_43
+#data
+<html><body><div><h3>Heading3</h3><span>Inline</span></div>Extra43</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Heading3</h3>Inline Extra43
+
+#test: remove_heading_false_complex_44
+#data
+<html><body><h4>Complex Heading</h4> text <h5>Mixed</h5> content</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h4>Complex Heading</h4> text <h5>Mixed</h5> content
+
+#test: remove_heading_false_complex_45
+#data
+<html><body>Before <h6>Heading</h6> Middle <h1>Another</h1> End</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Before <h6>Heading</h6> Middle <h1>Another</h1> End
+
+#test: remove_heading_false_complex_46
+#data
+<html><body><div>Wrapper <h2>Inner Heading</h2> still inside div</div> Outside46</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Wrapper <h2>Inner Heading</h2> still inside div Outside46
+
+#test: remove_heading_false_complex_47
+#data
+<html><body><h3>Lonely Heading</h3></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Lonely Heading</h3>
+
+#test: remove_heading_false_complex_48
+#data
+<html><body>Intro48 <div><h4>Deep Heading</h4><p>Para48</p></div> Outro48</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Intro48 <h4>Deep Heading</h4>Para48 Outro48
+
+#test: remove_heading_false_complex_49
+#data
+<html><body><h5>Empty Heading</h5>Just text after empty heading</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h5>Empty Heading</h5>Just text after empty heading
+
+#test: remove_heading_false_complex_50
+#data
+<html><body><h6>Heading</h6><h1>Another</h1><h2>Yet Another</h2>End50</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h6>Heading</h6><h1>Another</h1><h2>Yet Another</h2>End50
+
+#test: remove_heading_false_complex_51
+#data
+<html><body>Pre <div><h3>Nested Heading</h3><span>Keep this</span></div> Post</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Pre <h3>Nested Heading</h3>Keep this Post
+
+#test: remove_heading_false_complex_52
+#data
+<html><body><h4>Heading with <em>emphasis</em></h4> Extra text</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h4>Heading with <em>emphasis</em></h4> Extra text
+
+#test: remove_heading_false_complex_53
+#data
+<html><body><div>Wrapper <h5>Inner heading</h5> and more</div> Final</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Wrapper <h5>Inner heading</h5> and more Final
+
+#test: remove_heading_false_complex_54
+#data
+<html><body>Text before <h6>Heading</h6> and after</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Text before <h6>Heading</h6> and after
+
+#test: remove_heading_false_complex_55
+#data
+<html><body><div><h1>First</h1><p>Paragraph</p></div>Extra55</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h1>First</h1>Paragraph Extra55
+
+#test: remove_heading_false_complex_56
+#data
+<html><body>Start complex56 <h2>Heading</h2> Middle complex56</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Start complex56 <h2>Heading</h2> Middle complex56
+
+#test: remove_heading_false_complex_57
+#data
+<html><body><h3>Nested <span>Inline</span></h3> after nested</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h3>Nested <span>Inline</span></h3> after nested
+
+#test: remove_heading_false_complex_58
+#data
+<html><body>Only text complex58 <h4>Heading to keep</h4></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Only text complex58 <h4>Heading to keep</h4>
+
+#test: remove_heading_false_complex_59
+#data
+<html><body>Before complex59 <h5>Heading</h5> After complex59</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Before complex59 <h5>Heading</h5> After complex59
+
+#test: remove_heading_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><h6>Complex60</h6> Ending complex60</body></html>
+#params
+html.remove_heading_tags=False
+#expected
+Doc60<h6>Complex60</h6> Ending complex60

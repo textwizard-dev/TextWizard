@@ -1,0 +1,460 @@
+#test: remove_empty_easy_01
+#data
+<root><a/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_02
+#data
+<root><a></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_03
+#data
+<root><a/><b>v</b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><b>v</b></root>
+
+#test: remove_empty_easy_04
+#data
+<root><a><b/></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_05
+#data
+<root><a><b>v</b></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b>v</b></a></root>
+
+#test: remove_empty_easy_06
+#data
+<root><a> </a><b>v</b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><b>v</b></root>
+
+#test: remove_empty_easy_07
+#data
+<root><a><b> </b></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_08
+#data
+<root><a><b> </b><c><d/></c></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_09
+#data
+<root><a>text</a><b></b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a>text</a></root>
+
+#test: remove_empty_easy_10
+#data
+<root><a><b/></a><c>text</c></root>
+#params
+remove_empty_tags=true
+#expected
+<root><c>text</c></root>
+
+#test: remove_empty_easy_11
+#data
+<root><a attr="x"/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_12
+#data
+<root attr="v"><a/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_13
+#data
+<root><a>t</a><b/><c>u</c></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a>t</a><c>u</c></root>
+
+#test: remove_empty_easy_14
+#data
+<root><ns:a xmlns:ns="u"/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_15
+#data
+<root><ns:a xmlns:ns="u"><ns:b/></ns:a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_16
+#data
+<root><a/><b/><c/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_easy_17
+#data
+<root><a><b/><c>c</c></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><c>c</c></a></root>
+
+#test: remove_empty_easy_18
+#data
+<root>text</root>
+#params
+remove_empty_tags=true
+#expected
+<root>text</root>
+
+#test: remove_empty_easy_19
+#data
+<root><a>  </a>text<b> </b></root>
+#params
+remove_empty_tags=true
+#expected
+<root>text</root>
+
+#test: remove_empty_easy_20
+#data
+<root>   </root>
+#params
+remove_empty_tags=true
+#expected
+
+
+#test: remove_empty_mid_01
+#data
+<root><a><b><c/></b></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_mid_02
+#data
+<root><a><b> </b><c/><d>t</d></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><d>t</d></a></root>
+
+#test: remove_empty_mid_03
+#data
+<root><a>hi<div/></a><tail/></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a>hi</a></root>
+
+#test: remove_empty_mid_04
+#data
+<root><x> <y/> </x><z>z</z></root>
+#params
+remove_empty_tags=true
+#expected
+<root><z>z</z></root>
+
+#test: remove_empty_mid_05
+#data
+<root><p>p</p><q> </q><r>r</r></root>
+#params
+remove_empty_tags=true
+#expected
+<root><p>p</p><r>r</r></root>
+
+#test: remove_empty_mid_06
+#data
+<root><a><b><c><d/></c></b></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_mid_07
+#data
+<root><a id="1"><b/></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_mid_08
+#data
+<root><a> text <b> </b> text2</a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a> text  text2</a></root>
+
+#test: remove_empty_mid_09
+#data
+<root><ns:a xmlns:ns="u"/><ns:b xmlns:ns="u">v</ns:b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><ns:b xmlns:ns="u">v</ns:b></root>
+
+#test: remove_empty_mid_10
+#data
+<root><a/><b><c>c</c></b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><b><c>c</c></b></root>
+
+#test: remove_empty_mid_11
+#data
+<root><a> </a><b>1</b><c><d>2</d></c><e/></root>
+#params
+remove_empty_tags=true
+#expected
+<root><b>1</b><c><d>2</d></c></root>
+
+#test: remove_empty_mid_12
+#data
+<root><a><b>ok</b><c/></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b>ok</b></a></root>
+
+#test: remove_empty_mid_13
+#data
+<root><x> <y>y</y> <z/></x></root>
+#params
+remove_empty_tags=true
+#expected
+<root><x><y>y</y></x></root>
+
+#test: remove_empty_mid_14
+#data
+<root><a>1<b/><c>2</c>3</a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a>1<c>2</c>3</a></root>
+
+#test: remove_empty_mid_15
+#data
+<root><a><b> </b><c> </c></a><d>v</d></root>
+#params
+remove_empty_tags=true
+#expected
+<root><d>v</d></root>
+
+#test: remove_empty_mid_16
+#data
+<root><outer><inner/></outer></root>
+#params
+remove_empty_tags=true
+#expected
+
+
+#test: remove_empty_mid_17
+#data
+<root><n><m>m</m><o/></n></root>
+#params
+remove_empty_tags=true
+#expected
+<root><n><m>m</m></n></root>
+
+#test: remove_empty_mid_18
+#data
+<root attr="v"><child/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_mid_19
+#data
+<root><a> </a><b><c> </c><d>t</d></b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><b><d>t</d></b></root>
+
+#test: remove_empty_mid_20
+#data
+<root><a><b><c>v</c></b></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b><c>v</c></b></a></root>
+
+
+#test: remove_empty_hard_01
+#data
+<root><a><b><c/></b><d> </d></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_02
+#data
+<root><a> <b>t</b> </a><b><c/></b></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b>t</b></a></root>
+
+#test: remove_empty_hard_03
+#data
+<root><a><b> </b><c><d/></c></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_04
+#data
+<root><a><b><c><d><e/></d></c></b></a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_05
+#data
+<root><a>x<b/>y<c/>z</a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a>xyz</a></root>
+
+#test: remove_empty_hard_06
+#data
+<root><a><b>1<c/></b><d>2</d></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b>1</b><d>2</d></a></root>
+
+#test: remove_empty_hard_07
+#data
+<root><a> <b> </b> </a><c>v</c></root>
+#params
+remove_empty_tags=true
+#expected
+<root><c>v</c></root>
+
+#test: remove_empty_hard_08
+#data
+<root><a/><b> </b><c><d> </d></c></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_09
+#data
+<root><a> <b><c/></b> </a></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_10
+#data
+<root xmlns="u"><a/><b>t</b><c/></root>
+#params
+remove_empty_tags=true
+#expected
+<root xmlns="u"><b>t</b></root>
+
+#test: remove_empty_hard_11
+#data
+<root><a><b id="x"/></a><b id="y"/></root>
+#params
+remove_empty_tags=true
+#expected
+
+#test: remove_empty_hard_12
+#data
+<root><a text="v"/><b/></root>
+#params
+remove_empty_tags=true
+#expected
+
+
+#test: remove_empty_hard_13
+#data
+<root><a><b/></a><c>0</c><d><e/></d></root>
+#params
+remove_empty_tags=true
+#expected
+<root><c>0</c></root>
+
+#test: remove_empty_hard_14
+#data
+<root><a><b> </b><c> </c><d><e>e</e></d></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><d><e>e</e></d></a></root>
+
+#test: remove_empty_hard_15
+#data
+<root> <a> </a> text <b> </b> </root>
+#params
+remove_empty_tags=true
+#expected
+<root> text </root>
+
+#test: remove_empty_hard_16
+#data
+<root><a> \n </a><b>v</b><c/>\n</root>
+#params
+remove_empty_tags=true
+#expected
+<root><a> \n </a><b>v</b>\n</root>
+
+#test: remove_empty_hard_17
+#data
+<root><a><b>1</b><c><d> </d></c></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><b>1</b></a></root>
+
+#test: remove_empty_hard_18
+#data
+<root><a><b/><c><d><e>e</e></d></c></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><c><d><e>e</e></d></c></a></root>
+
+#test: remove_empty_hard_19
+#data
+<root><x><y/>text<z/></x></root>
+#params
+remove_empty_tags=true
+#expected
+<root><x>text</x></root>
+
+#test: remove_empty_hard_20
+#data
+<root><a><b/><c> <d/></c><e>e</e></a></root>
+#params
+remove_empty_tags=true
+#expected
+<root><a><e>e</e></a></root>

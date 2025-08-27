@@ -1,0 +1,552 @@
+# Easy (20)
+#test: collapse_easy_01
+#data
+<root>foo</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo</root>
+
+#test: collapse_easy_02
+#data
+<root>foo   bar</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo bar</root>
+
+#test: collapse_easy_03
+#data
+<root>   foo</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo</root>
+
+#test: collapse_easy_04
+#data
+<root>foo   </root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo</root>
+
+#test: collapse_easy_05
+#data
+<root>   foo   </root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo</root>
+
+#test: collapse_easy_06
+#data
+<root>foo
+bar</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foobar</root>
+
+#test: collapse_easy_07
+#data
+<root>foo
+
+
+bar</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foobar</root>
+
+#test: collapse_easy_08
+#data
+<root>
+foo bar
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo bar</root>
+
+#test: collapse_easy_09
+#data
+<root>
+   foo   bar
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo bar</root>
+
+#test: collapse_easy_10
+#data
+<root> </root>
+#params
+collapse_whitespace=true
+#expected
+<root> </root>
+
+#test: collapse_easy_11
+#data
+<root>
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root/>
+
+#test: collapse_easy_12
+#data
+<root>one  two   three</root>
+#params
+collapse_whitespace=true
+#expected
+<root>one two three</root>
+
+#test: collapse_easy_13
+#data
+<root>a    b</root>
+#params
+collapse_whitespace=true
+#expected
+<root>a b</root>
+
+#test: collapse_easy_14
+#data
+<root>
+a b
+c
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root>a bc</root>
+
+#test: collapse_easy_15
+#data
+<root>prefix   suffix</root>
+#params
+collapse_whitespace=true
+#expected
+<root>prefix suffix</root>
+
+#test: collapse_easy_16
+#data
+<root>mix   spaces and   tabs</root>
+#params
+collapse_whitespace=true
+#expected
+<root>mix spaces and tabs</root>
+
+#test: collapse_easy_17
+#data
+<root>abc    </root>
+#params
+collapse_whitespace=true
+#expected
+<root>abc</root>
+
+#test: collapse_easy_18
+#data
+<root>    abc</root>
+#params
+collapse_whitespace=true
+#expected
+<root>abc</root>
+
+#test: collapse_easy_19
+#data
+<root>  abc  def  </root>
+#params
+collapse_whitespace=true
+#expected
+<root>abc def</root>
+
+#test: collapse_easy_20
+#data
+<root>
+   only
+   spaces
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root>onlyspaces</root>
+
+
+#test: collapse_mid_01
+#data
+<root> foo <a> bar  baz </a> qux </root>
+#params
+collapse_whitespace=true
+#expected
+<root>foo<a>bar baz</a>qux</root>
+
+#test: collapse_mid_02
+#data
+<root><a>  x  </a><b>  y   </b></root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>x</a><b>y</b></root>
+
+#test: collapse_mid_03
+#data
+<root>one <b>two three</b>  four</root>
+#params
+collapse_whitespace=true
+#expected
+<root>one<b>two three</b>four</root>
+
+#test: collapse_mid_04
+#data
+<root><a>first   line
+second</a></root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>first linesecond</a></root>
+
+#test: collapse_mid_05
+#data
+<root>start   <a/>   end</root>
+#params
+collapse_whitespace=true
+#expected
+<root>start<a/>end</root>
+
+#test: collapse_mid_06
+#data
+<root>alpha<child> beta  gamma </child> delta</root>
+#params
+collapse_whitespace=true
+#expected
+<root>alpha<child>beta gamma</child>delta</root>
+
+#test: collapse_mid_07
+#data
+<root><a> a </a><b> b </b><c> c </c></root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>a</a><b>b</b><c>c</c></root>
+
+#test: collapse_mid_08
+#data
+<root> text <a> inner </a> tail </root>
+#params
+collapse_whitespace=true
+#expected
+<root>text<a>inner</a>tail</root>
+
+#test: collapse_mid_09
+#data
+<root>
+<a>
+x    y
+</a>
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>x y</a></root>
+
+#test: collapse_mid_10
+#data
+<root>pre<a>mid</a>post</root>
+#params
+collapse_whitespace=true
+#expected
+<root>pre<a>mid</a>post</root>
+
+#test: collapse_mid_11
+#data
+<root><a>multi
+line</a> end</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>multiline</a>end</root>
+
+#test: collapse_mid_12
+#data
+<root> <a/> <b/>  </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a/><b/></root>
+
+#test: collapse_mid_13
+#data
+<root> <a> x </a> text <b> y </b> end </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>x</a>text<b>y</b>end</root>
+
+#test: collapse_mid_14
+#data
+<root>mix <a> multi
+line </a> collapse</root>
+#params
+collapse_whitespace=true
+#expected
+<root>mix<a>multiline</a>collapse</root>
+
+#test: collapse_mid_15
+#data
+<root> <a>  </a> </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>  </a></root>
+
+#test: collapse_mid_16
+#data
+<root><a/>   <b/>   <c/></root>
+#params
+collapse_whitespace=true
+#expected
+<root><a/><b/><c/></root>
+
+#test: collapse_mid_17
+#data
+<root><a>  a  </a> mid <b>  b  </b></root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>a</a>mid<b>b</b></root>
+
+#test: collapse_mid_18
+#data
+<root>head <a> x  y </a> tail</root>
+#params
+collapse_whitespace=true
+#expected
+<root>head<a>x y</a>tail</root>
+
+#test: collapse_mid_19
+#data
+<root> <a>l1
+l2</a> <b> l3
+l4 </b> </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>l1l2</a><b>l3l4</b></root>
+
+#test: collapse_mid_20
+#data
+<root>a <child> b <sub> c </sub> d </child> e</root>
+#params
+collapse_whitespace=true
+#expected
+<root>a<child>b<sub>c</sub>d</child>e</root>
+
+
+#test: collapse_hard_01
+#data
+<root>  a <b>  b1  <c>   c1   </c>  b2  </b>  a2  </root>
+#params
+collapse_whitespace=true
+#expected
+<root>a<b>b1<c>c1</c>b2</b>a2</root>
+
+#test: collapse_hard_02
+#data
+<root>
+   <a>  x   </a>
+   <b>y    z</b>
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>x</a><b>y z</b></root>
+
+#test: collapse_hard_03
+#data
+<root>first
+<mid> second
+<third>  third </third>
+ </mid>
+end</root>
+#params
+collapse_whitespace=true
+#expected
+<root>first<mid>second<third>third</third></mid>end</root>
+
+#test: collapse_hard_04
+#data
+<root>
+  <a>
+    <b>   deep
+     </b>
+  </a>
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a><b>deep</b></a></root>
+
+#test: collapse_hard_05
+#data
+<root>mix
+ <a>multi
+  line</a>
+end   </root>
+#params
+collapse_whitespace=true
+#expected
+<root>mix<a>multiline</a>end</root>
+
+#test: collapse_hard_06
+#data
+<root> one <a> two <b>  three
+   </b> four </a> five </root>
+#params
+collapse_whitespace=true
+#expected
+<root>one<a>two<b>three</b>four</a>five</root>
+
+#test: collapse_hard_07
+#data
+<root>
+<a> a1
+ <b> b2
+  <c> c3 </c> d2
+ </b> e1
+</a>
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>a1<b>b2<c>c3</c>d2</b>e1</a></root>
+
+#test: collapse_hard_08
+#data
+<root><a>  </a> <b>    </b>   <c>c</c> </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>  </a><b>    </b><c>c</c></root>
+
+#test: collapse_hard_09
+#data
+<root>
+A    B
+<C>   D   </C>
+E    F
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root>A B<C>D</C>E F</root>
+
+#test: collapse_hard_10
+#data
+<root>pre <a> 1
+2   3</a> mid <b>4   5</b> post</root>
+#params
+collapse_whitespace=true
+#expected
+<root>pre<a>12 3</a>mid<b>4 5</b>post</root>
+
+#test: collapse_hard_11
+#data
+<root> <a>   x   <b>   y</b>   </a> tail </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>x<b>y</b>   </a>tail</root>
+
+#test: collapse_hard_12
+#data
+<root>\n   foo\nbar   </root>
+#params
+collapse_whitespace=true
+#expected
+<root>\n foo\nbar</root>
+
+#test: collapse_hard_13
+#data
+<root>alpha<child>
+ beta
+ <sub> gamma </sub>
+ delta
+</child>omega</root>
+#params
+collapse_whitespace=true
+#expected
+<root>alpha<child>beta<sub>gamma</sub>delta</child>omega</root>
+
+#test: collapse_hard_14
+#data
+<root>   <a>  text 1  </a>   <b>text   2</b>   </root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>text 1</a><b>text 2</b></root>
+
+#test: collapse_hard_15
+#data
+<root>start
+
+end</root>
+#params
+collapse_whitespace=true
+#expected
+<root>startend</root>
+
+#test: collapse_hard_16
+#data
+<root>  x <a> y <b> z </b> </a> w  </root>
+#params
+collapse_whitespace=true
+#expected
+<root>x<a>y<b>z</b> </a>w</root>
+
+#test: collapse_hard_17
+#data
+<root>
+
+<a>
+b
+<c>
+d
+</c>
+e
+</a>
+f
+</root>
+#params
+collapse_whitespace=true
+#expected
+<root><a>b<c>d</c>e</a>f</root>
+
+#test: collapse_hard_18
+#data
+<root>one <a/>   two <b/>   three</root>
+#params
+collapse_whitespace=true
+#expected
+<root>one<a/>two<b/>three</root>
+
+#test: collapse_hard_19
+#data
+<root>   </root>
+#params
+collapse_whitespace=true
+#expected
+<root>   </root>
+
+#test: collapse_hard_20
+#data
+<root>mix
+   <a>
+   </a>
+end</root>
+#params
+collapse_whitespace=true
+#expected
+<root>mix<a/>end</root>

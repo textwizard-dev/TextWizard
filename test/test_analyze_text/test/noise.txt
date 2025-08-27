@@ -1,0 +1,488 @@
+#test: en_empty_01
+#lang: en
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: en_whitespace_tabs_newlines_02
+#lang: en
+#text
+    	
+  
+	
+#expected_errors_count: 0
+#end
+
+#test: en_only_punct_03
+#lang: en
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { }
+#expected_errors_count: 0
+#end
+
+#test: en_emoji_only_04
+#lang: en
+#text
+😀 😅 🐍 🚀
+#expected_errors_count: 0
+#end
+
+#test: en_numbers_grouping_ok_05
+#lang: en
+#text
+1,234 12,345,678 1'000 12 345 12 345 3.14159
+#expected_errors_count: 0
+#end
+
+#test: en_numbers_trailing_punct_06
+#lang: en
+#text
+123. 1,234, 3.14!
+#expected_errors_count: 0
+#end
+
+#test: en_nbsp_thinspace_numbers_ok_07
+#lang: en
+#text
+1\u00A0000 12\u202F345 9\u00A0876\u202F543
+#expected_errors_count: 0
+#end
+
+#test: en_zero_width_merge_flag_08
+#lang: en
+#text
+ty\u2060po
+#expected_errors_count: 1
+#end
+
+#test: en_combining_marks_only_flag_09
+#lang: en
+#text
+\u0301\u0301\u0301
+#expected_errors_count: 0
+#end
+
+#test: en_long_token_flag_10
+#lang: en
+#text
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#expected_errors_count: 1
+#must_contain
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#end
+
+#test: en_snake_case_flag_11
+#lang: en
+#text
+snake_case
+#expected_errors_count: 1
+#must_contain
+snake_case
+#end
+
+#test: en_kebab_case_flag_12
+#lang: en
+#text
+kebab-case
+#expected_errors_count: 1
+#must_contain
+kebab-case
+#end
+
+#test: en_camel_case_flag_13
+#lang: en
+#text
+camelCase
+#expected_errors_count: 1
+#must_contain
+camelCase
+#end
+
+#test: en_ip_address_ok_14
+#lang: en
+#text
+192.168.0.1 10.0.0.1
+#expected_errors_count: 0
+#end
+
+#test: en_time_ok_15
+#lang: en
+#text
+10:30 23:59
+#expected_errors_count: 0
+#end
+
+#test: en_currency_ok_16
+#lang: en
+#text
+€1,234.56 $9,876.54
+#expected_errors_count: 0
+#end
+
+#test: en_hex_literal_flag_17
+#lang: en
+#text
+0xDEADBEEF
+#expected_errors_count: 1
+#must_contain
+0xDEADBEEF
+#end
+
+#test: en_uuid_flag_18
+#lang: en
+#text
+550e8400-e29b-41d4-a716-446655440000
+#expected_errors_count: 1
+#must_contain
+550e8400-e29b-41d4-a716-446655440000
+#end
+
+#test: en_base64_like_flag_19
+#lang: en
+#text
+TWFuIGlzIGRpc3Rpbmd1aXNoZWQ=
+#expected_errors_count: 1
+#must_contain
+TWFuIGlzIGRpc3Rpbmd1aXNoZWQ
+#end
+
+#test: en_parentheses_quotes_ok_20
+#lang: en
+#text
+("hello") ['world'] {yes}
+#expected_errors_count: 0
+#must_not_contain
+hello
+world
+yes
+#end
+
+#test: en_mixed_script_cyrillic_ignored_21
+#lang: en
+#text
+hello Привет
+#expected_errors_count: 1
+#must_contain
+Привет
+#end
+
+#test: ru_ascii_noise_ignored_22
+#lang: ru
+#text
+snake_case kebab-case http example com
+#expected_errors_count: 5
+#must_contain
+snake_case
+kebab-case
+http
+example
+com
+#end
+
+#test: ru_hex_literal_flag_23
+#lang: ru
+#text
+0xDEADBEEF
+#expected_errors_count: 1
+#must_contain
+0xDEADBEEF
+#end
+
+#test: ru_uuid_flag_24
+#lang: ru
+#text
+550e8400-e29b-41d4-a716-446655440000
+#expected_errors_count: 1
+#must_contain
+550e8400-e29b-41d4-a716-446655440000
+#end
+
+#test: ar_ascii_noise_ignored_25
+#lang: ar
+#text
+snake_case kebab-case http example com
+#expected_errors_count: 5
+snake_case
+kebab-case
+http
+example
+com
+#end
+
+#test: hi_ascii_noise_ignored_26
+#lang: hi
+#text
+snake_case kebab-case http example com
+#expected_errors_count: 5
+#must_contain
+snake_case
+kebab-case
+http
+example
+com
+#end
+
+#test: th_ascii_noise_ignored_27
+#lang: th
+#text
+snake_case kebab-case http example com
+#expected_errors_count: 5
+#must_contain
+snake_case
+kebab-case
+http
+example
+com
+#end
+
+#test: ja_ascii_chunk_flag_28
+#lang: ja
+#text
+abc
+#expected_errors_count: 1
+#must_contain
+abc
+#end
+
+#test: ja_emoji_edges_ok_29
+#lang: ja
+#text
+（東京😀大阪）
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: en_zero_width_nonjoiner_inside_ok_30
+#lang: en
+#text
+co\u200coperate re\u200center
+#expected_errors_count: 0
+#must_not_contain
+co\u200coperate
+re\u200center
+#end
+
+#test: en_zero_width_joiner_inside_ok_31
+#lang: en
+#text
+co\u200doperate re\u200denter
+#expected_errors_count: 0
+#must_not_contain
+co\u200doperate
+re\u200denter
+#end
+
+#test: en_bare_lrm_rlm_flag_32
+#lang: en
+#text
+\u200e\u200f
+#expected_errors_count: 0
+#end
+
+#test: en_multiple_dots_flag_33
+#lang: en
+#text
+foo.bar.baz
+#expected_errors_count: 1
+#must_contain
+foo.bar.baz
+#end
+
+#test: en_mixed_separators_number_ok_34
+#lang: en
+#text
+1,234.56 9.876,54 1'234,56
+#expected_errors_count: 0
+#end
+
+#test: en_only_connectors_flag_35
+#lang: en
+#text
+___ --- __--__
+#expected_errors_count: 0
+#end
+
+#test: en_json_like_flag_36
+#lang: en
+#text
+{"key":"value"}
+#expected_errors_count: 0
+#end
+
+#test: en_path_like_split_ok_37
+#lang: en
+#text
+/home/user/docs
+#expected_errors_count: 0
+#end
+
+#test: en_mix_scripts_token_split_38
+#lang: en
+#text
+AБCД
+#expected_errors_count: 1
+#must_contain
+AБCД
+#end
+
+#test: ru_mix_scripts_token_split_39
+#lang: ru
+#text
+ПAРB
+#expected_errors_count: 1
+#must_contain
+ПAРB
+#end
+
+#test: ar_mix_scripts_token_split_40
+#lang: ar
+#text
+عAرB
+#expected_errors_count: 1
+#must_contain
+عAرB
+#end
+
+#test: en_soft_hyphen_inside_ok_41
+#lang: en
+#text
+co\u00ADoperate re\u00ADenter
+#expected_errors_count: 0
+#must_not_contain
+co\u00ADoperate
+re\u00ADenter
+#end
+
+#test: en_zero_width_space_removed_ok_42
+#lang: en
+#text
+he\u200bllo re\u200bturn
+#expected_errors_count: 0
+#must_not_contain
+hello
+return
+#end
+
+
+#test: en_html_tags_edges_ok_43
+#lang: en
+#text
+<b>hello</b> <i>world</i>
+#expected_errors_count: 0
+#must_not_contain
+hello
+world
+#end
+
+#test: en_readme_ext_flag_44
+#lang: en
+#text
+README.md CHANGELOG.txt data.csv
+#expected_errors_count: 3
+#must_contain
+README.md
+CHANGELOG.txt
+data.csv
+#end
+
+#test: en_zalgo_flag_45
+#lang: en
+#text
+h̵̟͑͒ē̴͈̰͘l̶̜̿̀l̵̪̍͐ő̸͉
+#expected_errors_count: 1
+#must_contain
+h̵̟͑͒ē̴͈̰͘l̶̜̿̀l̵̪̍͐ő̸͉
+#end
+
+#test: en_zwj_emoji_sequence_ok_46
+#lang: en
+#text
+👨‍👩‍👧‍👦 🏳️‍🌈
+#expected_errors_count: 0
+#end
+
+#test: en_bracketed_email_url_flags_47
+#lang: en
+#text
+(<test@example.com>) [https://example.com/path?q=1#frag]
+#expected_errors_count: 0
+#end
+
+#test: en_mixed_nbsp_words_ok_48
+#lang: en
+#text
+hello\u00A0world fine\u00A0thanks
+#expected_errors_count: 0
+#must_not_contain
+hello
+world
+fine
+thanks
+#end
+
+#test: ru_soft_hyphen_inside_ok_49
+#lang: ru
+#text
+со\u00ADвесть пере\u00ADход
+#expected_errors_count: 0
+#must_not_contain
+со\u00ADвесть
+пере\u00ADход
+#end
+
+#test: ar_soft_hyphen_inside_ok_50
+#lang: ar
+#text
+م\u00ADدرسة ت\u00ADعليم
+#expected_errors_count: 0
+#must_not_contain
+م\u00ADدرسة
+ت\u00ADعليم
+#end
+
+#test: hi_soft_hyphen_inside_ok_51
+#lang: hi
+#text
+उँड\u00ADलवाने  शि\u00ADक्षण
+#expected_errors_count: 0
+#must_not_contain
+उँड\u00ADलवाने
+शि\u00ADक्षण
+#end
+
+#test: ja_soft_hyphen_inside_ok_52
+#lang: ja
+#text
+東\u00AD京 大\u00AD阪
+#expected_errors_count: 0
+#must_not_contain
+東京
+大阪
+#end
+
+#test: en_quoted_json_like_ok_53
+#lang: en
+#text
+{"key": "value", "list": ["a","b"]}
+#expected_errors_count: 0
+#end
+
+#test: en_code_fence_words_ok_54
+#lang: en
+#text
+`hello` ``world``
+#expected_errors_count: 0
+#must_not_contain
+hello
+world
+#end
+
+#test: en_mixed_email_like_variants_55
+#lang: en
+#text
+name+tag@example.co.uk first.last-o'reilly@example.io
+#expected_errors_count: 0
+#end

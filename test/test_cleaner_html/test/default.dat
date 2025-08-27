@@ -1,0 +1,419 @@
+#test: default_01
+#data
+<html><body><p>Hello <b>World!</b></p></body></html>
+#params
+#expected
+Hello World!
+
+#test: default_02
+#data
+<html><body><p>Hello <b>World!</b></p></body></html>
+#params
+#expected
+Hello World!
+
+#test: default_03
+#data
+<html><body><!-- This comment should be ignored --><p>Ignore comment</p></body></html>
+#params
+#expected
+Ignore comment
+
+#test: default_04
+#data
+<html><body><script>alert('Hi');</script><p>Test</p></body></html>
+#params
+#expected
+Test
+
+#test: default_05
+#data
+Plain text only without any HTML tags.
+#params
+#expected
+Plain text only without any HTML tags.
+
+#test: default_06
+#data
+<html><body><p>First</p><p>Second</p></body></html>
+#params
+#expected
+First Second
+
+#test: default_07
+#data
+<html><body><div><p>Nested <span>content</span></p></div></body></html>
+#params
+#expected
+Nested content
+
+#test: default_08
+#data
+<html><body><p>   Leading and trailing spaces   </p></body></html>
+#params
+#expected
+   Leading and trailing spaces
+
+#test: default_09
+#data
+<html><body><div>Line1<br>Line2</div></body></html>
+#params
+#expected
+Line1 Line2
+
+#test: default_10
+#data
+<html><body><ul><li>Item1</li><li>Item2</li></ul></body></html>
+#params
+#expected
+Item1 Item2
+
+#test: default_11
+#data
+<html><body><p>Multiple    spaces</p></body></html>
+#params
+#expected
+Multiple    spaces
+
+#test: default_12
+#data
+<html><body><p>Line with newline</p></body></html>
+#params
+#expected
+Line with newline
+
+#test: default_13
+#data
+<html><body><div><p></p></div><p>Content</p></body></html>
+#params
+#expected
+Content
+
+#test: default_14
+#data
+<html><body><header>Header Text</header><footer>Footer Text</footer></body></html>
+#params
+#expected
+Header Text Footer Text
+
+#test: default_15
+#data
+<html><body><article>Article content</article></body></html>
+#params
+#expected
+Article content
+
+#test: default_16
+#data
+<html><body><img src="image.jpg" alt="Alt text"><p>After Image</p></body></html>
+#params
+#expected
+After Image
+
+#test: default_17
+#data
+<html><body><p></p></body></html>
+#params
+#expected
+
+#test: default_18
+#data
+<html><body><div>123</div><div>456</div></body></html>
+#params
+#expected
+123 456
+
+#test: default_19
+#data
+<html><body><h1>Title</h1><p>Paragraph</p></body></html>
+#params
+#expected
+Title Paragraph
+
+#test: default_20
+#data
+<html><body><p>Special &amp; Characters < > </p></body></html>
+#params
+#expected
+Special & Characters < >
+
+
+#test: default_21
+#data
+<html><body><p>Intermediate 21 with <strong>test</strong></p><div>Second block</div></body></html>
+#params
+#expected
+Intermediate 21 with test Second block
+
+#test: default_22
+#data
+<html><body><p>Intermediate22</p><br><p>Another line</p></body></html>
+#params
+#expected
+Intermediate22 Another line
+
+#test: default_23
+#data
+<html><body><span>Hello</span><span>World</span><span>!</span></body></html>
+#params
+#expected
+Hello World !
+
+#test: default_24
+#data
+<html><body><p>Mix of <b>text</b> and <i>elements</i></p><p>Two paragraphs</p></body></html>
+#params
+#expected
+Mix of text and elements Two paragraphs
+
+#test: default_25
+#data
+<html><body><div>With attributes <span style="color:red" data-info="sample">we ignore them</span></div></body></html>
+#params
+#expected
+With attributes we ignore them
+
+#test: default_26
+#data
+<html><body><!-- Intermediate 26 -->Some text with inline comment</body></html>
+#params
+#expected
+Some text with inline comment
+
+#test: default_27
+#data
+<html><head><title>Title Intermediate27</title></head><body><p>Body content</p></body></html>
+#params
+#expected
+Title Intermediate27 Body content
+
+#test: default_28
+#data
+<html><body>Test <code>inline code</code> snippet <code>another one</code></body></html>
+#params
+#expected
+Test inline code snippet another one
+
+#test: default_29
+#data
+<html><body><p>Line 1</p><hr><p>Line 2</p></body></html>
+#params
+#expected
+Line 1 Line 2
+
+#test: default_30
+#data
+<html><body><p>Test &nbsp; non-breaking spaces &ndash; and <b>&copy;</b></p></body></html>
+#params
+#expected
+Test   non-breaking spaces – and ©
+
+#test: default_31
+#data
+<html><body><header>Header with attributes <img src="x" alt="alt"/></header><main>Main content here</main></body></html>
+#params
+#expected
+Header with attributes Main content here
+
+#test: default_32
+#data
+<html><body><blockquote>Quote line32</blockquote> <aside>Aside content32</aside></body></html>
+#params
+#expected
+Quote line32 Aside content32
+
+#test: default_33
+#data
+<html><body><nav>Menu</nav><section>Section text33</section><footer>Footer zone33</footer></body></html>
+#params
+#expected
+Menu Section text33 Footer zone33
+
+#test: default_34
+#data
+<html><body><p>Intermediate34: <abbr title="abbreviated">abbr</abbr></p></body></html>
+#params
+#expected
+Intermediate34: abbr
+
+#test: default_35
+#data
+<html><body><figure><figcaption>Fig caption</figcaption><img src="img.png" alt="Alt text"></figure></body></html>
+#params
+#expected
+Fig caption
+
+#test: default_36
+#data
+<html><body><p>Multiple   spaces   and   tabs</p></body></html>
+#params
+#expected
+Multiple   spaces   and   tabs
+
+#test: default_37
+#data
+<html><body><p>Entities &lt; br &gt; as literal text</p></body></html>
+#params
+#expected
+Entities < br > as literal text
+
+#test: default_38
+#data
+<html><body><audio controls><source src="song.mp3"></audio><p>Audio fallback text38</p></body></html>
+#params
+#expected
+Audio fallback text38
+
+#test: default_39
+#data
+<html><body><p>Intermediate 39 <br> with <small>inline tags</small></p></body></html>
+#params
+#expected
+Intermediate 39  with inline tags
+
+#test: default_40
+#data
+<html><body>Test &lt;&gt;&quot; and &apos; in default_40</body></html>
+#params
+#expected
+Test <>" and ' in default_40
+
+#test: default_41
+#data
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Complex 41</title></head><body><h1>Heading41</h1><p>Paragraph with <strong>strong</strong></p></body></html>
+#params
+#expected
+Complex 41 Heading41 Paragraph with strong
+
+#test: default_42
+#data
+<html><body><script>alert("42");</script><div><!-- a complex comment -->Test42 <span>span</span></div></body></html>
+#params
+#expected
+Test42 span
+
+#test: default_43
+#data
+<html><body><section><article>Article43 <header>Title43</header><p>Text43</p></article><aside>Sidebar43</aside></section></body></html>
+#params
+#expected
+Article43 Title43 Text43 Sidebar43
+
+#test: default_44
+#data
+<html><body><p>Complex 44 with <code>inline code</code> and <em>emphasis</em></p><p>Second paragraph44</p></body></html>
+#params
+#expected
+Complex 44 with inline code and emphasis Second paragraph44
+
+#test: default_45
+#data
+<html><body><video src="video45.mp4"><track default kind="subtitles" srclang="en" label="English"></video><p>Video fallback text45</p></body></html>
+#params
+#expected
+Video fallback text45
+
+#test: default_46
+#data
+<html><body><table><tr><th>Header1</th><th>Header2</th></tr><tr><td>Cell1</td><td>Cell2</td></tr></table></body></html>
+#params
+#expected
+Header1 Header2 Cell1 Cell2
+
+#test: default_47
+#data
+<html><body><p>Multiple lines<br>and &amp; entities<br>in test47</p></body></html>
+#params
+#expected
+Multiple lines and & entities in test47
+
+#test: default_48
+#data
+<html><body><!-- Complex comment 48 --><main><h2>Subheading48</h2><p>Paragraph content48</p></main></body></html>
+#params
+#expected
+Subheading48 Paragraph content48
+
+#test: default_49
+#data
+<html><body><form><label>Name</label><input type="text" name="name"><button>Send</button></form><p>Form done49</p></body></html>
+#params
+#expected
+Name Send Form done49
+
+#test: default_50
+#data
+<html><body><p>Tag with <q>inline quote</q> inside. Example50</p></body></html>
+#params
+#expected
+Tag with inline quote inside. Example50
+
+#test: default_51
+#data
+<html><body><svg><text>SVG text51</text></svg><p>After SVG51</p></body></html>
+#params
+#expected
+SVG text51 After SVG51
+
+#test: default_52
+#data
+<html><body><marquee>Scrolling text52</marquee><p>Marquee done52</p></body></html>
+#params
+#expected
+Scrolling text52 Marquee done52
+
+#test: default_53
+#data
+<html><body><p>Complex &quot;escaped&quot; &lt;stuff&gt; 53</p></body></html>
+#params
+#expected
+Complex "escaped" <stuff> 53
+
+#test: default_54
+#data
+<html><body><article><header><h3>Article54</h3></header><p>Article text54</p></article><footer>Footer54</footer></body></html>
+#params
+#expected
+Article54 Article text54 Footer54
+
+#test: default_55
+#data
+<html><body><p>Hyphen–dash—test55. Also… ellipsis here</p></body></html>
+#params
+#expected
+Hyphen–dash—test55. Also… ellipsis here
+
+#test: default_56
+#data
+<html><body><details><summary>Summary56</summary><p>Detail content56</p></details></body></html>
+#params
+#expected
+Summary56 Detail content56
+
+#test: default_57
+#data
+<html><body>Multiple   spaces among nodes <span> node1 </span><span> node2 </span></body></html>
+#params
+#expected
+Multiple   spaces among nodes  node1  node2
+
+#test: default_58
+#data
+<html><body><p>Test with entities &euro; and &yen; 58</p></body></html>
+#params
+#expected
+Test with entities € and ¥ 58
+
+#test: default_59
+#data
+<html><body><script>var x=59;</script><p>Paragraph59</p><noscript>NoScript fallback59</noscript></body></html>
+#params
+#expected
+Paragraph59 NoScript fallback59
+
+#test: default_60
+#data
+<!DOCTYPE html><html><body><iframe src="example60.html"></iframe><p>Iframe fallback60</p></body></html>
+#params
+#expected
+Iframe fallback60

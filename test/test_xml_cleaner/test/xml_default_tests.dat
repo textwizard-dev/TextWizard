@@ -1,0 +1,480 @@
+#test: default_simple_01
+#data
+<root>Text1</root>
+#params
+
+#expected
+Text1
+
+#test: default_simple_02
+#data
+<root>Text2</root>
+#params
+
+#expected
+Text2
+
+#test: default_simple_03
+#data
+<root>Text3</root>
+#params
+
+#expected
+Text3
+
+#test: default_simple_04
+#data
+<root>Text4</root>
+#params
+
+#expected
+Text4
+
+#test: default_simple_05
+#data
+<root>Text5</root>
+#params
+
+#expected
+Text5
+
+#test: default_simple_06
+#data
+<root>Text6</root>
+#params
+
+#expected
+Text6
+
+#test: default_simple_07
+#data
+<root>Text7</root>
+#params
+
+#expected
+Text7
+
+#test: default_simple_08
+#data
+<root>Text8</root>
+#params
+
+#expected
+Text8
+
+#test: default_simple_09
+#data
+<root>Text9</root>
+#params
+
+#expected
+Text9
+
+#test: default_simple_10
+#data
+<root>Text10</root>
+#params
+
+#expected
+Text10
+
+#test: default_simple_11
+#data
+<root>Text11</root>
+#params
+
+#expected
+Text11
+
+#test: default_simple_12
+#data
+<root>Text12</root>
+#params
+
+#expected
+Text12
+
+#test: default_simple_13
+#data
+<root>Text13</root>
+#params
+
+#expected
+Text13
+
+#test: default_simple_14
+#data
+<root>Text14</root>
+#params
+
+#expected
+Text14
+
+#test: default_simple_15
+#data
+<root>Text15</root>
+#params
+
+#expected
+Text15
+
+#test: default_simple_16
+#data
+<root>Text16</root>
+#params
+
+#expected
+Text16
+
+#test: default_simple_17
+#data
+<root>Text17</root>
+#params
+
+#expected
+Text17
+
+#test: default_simple_18
+#data
+<root>Text18</root>
+#params
+
+#expected
+Text18
+
+#test: default_simple_19
+#data
+<root>Text19</root>
+#params
+
+#expected
+Text19
+
+#test: default_simple_20
+#data
+<root>Text20</root>
+#params
+
+#expected
+Text20
+
+#test: default_intermediate_01
+#data
+<root><a>Link1</a><b>Bold1</b><c>See1</c></root>
+#params
+
+#expected
+Link1 Bold1 See1
+
+#test: default_intermediate_02
+#data
+<root><a>Link2</a><b>Bold2</b><c>See2</c></root>
+#params
+
+#expected
+Link2 Bold2 See2
+
+#test: default_intermediate_03
+#data
+<root><a>Link3</a><b>Bold3</b><c>See3</c></root>
+#params
+
+#expected
+Link3 Bold3 See3
+
+#test: default_intermediate_04
+#data
+<root><a>Link4</a><b>Bold4</b><c>See4</c></root>
+#params
+
+#expected
+Link4 Bold4 See4
+
+#test: default_intermediate_05
+#data
+<root><a>Link5</a><b>Bold5</b><c>See5</c></root>
+#params
+
+#expected
+Link5 Bold5 See5
+
+#test: default_intermediate_06
+#data
+<root><a>Link6</a><b>Bold6</b><c>See6</c></root>
+#params
+
+#expected
+Link6 Bold6 See6
+
+#test: default_intermediate_07
+#data
+<root><a>Link7</a><b>Bold7</b><c>See7</c></root>
+#params
+
+#expected
+Link7 Bold7 See7
+
+#test: default_intermediate_08
+#data
+<root><a>Link8</a><b>Bold8</b><c>See8</c></root>
+#params
+
+#expected
+Link8 Bold8 See8
+
+#test: default_intermediate_09
+#data
+<root><a>Link9</a><b>Bold9</b><c>See9</c></root>
+#params
+
+#expected
+Link9 Bold9 See9
+
+#test: default_intermediate_10
+#data
+<root><a>Link10</a><b>Bold10</b><c>See10</c></root>
+#params
+
+#expected
+Link10 Bold10 See10
+
+#test: default_intermediate_11
+#data
+<root><a>Link11</a><b>Bold11</b><c>See11</c></root>
+#params
+
+#expected
+Link11 Bold11 See11
+
+#test: default_intermediate_12
+#data
+<root><a>Link12</a><b>Bold12</b><c>See12</c></root>
+#params
+
+#expected
+Link12 Bold12 See12
+
+#test: default_intermediate_13
+#data
+<root><a>Link13</a><b>Bold13</b><c>See13</c></root>
+#params
+
+#expected
+Link13 Bold13 See13
+
+#test: default_intermediate_14
+#data
+<root><a>Link14</a><b>Bold14</b><c>See14</c></root>
+#params
+
+#expected
+Link14 Bold14 See14
+
+#test: default_intermediate_15
+#data
+<root><a>Link15</a><b>Bold15</b><c>See15</c></root>
+#params
+
+#expected
+Link15 Bold15 See15
+
+#test: default_intermediate_16
+#data
+<root><a>Link16</a><b>Bold16</b><c>See16</c></root>
+#params
+
+#expected
+Link16 Bold16 See16
+
+#test: default_intermediate_17
+#data
+<root><a>Link17</a><b>Bold17</b><c>See17</c></root>
+#params
+
+#expected
+Link17 Bold17 See17
+
+#test: default_intermediate_18
+#data
+<root><a>Link18</a><b>Bold18</b><c>See18</c></root>
+#params
+
+#expected
+Link18 Bold18 See18
+
+#test: default_intermediate_19
+#data
+<root><a>Link19</a><b>Bold19</b><c>See19</c></root>
+#params
+
+#expected
+Link19 Bold19 See19
+
+#test: default_intermediate_20
+#data
+<root><a>Link20</a><b>Bold20</b><c>See20</c></root>
+#params
+
+#expected
+Link20 Bold20 See20
+
+#test: default_hard_01
+#data
+<root><!--C1--><![CDATA[Data1]]><ns:tag attr1="val1" xmlns:ns="http://example.com/ns">Content1</ns:tag><?proc ins1?></root>
+#params
+
+#expected
+Data1 Content1
+
+#test: default_hard_02
+#data
+<root><!--C2--><![CDATA[Data2]]><ns:tag attr2="val2" xmlns:ns="http://example.com/ns">Content2</ns:tag><?proc ins2?></root>
+#params
+
+#expected
+Data2 Content2
+
+#test: default_hard_03
+#data
+<root><!--C3--><![CDATA[Data3]]><ns:tag attr3="val3" xmlns:ns="http://example.com/ns">Content3</ns:tag><?proc ins3?></root>
+#params
+
+#expected
+Data3 Content3
+
+#test: default_hard_04
+#data
+<root><!--C4--><![CDATA[Data4]]><ns:tag attr4="val4" xmlns:ns="http://example.com/ns">Content4</ns:tag><?proc ins4?></root>
+#params
+
+#expected
+Data4 Content4
+
+#test: default_hard_05
+#data
+<root><!--C5--><![CDATA[Data5]]><ns:tag attr5="val5" xmlns:ns="http://example.com/ns">Content5</ns:tag><?proc ins5?></root>
+#params
+
+#expected
+Data5 Content5
+
+#test: default_hard_06
+#data
+<root><!--C6--><![CDATA[Data6]]><ns:tag attr6="val6" xmlns:ns="http://example.com/ns">Content6</ns:tag><?proc ins6?></root>
+#params
+
+#expected
+Data6 Content6
+
+#test: default_hard_07
+#data
+<root><!--C7--><![CDATA[Data7]]><ns:tag attr7="val7" xmlns:ns="http://example.com/ns">Content7</ns:tag><?proc ins7?></root>
+#params
+
+#expected
+Data7 Content7
+
+#test: default_hard_08
+#data
+<root><!--C8--><![CDATA[Data8]]><ns:tag attr8="val8" xmlns:ns="http://example.com/ns">Content8</ns:tag><?proc ins8?></root>
+#params
+
+#expected
+Data8 Content8
+
+#test: default_hard_09
+#data
+<root><!--C9--><![CDATA[Data9]]><ns:tag attr9="val9" xmlns:ns="http://example.com/ns">Content9</ns:tag><?proc ins9?></root>
+#params
+
+#expected
+Data9 Content9
+
+#test: default_hard_10
+#data
+<root><!--C10--><![CDATA[Data10]]><ns:tag attr10="val10" xmlns:ns="http://example.com/ns">Content10</ns:tag><?proc ins10?></root>
+#params
+
+#expected
+Data10 Content10
+
+#test: default_hard_11
+#data
+<root><!--C11--><![CDATA[Data11]]><ns:tag attr11="val11" xmlns:ns="http://example.com/ns">Content11</ns:tag><?proc ins11?></root>
+#params
+
+#expected
+Data11 Content11
+
+#test: default_hard_12
+#data
+<root><!--C12--><![CDATA[Data12]]><ns:tag attr12="val12" xmlns:ns="http://example.com/ns">Content12</ns:tag><?proc ins12?></root>
+#params
+
+#expected
+Data12 Content12
+
+#test: default_hard_13
+#data
+<root><!--C13--><![CDATA[Data13]]><ns:tag attr13="val13" xmlns:ns="http://example.com/ns">Content13</ns:tag><?proc ins13?></root>
+#params
+
+#expected
+Data13 Content13
+
+#test: default_hard_14
+#data
+<root><!--C14--><![CDATA[Data14]]><ns:tag attr14="val14" xmlns:ns="http://example.com/ns">Content14</ns:tag><?proc ins14?></root>
+#params
+
+#expected
+Data14 Content14
+
+#test: default_hard_15
+#data
+<root><!--C15--><![CDATA[Data15]]><ns:tag attr15="val15" xmlns:ns="http://example.com/ns">Content15</ns:tag><?proc ins15?></root>
+#params
+
+#expected
+Data15 Content15
+
+#test: default_hard_16
+#data
+<root><!--C16--><![CDATA[Data16]]><ns:tag attr16="val16" xmlns:ns="http://example.com/ns">Content16</ns:tag><?proc ins16?></root>
+#params
+
+#expected
+Data16 Content16
+
+#test: default_hard_17
+#data
+<root><!--C17--><![CDATA[Data17]]><ns:tag attr17="val17" xmlns:ns="http://example.com/ns">Content17</ns:tag><?proc ins17?></root>
+#params
+
+#expected
+Data17 Content17
+
+#test: default_hard_18
+#data
+<root><!--C18--><![CDATA[Data18]]><ns:tag attr18="val18" xmlns:ns="http://example.com/ns">Content18</ns:tag><?proc ins18?></root>
+#params
+
+#expected
+Data18 Content18
+
+#test: default_hard_19
+#data
+<root><!--C19--><![CDATA[Data19]]><ns:tag attr19="val19" xmlns:ns="http://example.com/ns">Content19</ns:tag><?proc ins19?></root>
+#params
+
+#expected
+Data19 Content19
+
+#test: default_hard_20
+#data
+<root><!--C20--><![CDATA[Data20]]><ns:tag attr20="val20" xmlns:ns="http://example.com/ns">Content20</ns:tag><?proc ins20?></root>
+#params
+
+#expected
+Data20 Content20
+

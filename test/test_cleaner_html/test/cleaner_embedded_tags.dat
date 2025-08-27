@@ -1,0 +1,960 @@
+#test: remove_embedded_true_easy_01
+#data
+<html><body><audio src="sound.mp3"></audio></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_02
+#data
+<html><body><canvas>Some drawing</canvas></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_03
+#data
+<html><body><embed src="file.swf"></embed></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_04
+#data
+<html><body><iframe src="page.html"></iframe></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_05
+#data
+<html><body><img src="image.jpg" alt="An image"></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_06
+#data
+<html><body><map>Map content</map></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_07
+#data
+<html><body><object data="file.pdf"></object></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_08
+#data
+<html><body><picture>Picture content</picture></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_09
+#data
+<html><body><svg><circle /></svg></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_10
+#data
+<html><body><video src="video.mp4"></video></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_11
+#data
+<html><body><math>Some math</math></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_12
+#data
+<html><body><img src="pic.jpg"></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_13
+#data
+<html><body><audio></audio></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_14
+#data
+<html><body><iframe></iframe></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_15
+#data
+<html><body><embed></embed></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_16
+#data
+<html><body><canvas></canvas></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_17
+#data
+<html><body><object></object></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_18
+#data
+<html><body><picture></picture></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_19
+#data
+<html><body><svg></svg></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_easy_20
+#data
+<html><body><video></video></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_embedded_true_intermediate_21
+#data
+<html><body>Before <img src="img.jpg" alt="image"> After</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_embedded_true_intermediate_22
+#data
+<html><body>Start <iframe src="page.html"></iframe> End</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_embedded_true_intermediate_23
+#data
+<html><body>Text <audio src="sound.mp3"></audio> more text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Text  more text</body></html>
+
+#test: remove_embedded_true_intermediate_24
+#data
+<html><body>Alpha <embed src="file.swf"></embed> Omega</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Alpha  Omega</body></html>
+
+#test: remove_embedded_true_intermediate_25
+#data
+<html><body>Before <canvas>drawing</canvas> After</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_embedded_true_intermediate_26
+#data
+<html><body>Intro <object data="file.pdf"></object> Outro</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: remove_embedded_true_intermediate_27
+#data
+<html><body>Text with <picture>Pic content</picture> extra</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Text with  extra</body></html>
+
+#test: remove_embedded_true_intermediate_28
+#data
+<html><body><svg><rect/></svg> is here</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> is here</body></html>
+
+#test: remove_embedded_true_intermediate_29
+#data
+<html><body>Video test: <video src="vid.mp4"></video></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Video test: </body></html>
+
+#test: remove_embedded_true_intermediate_30
+#data
+<html><body><math>Math content</math> and text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> and text</body></html>
+
+#test: remove_embedded_true_intermediate_31
+#data
+<html><body>Before <img src="a.jpg"> middle <iframe src="b.html"></iframe> after</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before  middle  after</body></html>
+
+#test: remove_embedded_true_intermediate_32
+#data
+<html><body><audio src="m.mp3"></audio>Only text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Only text</body></html>
+
+#test: remove_embedded_true_intermediate_33
+#data
+<html><body><embed></embed> and <canvas>something</canvas></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> and </body></html>
+
+#test: remove_embedded_true_intermediate_34
+#data
+<html><body>Start <object data="f.pdf"></object> End</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_embedded_true_intermediate_35
+#data
+<html><body>Test <picture>Pic data</picture> More</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Test  More</body></html>
+
+#test: remove_embedded_true_intermediate_36
+#data
+<html><body>Leading <svg><circle/></svg> trailing</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: remove_embedded_true_intermediate_37
+#data
+<html><body>Begin <video></video> Finish</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Begin  Finish</body></html>
+
+#test: remove_embedded_true_intermediate_38
+#data
+<html><body>Content with <math>formula</math> inside</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Content with  inside</body></html>
+
+#test: remove_embedded_true_intermediate_39
+#data
+<html><body><iframe src="page.html"></iframe> extra text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> extra text</body></html>
+
+#test: remove_embedded_true_intermediate_40
+#data
+<html><body>Start <img src="a.png"> middle <video src="v.mp4"></video> end</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start  middle  end</body></html>
+
+#test: remove_embedded_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body>Before <audio src="x.mp3"></audio> After</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body>Before  After</body></html>
+
+#test: remove_embedded_true_complex_42
+#data
+<html><body>Header <iframe src="test.html"></iframe> and <div>Content</div></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Header  and <div>Content</div></body></html>
+
+#test: remove_embedded_true_complex_43
+#data
+<html><body>Start <canvas>Drawing</canvas> mid <img src="pic.jpg" alt="pic"> end</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start  mid  end</body></html>
+
+#test: remove_embedded_true_complex_44
+#data
+<html><body>Before <embed src="f.swf"></embed> after</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before  after</body></html>
+
+#test: remove_embedded_true_complex_45
+#data
+<html><body>Text <object data="doc.pdf"></object> more text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Text  more text</body></html>
+
+#test: remove_embedded_true_complex_46
+#data
+<html><body><picture>Picture content</picture> followed by text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> followed by text</body></html>
+
+#test: remove_embedded_true_complex_47
+#data
+<html><body><svg><rect/></svg> and <math>Formula</math> inside</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> and  inside</body></html>
+
+#test: remove_embedded_true_complex_48
+#data
+<html><body>Mix <video src="v.mp4"></video> and <iframe src="i.html"></iframe> content</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Mix  and  content</body></html>
+
+#test: remove_embedded_true_complex_49
+#data
+<html><body>Outer <div><audio src="a.mp3"></audio><p>Text</p></div> Final</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Outer <div><p>Text</p></div> Final</body></html>
+
+#test: remove_embedded_true_complex_50
+#data
+<html><body>One <iframe src="a.html"></iframe> Two <img src="b.png"></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>One  Two </body></html>
+
+#test: remove_embedded_true_complex_51
+#data
+<html><body><div><canvas>Drawing1</canvas><canvas>Drawing2</canvas></div></body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body><div></div></body></html>
+
+#test: remove_embedded_true_complex_52
+#data
+<html><body>Before <object data="doc1.pdf"></object> and <object data="doc2.pdf"></object> After</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before  and  After</body></html>
+
+#test: remove_embedded_true_complex_53
+#data
+<html><body>Leading <svg><circle/></svg> middle <picture>Pic content</picture> trailing</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Leading  middle  trailing</body></html>
+
+#test: remove_embedded_true_complex_54
+#data
+<html><body>Start <video src="v1.mp4"></video> <video src="v2.mp4"></video> End</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start   End</body></html>
+
+#test: remove_embedded_true_complex_55
+#data
+<html><body><iframe src="i1.html"></iframe><iframe src="i2.html"></iframe> Combined</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> Combined</body></html>
+
+#test: remove_embedded_true_complex_56
+#data
+<html><body>Pre <math>Equation</math> Post</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Pre  Post</body></html>
+
+#test: remove_embedded_true_complex_57
+#data
+<html><body>Start complex57 <embed src="flash.swf"></embed> End complex57</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Start complex57  End complex57</body></html>
+
+#test: remove_embedded_true_complex_58
+#data
+<html><body><audio src="song.mp3"></audio><img src="pic.png" alt="alt"/> and text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body> and text</body></html>
+
+#test: remove_embedded_true_complex_59
+#data
+<html><body>Before embedded <iframe src="page.html"></iframe> after embedded</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Before embedded  after embedded</body></html>
+
+#test: remove_embedded_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Intro <img src="logo.png"> Outro</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Intro  Outro</body></html>
+
+#test: remove_embedded_false_easy_01
+#data
+<html><body><audio src="sound.mp3"></audio></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<audio src="sound.mp3"></audio>
+
+#test: remove_embedded_false_easy_02
+#data
+<html><body><canvas>Canvas content</canvas></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<canvas>Canvas content</canvas>
+
+#test: remove_embedded_false_easy_03
+#data
+<html><body><embed src="file.swf"></embed></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<embed src="file.swf">
+
+#test: remove_embedded_false_easy_04
+#data
+<html><body><iframe src="page.html"></iframe></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<iframe src="page.html"></iframe>
+
+#test: remove_embedded_false_easy_05
+#data
+<html><body><img src="image.jpg" alt="An image"></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<img src="image.jpg" alt="An image">
+
+#test: remove_embedded_false_easy_06
+#data
+<html><body><map name="mapEasy06">Map content</map></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<map name="mapEasy06">Map content</map>
+
+#test: remove_embedded_false_easy_07
+#data
+<html><body><object data="file.pdf"></object></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<object data="file.pdf"></object>
+
+#test: remove_embedded_false_easy_08
+#data
+<html><body><picture>Picture content</picture></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<picture>Picture content</picture>
+
+#test: remove_embedded_false_easy_09
+#data
+<html><body><svg><circle /></svg></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<svg><circle></circle></svg>
+
+#test: remove_embedded_false_easy_10
+#data
+<html><body><video src="video.mp4"></video></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<video src="video.mp4"></video>
+
+#test: remove_embedded_false_easy_11
+#data
+<html><body><math>Some math</math></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<math>Some math</math>
+
+#test: remove_embedded_false_easy_12
+#data
+<html><body><audio></audio></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<audio></audio>
+
+#test: remove_embedded_false_easy_13
+#data
+<html><body><canvas></canvas></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<canvas></canvas>
+
+#test: remove_embedded_false_easy_14
+#data
+<html><body><embed></embed></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<embed>
+
+#test: remove_embedded_false_easy_15
+#data
+<html><body><iframe></iframe></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<iframe></iframe>
+
+#test: remove_embedded_false_easy_16
+#data
+<html><body><object></object></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<object></object>
+
+#test: remove_embedded_false_easy_17
+#data
+<html><body><picture></picture></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<picture></picture>
+
+#test: remove_embedded_false_easy_18
+#data
+<html><body><svg></svg></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<svg></svg>
+
+#test: remove_embedded_false_easy_19
+#data
+<html><body><video></video></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<video></video>
+
+#test: remove_embedded_false_easy_20
+#data
+<html><body><math></math></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<math></math>
+
+#test: remove_embedded_false_intermediate_21
+#data
+<html><body>Before <img src="img.jpg"> After</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Before <img src="img.jpg"> After
+
+#test: remove_embedded_false_intermediate_22
+#data
+<html><body>Start <iframe src="page.html"></iframe> End</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Start <iframe src="page.html"></iframe> End
+
+#test: remove_embedded_false_intermediate_23
+#data
+<html><body>Alpha <audio src="sound.mp3"></audio> Omega</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Alpha <audio src="sound.mp3"></audio> Omega
+
+#test: remove_embedded_false_intermediate_24
+#data
+<html><body>Text24 <canvas>Some drawing</canvas> more24</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Text24 <canvas>Some drawing</canvas> more24
+
+#test: remove_embedded_false_intermediate_25
+#data
+<html><body>Lead25 <embed src="anim.swf"></embed> Trail25</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Lead25 <embed src="anim.swf"> Trail25
+
+#test: remove_embedded_false_intermediate_26
+#data
+<html><body>Intro26 <object data="f.pdf"></object> after</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Intro26 <object data="f.pdf"></object> after
+
+#test: remove_embedded_false_intermediate_27
+#data
+<html><body>Before <picture>Pic27</picture> after</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Before <picture>Pic27</picture> after
+
+#test: remove_embedded_false_intermediate_28
+#data
+<html><body><svg><circle/></svg> plus text28</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<svg><circle></circle></svg> plus text28
+
+#test: remove_embedded_false_intermediate_29
+#data
+<html><body>Video <video src="v.mp4"></video> example29</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Video <video src="v.mp4"></video> example29
+
+#test: remove_embedded_false_intermediate_30
+#data
+<html><body><math>Math30</math> plus text30</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<math>Math30</math> plus text30
+
+#test: remove_embedded_false_intermediate_31
+#data
+<html><body>Text31 <img src="one.jpg"> mid <iframe src="two.html"></iframe> end31</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Text31 <img src="one.jpg"> mid <iframe src="two.html"></iframe> end31
+
+#test: remove_embedded_false_intermediate_32
+#data
+<html><body>Alpha32 <audio src="m32.mp3"></audio> Beta32</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Alpha32 <audio src="m32.mp3"></audio> Beta32
+
+#test: remove_embedded_false_intermediate_33
+#data
+<html><body><canvas>draw33</canvas> plus <embed src="f33.swf"></embed></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<canvas>draw33</canvas> plus <embed src="f33.swf">
+
+#test: remove_embedded_false_intermediate_34
+#data
+<html><body>Intro34 <object data="doc34.pdf"></object> more text34</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Intro34 <object data="doc34.pdf"></object> more text34
+
+#test: remove_embedded_false_intermediate_35
+#data
+<html><body>Lead35 <picture>Pic35</picture> Trail35</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Lead35 <picture>Pic35</picture> Trail35
+
+#test: remove_embedded_false_intermediate_36
+#data
+<html><body>Alpha36 <svg><rect/></svg> Omega36</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Alpha36 <svg><rect></rect></svg> Omega36
+
+#test: remove_embedded_false_intermediate_37
+#data
+<html><body>Start37 <video src="v37.mp4"></video> End37</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Start37 <video src="v37.mp4"></video> End37
+
+#test: remove_embedded_false_intermediate_38
+#data
+<html><body><math>Equation38</math> with text38</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<math>Equation38</math> with text38
+
+#test: remove_embedded_false_intermediate_39
+#data
+<html><body>Prefix39 <iframe src="pg39.html"></iframe> suffix39</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Prefix39 <iframe src="pg39.html"></iframe> suffix39
+
+#test: remove_embedded_false_intermediate_40
+#data
+<html><body>Start40 <canvas>c40</canvas> mid40 <img src="x40.png"></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Start40 <canvas>c40</canvas> mid40 <img src="x40.png">
+
+#test: remove_embedded_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body>Before <audio src="x41.mp3"></audio> After</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Doc41 Before <audio src="x41.mp3"></audio> After
+
+#test: remove_embedded_false_complex_42
+#data
+<html><body>Header <iframe src="test42.html"></iframe> <div>Content42</div></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Header <iframe src="test42.html"></iframe>Content42
+
+#test: remove_embedded_false_complex_43
+#data
+<html><body>Start <canvas>Drawing43</canvas> mid <img src="pic43.jpg" alt="p43"> end</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Start <canvas>Drawing43</canvas> mid <img src="pic43.jpg" alt="p43"> end
+
+#test: remove_embedded_false_complex_44
+#data
+<html><body>Intro44 <embed src="f44.swf"></embed> extra44 <video src="v44.mp4"></video></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Intro44 <embed src="f44.swf"> extra44 <video src="v44.mp4"></video>
+
+#test: remove_embedded_false_complex_45
+#data
+<html><body>Text45 <object data="doc45.pdf"></object> more <svg><rect/></svg> text45</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Text45 <object data="doc45.pdf"></object> more <svg><rect></rect></svg> text45
+
+#test: remove_embedded_false_complex_46
+#data
+<html><body><picture>Pic46</picture> plus <math>Math46</math> done46</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<picture>Pic46</picture> plus <math>Math46</math> done46
+
+#test: remove_embedded_false_complex_47
+#data
+<html><body>Start47 <audio src="a47.mp3"></audio><img src="b47.png"> End47</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Start47 <audio src="a47.mp3"></audio><img src="b47.png"> End47
+
+#test: remove_embedded_false_complex_48
+#data
+<html><body><div><iframe src="page48.html"></iframe><video src="vid48.mp4"></video></div> outer48</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<iframe src="page48.html"></iframe><video src="vid48.mp4"></video> outer48
+
+#test: remove_embedded_false_complex_49
+#data
+<html><body>Alpha49 <map name="map49">Map49</map> Beta49</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Alpha49 <map name="map49">Map49</map> Beta49
+
+#test: remove_embedded_false_complex_50
+#data
+<html><body><embed src="e50.swf"></embed><canvas>Draw50</canvas> plus text50</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<embed src="e50.swf"><canvas>Draw50</canvas> plus text50
+
+#test: remove_embedded_false_complex_51
+#data
+<html><body>One51 <iframe src="if51.html"></iframe> Two51 <object data="o51.pdf"></object></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+One51 <iframe src="if51.html"></iframe> Two51 <object data="o51.pdf"></object>
+
+#test: remove_embedded_false_complex_52
+#data
+<html><body>Lead52 <audio src="m52.mp3"></audio><svg><circle/></svg> End52</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Lead52 <audio src="m52.mp3"></audio><svg><circle></circle></svg> End52
+
+#test: remove_embedded_false_complex_53
+#data
+<html><body><video src="v53.mp4"></video><picture>Pic53</picture> trailing53</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<video src="v53.mp4"></video><picture>Pic53</picture> trailing53
+
+#test: remove_embedded_false_complex_54
+#data
+<html><body>Intro54 <math>Formula54</math><iframe src="f54.html"></iframe> tail54</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Intro54 <math>Formula54</math><iframe src="f54.html"></iframe> tail54
+
+#test: remove_embedded_false_complex_55
+#data
+<html><body><object data="o55.pdf"></object><img src="pic55.png"> Some text55</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<object data="o55.pdf"></object><img src="pic55.png"> Some text55
+
+#test: remove_embedded_false_complex_56
+#data
+<html><body>Alpha56 <canvas>Draw56</canvas> <video src="vid56.mp4"></video>Omega56</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Alpha56 <canvas>Draw56</canvas><video src="vid56.mp4"></video>Omega56
+
+#test: remove_embedded_false_complex_57
+#data
+<html><body><svg><rect x="0" y="0"/></svg> plus <embed src="anim57.swf"></embed> text57</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<svg><rect x="0" y="0"></rect></svg> plus <embed src="anim57.swf"> text57
+
+#test: remove_embedded_false_complex_58
+#data
+<html><body><math>Math58</math><picture>Pic58</picture> trailing58</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<math>Math58</math><picture>Pic58</picture> trailing58
+
+#test: remove_embedded_false_complex_59
+#data
+<html><body>Comb59 <audio src="a59.mp3"></audio><iframe src="i59.html"></iframe><map>Map59</map></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Comb59 <audio src="a59.mp3"></audio><iframe src="i59.html"></iframe><map>Map59</map>
+
+#test: remove_embedded_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Text60 <img src="logo60.png"> plus <video src="v60.mp4"></video></body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+Doc60 Text60 <img src="logo60.png"> plus <video src="v60.mp4"></video>
+

@@ -1,0 +1,951 @@
+#test: remove_values_easy_01
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[10]
+#expected
+id,val
+1,
+2,20
+3,30
+
+#test: remove_values_easy_02
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[20]
+#expected
+id,val
+1,10
+2,
+3,30
+
+#test: remove_values_easy_03
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[10, 30]
+#expected
+id,val
+1,
+2,20
+3,
+
+#test: remove_values_easy_04
+#data
+name,city
+Alice,London
+Bob,Paris
+Carol,Berlin
+#params
+csv.delimiter=,
+csv.remove_values=["Bob"]
+#expected
+name,city
+Alice,London
+,Paris
+Carol,Berlin
+
+#test: remove_values_easy_05
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[999]
+#expected
+id,val
+1,10
+2,20
+3,30
+
+#test: remove_values_easy_06
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[10]
+#expected
+id;val
+1;
+2;20
+3;30
+
+#test: remove_values_easy_07
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[20]
+#expected
+id;val
+1;10
+2;
+3;30
+
+#test: remove_values_easy_08
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[10, 30]
+#expected
+id;val
+1;
+2;20
+3;
+
+#test: remove_values_easy_09
+#data
+name;city
+Alice;London
+Bob;Paris
+Carol;Berlin
+#params
+csv.delimiter=;
+csv.remove_values=["Bob"]
+#expected
+name;city
+Alice;London
+;Paris
+Carol;Berlin
+
+#test: remove_values_easy_10
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[999]
+#expected
+id;val
+1;10
+2;20
+3;30
+
+#test: remove_values_easy_11
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[10]
+#expected
+id|val
+1|
+2|20
+3|30
+
+#test: remove_values_easy_12
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[20]
+#expected
+id|val
+1|10
+2|
+3|30
+
+#test: remove_values_easy_13
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[10, 30]
+#expected
+id|val
+1|
+2|20
+3|
+
+#test: remove_values_easy_14
+#data
+name|city
+Alice|London
+Bob|Paris
+Carol|Berlin
+#params
+csv.delimiter=|
+csv.remove_values=["Bob"]
+#expected
+name|city
+Alice|London
+|Paris
+Carol|Berlin
+
+#test: remove_values_easy_15
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[999]
+#expected
+id|val
+1|10
+2|20
+3|30
+
+#test: remove_values_easy_16
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[10]
+#expected
+id	val
+1	
+2	20
+3	30
+
+#test: remove_values_easy_17
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[20]
+#expected
+id	val
+1	10
+2	
+3	30
+
+#test: remove_values_easy_18
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[10, 30]
+#expected
+id	val
+1	
+2	20
+3	
+
+#test: remove_values_easy_19
+#data
+name	city
+Alice	London
+Bob	Paris
+Carol	Berlin
+#params
+csv.delimiter=\t
+csv.remove_values=["Bob"]
+#expected
+name	city
+Alice	London
+	Paris
+Carol	Berlin
+
+#test: remove_values_easy_20
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[999]
+#expected
+id	val
+1	10
+2	20
+3	30
+
+#test: remove_values_mid_01
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=["*0"]
+#expected
+id,val
+1,
+2,
+3,
+
+#test: remove_values_mid_02
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=["*2"]
+#expected
+id,val
+1,10
+,20
+3,30
+
+#test: remove_values_mid_03
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[10, "*20"]
+#expected
+id,val
+1,
+2,
+3,30
+
+#test: remove_values_mid_04
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=[10, 10, 20]
+#expected
+id,val
+1,
+2,
+3,30
+
+#test: remove_values_mid_05
+#data
+id,val
+1,10
+2,20
+3,30
+#params
+csv.delimiter=,
+csv.remove_values=["X*"]
+#expected
+id,val
+1,10
+2,20
+3,30
+
+#test: remove_values_mid_06
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=["*0"]
+#expected
+id;val
+1;
+2;
+3;
+
+#test: remove_values_mid_07
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=["*2"]
+#expected
+id;val
+1;10
+;20
+3;30
+
+#test: remove_values_mid_08
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[10, "*20"]
+#expected
+id;val
+1;
+2;
+3;30
+
+#test: remove_values_mid_09
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=[10, 10, 20]
+#expected
+id;val
+1;
+2;
+3;30
+
+#test: remove_values_mid_10
+#data
+id;val
+1;10
+2;20
+3;30
+#params
+csv.delimiter=;
+csv.remove_values=["X*"]
+#expected
+id;val
+1;10
+2;20
+3;30
+
+#test: remove_values_mid_11
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=["*0"]
+#expected
+id|val
+1|
+2|
+3|
+
+#test: remove_values_mid_12
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=["*2"]
+#expected
+id|val
+1|10
+|20
+3|30
+
+#test: remove_values_mid_13
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[10, "*20"]
+#expected
+id|val
+1|
+2|
+3|30
+
+#test: remove_values_mid_14
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=[10, 10, 20]
+#expected
+id|val
+1|
+2|
+3|30
+
+#test: remove_values_mid_15
+#data
+id|val
+1|10
+2|20
+3|30
+#params
+csv.delimiter=|
+csv.remove_values=["X*"]
+#expected
+id|val
+1|10
+2|20
+3|30
+
+#test: remove_values_mid_16
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=["*0"]
+#expected
+id	val
+1	
+2	
+3	
+
+#test: remove_values_mid_17
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=["*2"]
+#expected
+id	val
+1	10
+	20
+3	30
+
+#test: remove_values_mid_18
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[10, "*20"]
+#expected
+id	val
+1	
+2	
+3	30
+
+#test: remove_values_mid_19
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=[10, 10, 20]
+#expected
+id	val
+1	
+2	
+3	30
+
+#test: remove_values_mid_20
+#data
+id	val
+1	10
+2	20
+3	30
+#params
+csv.delimiter=\t
+csv.remove_values=["X*"]
+#expected
+id	val
+1	10
+2	20
+3	30
+
+#test: remove_values_hard_01
+#data
+id,val,code
+1,10,100
+2,20,200
+3,30,300
+4,40,400
+5,50,500
+#params
+csv.delimiter=,
+csv.remove_values=[10, 30, 50]
+#expected
+id,val,code
+1,,100
+2,20,200
+3,,300
+4,40,400
+5,,500
+
+#test: remove_values_hard_02
+#data
+id,val,code
+1,10,100
+2,20,200
+3,30,300
+4,40,400
+5,50,500
+#params
+csv.delimiter=,
+csv.remove_values=["*00"]
+#expected
+id,val,code
+1,10,
+2,20,
+3,30,
+4,40,
+5,50,
+
+#test: remove_values_hard_03
+#data
+name,city
+Alice,London
+Bob,Paris
+Carol,Berlin
+Dave,Bordeaux
+#params
+csv.delimiter=,
+csv.remove_values=["*on"]
+#expected
+name,city
+Alice,
+Bob,Paris
+Carol,Berlin
+Dave,Bordeaux
+
+#test: remove_values_hard_04
+#data
+name,city
+Alice,London
+Bob,Paris
+Carol,Berlin
+Dave,Bordeaux
+#params
+csv.delimiter=,
+csv.remove_values=["Bob", "*rol"]
+#expected
+name,city
+Alice,London
+,Paris
+,Berlin
+Dave,Bordeaux
+
+#test: remove_values_hard_05
+#data
+name,city
+ Alice , London
+ Bob, Paris 
+Carol , Berlin
+#params
+csv.delimiter=,
+csv.remove_values=["Alice", "*arol"]
+csv.trim_whitespace=True
+#expected
+name,city
+,London
+Bob,Paris
+,Berlin
+
+#test: remove_values_hard_06
+#data
+id;val;code
+1;10;100
+2;20;200
+3;30;300
+4;40;400
+5;50;500
+#params
+csv.delimiter=;
+csv.remove_values=[10, 30, 50]
+#expected
+id;val;code
+1;;100
+2;20;200
+3;;300
+4;40;400
+5;;500
+
+#test: remove_values_hard_07
+#data
+id;val;code
+1;10;100
+2;20;200
+3;30;300
+4;40;400
+5;50;500
+#params
+csv.delimiter=;
+csv.remove_values=["*00"]
+#expected
+id;val;code
+1;10;
+2;20;
+3;30;
+4;40;
+5;50;
+
+#test: remove_values_hard_08
+#data
+name;city
+Alice;London
+Bob;Paris
+Carol;Berlin
+Dave;Bordeaux
+#params
+csv.delimiter=;
+csv.remove_values=["*on"]
+#expected
+name;city
+Alice;
+Bob;Paris
+Carol;Berlin
+Dave;Bordeaux
+
+#test: remove_values_hard_09
+#data
+name;city
+Alice;London
+Bob;Paris
+Carol;Berlin
+Dave;Bordeaux
+#params
+csv.delimiter=;
+csv.remove_values=["Bob", "*rol"]
+#expected
+name;city
+Alice;London
+;Paris
+;Berlin
+Dave;Bordeaux
+
+#test: remove_values_hard_10
+#data
+name;city
+ Alice ; London
+ Bob; Paris 
+Carol ; Berlin
+#params
+csv.delimiter=;
+csv.remove_values=["Alice", "*arol"]
+csv.trim_whitespace=True
+#expected
+name;city
+;London
+Bob;Paris
+;Berlin
+
+#test: remove_values_hard_11
+#data
+id|val|code
+1|10|100
+2|20|200
+3|30|300
+4|40|400
+5|50|500
+#params
+csv.delimiter=|
+csv.remove_values=[10, 30, 50]
+#expected
+id|val|code
+1||100
+2|20|200
+3||300
+4|40|400
+5||500
+
+#test: remove_values_hard_12
+#data
+id|val|code
+1|10|100
+2|20|200
+3|30|300
+4|40|400
+5|50|500
+#params
+csv.delimiter=|
+csv.remove_values=["*00"]
+#expected
+id|val|code
+1|10|
+2|20|
+3|30|
+4|40|
+5|50|
+
+#test: remove_values_hard_13
+#data
+name|city
+Alice|London
+Bob|Paris
+Carol|Berlin
+Dave|Bordeaux
+#params
+csv.delimiter=|
+csv.remove_values=["*on"]
+#expected
+name|city
+Alice|
+Bob|Paris
+Carol|Berlin
+Dave|Bordeaux
+
+#test: remove_values_hard_14
+#data
+name|city
+Alice|London
+Bob|Paris
+Carol|Berlin
+Dave|Bordeaux
+#params
+csv.delimiter=|
+csv.remove_values=["Bob", "*rol"]
+#expected
+name|city
+Alice|London
+|Paris
+|Berlin
+Dave|Bordeaux
+
+#test: remove_values_hard_15
+#data
+name|city
+ Alice | London
+ Bob| Paris 
+Carol | Berlin
+#params
+csv.delimiter=|
+csv.remove_values=["Alice", "*arol"]
+csv.trim_whitespace=True
+#expected
+name|city
+|London
+Bob|Paris
+|Berlin
+
+#test: remove_values_hard_16
+#data
+id	val	code
+1	10	100
+2	20	200
+3	30	300
+4	40	400
+5	50	500
+#params
+csv.delimiter=\t
+csv.remove_values=[10, 30, 50]
+#expected
+id	val	code
+1		100
+2	20	200
+3		300
+4	40	400
+5		500
+
+#test: remove_values_hard_17
+#data
+id	val	code
+1	10	100
+2	20	200
+3	30	300
+4	40	400
+5	50	500
+#params
+csv.delimiter=\t
+csv.remove_values=["*00"]
+#expected
+id	val	code
+1	10	
+2	20	
+3	30	
+4	40	
+5	50	
+
+#test: remove_values_hard_18
+#data
+name	city
+Alice	London
+Bob	Paris
+Carol	Berlin
+Dave	Bordeaux
+#params
+csv.delimiter=\t
+csv.remove_values=["*on"]
+#expected
+name	city
+Alice	
+Bob	Paris
+Carol	Berlin
+Dave	Bordeaux
+
+#test: remove_values_hard_19
+#data
+name	city
+Alice	London
+Bob	Paris
+Carol	Berlin
+Dave	Bordeaux
+#params
+csv.delimiter=\t
+csv.remove_values=["Bob", "*rol"]
+#expected
+name	city
+Alice	London
+	Paris
+	Berlin
+Dave	Bordeaux
+
+#test: remove_values_hard_20
+#data
+name	city
+ Alice 	 London
+ Bob	 Paris 
+Carol 	 Berlin
+#params
+csv.delimiter=\t
+csv.remove_values=["Alice", "*arol"]
+csv.trim_whitespace=True
+#expected
+name	city
+	London
+Bob	Paris
+	Berlin

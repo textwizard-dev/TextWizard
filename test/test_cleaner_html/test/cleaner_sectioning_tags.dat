@@ -1,0 +1,962 @@
+#test: remove_sectioning_true_easy_01
+#data
+<html><body><article>Content</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_02
+#data
+<html><body><aside>Sidebar</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_03
+#data
+<html><body><nav>Navigation</nav></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_04
+#data
+<html><body><section>Section Content</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_05
+#data
+<html><body><article>Test</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_06
+#data
+<html><body><aside>Info</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_07
+#data
+<html><body><nav>Menu</nav></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_08
+#data
+<html><body><section>Details</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_09
+#data
+<html><body><article>Article One</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_10
+#data
+<html><body><aside>Aside Content</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_11
+#data
+<html><body><nav>Nav Content</nav></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_12
+#data
+<html><body><section>Section One</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_13
+#data
+<html><body><article>Content</article><article>More</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_14
+#data
+<html><body><aside>Left</aside><aside>Right</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_15
+#data
+<html><body><nav>Menu1</nav><nav>Menu2</nav></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_16
+#data
+<html><body><section>First Section</section><section>Second Section</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_17
+#data
+<html><body><article>Alpha</article><aside>Beta</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_18
+#data
+<html><body><nav>Gamma</nav><section>Delta</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_19
+#data
+<html><body><article>Only Article</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_easy_20
+#data
+<html><body><aside>Only Aside</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+
+#test: remove_sectioning_true_intermediate_21
+#data
+<html><body>Intro <article>Article content</article> Conclusion</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Intro  Conclusion</body></html>
+
+#test: remove_sectioning_true_intermediate_22
+#data
+<html><body>Start <section>Section info</section> End</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_sectioning_true_intermediate_23
+#data
+<html><body>Before <aside>Sidebar details</aside> After</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: remove_sectioning_true_intermediate_24
+#data
+<html><body>Text <article><div>Nested content</div></article> More text</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Text  More text</body></html>
+
+#test: remove_sectioning_true_intermediate_25
+#data
+<html><body>Leading <nav>Menu here</nav> trailing</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: remove_sectioning_true_intermediate_26
+#data
+<html><body>Prefix <section>Section info</section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Prefix </body></html>
+
+#test: remove_sectioning_true_intermediate_27
+#data
+<html><body><article>Inside article</article> External</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> External</body></html>
+
+#test: remove_sectioning_true_intermediate_28
+#data
+<html><body>Start text <aside>Info</aside> end text</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Start text  end text</body></html>
+
+#test: remove_sectioning_true_intermediate_29
+#data
+<html><body>Outside only</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Outside only</body></html>
+
+#test: remove_sectioning_true_intermediate_30
+#data
+<html><body>Example <article>Content</article> with extra</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Example  with extra</body></html>
+
+#test: remove_sectioning_true_intermediate_31
+#data
+<html><body>Info <section>Details</section> more info</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Info  more info</body></html>
+
+#test: remove_sectioning_true_intermediate_32
+#data
+<html><body>Start <aside>Side</aside> End</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: remove_sectioning_true_intermediate_33
+#data
+<html><body><article>Article only</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_sectioning_true_intermediate_34
+#data
+<html><body>First text <section>Sec text</section> Second text</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>First text  Second text</body></html>
+
+#test: remove_sectioning_true_intermediate_35
+#data
+<html><body>Alpha <aside>Data</aside> Omega</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Alpha  Omega</body></html>
+
+#test: remove_sectioning_true_intermediate_36
+#data
+<html><body><article><p>Nested</p></article> outside</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> outside</body></html>
+
+#test: remove_sectioning_true_intermediate_37
+#data
+<html><body>Before <article>Content</article> after</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Before  after</body></html>
+
+#test: remove_sectioning_true_intermediate_38
+#data
+<html><body><aside>Sidebar info</aside> more content</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> more content</body></html>
+
+#test: remove_sectioning_true_intermediate_39
+#data
+<html><body>Pre <article>Content inside</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Pre </body></html>
+
+#test: remove_sectioning_true_intermediate_40
+#data
+<html><body><section>Sec data</section> trailing text</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> trailing text</body></html>
+
+#test: remove_sectioning_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc</title></head><body><article>Art41 <section>Sec41</section></article> Outside41</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc</title></head><body> Outside41</body></html>
+
+#test: remove_sectioning_true_complex_42
+#data
+<html><body>Start42 <aside>Side42 <nav>Nav inside</nav> Extra42</aside> End42</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Start42  End42</body></html>
+
+#test: remove_sectioning_true_complex_43
+#data
+<html><body><article><header>Head43</header><p>Para43</p><footer>Foot43</footer></article> Outside43</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Outside43</body></html>
+
+#test: remove_sectioning_true_complex_44
+#data
+<html><body>Pre44 <section>Section <article>Deep Art44</article></section> Post44</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Pre44  Post44</body></html>
+
+#test: remove_sectioning_true_complex_45
+#data
+<html><body><article>Art45</article><aside>Side45</aside> Extra45</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Extra45</body></html>
+
+#test: remove_sectioning_true_complex_46
+#data
+<html><body><nav>Navigation46</nav><article><section>Deep46</section></article> End46</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> End46</body></html>
+
+#test: remove_sectioning_true_complex_47
+#data
+<html><body>Outer47 <article><header>Head47</header><p>Para47</p><footer>Foot47</footer></article> Tail47</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Outer47  Tail47</body></html>
+
+#test: remove_sectioning_true_complex_48
+#data
+<html><body><aside>Side48 <section>Sec48 <article><p>Deep48</p></article></section></aside> Outside48</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Outside48</body></html>
+
+#test: remove_sectioning_true_complex_49
+#data
+<html><body>Pre49 <article>Art49</article> mid49 <nav>Nav49</nav> post49</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Pre49  mid49  post49</body></html>
+
+#test: remove_sectioning_true_complex_50
+#data
+<html><body><section>Sec50</section> <aside>Side50</aside> <article>Art50</article> End50</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>   End50</body></html>
+
+#test: remove_sectioning_true_complex_51
+#data
+<html><body>Lead51 <article><section>Nested51</section></article> Trail51</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Lead51  Trail51</body></html>
+
+#test: remove_sectioning_true_complex_52
+#data
+<html><body><aside>Side52</aside> and <article>Art52</article> combined52</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> and  combined52</body></html>
+
+#test: remove_sectioning_true_complex_53
+#data
+<html><body><nav>Nav53</nav><section>Sec53</section><article>Art53</article> Final53</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Final53</body></html>
+
+#test: remove_sectioning_true_complex_54
+#data
+<html><body><header>Head54</header> Outside54 <aside>Side54</aside></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body><header>Head54</header> Outside54 </body></html>
+
+#test: remove_sectioning_true_complex_55
+#data
+<html><body>Pre55 <nav>Menu55</nav> Post55</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Pre55  Post55</body></html>
+
+#test: remove_sectioning_true_complex_56
+#data
+<html><body><article><section>Nested56</section></article> Extra56</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Extra56</body></html>
+
+#test: remove_sectioning_true_complex_57
+#data
+<html><body><aside>Side57</aside><section>Sec57</section><nav>Nav57</nav> Outside57</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> Outside57</body></html>
+
+#test: remove_sectioning_true_complex_58
+#data
+<html><body>Info58 <article>Content58</article></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Info58 </body></html>
+
+#test: remove_sectioning_true_complex_59
+#data
+<html><body>Start59 <section>Sec59 <article>Art59</article></section> End59</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body>Start59  End59</body></html>
+
+#test: remove_sectioning_true_complex_60
+#data
+<html><body><aside>Side60</aside> and <section>Sec60</section> with extra</body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body> and  with extra</body></html>
+
+
+#test: remove_sectioning_false_easy_01
+#data
+<html><body><section>Sec1 text</section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec1 text</section>
+
+#test: remove_sectioning_false_easy_02
+#data
+<html><body><article>Article2</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Article2</article>
+
+#test: remove_sectioning_false_easy_03
+#data
+<html><body><aside>Aside3</aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside3</aside>
+
+#test: remove_sectioning_false_easy_04
+#data
+<html><body><nav>Nav4</nav></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav4</nav>
+
+#test: remove_sectioning_false_easy_05
+#data
+<html><body>Direct5 <section>Sec5</section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Direct5 <section>Sec5</section>
+
+#test: remove_sectioning_false_easy_06
+#data
+<html><body><aside>Aside6</aside> trailing6</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside6</aside> trailing6
+
+#test: remove_sectioning_false_easy_07
+#data
+<html><body><nav>Nav7</nav> plus7 text</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav7</nav> plus7 text
+
+#test: remove_sectioning_false_easy_08
+#data
+<html><body><article>Art8</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art8</article>
+
+#test: remove_sectioning_false_easy_09
+#data
+<html><body>Lead9 <section>Sec9</section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Lead9 <section>Sec9</section>
+
+#test: remove_sectioning_false_easy_10
+#data
+<html><body>Pre10 <aside>Side10</aside> Post10</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Pre10 <aside>Side10</aside> Post10
+
+#test: remove_sectioning_false_easy_11
+#data
+<html><body><nav>Nav11</nav></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav11</nav>
+
+#test: remove_sectioning_false_easy_12
+#data
+<html><body>Text12 <article>Art12</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Text12 <article>Art12</article>
+
+#test: remove_sectioning_false_easy_13
+#data
+<html><body>Mixed13 <section>Sec13</section> end13</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Mixed13 <section>Sec13</section> end13
+
+#test: remove_sectioning_false_easy_14
+#data
+<html><body><aside>Aside14</aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside14</aside>
+
+#test: remove_sectioning_false_easy_15
+#data
+<html><body>Alone text15</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Alone text15
+
+#test: remove_sectioning_false_easy_16
+#data
+<html><body><article>One16</article><article>Two16</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>One16</article><article>Two16</article>
+
+#test: remove_sectioning_false_easy_17
+#data
+<html><body><section>Sec17</section> trailing17</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec17</section> trailing17
+
+#test: remove_sectioning_false_easy_18
+#data
+<html><body><aside>Aside18</aside><nav>Nav18</nav></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside18</aside><nav>Nav18</nav>
+
+#test: remove_sectioning_false_easy_19
+#data
+<html><body>Start19 <article>Article19</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Start19 <article>Article19</article>
+
+#test: remove_sectioning_false_easy_20
+#data
+<html><body><nav>Nav20</nav> tail20</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav20</nav> tail20
+
+
+#test: remove_sectioning_false_intermediate_21
+#data
+<html><body><p>Para21</p><section>Sec21</section> trailing21</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Para21<section>Sec21</section> trailing21
+
+#test: remove_sectioning_false_intermediate_22
+#data
+<html><body>Start22 <article>Art22 <div>Div removed</div></article> End22</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Start22 <article>Art22 Div removed</article> End22
+
+#test: remove_sectioning_false_intermediate_23
+#data
+<html><body><aside>Aside23 <p>Inside p removed</p></aside> leftover23</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside23 Inside p removed</aside> leftover23
+
+#test: remove_sectioning_false_intermediate_24
+#data
+<html><body><section>Sec24 <span>Span removed</span></section> trailing24</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec24 Span removed</section> trailing24
+
+#test: remove_sectioning_false_intermediate_25
+#data
+<html><body><nav>Nav25 <strong>Strong removed</strong></nav> text25</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav25 Strong removed</nav> text25
+
+#test: remove_sectioning_false_intermediate_26
+#data
+<html><body>Leading26 <article><header>Header removed</header> Art26</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Leading26 <article>Header removed Art26</article>
+
+#test: remove_sectioning_false_intermediate_27
+#data
+<html><body><section>Sec27 <img src="image.jpg" alt="img"></section> outside27</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec27 </section> outside27
+
+#test: remove_sectioning_false_intermediate_28
+#data
+<html><body>start28 <aside>Aside28<div>Div removed28</div></aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+start28 <aside>Aside28 Div removed28</aside>
+
+#test: remove_sectioning_false_intermediate_29
+#data
+<html><body>Text29 <nav>Nav29 <p>Para removed29</p></nav></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Text29 <nav>Nav29 Para removed29</nav>
+
+#test: remove_sectioning_false_intermediate_30
+#data
+<html><body><article>Art30 <hr> hr removed </article> trailing30</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art30  hr removed </article> trailing30
+
+#test: remove_sectioning_false_intermediate_31
+#data
+<html><body>Lead31 <section>Sec31 <em>em removed31</em></section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Lead31 <section>Sec31 em removed31</section>
+
+#test: remove_sectioning_false_intermediate_32
+#data
+<html><body><article>Art32 <div>Div inside</div></article> end32</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art32 Div inside</article> end32
+
+#test: remove_sectioning_false_intermediate_33
+#data
+<html><body>Some33 <aside>Aside33 <p>Para removed33</p></aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Some33 <aside>Aside33 Para removed33</aside>
+
+#test: remove_sectioning_false_intermediate_34
+#data
+<html><body>Prefix34 <section>Sec34 text <i>i removed</i></section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Prefix34 <section>Sec34 text i removed</section>
+
+#test: remove_sectioning_false_intermediate_35
+#data
+<html><body><nav>Nav35 <label>label removed35</label></nav> leftover35</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav35 label removed35</nav> leftover35
+
+#test: remove_sectioning_false_intermediate_36
+#data
+<html><body>start36 <article><figure>Fig removed36</figure> Art36</article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+start36 <article>Fig removed36 Art36</article>
+
+#test: remove_sectioning_false_intermediate_37
+#data
+<html><body><aside>Aside37 <ul><li>List removed37</li></ul></aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside37 List removed37</aside>
+
+#test: remove_sectioning_false_intermediate_38
+#data
+<html><body>Mid38 <section>Sec38 <span>span removed38</span></section> tail38</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+ Mid38 <section>Sec38 span removed38</section> tail38
+
+#test: remove_sectioning_false_intermediate_39
+#data
+<html><body><article>Art39 text <code>code removed39</code></article> final39</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art39 text code removed39</article> final39
+
+#test: remove_sectioning_false_intermediate_40
+#data
+<html><body>intro40 <section>Sec40 <b>bold removed40</b></section> end40</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+intro40 <section>Sec40 bold removed40</section> end40
+
+#test: remove_sectioning_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><p>Para removed41</p><article>Art41 <div>Div removed41</div></article></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Doc41 Para removed41<article>Art41 Div removed41</article>
+
+#test: remove_sectioning_false_complex_42
+#data
+<html><body>Start42 <aside>Aside42 <p>Para removed42</p></aside><section>Sec42 content</section> End42</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Start42 <aside>Aside42 Para removed42</aside><section>Sec42 content</section> End42
+
+#test: remove_sectioning_false_complex_43
+#data
+<html><body><nav>Nav43 <span>span removed43</span></nav> leftover43</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav43 span removed43</nav> leftover43
+
+#test: remove_sectioning_false_complex_44
+#data
+<html><body><article>Art44 <section>Sec44 <div>Div removed44</div></section></article> outside44</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art44 <section>Sec44 Div removed44</section></article> outside44
+
+#test: remove_sectioning_false_complex_45
+#data
+<html><body>Alpha45 <section>Sec45 <aside>Aside45</aside></section>Omega45</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Alpha45 <section>Sec45 <aside>Aside45</aside></section>Omega45
+
+#test: remove_sectioning_false_complex_46
+#data
+<html><body><article>Art46 <h1>heading removed46</h1></article> trailing46</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art46 heading removed46</article> trailing46
+
+#test: remove_sectioning_false_complex_47
+#data
+<html><body><nav>Nav47 <article>NestedArt47</article></nav> text47</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav47 <article>NestedArt47</article></nav> text47
+
+#test: remove_sectioning_false_complex_48
+#data
+<html><body>Outside48 <aside>Aside48 <section>Sec48 <div>Div removed48</div></section></aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Outside48 <aside>Aside48 <section>Sec48 Div removed48</section></aside>
+
+#test: remove_sectioning_false_complex_49
+#data
+<html><body><section>Sec49 <p>p removed49</p><article>Art49</article></section> tail49</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec49 p removed49<article>Art49</article></section> tail49
+
+#test: remove_sectioning_false_complex_50
+#data
+<html><body>begin50 <article>Art50 <aside>Aside50</aside></article> end50</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+begin50 <article>Art50 <aside>Aside50</aside></article> end50
+
+#test: remove_sectioning_false_complex_51
+#data
+<html><body><nav>Nav51 <div>Div removed51</div></nav> after51</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav51 Div removed51</nav> after51
+
+#test: remove_sectioning_false_complex_52
+#data
+<html><body><aside>Aside52 <header>Head removed52</header></aside> leftover52</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside52 Head removed52</aside> leftover52
+
+#test: remove_sectioning_false_complex_53
+#data
+<html><body><article>OuterArt53 <section>InnerSec53</section></article> final53</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>OuterArt53 <section>InnerSec53</section></article> final53
+
+#test: remove_sectioning_false_complex_54
+#data
+<html><body><article>Art54 <p>p removed54</p></article><aside>Aside54</aside></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<article>Art54 p removed54</article><aside>Aside54</aside>
+
+#test: remove_sectioning_false_complex_55
+#data
+<html><body>leading55 <section>Sec55 <footer>foot removed55</footer></section> trailing55</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+leading55 <section>Sec55 foot removed55</section> trailing55
+
+#test: remove_sectioning_false_complex_56
+#data
+<html><body><aside>Aside56 <article>Art in aside56</article></aside> text56</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<aside>Aside56 <article>Art in aside56</article></aside> text56
+
+#test: remove_sectioning_false_complex_57
+#data
+<html><body><nav>Nav57 <section>Sec inside57</section></nav> outside57</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<nav>Nav57 <section>Sec inside57</section></nav> outside57
+
+#test: remove_sectioning_false_complex_58
+#data
+<html><body>pre58 <article>Art58 <div>Div removed58</div></article> post58</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+pre58 <article>Art58 Div removed58</article> post58
+
+#test: remove_sectioning_false_complex_59
+#data
+<html><body><section>Sec59 <aside>Aside59</aside></section> final59</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec59 <aside>Aside59</aside></section> final59
+
+#test: remove_sectioning_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>start60 <aside>Aside60</aside><article>Art60</article><section>Sec60 <nav>Nav inside60</nav></section> end60</body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+Doc60 start60 <aside>Aside60</aside><article>Art60</article><section>Sec60 <nav>Nav inside60</nav></section> end60

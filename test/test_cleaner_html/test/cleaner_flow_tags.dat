@@ -1,0 +1,959 @@
+#test: remove_flow_tags_true_01
+#data
+<html><body><p>Hello World!</p></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_02
+#data
+<html><body><div>Div content</div></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_03
+#data
+<html><body><article>Article text</article></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_04
+#data
+<html><body>Direct text only</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Direct text only</body></html>
+
+#test: remove_flow_tags_true_05
+#data
+<html><body><blockquote>Quote here</blockquote></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_06
+#data
+<html><body><nav>Navigation content</nav></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_07
+#data
+<html><body><ol><li>Item 1</li><li>Item 2</li></ol></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_08
+#data
+<html><body><br></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_09
+#data
+<html><body><section>Section content</section></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_10
+#data
+<html><body><header>Header text</header></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_11
+#data
+<html><body><h1>Main Heading</h1></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_12
+#data
+<html><body><pre>Preformatted text</pre></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_13
+#data
+<html><body><a href="#">Link text</a></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_14
+#data
+<html><body><abbr>Abbreviation</abbr></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_15
+#data
+<html><body><span>Inline element</span></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_16
+#data
+<html><body><strong>Bold text</strong></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_17
+#data
+<html><body><img src="img.png" alt="image"></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_18
+#data
+<html><body><input type="text" value="abc"></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_19
+#data
+<html><body><time datetime="2023-01-01">Date</time></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_20
+#data
+<html><body><div>Outer<div>Inner</div></div></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_21
+#data
+<html><body>Outside text <div>Div inside</div></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Outside text </body></html>
+
+#test: remove_flow_tags_true_intermediate_22
+#data
+<html><body><p>Paragraph 22</p>Direct 22 text</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Direct 22 text</body></html>
+
+#test: remove_flow_tags_true_intermediate_23
+#data
+<html><body><section>Sec 23 <p>Nested p</p></section></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_24
+#data
+<html><body>Start24 <article>Article 24 text</article> End24</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Start24  End24</body></html>
+
+#test: remove_flow_tags_true_intermediate_25
+#data
+<html><body><h1>H1 25</h1><div>Div25</div>Leftover text25</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Leftover text25</body></html>
+
+#test: remove_flow_tags_true_intermediate_26
+#data
+<html><body><p>Everything in p 26</p></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_27
+#data
+<html><body><main>Main 27 content</main><span>Span 27</span></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_28
+#data
+<html><body>Leading28<br>Mid28<br>Trailing28</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Leading28 Mid28 Trailing28</body></html>
+
+#test: remove_flow_tags_true_intermediate_29
+#data
+<html><body><div><p>Div+p29</p></div><p>P outside div29</p></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_30
+#data
+<html><body>Text30 <blockquote>Blockquote30</blockquote> End30</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Text30  End30</body></html>
+
+#test: remove_flow_tags_true_intermediate_31
+#data
+<html><body><header>Head31</header><footer>Foot31</footer> Survive31</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> Survive31</body></html>
+
+#test: remove_flow_tags_true_intermediate_32
+#data
+<html><body><ul><li>Item 1</li><li>Item2</li></ul>Plain text32</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Plain text32</body></html>
+
+#test: remove_flow_tags_true_intermediate_33
+#data
+<html><body><em>Em 33</em> Outside33 <span>Span 33</span></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> Outside33 </body></html>
+
+#test: remove_flow_tags_true_intermediate_34
+#data
+<html><body>Before34 <pre>Pre block</pre> after34</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Before34  after34</body></html>
+
+#test: remove_flow_tags_true_intermediate_35
+#data
+<html><body><label>Label35</label> text35 <button>Btn35</button></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> text35 </body></html>
+
+#test: remove_flow_tags_true_intermediate_36
+#data
+<html><body><h2>H2 36</h2>alone text36</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>alone text36</body></html>
+
+#test: remove_flow_tags_true_intermediate_37
+#data
+<html><body><i>Italic 37</i><strong>Bold 37</strong></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_intermediate_38
+#data
+<html><body><span>Span 38 part1</span> direct <span>part2</span></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> direct </body></html>
+
+#test: remove_flow_tags_true_intermediate_39
+#data
+<html><body>Pre39 <a href="#">Link39</a> Post39</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Pre39  Post39</body></html>
+
+#test: remove_flow_tags_true_intermediate_40
+#data
+<html><body><br>Line break40<br>still flow</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Line break40 still flow</body></html>
+
+#test: remove_flow_tags_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Title41</title></head><body><p>Para41</p><div>Div41</div></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Title41</title></head><body></body></html>
+
+#test: remove_flow_tags_true_complex_42
+#data
+<html><body>Outside42 <div><section>Sec42</section></div> after42</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Outside42  after42</body></html>
+
+#test: remove_flow_tags_true_complex_43
+#data
+<html><body><main>Main43 <p>Para43</p></main> leftover43</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> leftover43</body></html>
+
+#test: remove_flow_tags_true_complex_44
+#data
+<html><body><article>Article44</article><footer>Footer44</footer></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_complex_45
+#data
+<html><body><p>P45 outer <span>Span45 inner</span></p>Real text45</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Real text45</body></html>
+
+#test: remove_flow_tags_true_complex_46
+#data
+<html><body>Lead46 <h4>Headline46</h4> tail46</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Lead46  tail46</body></html>
+
+#test: remove_flow_tags_true_complex_47
+#data
+<html><body><div>Outer47<div>Inner47</div> End47</div>Ok47</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Ok47</body></html>
+
+#test: remove_flow_tags_true_complex_48
+#data
+<html><body><header>Header48</header>Text48<footer>Footer48</footer></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Text48</body></html>
+
+#test: remove_flow_tags_true_complex_49
+#data
+<html><body>Pre49 <blockquote>Block49 <em>Em49</em></blockquote> post49</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Pre49  post49</body></html>
+
+#test: remove_flow_tags_true_complex_50
+#data
+<html><body>1st50 <ol><li>Item1</li><li>Item2</li></ol> 2nd50 <p>Para50</p></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>1st50  2nd50 </body></html>
+
+#test: remove_flow_tags_true_complex_51
+#data
+<html><body>Out51 <article><div>Nested51</div></article> tail51</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Out51  tail51</body></html>
+
+#test: remove_flow_tags_true_complex_52
+#data
+<html><body><div>Multi52 <section>Sec52 <p>Deep52</p></section></div></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_flow_tags_true_complex_53
+#data
+<html><body><main>Main53 <span>Span53</span> extra</main> leftover53</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> leftover53</body></html>
+
+#test: remove_flow_tags_true_complex_54
+#data
+<html><body><aside>Aside54 <h2>Heading54</h2></aside>Remains54</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Remains54</body></html>
+
+#test: remove_flow_tags_true_complex_55
+#data
+<html><body><hr> plus <p>para55</p> end55</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> plus  end55</body></html>
+
+#test: remove_flow_tags_true_complex_56
+#data
+<html><body>line56 <span>Span56 <b>Bold56</b></span></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>line56 </body></html>
+
+#test: remove_flow_tags_true_complex_57
+#data
+<html><body><pre>Pre57 line</pre> out57 <nav>Nav57</nav></body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body> out57 </body></html>
+
+#test: remove_flow_tags_true_complex_58
+#data
+<html><body>start58 <i>Italic58</i> <em>Em58</em> end58</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>start58   end58</body></html>
+
+#test: remove_flow_tags_true_complex_59
+#data
+<html><body><h3>H3-59</h3> <h4>H4-59</h4> text59</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>  text59</body></html>
+
+#test: remove_flow_tags_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Final60</title></head><body><p>Para60 <span>Span60</span></p> outside60</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Final60</title></head><body> outside60</body></html>
+
+#test: remove_flow_tags_false_easy_01
+#data
+<html><body><p>Hello World!</p></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Hello World!</p>
+
+#test: remove_flow_tags_false_easy_02
+#data
+<html><body><div>Div content</div></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<div>Div content</div>
+
+#test: remove_flow_tags_false_easy_03
+#data
+<html><body><article>Article</article></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<article>Article</article>
+
+#test: remove_flow_tags_false_easy_04
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<blockquote>Quote</blockquote>
+
+#test: remove_flow_tags_false_easy_05
+#data
+<html><body><footer>Footer</footer></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<footer>Footer</footer>
+
+#test: remove_flow_tags_false_easy_06
+#data
+<html><body><h1>Heading</h1></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<h1>Heading</h1>
+
+#test: remove_flow_tags_false_easy_07
+#data
+<html><body><p>Para</p><div>Div</div></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Para</p><div>Div</div>
+
+#test: remove_flow_tags_false_easy_08
+#data
+<html><body>Text outside</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Text outside
+
+#test: remove_flow_tags_false_easy_09
+#data
+<html><body><span>Inline</span></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<span>Inline</span>
+
+#test: remove_flow_tags_false_easy_10
+#data
+<html><body><a href="#">Link</a></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<a href="#">Link</a>
+
+#test: remove_flow_tags_false_easy_11
+#data
+<html><body><img src="pic.jpg" alt="img"></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<img src="pic.jpg" alt="img">
+
+#test: remove_flow_tags_false_easy_12
+#data
+<html><body><p>First</p><p>Second</p></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>First</p><p>Second</p>
+
+#test: remove_flow_tags_false_easy_13
+#data
+<html><body><header>Header</header></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<header>Header</header>
+
+#test: remove_flow_tags_false_easy_14
+#data
+<html><body><hr></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<hr>
+
+#test: remove_flow_tags_false_easy_15
+#data
+<html><body><pre>Pre content</pre></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<pre>Pre content</pre>
+
+#test: remove_flow_tags_false_easy_16
+#data
+<html><body><nav>Navigation</nav></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<nav>Navigation</nav>
+
+#test: remove_flow_tags_false_easy_17
+#data
+<html><body><ol><li>Item1</li><li>Item2</li></ol></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<ol><li>Item1</li><li>Item2</li></ol>
+
+#test: remove_flow_tags_false_easy_18
+#data
+<html><body><dl><dt>Term</dt><dd>Definition</dd></dl></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<dl><dt>Term</dt><dd>Definition</dd></dl>
+
+#test: remove_flow_tags_false_easy_19
+#data
+<html><body><figure><figcaption>Caption</figcaption></figure></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<figure><figcaption>Caption</figcaption></figure>
+
+#test: remove_flow_tags_false_easy_20
+#data
+<html><body><form><input type="text" value="data"></form></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<form><input type="text" value="data"></form>
+
+#test: remove_flow_tags_false_intermediate_21
+#data
+<html><body>Start <div>Div content</div> End</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start <div>Div content</div> End
+
+#test: remove_flow_tags_false_intermediate_22
+#data
+<html><body><p>Paragraph 22</p> and additional text 22</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Paragraph 22</p> and additional text 22
+
+#test: remove_flow_tags_false_intermediate_23
+#data
+<html><body>Text before <article>Article content 23</article> after</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Text before <article>Article content 23</article> after
+
+#test: remove_flow_tags_false_intermediate_24
+#data
+<html><body>Prefix <div>Div content 24</div> Suffix</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Prefix <div>Div content 24</div> Suffix
+
+#test: remove_flow_tags_false_intermediate_25
+#data
+<html><body><p>Para25</p><div>Div25</div> Extra25</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Para25</p><div>Div25</div> Extra25
+
+#test: remove_flow_tags_false_intermediate_26
+#data
+<html><body>Leading26 <blockquote>Quote26</blockquote> Trailing26</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Leading26 <blockquote>Quote26</blockquote> Trailing26
+
+#test: remove_flow_tags_false_intermediate_27
+#data
+<html><body>Start27 <span>Inline27</span> End27</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start27 <span>Inline27</span> End27
+
+#test: remove_flow_tags_false_intermediate_28
+#data
+<html><body>Alpha28 <a href="#">Link28</a> Omega28</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Alpha28 <a href="#">Link28</a> Omega28
+
+#test: remove_flow_tags_false_intermediate_29
+#data
+<html><body>Before29 <img src="pic29.jpg" alt="Pic29"> After29</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Before29 <img src="pic29.jpg" alt="Pic29"> After29
+
+#test: remove_flow_tags_false_intermediate_30
+#data
+<html><body>Pre30 <header>Header30</header> Post30</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Pre30 <header>Header30</header> Post30
+
+#test: remove_flow_tags_false_intermediate_31
+#data
+<html><body><p>Line one</p><p>Line two</p> Non-wrapped text31</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Line one</p><p>Line two</p> Non-wrapped text31
+
+#test: remove_flow_tags_false_intermediate_32
+#data
+<html><body>Start32 <section>Section32</section><aside>Aside32</aside> End32</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start32 <section>Section32</section><aside>Aside32</aside> End32
+
+#test: remove_flow_tags_false_intermediate_33
+#data
+<html><body>Text33 <pre>Preformatted33</pre> More33</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Text33 <pre>Preformatted33</pre> More33
+
+#test: remove_flow_tags_false_intermediate_34
+#data
+<html><body><div>Div34</div>Between34 <p>Para34</p></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<div>Div34</div>Between34 <p>Para34</p>
+
+#test: remove_flow_tags_false_intermediate_35
+#data
+<html><body><h2>Heading35</h2> extra text35</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<h2>Heading35</h2> extra text35
+
+#test: remove_flow_tags_false_intermediate_36
+#data
+<html><body>Text before36 <figure><figcaption>Caption36</figcaption></figure> Text after36</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Text before36 <figure><figcaption>Caption36</figcaption></figure> Text after36
+
+#test: remove_flow_tags_false_intermediate_37
+#data
+<html><body>Start37 <small>Small37</small> End37</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start37 <small>Small37</small> End37
+
+#test: remove_flow_tags_false_intermediate_38
+#data
+<html><body>Alpha38 <em>Emphasis38</em> Omega38</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Alpha38 <em>Emphasis38</em> Omega38
+
+#test: remove_flow_tags_false_intermediate_39
+#data
+<html><body>Before39 <dl><dt>Term39</dt><dd>Definition39</dd></dl> After39</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Before39 <dl><dt>Term39</dt><dd>Definition39</dd></dl> After39
+
+#test: remove_flow_tags_false_intermediate_40
+#data
+<html><body><form><label>Name40:</label><input type="text" value="Val40"></form> Extra40</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<form><label>Name40:</label><input type="text" value="Val40"></form> Extra40
+
+#test: remove_flow_tags_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc Complex 41</title></head><body><p>Para41</p><div>Div41 <span>Span41</span></div></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Doc Complex 41<p>Para41</p><div>Div41 <span>Span41</span></div>
+
+#test: remove_flow_tags_false_complex_42
+#data
+<html><body>Start42 <div>Mid42 <p>Deep42</p></div> End42</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start42 <div>Mid42 <p>Deep42</p></div> End42
+
+#test: remove_flow_tags_false_complex_43
+#data
+<html><body><header>Header43</header><article>Article43 <section>Section43</section></article>Outside43</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<header>Header43</header><article>Article43 <section>Section43</section></article>Outside43
+
+#test: remove_flow_tags_false_complex_44
+#data
+<html><body>Pre44 <div><p>Para44</p><div>Nested44</div></div> Post44</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Pre44 <div><p>Para44</p><div>Nested44</div></div> Post44
+
+#test: remove_flow_tags_false_complex_45
+#data
+<html><body><blockquote>Quote45 <cite>Citation45</cite></blockquote>After45</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<blockquote>Quote45 <cite>Citation45</cite></blockquote>After45
+
+#test: remove_flow_tags_false_complex_46
+#data
+<html><body><main>Main46 content <div>Div46 <p>Para46</p></div></main> Extra46</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<main>Main46 content <div>Div46 <p>Para46</p></div></main> Extra46
+
+#test: remove_flow_tags_false_complex_47
+#data
+<html><body>Outside47 <article><header>H47</header><p>Content47</p><footer>Foot47</footer></article></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Outside47 <article><header>H47</header><p>Content47</p><footer>Foot47</footer></article>
+
+#test: remove_flow_tags_false_complex_48
+#data
+<html><body><div>Div48 <section>Sec48 <article><p>Deep48</p></article></section> End48</div> Outside48</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<div>Div48 <section>Sec48 <article><p>Deep48</p></article></section> End48</div> Outside48
+
+#test: remove_flow_tags_false_complex_49
+#data
+<html><body><figure><figcaption>Caption49</figcaption></figure> Extra49</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<figure><figcaption>Caption49</figcaption></figure> Extra49
+
+#test: remove_flow_tags_false_complex_50
+#data
+<html><body><form><fieldset><legend>Legend50</legend><p>Para50</p></fieldset></form> End50</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<form><fieldset><legend>Legend50</legend><p>Para50</p></fieldset></form> End50
+
+#test: remove_flow_tags_false_complex_51
+#data
+<html><body>Start51 <div>Inner51 <div>Deep51</div></div> End51</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Start51 <div>Inner51 <div>Deep51</div></div> End51
+
+#test: remove_flow_tags_false_complex_52
+#data
+<html><body><article>Art52 <section>Sec52</section></article><p>Para52</p> Outside52</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<article>Art52 <section>Sec52</section></article><p>Para52</p> Outside52
+
+#test: remove_flow_tags_false_complex_53
+#data
+<html><body>Begin53 <div><header>Head53</header><p>Para53</p></div> End53</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Begin53 <div><header>Head53</header><p>Para53</p></div> End53
+
+#test: remove_flow_tags_false_complex_54
+#data
+<html><body><aside>Aside54 <h2>Heading54</h2></aside>Remains54</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<aside>Aside54 <h2>Heading54</h2></aside>Remains54
+
+#test: remove_flow_tags_false_complex_55
+#data
+<html><body><p>Line one complex55</p><p>Line two complex55</p> Final55</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<p>Line one complex55</p><p>Line two complex55</p> Final55
+
+#test: remove_flow_tags_false_complex_56
+#data
+<html><body>Text56 <div>Inside56</div> More56 <section>Sec56</section></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Text56 <div>Inside56</div> More56 <section>Sec56</section>
+
+#test: remove_flow_tags_false_complex_57
+#data
+<html><body><nav>Nav57</nav><p>Para57</p><article>Art57 content</article></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<nav>Nav57</nav><p>Para57</p><article>Art57 content</article>
+
+#test: remove_flow_tags_false_complex_58
+#data
+<html><body>Before58 <span>Span58</span> After58</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Before58 <span>Span58</span> After58
+
+#test: remove_flow_tags_false_complex_59
+#data
+<html><body><div>Outer59<div>Inner59</div></div> Trailing59</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<div>Outer59<div>Inner59</div></div> Trailing59
+
+#test: remove_flow_tags_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Final Complex 60</title></head><body><header>Head60</header><p>Para60</p><footer>Foot60</footer> Outside60</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Final Complex 60<header>Head60</header><p>Para60</p><footer>Foot60</footer> Outside60

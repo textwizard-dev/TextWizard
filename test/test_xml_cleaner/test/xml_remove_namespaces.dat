@@ -1,0 +1,399 @@
+#test: remove_namespaces_easy_01
+#data
+<root xmlns="urn:ns">A</root>
+#params
+remove_namespaces=true
+#expected
+<root>A</root>
+
+#test: remove_namespaces_easy_02
+#data
+<root xmlns:ns="u"><ns:child>Hi</ns:child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>Hi</child></root>
+
+#test: remove_namespaces_easy_03
+#data
+<root xmlns:ns="u" ns:attr="v">X</root>
+#params
+remove_namespaces=true
+#expected
+<root attr="v">X</root>
+
+#test: remove_namespaces_easy_04
+#data
+<ns:root xmlns:ns="u">Y</ns:root>
+#params
+remove_namespaces=true
+#expected
+<root>Y</root>
+
+#test: remove_namespaces_easy_05
+#data
+<r xmlns:a="u" xmlns:b="v"><a:c>1</a:c><b:d>2</b:d></r>
+#params
+remove_namespaces=true
+#expected
+<r><c>1</c><d>2</d></r>
+
+#test: remove_namespaces_easy_06
+#data
+<root>A</root>
+#params
+remove_namespaces=true
+#expected
+<root>A</root>
+
+#test: remove_namespaces_easy_07
+#data
+<root xmlns="d"><child>1</child><ns:extra xmlns:ns="u">2</ns:extra></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>1</child><extra>2</extra></root>
+
+#test: remove_namespaces_easy_08
+#data
+<root xmlns:ns="u" id="1"><ns:c>3</ns:c></root>
+#params
+remove_namespaces=true
+#expected
+<root id="1"><c>3</c></root>
+
+#test: remove_namespaces_easy_09
+#data
+<x:root xmlns:x="u" xmlns:y="v"><x:a>AA</x:a><y:b>BB</y:b></x:root>
+#params
+remove_namespaces=true
+#expected
+<root><a>AA</a><b>BB</b></root>
+
+#test: remove_namespaces_easy_10
+#data
+<r xmlns:ns="u" ns:foo="bar">M</r>
+#params
+remove_namespaces=true
+#expected
+<r foo="bar">M</r>
+
+#test: remove_namespaces_intermediate_11
+#data
+<root><ns:child xmlns:ns="u">A</ns:child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>A</child></root>
+
+#test: remove_namespaces_intermediate_12
+#data
+<root xmlns:ns="u"><child xmlns:ns="u">B</child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>B</child></root>
+
+#test: remove_namespaces_intermediate_13
+#data
+<ns:root xmlns:ns="u" attr="v"><ns:child attr:ns="v2">C</ns:child></ns:root>
+#params
+remove_namespaces=true
+#expected
+<root attr="v"><child attr:ns="v2">C</child></root>
+
+#test: remove_namespaces_intermediate_14
+#data
+<root xmlns:ns="u" ns:x="1" ns:y="2"><a>1</a></root>
+#params
+remove_namespaces=true
+#expected
+<root x="1" y="2"><a>1</a></root>
+
+#test: remove_namespaces_intermediate_15
+#data
+<r xmlns:a="u"><a:item>one</a:item><b>two</b></r>
+#params
+remove_namespaces=true
+#expected
+<r><item>one</item><b>two</b></r>
+
+#test: remove_namespaces_intermediate_16
+#data
+<r xmlns="u"><a>test</a></r>
+#params
+remove_namespaces=true
+#expected
+<r><a>test</a></r>
+
+#test: remove_namespaces_intermediate_17
+#data
+<r xmlns="u"><a xmlns="v">t</a><b>u</b></r>
+#params
+remove_namespaces=true
+#expected
+<r><a>t</a><b>u</b></r>
+
+#test: remove_namespaces_intermediate_18
+#data
+<root xmlns:ns="u" xmlns="d"><ns:c>1</ns:c><d>2</d></root>
+#params
+remove_namespaces=true
+#expected
+<root><c>1</c><d>2</d></root>
+
+#test: remove_namespaces_intermediate_19
+#data
+<root xmlns:ns="u"><x><y><ns:deep>deep</ns:deep></y></x></root>
+#params
+remove_namespaces=true
+#expected
+<root><x><y><deep>deep</deep></y></x></root>
+
+#test: remove_namespaces_intermediate_20
+#data
+<root xmlns:a="u" a:foo="bar"><a:inner a:key="v">x</a:inner></root>
+#params
+remove_namespaces=true
+#expected
+<root foo="bar"><inner key="v">x</inner></root>
+
+#test: remove_namespaces_intermediate_21
+#data
+<root xmlns="d" xmlns:a="u"><a:inner>1</a:inner><child>2</child></root>
+#params
+remove_namespaces=true
+#expected
+<root><inner>1</inner><child>2</child></root>
+
+#test: remove_namespaces_intermediate_22
+#data
+<root><child xmlns="u">text</child><child>text2</child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>text</child><child>text2</child></root>
+
+#test: remove_namespaces_intermediate_23
+#data
+<root xmlns:ns="u"><ns:a xmlns:ns="u">A</ns:a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>A</a></root>
+
+#test: remove_namespaces_intermediate_24
+#data
+<root xmlns:ns="u" xmlns:ns2="v"><ns:tag>t</ns:tag><ns2:tag>u</ns2:tag></root>
+#params
+remove_namespaces=true
+#expected
+<root><tag>t</tag><tag>u</tag></root>
+
+#test: remove_namespaces_intermediate_25
+#data
+<root xmlns:ns="u"><tag ns:attr="v">x</tag></root>
+#params
+remove_namespaces=true
+#expected
+<root><tag attr="v">x</tag></root>
+
+#test: remove_namespaces_intermediate_26
+#data
+<root xmlns:ns="u" ns:attr1="v1" attr2="v2"><ns:c>c</ns:c></root>
+#params
+remove_namespaces=true
+#expected
+<root attr2="v2" attr1="v1"><c>c</c></root>
+
+#test: remove_namespaces_intermediate_27
+#data
+<root xmlns=""><a>1</a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>1</a></root>
+
+#test: remove_namespaces_intermediate_28
+#data
+<root xmlns:ns="u" xmlns=""><ns:a>test</ns:a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>test</a></root>
+
+#test: remove_namespaces_intermediate_29
+#data
+<root xmlns="d"><child xmlns:ns="u">text</child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>text</child></root>
+
+#test: remove_namespaces_intermediate_30
+#data
+<root xmlns="d" xmlns:ns="u"><ns:tag>t</ns:tag></root>
+#params
+remove_namespaces=true
+#expected
+<root><tag>t</tag></root>
+
+#test: remove_namespaces_hard_31
+#data
+<root xmlns:ns="u"><data><![CDATA[Some <unparsed>]]></data></root>
+#params
+remove_namespaces=true
+#expected
+<root><data><![CDATA[Some <unparsed>]]></data></root>
+
+#test: remove_namespaces_hard_32
+#data
+<root xmlns="d"><child xmlns:ns="u">text</child></root>
+#params
+remove_namespaces=true
+#expected
+<root><child>text</child></root>
+
+#test: remove_namespaces_hard_33
+#data
+<root xmlns:ns="u" ns:a="1"><child ns:b="2"><grand xmlns:gr="g" gr:c="3">x</grand></child></root>
+#params
+remove_namespaces=true
+#expected
+<root a="1"><child b="2"><grand c="3">x</grand></child></root>
+
+#test: remove_namespaces_hard_34
+#data
+<root xmlns:ns="u"><ns:empty/></root>
+#params
+remove_namespaces=true
+#expected
+<root><empty/></root>
+
+#test: remove_namespaces_hard_35
+#data
+<root xmlns:ns="u"><ns:empty></ns:empty></root>
+#params
+remove_namespaces=true
+#expected
+<root><empty/></root>
+
+#test: remove_namespaces_hard_36
+#data
+<root xmlns:foo="u"><foo:tag xmlns:bar="v"><bar:inner attr:bar="val"/></foo:tag></root>
+#params
+remove_namespaces=true
+#expected
+<root><tag><inner attr:bar="val"/></tag></root>
+
+#test: remove_namespaces_hard_37
+#data
+<root xmlns:ns="u"><ns:a>text</ns:a><!--cmt--><ns:b>more</ns:b></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>text</a><!--cmt--><b>more</b></root>
+
+#test: remove_namespaces_hard_38
+#data
+<root xmlns="d"><a xmlns="">1</a><b>2</b></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>1</a><b>2</b></root>
+
+#test: remove_namespaces_hard_39
+#data
+<r xmlns="d" xmlns:ns="u"><a>1</a><ns:b>2</ns:b><![CDATA[c]]></r>
+#params
+remove_namespaces=true
+#expected
+<r><a>1</a><b>2</b><![CDATA[c]]></r>
+
+#test: remove_namespaces_hard_40
+#data
+<x xmlns:x="u">text<x xmlns:x="u" x:attr="v">inner</x></x>
+#params
+remove_namespaces=true
+#expected
+<x>text<x attr="v">inner</x></x>
+
+#test: remove_namespaces_hard_41
+#data
+<root xmlns:ns="u"><ns:parent ns:foo="a"><ns:child>c</ns:child></ns:parent></root>
+#params
+remove_namespaces=true
+#expected
+<root><parent foo="a"><child>c</child></parent></root>
+
+#test: remove_namespaces_hard_42
+#data
+<root xmlns:ns="u"><ns:parent><child xmlns:ns="u">c2</child></ns:parent></root>
+#params
+remove_namespaces=true
+#expected
+<root><parent><child>c2</child></parent></root>
+
+#test: remove_namespaces_hard_43
+#data
+<root xmlns:ns="u"><ns:p><ns:inner attr="v"/></ns:p></root>
+#params
+remove_namespaces=true
+#expected
+<root><p><inner attr="v"/></p></root>
+
+#test: remove_namespaces_hard_44
+#data
+<root xmlns:ns="u"><ns:p><inner xmlns:ns="u">i</inner></ns:p></root>
+#params
+remove_namespaces=true
+#expected
+<root><p><inner>i</inner></p></root>
+
+#test: remove_namespaces_hard_45
+#data
+<root xmlns="d"><a xmlns:ns="u"><ns:b>t</ns:b><c xmlns="e">u</c></a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a><b>t</b><c>u</c></a></root>
+
+#test: remove_namespaces_hard_46
+#data
+<root xmlns:p="u" p:a="1" p:b="2"><p:c p:d="3"/></root>
+#params
+remove_namespaces=true
+#expected
+<root a="1" b="2"><c d="3"/></root>
+
+#test: remove_namespaces_hard_47
+#data
+<root xmlns="d" xmlns:p="u"><p:a>1</p:a><b>2</b><c xmlns="">3</c></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>1</a><b>2</b><c>3</c></root>
+
+#test: remove_namespaces_hard_48
+#data
+<root xmlns="d"><a><b xmlns:ns="u"><ns:c>c</ns:c></b></a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a><b><c>c</c></b></a></root>
+
+#test: remove_namespaces_hard_49
+#data
+<root xmlns="d"><a xmlns="e"><b xmlns="f">x</b></a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a><b>x</b></a></root>
+
+#test: remove_namespaces_hard_50
+#data
+<root xmlns="d" xmlns:ns="u"><ns:a xmlns="e">t</ns:a></root>
+#params
+remove_namespaces=true
+#expected
+<root><a>t</a></root>

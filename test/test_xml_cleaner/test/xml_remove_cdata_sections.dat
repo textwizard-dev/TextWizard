@@ -1,0 +1,483 @@
+# Easy (20)
+#test: remove_cdata_easy_01
+#data
+<root><![CDATA[Hello]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>Hello</root>
+
+#test: remove_cdata_easy_02
+#data
+<root><a><![CDATA[Foo]]></a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>Foo</a></root>
+
+#test: remove_cdata_easy_03
+#data
+<root><![CDATA[]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root></root>
+
+#test: remove_cdata_easy_04
+#data
+<root><![CDATA[123]]><b/></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>123<b/></root>
+
+#test: remove_cdata_easy_05
+#data
+<root><![CDATA[Hello &amp; Welcome]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>Hello &amp; Welcome</root>
+
+#test: remove_cdata_easy_06
+#data
+<root>Start<![CDATA[Mid]]>End</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>StartMidEnd</root>
+
+#test: remove_cdata_easy_07
+#data
+<root><![CDATA[  spaced  ]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>  spaced  </root>
+
+#test: remove_cdata_easy_08
+#data
+<root><a><![CDATA[a]]><![CDATA[b]]></a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>ab</a></root>
+
+#test: remove_cdata_easy_09
+#data
+<root><![CDATA[a<b>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>a&lt;b&gt;</root>
+
+#test: remove_cdata_easy_10
+#data
+<root><![CDATA[<tag>]]><![CDATA[text]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;tag&gt;text</root>
+
+#test: remove_cdata_easy_11
+#data
+<root><![CDATA[\nNew\nLine\n]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>\nNew\nLine\n</root>
+
+#test: remove_cdata_easy_12
+#data
+<root><a><![CDATA[X]]></a><a><![CDATA[Y]]></a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>X</a><a>Y</a></root>
+
+#test: remove_cdata_easy_13
+#data
+<root><![CDATA[<>&]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;&gt;&amp;</root>
+
+#test: remove_cdata_easy_14
+#data
+<root><![CDATA[ true ]]> <b/></root>
+#params
+remove_cdata_sections=true
+#expected
+<root> true <b/></root>
+
+#test: remove_cdata_easy_15
+#data
+<root><![CDATA[123]]><![CDATA[]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>123</root>
+
+#test: remove_cdata_easy_16
+#data
+<root><![CDATA[<a>]]>inner</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;inner</root>
+
+#test: remove_cdata_easy_17
+#data
+<root><![CDATA[&lt;]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;</root>
+
+#test: remove_cdata_easy_18
+#data
+<root><![CDATA[<a>]]><![CDATA[<b>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;&lt;b&gt;</root>
+
+#test: remove_cdata_easy_19
+#data
+<root><![CDATA[1]]>2<![CDATA[3]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>123</root>
+
+#test: remove_cdata_easy_20
+#data
+<root><![CDATA[test]]>tail</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>testtail</root>
+
+
+#test: remove_cdata_mid_01
+#data
+<root>pre<![CDATA[mid]]>post</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>premidpost</root>
+
+#test: remove_cdata_mid_02
+#data
+<root><a>1<![CDATA[2]]>3</a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>123</a></root>
+
+#test: remove_cdata_mid_03
+#data
+<root><![CDATA[a]]><b><![CDATA[b]]></b>c</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>a<b>b</b>c</root>
+
+#test: remove_cdata_mid_04
+#data
+<root><a><![CDATA[]]></a>after</root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a></a>after</root>
+
+#test: remove_cdata_mid_05
+#data
+<root><![CDATA[a<b>c]]>d<![CDATA[e]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>a&lt;b&gt;cde</root>
+
+#test: remove_cdata_mid_06
+#data
+<root>mix<![CDATA[x]]><c>y<![CDATA[z]]></c>end</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>mixx<c>yz</c>end</root>
+
+#test: remove_cdata_mid_07
+#data
+<root><![CDATA[<a>]]>x<b>y</b></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;x<b>y</b></root>
+
+#test: remove_cdata_mid_08
+#data
+<root>a<![CDATA[]]>b</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>ab</root>
+
+#test: remove_cdata_mid_09
+#data
+<root><![CDATA[< & >]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt; &amp; &gt;</root>
+
+#test: remove_cdata_mid_10
+#data
+<root>1<![CDATA[2]]><![CDATA[3]]>4</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>1234</root>
+
+#test: remove_cdata_mid_11
+#data
+<root><a><![CDATA[a]]>X<![CDATA[b]]></a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>aXb</a></root>
+
+#test: remove_cdata_mid_12
+#data
+<root><![CDATA[hello]]><![CDATA[ world]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>hello world</root>
+
+#test: remove_cdata_mid_13
+#data
+<root><![CDATA[<tag>]]>middle<![CDATA[</tag>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;tag&gt;middle&lt;/tag&gt;</root>
+
+#test: remove_cdata_mid_14
+#data
+<root><![CDATA[&lt;tag]]><![CDATA[&gt;]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;tag&gt;</root>
+
+#test: remove_cdata_mid_15
+#data
+<root><![CDATA[A]]><![CDATA[]]><b><![CDATA[]]></b></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>A<b></b></root>
+
+#test: remove_cdata_mid_16
+#data
+<root><a before="b"><![CDATA[test]]></a> after</root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a before="b">test</a> after</root>
+
+#test: remove_cdata_mid_17
+#data
+<root> <![CDATA[x]]> </root>
+#params
+remove_cdata_sections=true
+#expected
+<root>x</root>
+
+#test: remove_cdata_mid_18
+#data
+<root><![CDATA[<a><![CDATA[b]]></a>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;&lt;![CDATA[b</root>
+
+#test: remove_cdata_mid_19
+#data
+<root>start<![CDATA[<c>]]>inner<![CDATA[</c>]]>end</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>start&lt;c&gt;inner&lt;/c&gt;end</root>
+
+#test: remove_cdata_mid_20
+#data
+<root><![CDATA[ ]]> <a><![CDATA[ ]]> </a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root> <a> </a></root>
+
+
+#test: remove_cdata_hard_01
+#data
+<root><![CDATA[<a>1<![CDATA[2]]>3</a>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;1&lt;![CDATA[23</root>
+
+#test: remove_cdata_hard_02
+#data
+<root><![CDATA[a<b>c]]><![CDATA[d<e>f]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>a&lt;b&gt;cd&lt;e&gt;f</root>
+
+#test: remove_cdata_hard_03
+#data
+<root><![CDATA[<p>pre]]>X<![CDATA[post</p>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;p&gt;preXpost&lt;/p&gt;</root>
+
+#test: remove_cdata_hard_04
+#data
+<root><a><![CDATA[]]></a><![CDATA[tail]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a></a>tail</root>
+
+#test: remove_cdata_hard_05
+#data
+<root><![CDATA[<a><![CDATA[b]]></a>inner]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;&lt;![CDATA[b</root>
+
+
+#test: remove_cdata_hard_06
+#data
+<root><![CDATA[<x>]]><![CDATA[y]]>z<![CDATA[</x>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;x&gt;yz&lt;/x&gt;</root>
+
+#test: remove_cdata_hard_07
+#data
+<root><![CDATA[Hello ]]> <![CDATA[World]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>Hello World</root>
+
+#test: remove_cdata_hard_08
+#data
+<root><![CDATA[<a>]]><![CDATA[<b>]]><![CDATA[c]]]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;&lt;b&gt;c]]</root>
+
+#test: remove_cdata_hard_09
+#data
+<root><a><![CDATA[first]]></a><![CDATA[second]]><![CDATA[third]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>first</a>secondthird</root>
+
+#test: remove_cdata_hard_10
+#data
+<root><![CDATA[<x attr="v">]]><![CDATA[text]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;x attr="v"&gt;text</root>
+
+#test: remove_cdata_hard_11
+#data
+<root><![CDATA[unclosed<tag]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>unclosed&lt;tag</root>
+
+#test: remove_cdata_hard_12
+#data
+<root><![CDATA[<p>Line1]]><![CDATA[\nLine2\n]]><![CDATA[</p>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;p&gt;Line1\nLine2\n&lt;/p&gt;</root>
+
+#test: remove_cdata_hard_13
+#data
+<root><a><![CDATA[<b>]]>text<![CDATA[</b>]]></a></root>
+#params
+remove_cdata_sections=true
+#expected
+<root><a>&lt;b&gt;text&lt;/b&gt;</a></root>
+
+#test: remove_cdata_hard_14
+#data
+<root><![CDATA[<x>]]><![CDATA[y]]>z<![CDATA[</x>]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;x&gt;yz&lt;/x&gt;</root>
+
+#test: remove_cdata_hard_15
+#data
+<root><![CDATA[]]>only tail</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>only tail</root>
+
+#test: remove_cdata_hard_16
+#data
+<root><![CDATA[<a><![CDATA[b]]></a>outer]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;a&gt;&lt;![CDATA[b</root>
+
+#test: remove_cdata_hard_17
+#data
+<root>pre<![CDATA[<u>]]>mid<![CDATA[</u>]]>post</root>
+#params
+remove_cdata_sections=true
+#expected
+<root>pre&lt;u&gt;mid&lt;/u&gt;post</root>
+
+#test: remove_cdata_hard_18
+#data
+<root><![CDATA[1]]><![CDATA[<x>2]]><![CDATA[</x>3]]><![CDATA[4]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>1&lt;x&gt;2&lt;/x&gt;34</root>
+
+#test: remove_cdata_hard_19
+#data
+<root><![CDATA[<tag attr="v"&gt;]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&lt;tag attr="v"&gt;</root>
+
+#test: remove_cdata_hard_20
+#data
+<root><![CDATA[&amp;&lt;&gt;]]></root>
+#params
+remove_cdata_sections=true
+#expected
+<root>&amp;&lt;&gt;</root>

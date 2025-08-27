@@ -1,0 +1,479 @@
+#test: remove_specific_tags_easy_01
+#data
+<html><body>Hello <mytag>World</mytag></body></html>
+#params
+html.remove_specific_tags=mytag
+#expected
+<html><head></head><body>Hello World</body></html>
+
+#test: remove_specific_tags_easy_02
+#data
+<html><body>Alpha <tag1>Beta</tag1> Gamma</body></html>
+#params
+html.remove_specific_tags=["tag1"]
+#expected
+<html><head></head><body>Alpha Beta Gamma</body></html>
+
+#test: remove_specific_tags_easy_03
+#data
+<html><body>Test <customTag>One</customTag> Two</body></html>
+#params
+html.remove_specific_tags=custom*
+#expected
+<html><head></head><body>Test One Two</body></html>
+
+#test: remove_specific_tags_easy_04
+#data
+<html><body><tX>Inside</tX></body></html>
+#params
+html.remove_specific_tags=t?
+#expected
+<html><head></head><body>Inside</body></html>
+
+#test: remove_specific_tags_easy_05
+#data
+<html><body><ab1>AB1</ab1> <ab2>AB2</ab2></body></html>
+#params
+html.remove_specific_tags=["ab[12]"]
+#expected
+<html><head></head><body>AB1 AB2</body></html>
+
+#test: remove_specific_tags_easy_06
+#data
+<html><body><my_tag>Here</my_tag> content</body></html>
+#params
+html.remove_specific_tags=my_tag
+#expected
+<html><head></head><body>Here content</body></html>
+
+#test: remove_specific_tags_easy_07
+#data
+<html><body>Prefix <xyTag>Middle</xyTag> Suffix</body></html>
+#params
+html.remove_specific_tags=["xyT*g"]
+#expected
+<html><head></head><body>Prefix Middle Suffix</body></html>
+
+#test: remove_specific_tags_easy_08
+#data
+<html><body><boxA>Box A</boxA><boxB>Box B</boxB></body></html>
+#params
+html.remove_specific_tags=box*
+#expected
+<html><head></head><body>Box A Box B</body></html>
+
+#test: remove_specific_tags_easy_09
+#data
+<html><body>Test <var1>VarOne</var1> <var2>VarTwo</var2></body></html>
+#params
+html.remove_specific_tags=["var[12]"]
+#expected
+<html><head></head><body>Test VarOne VarTwo</body></html>
+
+#test: remove_specific_tags_easy_10
+#data
+<html><body><tagX>Weird</tagX> text</body></html>
+#params
+html.remove_specific_tags=tag?
+#expected
+<html><head></head><body>Weird text</body></html>
+
+#test: remove_specific_tags_easy_11
+#data
+<html><body>Start <myBox1>MidA</myBox1> <myBox2>MidB</myBox2> End</body></html>
+#params
+html.remove_specific_tags=["myBox[12]"]
+#expected
+<html><head></head><body>Start MidA MidB End</body></html>
+
+#test: remove_specific_tags_easy_12
+#data
+<html><body><_th>IgnoreMe</_th></body></html>
+#params
+html.remove_specific_tags=["*_th"]
+#expected
+<html><head></head><body>&lt;_th&gt;IgnoreMe<!--_th--></body></html>
+
+#test: remove_specific_tags_easy_13
+#data
+<html><body>Begin <c123>Num</c123> End</body></html>
+#params
+html.remove_specific_tags=c*
+#expected
+<html><head></head><body>Begin Num End</body></html>
+
+#test: remove_specific_tags_easy_14
+#data
+<html><body>Word <c_thing>Sth</c_thing> next</body></html>
+#params
+html.remove_specific_tags=["c%thing"]
+#expected
+<html><head></head><body>Word Sth next</body></html>
+
+#test: remove_specific_tags_easy_15
+#data
+<html><body><aa>One</aa><bb>Two</bb><cc>Three</cc></body></html>
+#params
+html.remove_specific_tags=["aa","bb","cc"]
+#expected
+<html><head></head><body>One Two Three</body></html>
+
+#test: remove_specific_tags_easy_16
+#data
+<html><body><div>Just a <testtag>Test</testtag> here</div></body></html>
+#params
+html.remove_specific_tags=testtag
+#expected
+<html><head></head><body><div>Just a Test here</div></body></html>
+
+#test: remove_specific_tags_easy_17
+#data
+<html><body>Start<myTagX>Mid</myTagX></body></html>
+#params
+html.remove_specific_tags=["myTag*"]
+#expected
+<html><head></head><body>Start Mid</body></html>
+
+#test: remove_specific_tags_easy_18
+#data
+<html><body>123 <tagA>AAA</tagA> 456 <tagB>BBB</tagB></body></html>
+#params
+html.remove_specific_tags=["tagA","tagB"]
+#expected
+<html><head></head><body>123 AAA 456 BBB</body></html>
+
+#test: remove_specific_tags_easy_19
+#data
+<html><body><aaTag>XX</aaTag>Middle<aaTig>YY</aaTig></body></html>
+#params
+html.remove_specific_tags=["aaT?g"]
+#expected
+<html><head></head><body>XX Middle YY</body></html>
+
+#test: remove_specific_tags_easy_20
+#data
+<html><body><z_box>Spacing   inside</z_box></body></html>
+#params
+html.remove_specific_tags=["z_*"]
+#expected
+<html><head></head><body>Spacing   inside</body></html>
+
+#test: remove_specific_tags_intermediate_21
+#data
+<html><head><title>Ignore</title></head><body>Hi <cTagA>One</cTagA> <cTagB>Two</cTagB></body></html>
+#params
+html.remove_specific_tags=["cTag?"]
+#expected
+<html><head><title>Ignore</title></head><body>Hi One Two</body></html>
+
+#test: remove_specific_tags_intermediate_22
+#data
+<html><body><div>Before <tag1>Inside</tag1> after</div></body></html>
+#params
+html.remove_specific_tags=["tag1","nothingElse"]
+#expected
+<html><head></head><body><div>Before Inside after</div></body></html>
+
+#test: remove_specific_tags_intermediate_23
+#data
+<html><body><customA>A</customA> <customB>B</customB><customC>C</customC></body></html>
+#params
+html.remove_specific_tags=["custom?"]
+#expected
+<html><head></head><body>A B C</body></html>
+
+#test: remove_specific_tags_intermediate_24
+#data
+<html><body>Start<xx1>Mid1</xx1><xx2>Mid2</xx2>End</body></html>
+#params
+html.remove_specific_tags=["xx[12]"]
+#expected
+<html><head></head><body>Start Mid1 Mid2 End</body></html>
+
+#test: remove_specific_tags_intermediate_25
+#data
+<html><body><boxA>Box <em>Emph</em></boxA> and <boxB>Box B</boxB></body></html>
+#params
+html.remove_specific_tags=["box*"]
+#expected
+<html><head></head><body>Box <em>Emph</em> and Box B</body></html>
+
+#test: remove_specific_tags_intermediate_26
+#data
+<html><body><cTag?X>Weird</cTag?X></body></html>
+#params
+html.remove_specific_tags=["cTag??X"]
+#expected
+<html><head></head><body><ctag?x>Weird</ctag?x></body></html>
+
+#test: remove_specific_tags_intermediate_27
+#data
+<html><body>Alpha <xA1>XX</xA1> Beta <xA2>YY</xA2></body></html>
+#params
+html.remove_specific_tags=["xA?"]
+#expected
+<html><head></head><body>Alpha XX Beta YY</body></html>
+
+#test: remove_specific_tags_intermediate_28
+#data
+<html><body>Prefix<mytagABC>Inside <b>Bold</b></mytagABC>Suffix</body></html>
+#params
+html.remove_specific_tags=["mytagA*C"]
+#expected
+<html><head></head><body>Prefix Inside <b>Bold</b>Suffix</body></html>
+
+#test: remove_specific_tags_intermediate_29
+#data
+<html><body>Top <x_my>Data</x_my> <x_mx>Other</_mx></body></html>
+#params
+html.remove_specific_tags=["x_m?"]
+#expected
+<html><head></head><body>Top Data Other<!--_mx--></body></html>
+
+#test: remove_specific_tags_intermediate_30
+#data
+<html><body><p>Pre <aaaX>Mid</aaaX> Post</p></body></html>
+#params
+html.remove_specific_tags=["aaa[XYZ]"]
+#expected
+<html><head></head><body><p>Pre Mid Post</p></body></html>
+
+#test: remove_specific_tags_intermediate_31
+#data
+<html><head><title>T31</title></head><body>Start <custX>MidX</custX> End</body></html>
+#params
+html.remove_specific_tags=["cust*"]
+#expected
+<html><head><title>T31</title></head><body>Start MidX End</body></html>
+
+#test: remove_specific_tags_intermediate_32
+#data
+<html><body><div>One<alpha123>Alpha</alpha123><beta123>Beta</beta123></div></body></html>
+#params
+html.remove_specific_tags=["alpha*","beta*"]
+#expected
+<html><head></head><body><div>One Alpha Beta</div></body></html>
+
+#test: remove_specific_tags_intermediate_33
+#data
+<html><body>Val<a1>One</a1> <b2>Two</b2> Val</body></html>
+#params
+html.remove_specific_tags=["a*","b?"]
+#expected
+<html><head></head>Val One Two Val</html>
+
+#test: remove_specific_tags_intermediate_34
+#data
+<html><body>Num<nn_01>Zero1</nn_01><nn_02>Zero2</nn_02></body></html>
+#params
+html.remove_specific_tags=["nn_0?"]
+#expected
+<html><head></head><body>Num Zero1 Zero2</body></html>
+
+#test: remove_specific_tags_intermediate_35
+#data
+<html><body><p>Wrap <box_10>Box10</box_10> end</p></body></html>
+#params
+html.remove_specific_tags=["box_?0"]
+#expected
+<html><head></head><body><p>Wrap Box10 end</p></body></html>
+
+#test: remove_specific_tags_intermediate_36
+#data
+<html><body>Sp< abcX>One</ abcX>< abcY>Two</ abcY></body></html>
+#params
+html.remove_specific_tags=[" abc?"]
+#expected
+<html><head></head><body>Sp&lt; abcX&gt;One<!-- abcX-->&lt; abcY&gt;Two<!-- abcY--></body></html>
+
+#test: remove_specific_tags_intermediate_37
+#data
+<html><body>Multi <aA>First</aA><aB>Second</aB><aC>Third</aC></body></html>
+#params
+html.remove_specific_tags=["a[ABC]"]
+#expected
+<html><head></head><body>Multi First Second Third</body></html>
+
+#test: remove_specific_tags_intermediate_38
+#data
+<html><body><cBox1>Box1 <i>italic</i></cBox1> + <cBox2>Box2</cBox2></body></html>
+#params
+html.remove_specific_tags=["cBox[12]"]
+#expected
+<html><head></head><body>Box1 <i>italic</i> + Box2</body></html>
+
+#test: remove_specific_tags_intermediate_39
+#data
+<html><body>Here <z1>One</z1> <z2>Two</z2> <z3>Three</z3></body></html>
+#params
+html.remove_specific_tags=["z[12]"]
+#expected
+<html><head></head><body>Here One Two <z3>Three</z3></body></html>
+
+#test: remove_specific_tags_intermediate_40
+#data
+<html><body><mytag_1>AAA</mytag_1><mytag_2>BBB</mytag_2><mytag_3>CCC</mytag_3></body></html>
+#params
+html.remove_specific_tags=["mytag?[12]"]
+#expected
+<html><head></head><body>AAA BBB<mytag_3>CCC</mytag_3></body></html>
+
+#test: remove_specific_tags_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body>Alpha<abc10>One</abc10><abc20>Two</abc20>Omega</body></html>
+#params
+html.remove_specific_tags=["abc[12]0"]
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body>Alpha One Two Omega</body></html>
+
+#test: remove_specific_tags_complex_42
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><div>Text <custTagA>A</custTagA> <custTagB>B</custTagB></div></body></html>
+#params
+html.remove_specific_tags=["custT*g?"]
+#expected
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><div>Text A B</div></body></html>
+
+#test: remove_specific_tags_complex_43
+#data
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><p>Pre <cX1>Mid1 <cX2>Nested2</cX2></cX1> Post</p></body></html>
+#params
+html.remove_specific_tags=["cX?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><p>Pre Mid1 Nested2 Post</p></body></html>
+
+#test: remove_specific_tags_complex_44
+#data
+<!DOCTYPE html><html><head><title>Doc44</title></head><body><section>Sec <abcA>TagA <abcB>TagB</abcB></abcA></section></body></html>
+#params
+html.remove_specific_tags=["abc?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc44</title></head><body><section>Sec TagA TagB</section></body></html>
+
+#test: remove_specific_tags_complex_45
+#data
+<!DOCTYPE html><html><head><title>Doc45</title></head><body><div>Outer<xxA>One <xxB>Two</xxB></xxA>End</div></body></html>
+#params
+html.remove_specific_tags=["xx*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc45</title></head><body><div>Outer One Two End</div></body></html>
+
+#test: remove_specific_tags_complex_46
+#data
+<!DOCTYPE html><html><head><title>Doc46</title></head><body>Start <some_tag>Inside <i>italic</i></some_tag> End</body></html>
+#params
+html.remove_specific_tags=["some?tag"]
+#expected
+<!DOCTYPE html><html><head><title>Doc46</title></head><body>Start Inside <i>italic</i> End</body></html>
+
+#test: remove_specific_tags_complex_47
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><main><custA>AA <custB>BB</custB> CC</custA> End47</main></body></html>
+#params
+html.remove_specific_tags=["cust*"]
+#expected
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><main>AA BB CC End47</main></body></html>
+
+#test: remove_specific_tags_complex_48
+#data
+<!DOCTYPE html><html><head><title>Doc48</title></head><body><article><xBox1>Box1</xBox1><xBox2>Box2 <xBox3>Box3</xBox3></xBox2></article></body></html>
+#params
+html.remove_specific_tags=["xBox?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc48</title></head><body><article>Box1 Box2 Box3</article></body></html>
+
+#test: remove_specific_tags_complex_49
+#data
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><div>Alpha <bX>One</bX> Beta <bY>Two</bY> <bZ>Three</bZ></div></body></html>
+#params
+html.remove_specific_tags=["b[XYZ]"]
+#expected
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><div>Alpha One Beta Two Three</div></body></html>
+
+#test: remove_specific_tags_complex_50
+#data
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><section><testX>TestX <u>Under</u></testX></section></body></html>
+#params
+html.remove_specific_tags=["test*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><section>TestX <u>Under</u></section></body></html>
+
+#test: remove_specific_tags_complex_51
+#data
+<!DOCTYPE html><html><head><title>Doc51</title></head><body>Outer <cA>One <cB>Two</cB></cA> End <cC>More</cC></body></html>
+#params
+html.remove_specific_tags=["c?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc51</title></head><body>Outer One Two End More</body></html>
+
+#test: remove_specific_tags_complex_52
+#data
+<!DOCTYPE html><html><head><title>Doc52</title></head><body><div><a_1>Link1</a_1><a_2>Link2 <i>italic</i></a_2></div></body></html>
+#params
+html.remove_specific_tags=["a_[12]"]
+#expected
+<!DOCTYPE html><html><head><title>Doc52</title></head><body><div>Link1 Link2 <i>italic</i></div></body></html>
+
+#test: remove_specific_tags_complex_53
+#data
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><p>Multi <xx1>one</xx1> <xx2>two <xx3>three</xx3></xx2></p></body></html>
+#params
+html.remove_specific_tags=["xx?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><p>Multi one two three</p></body></html>
+
+#test: remove_specific_tags_complex_54
+#data
+<!DOCTYPE html><html><head><title>Doc54</title></head><body><main><myWrapA>WrapA <myWrapB>WrapB</myWrapB></myWrapA></main></body></html>
+#params
+html.remove_specific_tags=["myWrap*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc54</title></head><body><main>WrapA WrapB</main></body></html>
+
+#test: remove_specific_tags_complex_55
+#data
+<!DOCTYPE html><html><head><title>Doc55</title></head><body>Begin <tagZ1>Something <tagZ2>Nested</tagZ2></tagZ1> End</body></html>
+#params
+html.remove_specific_tags=["tagZ?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc55</title></head><body>Begin Something Nested End</body></html>
+
+#test: remove_specific_tags_complex_56
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><aside><xA>A <xB>B <xC>C</xC></xB></xA></aside></body></html>
+#params
+html.remove_specific_tags=["x[ABC]"]
+#expected
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><aside>A B C</aside></body></html>
+
+#test: remove_specific_tags_complex_57
+#data
+<!DOCTYPE html><html><head><title>T57</title></head><body>Text <abcXYZ>XYZ <em>Emph</em></abcXYZ> tail</body></html>
+#params
+html.remove_specific_tags=["abc*"]
+#expected
+<!DOCTYPE html><html><head><title>T57</title></head><body>Text XYZ <em>Emph</em> tail</body></html>
+
+#test: remove_specific_tags_complex_58
+#data
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><div>Alpha<gg_1>One</gg_1><gg_2>Two</gg_2><gg_3>Three</gg_3></div></body></html>
+#params
+html.remove_specific_tags=["gg_[12]"]
+#expected
+<!DOCTYPE html><html><head><title>Doc58</title></head><body><div>Alpha One Two<gg_3>Three</gg_3></div></body></html>
+
+#test: remove_specific_tags_complex_59
+#data
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><p>Text <ggA>AAA</ggA> <ggB>BBB</ggB></p></body></html>
+#params
+html.remove_specific_tags=["gg[AB]"]
+#expected
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><p>Text AAA BBB</p></body></html>
+
+#test: remove_specific_tags_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body><footer>Foot <fXX>XX <fYY>YY</fYY></fXX></footer></body></html>
+#params
+html.remove_specific_tags=["f*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title><meta name="viewport" content="width=device-width"></head><body>Foot XX YY</body></html>

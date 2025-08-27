@@ -1,0 +1,239 @@
+#test: remove_declaration_basic_01
+#data
+<?xml version="1.0"?><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_basic_space_02
+#data
+<?xml version="1.0"?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_singlequotes_03
+#data
+<?xml version='1.0'?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_encoding_double_04
+#data
+<?xml version="1.0" encoding="UTF-8"?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_encoding_single_05
+#data
+<?xml version='1.0' encoding='UTF-8'?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_standalone_06
+#data
+<?xml version="1.0" standalone="yes"?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_encoding_standalone_07
+#data
+<?xml version="1.0" encoding="ISO-8859-1" standalone='no'?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_irregular_spaces_08
+#data
+<?xml    version =  "1.0"    encoding= 'UTF-8'   ?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_uppercase_09
+#data
+<?XML version="1.0"?><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_doctype_simple_10
+#data
+<?xml version="1.0"?><!DOCTYPE root><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_cdata_innerdecl_11
+#data
+<?xml version="1.0"?><root><![CDATA[<?xml version="1.0"?>]]>R</root>
+#params
+remove_declaration=true
+#expected
+<root><![CDATA[<?xml version="1.0"?>]]>R</root>
+
+#test: remove_declaration_comment_around_decl_12
+#data
+<!--pre--><?xml version="1.0"?><!--post--><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_ns_attr_13
+#data
+<?xml version="1.0"?><root xml:lang="en">R</root>
+#params
+remove_declaration=true
+#expected
+<root xml:lang="en">R</root>
+
+#test: remove_declaration_encoding_singlequotes_standalone_14
+#data
+<?xml version='1.0' encoding='ISO-8859-1' standalone='yes'?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_attr_order_15
+#data
+<?xml encoding="UTF-8" version="1.0"?><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_invalid_attr_16
+#data
+<?xml foo="bar" version="1.0"?><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_leading_space_17
+#data
+ <?xml version="1.0"?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_leading_comment_18
+#data
+<!--c--><?xml version="1.0"?> <root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_inside_comment_19
+#data
+<!--<?xml version="1.0"?>--><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_no_decl_20
+#data
+<root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_pi_after_decl_21
+#data
+<?xml version="1.0"?><root><?pi test?></root>
+#params
+remove_declaration=true
+#expected
+<root><?pi test?></root>
+
+#test: remove_declaration_doctype_internal_22
+#data
+<?xml version="1.0"?><!DOCTYPE root [<!ELEMENT root ANY>]><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_namespace_declaration_23
+#data
+<?xml version="1.0"?><root xmlns="ns">R</root>
+#params
+remove_declaration=true
+#expected
+<root xmlns="ns">R</root>
+
+#test: remove_declaration_multiple_ns_24
+#data
+<?xml version="1.0"?><root xmlns="ns" xmlns:x="urn:x">R</root>
+#params
+remove_declaration=true
+#expected
+<root xmlns="ns" xmlns:x="urn:x">R</root>
+
+#test: remove_declaration_default_ns_and_xml_lang_25
+#data
+<?xml version="1.0"?><root xmlns="ns" xml:lang="en">R</root>
+#params
+remove_declaration=true
+#expected
+<root xmlns="ns" xml:lang="en">R</root>
+
+#test: remove_declaration_doctype_with_comment_26
+#data
+<?xml version="1.0"?><!DOCTYPE root [<!--comment-->]><root>R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_cdata_comment_27
+#data
+<?xml version="1.0"?><root><![CDATA[C]]><!--C-->T</root>
+#params
+remove_declaration=true
+#expected
+<root><![CDATA[C]]><!--C-->T</root>
+
+#test: remove_declaration_whitespace_in_root_tags_28
+#data
+<?xml version="1.0"?><root>   R   </root>
+#params
+remove_declaration=true
+#expected
+<root>   R   </root>
+
+#test: remove_declaration_irregular_space_decl_and_roottag_29
+#data
+<?xml   version="1.0"?>  <root  >R</root>
+#params
+remove_declaration=true
+#expected
+<root>R</root>
+
+#test: remove_declaration_cdata_only_innerdecl_30
+#data
+<?xml version="1.0"?><root><![CDATA[<?xml version="1.0"?>]]></root>
+#params
+remove_declaration=true
+#expected
+<root><![CDATA[<?xml version="1.0"?>]]></root>

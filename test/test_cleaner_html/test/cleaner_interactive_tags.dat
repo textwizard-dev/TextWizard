@@ -1,0 +1,960 @@
+#test: interactive_true_easy_01
+#data
+<html><body><a href="link">Link text</a></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_02
+#data
+<html><body><button>Click</button></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_03
+#data
+<html><body><input type="text" value="test"></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_04
+#data
+<html><body><audio src="song.mp3"></audio></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_05
+#data
+<html><body><iframe src="page.html"></iframe></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_06
+#data
+<html><body><img src="img.jpg" alt="an image"></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_07
+#data
+<html><body><embed src="flash.swf"></embed></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_08
+#data
+<html><body><select><option>Option</option></select></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_09
+#data
+<html><body><textarea>Some text</textarea></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_10
+#data
+<html><body><video src="vid.mp4"></video></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_11
+#data
+<html><body><label>Label</label></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_12
+#data
+<html><body><details>Details content</details></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_13
+#data
+<html><body><keygen></keygen></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_14
+#data
+<html><body><audio src="a.mp3"></audio><button>Btn</button></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_15
+#data
+<html><body><img src="pic.jpg" alt="pic"><input type="checkbox"></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_16
+#data
+<html><body><iframe src="i.html"></iframe><select><option>Opt</option></select></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_17
+#data
+<html><body><video src="v.mp4"></video><textarea>Content</textarea></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interactive_true_easy_18
+#data
+<html><body><a href="url">Link</a> extra text</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body> extra text</body></html>
+
+#test: interactive_true_easy_19
+#data
+<html><body>Text <button>Click</button> More text</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Text  More text</body></html>
+
+#test: interactive_true_easy_20
+#data
+<html><body><p>Paragraph with <a href="url">Link</a></p></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><p>Paragraph with </p></body></html>
+
+#test: interactive_true_intermediate_21
+#data
+<html><body>Start <a href="link">Link text</a> End</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: interactive_true_intermediate_22
+#data
+<html><body>Intro <button>Submit</button> extra text</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Intro  extra text</body></html>
+
+#test: interactive_true_intermediate_23
+#data
+<html><body>Pre <img src="p.jpg" alt="img"> Post</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Pre  Post</body></html>
+
+#test: interactive_true_intermediate_24
+#data
+<html><body>Alpha <iframe src="page.html"></iframe> Omega</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Alpha  Omega</body></html>
+
+#test: interactive_true_intermediate_25
+#data
+<html><body>Before <embed src="file.swf"></embed> after</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before  after</body></html>
+
+#test: interactive_true_intermediate_26
+#data
+<html><body><select><option>Option</option></select> and text</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body> and text</body></html>
+
+#test: interactive_true_intermediate_27
+#data
+<html><body>Leading <input type="text" value="val"> trailing</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: interactive_true_intermediate_28
+#data
+<html><body>Text with <audio src="m.mp3"></audio> inside</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Text with  inside</body></html>
+
+#test: interactive_true_intermediate_29
+#data
+<html><body>Start <textarea>Content</textarea> End</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start  End</body></html>
+
+#test: interactive_true_intermediate_30
+#data
+<html><body>Before <details>Details Info</details> After</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: interactive_true_intermediate_31
+#data
+<html><body>Pretext <label>LabelText</label> Posttext</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Pretext  Posttext</body></html>
+
+#test: interactive_true_intermediate_32
+#data
+<html><body>Start <video src="vid.mp4"></video> Middle <audio src="s.mp3"></audio> End</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start  Middle  End</body></html>
+
+#test: interactive_true_intermediate_33
+#data
+<html><body>Alpha <button>Press</button> Beta</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Alpha  Beta</body></html>
+
+#test: interactive_true_intermediate_34
+#data
+<html><body>Before text <a href="url">Link</a> after text</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before text  after text</body></html>
+
+#test: interactive_true_intermediate_35
+#data
+<html><body>Leading <details>More details</details> trailing</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Leading  trailing</body></html>
+
+#test: interactive_true_intermediate_36
+#data
+<html><body>Text <img src="pic.png"> and extra</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Text  and extra</body></html>
+
+#test: interactive_true_intermediate_37
+#data
+<html><body>Start <keygen></keygen> finish</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start  finish</body></html>
+
+#test: interactive_true_intermediate_38
+#data
+<html><body>Before <select><option>Opt</option></select> after</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before  after</body></html>
+
+#test: interactive_true_intermediate_39
+#data
+<html><body>Prefix <textarea>Text</textarea> Suffix</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Prefix  Suffix</body></html>
+
+#test: interactive_true_intermediate_40
+#data
+<html><body>Intro <audio src="a.mp3"></audio> Outro</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: interactive_true_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><a href="link41">Link41</a><div>Extra41</div></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div>Extra41</div></body></html>
+
+#test: interactive_true_complex_42
+#data
+<html><body>Start42 <button>Click42</button><p>Paragraph42</p></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start42 <p>Paragraph42</p></body></html>
+
+#test: interactive_true_complex_43
+#data
+<html><body><div><iframe src="f43.html"></iframe><span>Inside span</span></div>End43</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div><span>Inside span</span></div>End43</body></html>
+
+#test: interactive_true_complex_44
+#data
+<html><body>Intro44 <embed src="e44.swf"></embed> mid <img src="img44.jpg" alt="i44"> End44</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Intro44  mid  End44</body></html>
+
+#test: interactive_true_complex_45
+#data
+<html><body><div>Content <select><option>Opt45</option></select></div> More45</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div>Content </div> More45</body></html>
+
+#test: interactive_true_complex_46
+#data
+<html><body>Leading <input type="text" value="val46"> text Trailing</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Leading  text Trailing</body></html>
+
+#test: interactive_true_complex_47
+#data
+<html><body><div><details>Details47</details><p>Para47</p></div> End47</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div><p>Para47</p></div> End47</body></html>
+
+#test: interactive_true_complex_48
+#data
+<html><body>Text before <iframe src="i48.html"></iframe> and after</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Text before  and after</body></html>
+
+#test: interactive_true_complex_49
+#data
+<html><body><div><a href="l49">Link49</a><audio src="a49.mp3"></audio></div> Finale49</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div></div> Finale49</body></html>
+
+#test: interactive_true_complex_50
+#data
+<html><body>Before <video src="v50.mp4"></video> after</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before  after</body></html>
+
+#test: interactive_true_complex_51
+#data
+<html><body><div><button>Btn51</button><span>Keep Span</span></div> End51</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div><span>Keep Span</span></div> End51</body></html>
+
+#test: interactive_true_complex_52
+#data
+<html><body>Start <label>Label52</label><p>Para52</p> End</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Start <p>Para52</p> End</body></html>
+
+#test: interactive_true_complex_53
+#data
+<html><body><div>Before <input type="checkbox"> after</div></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div>Before  after</div></body></html>
+
+#test: interactive_true_complex_54
+#data
+<html><body><div><textarea>Area54</textarea> inside div</div> Outside54</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div> inside div</div> Outside54</body></html>
+
+#test: interactive_true_complex_55
+#data
+<html><body>Pre <keygen></keygen> Post</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Pre  Post</body></html>
+
+#test: interactive_true_complex_56
+#data
+<html><body>Before <select><option>Opt56</option></select> After</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Before  After</body></html>
+
+#test: interactive_true_complex_57
+#data
+<html><body>Intro <video src="v57.mp4"></video> Outro</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body>Intro  Outro</body></html>
+
+#test: interactive_true_complex_58
+#data
+<html><body><div><iframe src="if58.html"></iframe><button>Btn58</button></div> End58</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div></div> End58</body></html>
+
+#test: interactive_true_complex_59
+#data
+<html><body><div>Mixed <a href="l59">Link59</a> text</div> Finale59</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div>Mixed  text</div> Finale59</body></html>
+
+#test: interactive_true_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start <audio src="a60.mp3"></audio> End</body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start  End</body></html>
+
+#test: interactive_false_easy_01
+#data
+<html><body><a href="url">Link text</a></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<a href="url">Link text</a>
+
+#test: interactive_false_easy_02
+#data
+<html><body><button>Click me</button></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<button>Click me</button>
+
+#test: interactive_false_easy_03
+#data
+<html><body><input type="text" value="sample"></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<input type="text" value="sample">
+
+#test: interactive_false_easy_04
+#data
+<html><body><audio src="sound.mp3"></audio></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<audio src="sound.mp3"></audio>
+
+#test: interactive_false_easy_05
+#data
+<html><body><iframe src="page.html"></iframe></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<iframe src="page.html"></iframe>
+
+#test: interactive_false_easy_06
+#data
+<html><body><img src="img.jpg" alt="Image"></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<img src="img.jpg" alt="Image">
+
+#test: interactive_false_easy_07
+#data
+<html><body><embed src="file.swf"></embed></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<embed src="file.swf">
+
+#test: interactive_false_easy_08
+#data
+<html><body><select><option>Option1</option></select></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<select><option>Option1</option></select>
+
+#test: interactive_false_easy_09
+#data
+<html><body><textarea>Some text</textarea></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<textarea>Some text</textarea>
+
+#test: interactive_false_easy_10
+#data
+<html><body><video src="video.mp4"></video></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<video src="video.mp4"></video>
+
+#test: interactive_false_easy_11
+#data
+<html><body><label>Label text</label></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<label>Label text</label>
+
+#test: interactive_false_easy_12
+#data
+<html><body><details>Details content</details></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<details>Details content</details>
+
+#test: interactive_false_easy_13
+#data
+<html><body><keygen></keygen></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<keygen></keygen>
+
+#test: interactive_false_easy_14
+#data
+<html><body><input type="checkbox"></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<input type="checkbox">
+
+#test: interactive_false_easy_15
+#data
+<html><body><a href="url">A</a><button>Click</button></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<a href="url">A</a><button>Click</button>
+
+#test: interactive_false_easy_16
+#data
+<html><body>Text <a href="url">Link</a></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Text <a href="url">Link</a>
+
+#test: interactive_false_easy_17
+#data
+<html><body><div><button>Press</button></div></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<button>Press</button>
+
+#test: interactive_false_easy_18
+#data
+<html><body>Before <img src="image.jpg" alt="img"> After</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <img src="image.jpg" alt="img"> After
+
+#test: interactive_false_easy_19
+#data
+<html><body><p>Paragraph with <a href="url">link</a> end</p></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Paragraph with <a href="url">link</a> end
+
+#test: interactive_false_easy_20
+#data
+<html><body>No interactive tags here</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+No interactive tags here
+
+#test: interactive_false_intermediate_21
+#data
+<html><body>Start <a href="url">Link text</a> End</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <a href="url">Link text</a> End
+
+#test: interactive_false_intermediate_22
+#data
+<html><body>Intro <button>Submit</button> extra text</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Intro <button>Submit</button> extra text
+
+#test: interactive_false_intermediate_23
+#data
+<html><body>Pre <img src="p.jpg" alt="img"> Post</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Pre <img src="p.jpg" alt="img"> Post
+
+#test: interactive_false_intermediate_24
+#data
+<html><body>Alpha <iframe src="page.html"></iframe> Omega</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Alpha <iframe src="page.html"></iframe> Omega
+
+#test: interactive_false_intermediate_25
+#data
+<html><body>Before <embed src="file.swf"></embed> after</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <embed src="file.swf"> after
+
+#test: interactive_false_intermediate_26
+#data
+<html><body><select><option>Option</option></select> and text</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<select><option>Option</option></select> and text
+
+#test: interactive_false_intermediate_27
+#data
+<html><body>Leading <input type="text" value="val"> trailing</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Leading <input type="text" value="val"> trailing
+
+#test: interactive_false_intermediate_28
+#data
+<html><body>Text with <audio src="m.mp3"></audio> inside</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Text with <audio src="m.mp3"></audio> inside
+
+#test: interactive_false_intermediate_29
+#data
+<html><body>Start <textarea>Content</textarea> End</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <textarea>Content</textarea> End
+
+#test: interactive_false_intermediate_30
+#data
+<html><body>Before <details>Details Info</details> After</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <details>Details Info</details> After
+
+#test: interactive_false_intermediate_31
+#data
+<html><body>Pretext <label>LabelText</label> Posttext</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Pretext <label>LabelText</label> Posttext
+
+#test: interactive_false_intermediate_32
+#data
+<html><body>Start <video src="vid.mp4"></video> Middle <audio src="s.mp3"></audio> End</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <video src="vid.mp4"></video> Middle <audio src="s.mp3"></audio> End
+
+#test: interactive_false_intermediate_33
+#data
+<html><body>Alpha <button>Press</button> Beta</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Alpha <button>Press</button> Beta
+
+#test: interactive_false_intermediate_34
+#data
+<html><body>Before text <a href="url">Link</a> after text</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before text <a href="url">Link</a> after text
+
+#test: interactive_false_intermediate_35
+#data
+<html><body>Leading <details>More details</details> trailing</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Leading <details>More details</details> trailing
+
+#test: interactive_false_intermediate_36
+#data
+<html><body>Text <img src="pic.png" alt="pic"> and extra</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Text <img src="pic.png" alt="pic"> and extra
+
+#test: interactive_false_intermediate_37
+#data
+<html><body>Start <keygen></keygen> finish</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <keygen></keygen> finish
+
+#test: interactive_false_intermediate_38
+#data
+<html><body>Before <select><option>Opt</option></select> after</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <select><option>Opt</option></select> after
+
+#test: interactive_false_intermediate_39
+#data
+<html><body>Prefix <textarea>Text</textarea> Suffix</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Prefix <textarea>Text</textarea> Suffix
+
+#test: interactive_false_intermediate_40
+#data
+<html><body>Intro <audio src="a.mp3"></audio> Outro</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Intro <audio src="a.mp3"></audio> Outro
+
+
+#test: interactive_false_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><a href="l41">Link41</a><div>Extra41</div></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Doc41<a href="l41">Link41</a>Extra41
+
+#test: interactive_false_complex_42
+#data
+<html><body>Start <button>Click42</button><p>Paragraph42</p></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <button>Click42</button>Paragraph42
+
+#test: interactive_false_complex_43
+#data
+<html><body><div><iframe src="f43.html"></iframe><span>Inside span</span></div>End43</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<iframe src="f43.html"></iframe>Inside span End43
+
+#test: interactive_false_complex_44
+#data
+<html><body>Intro44 <embed src="e44.swf"></embed> mid <img src="img44.jpg" alt="i44"> End44</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Intro44 <embed src="e44.swf"> mid <img src="img44.jpg" alt="i44"> End44
+
+#test: interactive_false_complex_45
+#data
+<html><body><div>Content <select><option>Opt45</option></select></div> More45</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Content <select><option>Opt45</option></select> More45
+
+#test: interactive_false_complex_46
+#data
+<html><body>Leading <input type="text" value="v46"> text Trailing</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Leading <input type="text" value="v46"> text Trailing
+
+#test: interactive_false_complex_47
+#data
+<html><body><div>Before <details>Details47</details><p>Para47</p></div> End47</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <details>Details47</details>Para47 End47
+
+#test: interactive_false_complex_48
+#data
+<html><body>Text before <iframe src="i48.html"></iframe> and after</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Text before <iframe src="i48.html"></iframe> and after
+
+#test: interactive_false_complex_49
+#data
+<html><body><div>Outer <a href="l49">Link49</a> <audio src="a49.mp3"></audio></div> Finale49</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Outer <a href="l49">Link49</a><audio src="a49.mp3"></audio> Finale49
+
+#test: interactive_false_complex_50
+#data
+<html><body>One <iframe src="a.html"></iframe> Two <img src="b.png" alt="b"> Three</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+One <iframe src="a.html"></iframe> Two <img src="b.png" alt="b"> Three
+
+#test: interactive_false_complex_51
+#data
+<html><body><div><button>Btn51</button><span>Keep Span</span></div> End51</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<button>Btn51</button>Keep Span End51
+
+#test: interactive_false_complex_52
+#data
+<html><body>Start <label>Label52</label><p>Para52</p> End</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Start <label>Label52</label>Para52 End
+
+#test: interactive_false_complex_53
+#data
+<html><body><div>Before <input type="checkbox"> after</div></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <input type="checkbox"> after
+
+#test: interactive_false_complex_54
+#data
+<html><body><div><textarea>Area54</textarea> inside div</div> Outside54</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<textarea>Area54</textarea> inside div Outside54
+
+#test: interactive_false_complex_55
+#data
+<html><body>Pre <keygen></keygen> Post</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Pre <keygen></keygen> Post
+
+#test: interactive_false_complex_56
+#data
+<html><body>Before <select><option>Opt56</option></select> after</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Before <select><option>Opt56</option></select> after
+
+#test: interactive_false_complex_57
+#data
+<html><body>Intro <video src="v57.mp4"></video> Outro</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Intro <video src="v57.mp4"></video> Outro
+
+#test: interactive_false_complex_58
+#data
+<html><body><div><iframe src="if58.html"></iframe><button>Btn58</button></div> End58</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<iframe src="if58.html"></iframe><button>Btn58</button> End58
+
+#test: interactive_false_complex_59
+#data
+<html><body>Mixed <a href="l59">Link59</a> content</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Mixed <a href="l59">Link59</a> content
+
+#test: interactive_false_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body>Start <audio src="a60.mp3"></audio> End</body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+Doc60 Start <audio src="a60.mp3"></audio> End

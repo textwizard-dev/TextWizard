@@ -1,0 +1,604 @@
+#test: ar_punct_edges_basic_01
+#lang: ar
+#text
+«مرحبا»، — العالم؟
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+العالم
+#end
+
+#test: ar_punct_edges_heavy_02
+#lang: ar
+#text
+(«مرحبا») —العالم— …و…
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+العالم
+و
+#end
+
+#test: ar_whitespace_tabs_newlines_03
+#lang: ar
+#text
+مرحبا
+
+و	العالم
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+و
+العالم
+#end
+
+#test: ar_numbers_local_04
+#lang: ar
+#text
+١٢٣٬٤٥٦٫٧٨ ٩٨٧٬٦٥٤٬٣٢١٫٠
+#expected_errors_count: 0
+#end
+
+#test: ar_numbers_trailing_punct_05
+#lang: ar
+#text
+١٢٬٣٤٥٫٦٧. ١٬٢٣٤٫ ٣٫١٤١٥٩!
+#expected_errors_count: 0
+#end
+
+#test: ar_numbers_western_ok_06
+#lang: ar
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: ar_corrupted_suffix_07
+#lang: ar
+#text
+من في على و ومنzz
+#expected_errors_count: 1
+#must_contain
+ومنzz
+#must_not_contain
+من
+في
+على
+و
+#end
+
+#test: ar_mixed_script_split_08
+#lang: ar
+#text
+مرحباA عالمB
+#expected_errors_count: 2
+#must_contain
+مرحباA
+عالمB
+#end
+
+#test: ar_email_flag_09
+#lang: ar
+#text
+اسم.لقب+وسم@example.com
+#expected_errors_count: 0
+#end
+
+#test: ar_url_flag_10
+#lang: ar
+#text
+https://مثال.اختبار/مسار?س=1&ص=2
+#expected_errors_count: 0
+#end
+
+#test: ar_hashtag_mention_flag_11
+#lang: ar
+#text
+#القاهرة @أحدهم
+#expected_errors_count: 0
+#end
+
+#test: ar_underscore_flag_12
+#lang: ar
+#text
+ثعباني_نمط
+#expected_errors_count: 1
+#must_contain
+ثعباني_نمط
+#end
+
+#test: ar_hyphen_flag_13
+#lang: ar
+#text
+شيء-ما كيف-كذا
+#expected_errors_count: 2
+#must_contain
+شيء-ما
+كيف-كذا
+#end
+
+#test: ar_zero_width_inside_ok_14
+#lang: ar
+#text
+ه\u200dو ف\u200cي
+#expected_errors_count: 0
+#must_not_contain
+ه\u200dو
+ف\u200cي
+#end
+
+#test: ar_only_punct_15
+#lang: ar
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { } ؟ ،
+#expected_errors_count: 0
+#end
+
+#test: ar_empty_16
+#lang: ar
+#text
+
+#expected_errors_count: 0
+#end
+
+#test: he_punct_edges_basic_01
+#lang: he
+#text
+«שלום», — עולם.
+#expected_errors_count: 0
+#must_not_contain
+שלום
+עולם
+#end
+
+#test: he_punct_edges_heavy_02
+#lang: he
+#text
+(«שלום») —עולם— …ו…
+#expected_errors_count: 0
+#must_not_contain
+שלום
+עולם
+ו
+#end
+
+#test: he_whitespace_tabs_newlines_03
+#lang: he
+#text
+שלום
+
+ו	עולם
+#expected_errors_count: 0
+#must_not_contain
+שלום
+ו
+עולם
+#end
+
+#test: he_numbers_western_ok_04
+#lang: he
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: he_geresh_gershayim_edges_ok_05
+#lang: he
+#text
+(׳שלום׳) [״עולם״]
+#expected_errors_count: 0
+#must_not_contain
+שלום
+עולם
+#end
+
+#test: he_corrupted_suffix_06
+#lang: he
+#text
+שלום עולם שלוםzz
+#expected_errors_count: 1
+#must_contain
+שלוםzz
+#must_not_contain
+שלום
+עולם
+#end
+
+#test: he_email_flag_07
+#lang: he
+#text
+שם.משפחה+תג@example.org
+#expected_errors_count: 0
+#end
+
+#test: he_url_flag_08
+#lang: he
+#text
+https://דוגמה.ישראל/נתיב?א=1&ב=2
+#expected_errors_count: 0
+#end
+
+#test: he_hashtag_mention_flag_09
+#lang: he
+#text
+#תל־אביב @מישהו
+#expected_errors_count: 0
+#end
+
+#test: he_underscore_flag_10
+#lang: he
+#text
+נחשי_רישום
+#expected_errors_count: 1
+#must_contain
+נחשי_רישום
+#end
+
+#test: he_hyphen_flag_11
+#lang: he
+#text
+מה-שהו כך-ואחר
+#expected_errors_count: 2
+#must_contain
+מה-שהו
+כך-ואחר
+#end
+
+#test: he_mixed_script_split_12
+#lang: he
+#text
+שלוםA עולםB
+#expected_errors_count: 2
+#must_contain
+שלוםA
+עולםB
+#end
+
+#test: he_zero_width_inside_ok_13
+#lang: he
+#text
+ש\u200cלום ו\u200dעולם
+#expected_errors_count: 0
+#must_not_contain
+ש\u200cלום
+ו\u200dעולם
+#end
+
+#test: he_only_punct_14
+#lang: he
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { }
+#expected_errors_count: 0
+#end
+
+#test: fa_punct_edges_basic_01
+#lang: fa
+#text
+«سلام»، — دنیا.
+#expected_errors_count: 0
+#must_not_contain
+سلام
+دنیا
+#end
+
+#test: fa_zwnj_ok_02
+#lang: fa
+#text
+می\u200cروم می\u200cخواهم
+#expected_errors_count: 0
+#must_not_contain
+می\u200cروم
+می\u200cخواهم
+#end
+
+#test: fa_numbers_local_03
+#lang: fa
+#text
+۱۲۳٬۴۵۶٫۷۸ ۹۸۷٬۶۵۴٬۳۲۱٫۰
+#expected_errors_count: 0
+#end
+
+#test: fa_numbers_western_ok_04
+#lang: fa
+#text
+12,345 3.14159 1'000 10\u00A0000
+#expected_errors_count: 0
+#end
+
+#test: fa_corrupted_suffix_05
+#lang: fa
+#text
+و در از وzz
+#expected_errors_count: 1
+#must_contain
+وzz
+#must_not_contain
+و
+در
+از
+#end
+
+#test: fa_email_flag_06
+#lang: fa
+#text
+نام.نام‌خانوادگی+برچسب@example.net
+#expected_errors_count: 0
+#end
+
+#test: fa_url_flag_07
+#lang: fa
+#text
+https://نمونه.ایران/مسیر?الف=1&ب=2
+#expected_errors_count: 0
+#end
+
+#test: fa_hashtag_mention_flag_08
+#lang: fa
+#text
+#تهران @کسی
+#expected_errors_count: 0
+#end
+
+#test: fa_underscore_flag_09
+#lang: fa
+#text
+مارپیچ_سبک
+#expected_errors_count: 1
+#must_contain
+مارپیچ_سبک
+#end
+
+#test: fa_hyphen_flag_10
+#lang: fa
+#text
+چیز-کی چیز-وآن
+#expected_errors_count: 2
+#must_contain
+چیز-کی
+چیز-وآن
+#end
+
+#test: fa_zero_width_inside_ok_11
+#lang: fa
+#text
+ و\u200dآن
+#expected_errors_count: 1
+
+#end
+
+#test: fa_only_punct_12
+#lang: fa
+#text
+!!! ——— «» “” ‘’ … ( ) [ ] { } ؟ ،
+#expected_errors_count: 0
+#end
+
+
+#test: ar_tatweel_flag_01
+#lang: ar
+#text
+سلامـ
+#expected_errors_count: 1
+#must_contain
+سلامـ
+#end
+
+#test: ar_hyphen_inner_flag_02
+#lang: ar
+#text
+شيء-ما كيف-كذا
+#expected_errors_count: 2
+#must_contain
+شيء-ما
+كيف-كذا
+#end
+
+#test: ar_mixed_digits_ok_03
+#lang: ar
+#text
+123 ٤٥٦ ۷۸۹
+#expected_errors_count: 0
+#end
+
+#test: ar_parentheses_nested_ok_04
+#lang: ar
+#text
+(«مرحبا») [تستعذبين] {و}
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+تستعذبين
+و
+#end
+
+#test: ar_dash_edges_ok_05
+#lang: ar
+#text
+—مرحبا— —مرحتا—
+#expected_errors_count: 0
+#end
+
+#test: ar_zero_width_merge_flag_06
+#lang: ar
+#text
+م\u2060ن
+#expected_errors_count: 1
+#must_contain
+م\u2060ن
+#end
+
+#test: he_maqaf_inner_flag_01
+#lang: he
+#text
+תל־אביב ירוש־לים
+#expected_errors_count: 2
+#must_contain
+תל־אביב
+ירוש־לים
+#end
+
+#test: he_gershayim_inner_flag_02
+#lang: he
+#text
+ת״א ב״ג
+#expected_errors_count: 2
+#must_contain
+ת״א
+ב״ג
+#end
+
+#test: he_geresh_inner_flag_03
+#lang: he
+#text
+ג׳סון ד׳ור
+#expected_errors_count: 2
+#must_contain
+ג׳סון
+ד׳ור
+#end
+
+#test: he_mixed_digits_ok_04
+#lang: he
+#text
+123 ٤٥٦ ७८९ １２３
+#expected_errors_count: 0
+#end
+
+#test: he_nested_brackets_ok_05
+#lang: he
+#text
+(«שלום») [עולם] {ו}
+#expected_errors_count: 0
+#must_not_contain
+שלום
+עולם
+ו
+#end
+
+#test: he_zero_width_merge_flag_06
+#lang: he
+#text
+ש\u2060לום
+#expected_errors_count: 1
+#must_contain
+ש\u2060לום
+#end
+
+#test: fa_parentheses_nested_ok_01
+#lang: fa
+#text
+(«سلام») [دنیا] {و}
+#expected_errors_count: 0
+#must_not_contain
+سلام
+دنیا
+و
+#end
+
+#test: fa_dash_edges_ok_02
+#lang: fa
+#text
+—سلام— —دنیا—
+#expected_errors_count: 0
+#end
+
+#test: fa_mixed_digits_ok_03
+#lang: fa
+#text
+123 ٤٥٦ ۷۸۹ ۱۲۳
+#expected_errors_count: 0
+#end
+
+#test: fa_tatweel_flag_04
+#lang: fa
+#text
+سلامـ
+#expected_errors_count: 1
+#must_contain
+سلامـ
+#end
+
+#test: fa_zero_width_merge_flag_05
+#lang: fa
+#text
+ا\u2060ین
+#expected_errors_count: 1
+#must_contain
+ا\u2060ین
+#end
+
+
+#test: ar_arabic_punct_edges_01
+#lang: ar
+#text
+مرحبا، العالم؛ نعم؟
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+العالم
+نعم
+#end
+
+#test: ar_mixed_punct_edges_02
+#lang: ar
+#text
+(«مرحبا») ،مرجم؛ —و—
+#expected_errors_count: 0
+#must_not_contain
+مرحبا
+مرجم
+و
+#end
+
+#test: ar_nbsp_in_numbers_ok_03
+#lang: ar
+#text
+١٢\u00A000٠ ٩٨\u202F٧٦٥
+#expected_errors_count: 0
+#end
+
+#test: he_colon_semicolon_edges_ok_01
+#lang: he
+#text
+שלום: עולם; וכן.
+#expected_errors_count: 0
+#must_not_contain
+שלום
+עולם
+וכן
+#end
+
+#test: he_nested_quotes_ok_02
+#lang: he
+#text
+(״שלום״) ['ועולם']
+#expected_errors_count: 0
+#must_not_contain
+שלום
+ועולם
+#end
+
+#test: fa_arabic_punct_edges_ok_01
+#lang: fa
+#text
+سلام، دنیا؛ بله؟
+#expected_errors_count: 0
+#must_not_contain
+سلام
+دنیا
+بله
+#end
+
+#test: fa_nbsp_numbers_ok_02
+#lang: fa
+#text
+۱۲\u00A000۰ ۹۸\u202F۷۶۵
+#expected_errors_count: 0
+#end
+
+#test: fa_mixed_url_email_flags_03
+#lang: fa
+#text
+https://نمونه.ایران/مسیر name.surname@example.ir
+#expected_errors_count: 0
+#end

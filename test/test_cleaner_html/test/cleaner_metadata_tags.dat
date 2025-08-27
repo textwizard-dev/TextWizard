@@ -1,0 +1,967 @@
+#test: remove_metadata_true_01
+#data
+<html><head><meta charset="utf-8"><title>Page</title></head><body><p>Content</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content</p></body></html>
+
+#test: remove_metadata_true_02
+#data
+<html><head><link rel="stylesheet"><title>StyleTest</title></head><body><p>Hello</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Hello</p></body></html>
+
+#test: remove_metadata_true_03
+#data
+<html><head><meta name="viewport" content="width=device-width"></head><body><p>Viewport test</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Viewport test</p></body></html>
+
+#test: remove_metadata_true_04
+#data
+<html><head><title>TitleTest</title></head><body><p>Text</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text</p></body></html>
+
+#test: remove_metadata_true_05
+#data
+<html><head><noscript>Fallback</noscript></head><body><p>Body text</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>Fallback<p>Body text</p></body></html>
+
+#test: remove_metadata_true_06
+#data
+<html><head><script>console.log('Test');</script></head><body><p>Script removal</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Script removal</p></body></html>
+
+#test: remove_metadata_true_07
+#data
+<html><head><style>p{color:red;}</style></head><body><p>Style test</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Style test</p></body></html>
+
+#test: remove_metadata_true_08
+#data
+<html><head><base href="http://example.com"></head><body><p>Base test</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Base test</p></body></html>
+
+#test: remove_metadata_true_09
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"><title>Test</title></head><body><p>Content9</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content9</p></body></html>
+
+#test: remove_metadata_true_10
+#data
+<html><body><p>Body only, no head metadata</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Body only, no head metadata</p></body></html>
+
+#test: remove_metadata_true_11
+#data
+<html><head><meta charset="utf-8"></head><body><p>Text with meta only</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text with meta only</p></body></html>
+
+#test: remove_metadata_true_12
+#data
+<html><head><title>Only Title</title></head><body><p>Text12</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text12</p></body></html>
+
+#test: remove_metadata_true_13
+#data
+<html><head><noscript>NoScript</noscript></head><body><p>Body13</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>NoScript<p>Body13</p></body></html>
+
+#test: remove_metadata_true_14
+#data
+<html><head><script>Script14</script></head><body><p>Content14</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content14</p></body></html>
+
+#test: remove_metadata_true_15
+#data
+<html><head><link rel="stylesheet" href="style.css"></head><body><p>Link test 15</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Link test 15</p></body></html>
+
+#test: remove_metadata_true_16
+#data
+<html><head><meta name="description" content="Test 16"><title>T16</title></head><body><p>Content16</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content16</p></body></html>
+
+#test: remove_metadata_true_17
+#data
+<html><head><meta charset="utf-8"><title>T17</title><link rel="icon" href="favicon.ico"></head><body><p>Content17</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content17</p></body></html>
+
+#test: remove_metadata_true_18
+#data
+<html><head><title>Title18</title></head><body><p>Some text18</p><script>Ignored</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Some text18</p></body></html>
+
+#test: remove_metadata_true_19
+#data
+<html><head><style>h1{}</style></head><body><h1>Headline19</h1></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><h1>Headline19</h1></body></html>
+
+#test: remove_metadata_true_20
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"></head><body><p>Final simple 20</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Final simple 20</p></body></html>
+
+#test: remove_metadata_true_21
+#data
+<html><head><meta charset="utf-8"><title>Int21</title><link rel="stylesheet"></head><body><p>Intermediate 21</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Intermediate 21</p></body></html>
+
+#test: remove_metadata_true_22
+#data
+<html><head><meta name="viewport" content="width=device-width"><meta name="author" content="Tester"></head><body><p>Viewport &amp; Author 22</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Viewport &amp; Author 22</p></body></html>
+
+#test: remove_metadata_true_23
+#data
+<html><head><noscript>Fallback 23</noscript></head><body><p>Body text 23</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>Fallback 23<p>Body text 23</p></body></html>
+
+#test: remove_metadata_true_24
+#data
+<html><head><script>JS24</script></head><body><p>Pre text 24</p><p>Post text 24</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Pre text 24</p><p>Post text 24</p></body></html>
+
+#test: remove_metadata_true_25
+#data
+<html><head><style>p {font-size:14px;}</style></head><body><p>Styled text 25</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Styled text 25</p></body></html>
+
+#test: remove_metadata_true_26
+#data
+<html><head><meta charset="utf-8"><title>T26</title></head><body><p>Mixed 26</p><script>JS26</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Mixed 26</p></body></html>
+
+#test: remove_metadata_true_27
+#data
+<html><head><link rel="stylesheet"><meta name="description" content="Desc27"></head><body><div>Div 27</div></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Div 27</div></body></html>
+
+#test: remove_metadata_true_28
+#data
+<html><head><meta charset="utf-8"><title>T28</title></head><body><p>Intermediate 28</p><noscript>Fallback28</noscript></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Intermediate 28</p></body></html>
+
+#test: remove_metadata_true_29
+#data
+<html><head><title>T29</title></head><body><p>Text 29</p><script>JS29</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text 29</p></body></html>
+
+#test: remove_metadata_true_30
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"></head><body><p>Mixed content 30</p><noscript>NS30</noscript><script>JS30</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Mixed content 30</p></body></html>
+
+#test: remove_metadata_true_31
+#data
+<html><head><meta charset="utf-8"><title>T31</title></head><body><div>Div content 31</div><p>Paragraph 31</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Div content 31</div><p>Paragraph 31</p></body></html>
+
+#test: remove_metadata_true_32
+#data
+<html><head><title>T32</title><style>body {}</style></head><body><p>Text 32</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text 32</p></body></html>
+
+#test: remove_metadata_true_33
+#data
+<html><head><meta charset="utf-8"></head><body><p>Some text 33</p><script>JS33</script><noscript>NS33</noscript></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Some text 33</p></body></html>
+
+#test: remove_metadata_true_34
+#data
+<html><head><link rel="stylesheet" href="s.css"><title>T34</title></head><body><p>Content 34</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content 34</p></body></html>
+
+#test: remove_metadata_true_35
+#data
+<html><head><noscript>NS35</noscript></head><body><p>Paragraph35</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>NS35<p>Paragraph35</p></body></html>
+
+#test: remove_metadata_true_36
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"><title>T36</title><script>JS36</script></head><body><p>Content36</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content36</p></body></html>
+
+#test: remove_metadata_true_37
+#data
+<html><head><style>p {}</style><meta name="viewport" content="width=device-width"></head><body><p>Content37</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content37</p></body></html>
+
+#test: remove_metadata_true_38
+#data
+<html><head><meta charset="utf-8"><title>T38</title></head><body><p>Body text 38</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Body text 38</p></body></html>
+
+#test: remove_metadata_true_39
+#data
+<html><head><meta charset="utf-8"></head><body><p>Text 39</p><script>JS39</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text 39</p></body></html>
+
+#test: remove_metadata_true_40
+#data
+<html><head><title>T40</title><base href="http://example.com"></head><body><p>Content40</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content40</p></body></html>
+
+
+#test: remove_metadata_true_41
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Complex 41</title><link rel="stylesheet"></head><body><h1>Heading41</h1><p>Paragraph 41</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body><h1>Heading41</h1><p>Paragraph 41</p></body></html>
+
+#test: remove_metadata_true_42
+#data
+<html><head><meta name="description" content="Desc42"><title>T42</title><meta name="viewport" content="width=device-width"><link rel="icon" href="favicon.ico"></head><body><div>Div 42</div><p>Paragraph 42</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Div 42</div><p>Paragraph 42</p></body></html>
+
+#test: remove_metadata_true_43
+#data
+<html><head><style>p{}</style><meta charset="utf-8"></head><body><div>Div content 43</div><p>Paragraph 43</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Div content 43</div><p>Paragraph 43</p></body></html>
+
+#test: remove_metadata_true_44
+#data
+<html><head><title>T44</title><meta name="viewport" content="width=device-width"></head><body><p>Complex 44 text</p><noscript>NS44</noscript></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Complex 44 text</p></body></html>
+
+#test: remove_metadata_true_45
+#data
+<html><head><link rel="stylesheet" href="s.css"><meta charset="utf-8"><title>T45</title></head><body><p>Multiple metadata 45</p><script>JS45</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Multiple metadata 45</p></body></html>
+
+#test: remove_metadata_true_46
+#data
+<html><body><h1>Heading 46</h1><p>Paragraph 46</p><noscript>NS46</noscript></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><h1>Heading 46</h1><p>Paragraph 46</p></body></html>
+
+#test: remove_metadata_true_47
+#data
+<html><head><meta charset="utf-8"><title>T47</title></head><body><div><script>JS inside</script>Content 47</div></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Content 47</div></body></html>
+
+#test: remove_metadata_true_48
+#data
+<html><head><title>T48</title><link rel="icon" href="icon.png"></head><body><p>Text 48</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text 48</p></body></html>
+
+#test: remove_metadata_true_49
+#data
+<html><head><meta name="author" content="Author49"></head><body><p>Text 49</p><style>p {}</style></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text 49</p></body></html>
+
+#test: remove_metadata_true_50
+#data
+<html><head><meta charset="utf-8"><title>T50</title><noscript>NS50</noscript></head><body><p>Content50</p><script>JS50</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>NS50<p>Content50</p></body></html>
+
+#test: remove_metadata_true_51
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doc Test 51</title></head><body><p>Doc content 51</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body><p>Doc content 51</p></body></html>
+
+#test: remove_metadata_true_52
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"><title>Combined 52</title></head><body><div>Div52</div><p>Para52</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Div52</div><p>Para52</p></body></html>
+
+#test: remove_metadata_true_53
+#data
+<html><head><meta charset="utf-8"><title>Complex 53</title></head><body><p>Text with <noscript>NS</noscript> and <script>JS</script></p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text with  and </p></body></html>
+
+#test: remove_metadata_true_54
+#data
+<html><head><title>T54</title><style>body {}</style><meta name="description" content="Desc54"></head><body><p>Content 54</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Content 54</p></body></html>
+
+#test: remove_metadata_true_55
+#data
+<html><head><link rel="stylesheet"><meta charset="utf-8"></head><body><div>Text55</div><noscript>NS55</noscript></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><div>Text55</div></body></html>
+
+#test: remove_metadata_true_56
+#data
+<html><head><meta charset="utf-8"><title>T56</title></head><body><p>Data56</p><script>JS56</script><style>p {}</style></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Data56</p></body></html>
+
+#test: remove_metadata_true_57
+#data
+<html><head><meta charset="utf-8"><title>T57</title><noscript>NS57</noscript></head><body><p>Content57</p><link rel="stylesheet"></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body>NS57<p>Content57</p></body></html>
+
+#test: remove_metadata_true_58
+#data
+<html><head><title>T58</title><meta name="viewport" content="width=device-width"></head><body><p>Text58</p><script>JS58</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Text58</p></body></html>
+
+#test: remove_metadata_true_59
+#data
+<html><head><meta charset="utf-8"><link rel="icon" href="ico.ico"><title>T59</title></head><body><p>Paragraph 59</p></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<html><head></head><body><p>Paragraph 59</p></body></html>
+
+#test: remove_metadata_true_60
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Final Complex 60</title><link rel="stylesheet"><noscript>NS60</noscript></head><body><h1>Heading60</h1><p>Content60</p><script>JS60</script></body></html>
+#params
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body>NS60<h1>Heading60</h1><p>Content60</p></body></html>
+
+
+#test: remove_metadata_false_01
+#data
+<html><head><meta charset="utf-8"><title>Test</title></head><body><p>Content</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Test</title>Content
+
+#test: remove_metadata_false_02
+#data
+<html><head><link rel="stylesheet"></head><body><p>Hello</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet">Hello
+
+#test: remove_metadata_false_03
+#data
+<html><head><noscript>Fallback</noscript></head><body><p>Paragraph</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<noscript></noscript>Fallback Paragraph
+
+#test: remove_metadata_false_04
+#data
+<html><head><script>Log</script></head><body><p>Text</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<script>Log</script>Text
+
+#test: remove_metadata_false_05
+#data
+<html><head><style>p {color:red;}</style></head><body><p>Styled</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<style>p {color:red;}</style>Styled
+
+#test: remove_metadata_false_06
+#data
+<html><head><base href="http://example.com"></head><body><p>Link</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<base href="http://example.com">Link
+
+#test: remove_metadata_false_07
+#data
+<html><head><title>Title</title></head><body><p>Text</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>Title</title>Text
+
+#test: remove_metadata_false_08
+#data
+<html><head><meta charset="utf-8"></head><body><p>No Title</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8">No Title
+
+#test: remove_metadata_false_09
+#data
+<html><head><link rel="stylesheet"><meta charset="utf-8"></head><body><p>Combined</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet"><meta charset="utf-8">Combined
+
+#test: remove_metadata_false_10
+#data
+<html><body><p>Body only</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+Body only
+
+#test: remove_metadata_false_11
+#data
+<html><head><meta charset="utf-8"></head><body><p>Text with meta</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8">Text with meta
+
+#test: remove_metadata_false_12
+#data
+<html><head><title>Only Title</title></head><body><p>Text12</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>Only Title</title>Text12
+
+#test: remove_metadata_false_13
+#data
+<html><head><noscript>NoScript</noscript></head><body><p>Body13</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<noscript></noscript>NoScript Body13
+
+#test: remove_metadata_false_14
+#data
+<html><head><script>Script14</script></head><body><p>Content14</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<script>Script14</script>Content14
+
+#test: remove_metadata_false_15
+#data
+<html><head><link rel="stylesheet" href="style.css"></head><body><p>Link test 15</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet" href="style.css">Link test 15
+
+#test: remove_metadata_false_16
+#data
+<html><head><meta name="description" content="Test16"><title>T16</title></head><body><p>Content16</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="description" content="Test16"><title>T16</title>Content16
+
+#test: remove_metadata_false_17
+#data
+<html><head><meta charset="utf-8"><link rel="icon" href="favicon.ico"><title>T17</title></head><body><p>Content17</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><link rel="icon" href="favicon.ico"><title>T17</title>Content17
+
+#test: remove_metadata_false_18
+#data
+<html><head><title>Title18</title></head><body><p>Some text18</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>Title18</title>Some text18
+
+#test: remove_metadata_false_19
+#data
+<html><head><meta name="keywords" content="a,b,c"></head><body><p>Keywords 19</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="keywords" content="a,b,c">Keywords 19
+
+#test: remove_metadata_false_20
+#data
+<html><head><title>T20</title></head><body><p>Final simple 20</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T20</title>Final simple 20
+
+
+
+#test: remove_metadata_false_21
+#data
+<html><head><meta charset="utf-8"><title>Int21</title><link rel="stylesheet"></head><body><p>Intermediate 21</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Int21</title><link rel="stylesheet">Intermediate 21
+
+#test: remove_metadata_false_22
+#data
+<html><head><meta name="viewport" content="width=device-width"><meta name="author" content="Tester"></head><body><p>Viewport &amp; Author 22</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="viewport" content="width=device-width"><meta name="author" content="Tester">Viewport & Author 22
+
+#test: remove_metadata_false_23
+#data
+<html><head><noscript>Fallback23</noscript></head><body><p>Body text 23</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<noscript></noscript>Fallback23 Body text 23
+
+#test: remove_metadata_false_24
+#data
+<html><head><script>JS24</script></head><body><p>Pre text 24</p><p>Post text 24</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<script>JS24</script>Pre text 24 Post text 24
+
+#test: remove_metadata_false_25
+#data
+<html><head><style>p {font-size:14px;}</style></head><body><p>Styled text 25</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<style>p {font-size:14px;}</style>Styled text 25
+
+#test: remove_metadata_false_26
+#data
+<html><head><meta charset="utf-8"><title>T26</title></head><body><p>Mixed 26</p><script>JS26</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T26</title>Mixed 26<script>JS26</script>
+
+#test: remove_metadata_false_27
+#data
+<html><head><link rel="stylesheet"><meta name="description" content="Desc27"></head><body><div>Div 27</div></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet"><meta name="description" content="Desc27">Div 27
+
+#test: remove_metadata_false_28
+#data
+<html><head><meta charset="utf-8"><title>T28</title></head><body><p>Intermediate 28</p><noscript>Fallback28</noscript></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T28</title>Intermediate 28<noscript>Fallback28</noscript>
+
+#test: remove_metadata_false_29
+#data
+<html><head><title>T29</title></head><body><p>Text 29</p><script>JS29</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T29</title>Text 29<script>JS29</script>
+
+#test: remove_metadata_false_30
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"></head><body><p>Mixed content 30</p><noscript>NS30</noscript><script>JS30</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><link rel="stylesheet">Mixed content 30<noscript>NS30</noscript><script>JS30</script>
+
+#test: remove_metadata_false_31
+#data
+<html><head><meta charset="utf-8"><title>T31</title></head><body><div>Div content 31</div><p>Paragraph 31</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T31</title>Div content 31 Paragraph 31
+
+#test: remove_metadata_false_32
+#data
+<html><head><title>T32</title><style>body {}</style></head><body><p>Text 32</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T32</title><style>body {}</style>Text 32
+
+#test: remove_metadata_false_33
+#data
+<html><head><meta charset="utf-8"></head><body><p>Some text 33</p><script>JS33</script><noscript>NS33</noscript></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8">Some text 33<script>JS33</script><noscript>NS33</noscript>
+
+#test: remove_metadata_false_34
+#data
+<html><head><link rel="stylesheet" href="s.css"><title>T34</title></head><body><p>Content 34</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet" href="s.css"><title>T34</title>Content 34
+
+#test: remove_metadata_false_35
+#data
+<html><head><noscript>NS35</noscript></head><body><p>Paragraph35</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<noscript></noscript>NS35 Paragraph35
+
+#test: remove_metadata_false_36
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"><title>T36</title><script>JS36</script></head><body><p>Content36</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><link rel="stylesheet"><title>T36</title><script>JS36</script>Content36
+
+#test: remove_metadata_false_37
+#data
+<html><head><style>p {}</style><meta name="viewport" content="width=device-width"></head><body><p>Content37</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<style>p {}</style><meta name="viewport" content="width=device-width">Content37
+
+#test: remove_metadata_false_38
+#data
+<html><head><meta charset="utf-8"><title>T38</title></head><body><p>Body text 38</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T38</title>Body text 38
+
+#test: remove_metadata_false_39
+#data
+<html><head><meta charset="utf-8"></head><body><p>Text 39</p><script>JS39</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8">Text 39<script>JS39</script>
+
+#test: remove_metadata_false_40
+#data
+<html><head><title>T40</title><base href="http://example.com"></head><body><p>Content40</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T40</title><base href="http://example.com">Content40
+
+
+#test: remove_metadata_false_41
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Complex 41</title><link rel="stylesheet"></head><body><h1>Heading41</h1><p>Paragraph 41</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Complex 41</title><link rel="stylesheet">Heading41 Paragraph 41
+
+
+#test: remove_metadata_false_42
+#data
+<html><head><meta name="description" content="Desc42"><title>T42</title><meta name="viewport" content="width=device-width"><link rel="icon" href="favicon.ico"></head><body><div>Div 42</div><p>Paragraph 42</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="description" content="Desc42"><title>T42</title><meta name="viewport" content="width=device-width"><link rel="icon" href="favicon.ico">Div 42 Paragraph 42
+
+
+#test: remove_metadata_false_43
+#data
+<html><head><style>p{}</style><meta charset="utf-8"></head><body><div>Div content 43</div><p>Paragraph 43</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<style>p{}</style><meta charset="utf-8">Div content 43 Paragraph 43
+
+#test: remove_metadata_false_44
+#data
+<html><head><title>T44</title><meta name="viewport" content="width=device-width"></head><body><p>Complex 44 text</p><noscript>NS44</noscript></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T44</title><meta name="viewport" content="width=device-width">Complex 44 text<noscript>NS44</noscript>
+
+#test: remove_metadata_false_45
+#data
+<html><head><link rel="stylesheet" href="s.css"><meta charset="utf-8"><title>T45</title></head><body><p>Multiple metadata 45</p><script>JS45</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet" href="s.css"><meta charset="utf-8"><title>T45</title>Multiple metadata 45<script>JS45</script>
+
+#test: remove_metadata_false_46
+#data
+<html><body><h1>Heading 46</h1><p>Paragraph 46</p><noscript>NS46</noscript></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+Heading 46 Paragraph 46<noscript>NS46</noscript>
+
+#test: remove_metadata_false_47
+#data
+<html><head><meta charset="utf-8"><title>T47</title></head><body><div><script>JS inside</script>Content 47</div></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T47</title><script>JS inside</script>Content 47
+
+#test: remove_metadata_false_48
+#data
+<html><head><title>T48</title><link rel="icon" href="icon.png"></head><body><p>Text 48</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T48</title><link rel="icon" href="icon.png">Text 48
+
+#test: remove_metadata_false_49
+#data
+<html><head><meta name="author" content="Author49"></head><body><p>Text 49</p><style>p {}</style></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="author" content="Author49">Text 49<style>p {}</style>
+
+#test: remove_metadata_false_50
+#data
+<html><head><meta charset="utf-8"><title>T50</title><noscript>NS50</noscript></head><body><p>Content50</p><script>JS50</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T50</title><noscript></noscript>NS50 Content50<script>JS50</script>
+
+
+#test: remove_metadata_false_51
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doc Test 51</title></head><body><p>Doc content 51</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Doc Test 51</title>Doc content 51
+
+#test: remove_metadata_false_52
+#data
+<html><head><meta charset="utf-8"><link rel="stylesheet"><title>Combined 52</title></head><body><div>Div52</div><p>Para52</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><link rel="stylesheet"><title>Combined 52</title>Div52 Para52
+
+#test: remove_metadata_false_53
+#data
+<html><head><meta charset="utf-8"><title>Complex 53</title></head><body><p>Text with <noscript>NS</noscript> and <script>JS</script></p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Complex 53</title>Text with <noscript>NS</noscript> and <script>JS</script>
+
+#test: remove_metadata_false_54
+#data
+<html><head><title>T54</title><style>body {}</style><meta name="description" content="Desc54"></head><body><p>Content 54</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T54</title><style>body {}</style><meta name="description" content="Desc54">Content 54
+
+#test: remove_metadata_false_55
+#data
+<html><head><link rel="stylesheet"><meta charset="utf-8"></head><body><div>Text55</div><noscript>NS55</noscript></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<link rel="stylesheet"><meta charset="utf-8">Text55<noscript>NS55</noscript>
+
+#test: remove_metadata_false_56
+#data
+<html><head><meta charset="utf-8"><title>T56</title></head><body><p>Data56</p><script>JS56</script><style>p {}</style></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T56</title>Data56<script>JS56</script><style>p {}</style>
+
+#test: remove_metadata_false_57
+#data
+<html><head><meta charset="utf-8"><title>T57</title><noscript>NS57</noscript></head><body><p>Content57</p><link rel="stylesheet"></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>T57</title><noscript></noscript>NS57 Content57<link rel="stylesheet">
+
+#test: remove_metadata_false_58
+#data
+<html><head><title>T58</title><meta name="viewport" content="width=device-width"></head><body><p>Text58</p><script>JS58</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<title>T58</title><meta name="viewport" content="width=device-width">Text58<script>JS58</script>
+
+#test: remove_metadata_false_59
+#data
+<html><head><meta charset="utf-8"><link rel="icon" href="ico.ico"><title>T59</title></head><body><p>Paragraph 59</p></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><link rel="icon" href="ico.ico"><title>T59</title>Paragraph 59
+
+#test: remove_metadata_false_60
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Final Complex 60</title><link rel="stylesheet"><noscript>NS60</noscript></head><body><h1>Heading60</h1><p>Content60</p><script>JS60</script></body></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta charset="utf-8"><title>Final Complex 60</title><link rel="stylesheet"><noscript></noscript>NS60 Heading60 Content60<script>JS60</script>

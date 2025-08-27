@@ -1,0 +1,3528 @@
+#test: mixed_easy_01
+#data
+<html><body>Text</body></html>
+#params
+html.remove_flow_tags=true
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: mixed_easy_02
+#data
+<html><body><p>Para</p></body></html>
+#params
+html.remove_sectioning_tags=true
+#expected
+<html><head></head><body><p>Para</p></body></html>
+
+#test: mixed_easy_03
+#data
+<html><body><!--Comment--></body></html>
+#params
+html.remove_heading_tags=true
+#expected
+<html><head></head><body><!--Comment--></body></html>
+
+#test: mixed_easy_04
+#data
+<!DOCTYPE html><html></html>
+#params
+html.remove_phrasing_tags=true
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: mixed_easy_05
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body><div>Div</div></body></html>
+
+#test: mixed_easy_06
+#data
+<html><body><span>Span</span></body></html>
+#params
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body><span>Span</span></body></html>
+
+#test: mixed_easy_07
+#data
+<html><body><script>JS</script></body></html>
+#params
+html.remove_palpable=true
+#expected
+<html><head></head><body><script>JS</script></body></html>
+
+#test: mixed_easy_08
+#data
+<html><body><header>Hdr</header></body></html>
+#params
+html.remove_script=true
+#expected
+<html><head></head><body><header>Hdr</header></body></html>
+
+#test: mixed_easy_09
+#data
+<html><body><h1>H1</h1></body></html>
+#params
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body><h1>H1</h1></body></html>
+
+#test: mixed_easy_10
+#data
+<html><body><img src='img.png'></body></html>
+#params
+html.remove_comments=true
+#expected
+<html><head></head><body><img src="img.png"></body></html>
+
+#test: mixed_easy_11
+#data
+<html><body><a href='#'>Link</a></body></html>
+#params
+html.remove_doctype=true
+#expected
+<html><head></head><body><a href="#">Link</a></body></html>
+
+#test: mixed_easy_12
+#data
+<html><body><section>Sec</section></body></html>
+#params
+html.remove_empty_tags=true
+#expected
+<html><body><section>Sec</section></body></html>
+
+#test: mixed_easy_13
+#data
+<html><body><footer>Ftr</footer></body></html>
+#params
+html.remove_flow_tags=false
+#expected
+<footer>Ftr</footer>
+
+#test: mixed_easy_14
+#data
+<html><body><input value='val'></body></html>
+#params
+html.remove_sectioning_tags=false
+#expected
+
+
+#test: mixed_easy_15
+#data
+<html><body><textarea>Area</textarea></body></html>
+#params
+html.remove_heading_tags=false
+#expected
+Area
+
+#test: mixed_easy_16
+#data
+<html><body><ol><li>1</li></ol></body></html>
+#params
+html.remove_phrasing_tags=false
+#expected
+1
+
+#test: mixed_easy_17
+#data
+<html><body><ul><li>A</li></ul></body></html>
+#params
+html.remove_embedded_tags=false
+#expected
+A
+
+#test: mixed_easy_18
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_interactive_tags=false
+#expected
+Quote
+
+#test: mixed_easy_19
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_palpable=false
+#expected
+<pre>Pre</pre>
+
+#test: mixed_easy_20
+#data
+<html><body><form><input></form></body></html>
+#params
+html.remove_script=false
+#expected
+
+
+#test: mixed_medium_01
+#data
+<html><body>Text</body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: mixed_medium_02
+#data
+<html><body><p>Para</p></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_03
+#data
+<html><body><!--Comment--></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+#expected
+<html><head></head><body><!--Comment--></body></html>
+
+#test: mixed_medium_04
+#data
+<!DOCTYPE html><html></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: mixed_medium_05
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_06
+#data
+<html><body><span>Span</span></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_07
+#data
+<html><body><script>JS</script></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_08
+#data
+<html><body><header>Hdr</header></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_09
+#data
+<html><body><h1>H1</h1></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_10
+#data
+<html><body><img src='img.png'></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_11
+#data
+<html><body><a href='#'>Link</a></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_medium_12
+#data
+<html><body><section>Sec</section></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_heading_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_13
+#data
+<html><body><footer>Ftr</footer></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_phrasing_tags=true
+#expected
+<html><head></head><body><footer>Ftr</footer></body></html>
+
+#test: mixed_medium_14
+#data
+<html><body><input value='val'></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body><input value="val"></body></html>
+
+#test: mixed_medium_15
+#data
+<html><body><textarea>Area</textarea></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_16
+#data
+<html><body><ol><li>1</li></ol></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_17
+#data
+<html><body><ul><li>A</li></ul></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body><ul><li>A</li></ul></body></html>
+
+#test: mixed_medium_18
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body><blockquote>Quote</blockquote></body></html>
+
+#test: mixed_medium_19
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body><pre>Pre</pre></body></html>
+
+#test: mixed_medium_20
+#data
+<html><body><form><input></form></body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body><form><input></form></body></html>
+
+#test: mixed_medium_21
+#data
+<html><body>Text</body></html>
+#params
+html.remove_sectioning_tags=true
+html.remove_empty_tags=true
+#expected
+<html><body>Text</body></html>
+
+#test: mixed_medium_22
+#data
+<html><body><p>Para</p></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_phrasing_tags=true
+#expected
+<html><head></head><body><p>Para</p></body></html>
+
+#test: mixed_medium_23
+#data
+<html><body><!--Comment--></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body><!--Comment--></body></html>
+
+#test: mixed_medium_24
+#data
+<!DOCTYPE html><html></html>
+#params
+html.remove_heading_tags=true
+html.remove_interactive_tags=true
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: mixed_medium_25
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_26
+#data
+<html><body><span>Span</span></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body><span>Span</span></body></html>
+
+#test: mixed_medium_27
+#data
+<html><body><script>JS</script></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_28
+#data
+<html><body><header>Hdr</header></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body><header>Hdr</header></body></html>
+
+#test: mixed_medium_29
+#data
+<html><body><h1>H1</h1></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_30
+#data
+<html><body><img src='img.png'></body></html>
+#params
+html.remove_heading_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_medium_31
+#data
+<html><body><a href='#'>Link</a></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body><a href="#">Link</a></body></html>
+
+#test: mixed_medium_32
+#data
+<html><body><section>Sec</section></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body><section>Sec</section></body></html>
+
+#test: mixed_medium_33
+#data
+<html><body><footer>Ftr</footer></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_34
+#data
+<html><body><input value='val'></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_35
+#data
+<html><body><textarea>Area</textarea></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_medium_36
+#data
+<html><body><ol><li>1</li></ol></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body><ol><li>1</li></ol></body></html>
+
+#test: mixed_medium_37
+#data
+<html><body><ul><li>A</li></ul></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body><ul><li>A</li></ul></body></html>
+
+#test: mixed_medium_38
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_phrasing_tags=true
+html.remove_empty_tags=true
+#expected
+<html><body><blockquote>Quote</blockquote></body></html>
+
+#test: mixed_medium_39
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_embedded_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body><pre>Pre</pre></body></html>
+
+#test: mixed_medium_40
+#data
+<html><body><form><input></form></body></html>
+#params
+html.remove_embedded_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_01
+#data
+<html><body>Text</body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_heading_tags=true
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: mixed_hard_02
+#data
+<html><body><p>Para</p></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_phrasing_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_03
+#data
+<html><body><!--Comment--></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body><!--Comment--></body></html>
+
+#test: mixed_hard_04
+#data
+<!DOCTYPE html><html></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_interactive_tags=true
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: mixed_hard_05
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_06
+#data
+<html><body><span>Span</span></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_07
+#data
+<html><body><script>JS</script></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_08
+#data
+<html><body><header>Hdr</header></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_09
+#data
+<html><body><h1>H1</h1></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_10
+#data
+<html><body><img src='img.png'></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_sectioning_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_hard_11
+#data
+<html><body><a href='#'>Link</a></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_phrasing_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_12
+#data
+<html><body><section>Sec</section></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_13
+#data
+<html><body><footer>Ftr</footer></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_14
+#data
+<html><body><input value='val'></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_15
+#data
+<html><body><textarea>Area</textarea></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body><textarea>Area</textarea></body></html>
+
+#test: mixed_hard_16
+#data
+<html><body><ol><li>1</li></ol></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_17
+#data
+<html><body><ul><li>A</li></ul></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_18
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_19
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_heading_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_hard_20
+#data
+<html><body><form><input></form></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_embedded_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_21
+#data
+<html><body>Text</body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: mixed_hard_22
+#data
+<html><body><p>Para</p></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_23
+#data
+<html><body><!--Comment--></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body><!--Comment--></body></html>
+
+#test: mixed_hard_24
+#data
+<!DOCTYPE html><html></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_metadata_tags=true
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: mixed_hard_25
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_26
+#data
+<html><body><span>Span</span></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_27
+#data
+<html><body><script>JS</script></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_phrasing_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_hard_28
+#data
+<html><body><header>Hdr</header></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_interactive_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_29
+#data
+<html><body><h1>H1</h1></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_30
+#data
+<html><body><img src='img.png'></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_31
+#data
+<html><body><a href='#'>Link</a></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_32
+#data
+<html><body><section>Sec</section></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_33
+#data
+<html><body><footer>Ftr</footer></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_34
+#data
+<html><body><input value='val'></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_embedded_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: mixed_hard_35
+#data
+<html><body><textarea>Area</textarea></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_palpable=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_36
+#data
+<html><body><ol><li>1</li></ol></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_script=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_37
+#data
+<html><body><ul><li>A</li></ul></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_metadata_tags=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_38
+#data
+<html><body><blockquote>Quote</blockquote></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_comments=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_39
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_doctype=true
+#expected
+<html><head></head><body></body></html>
+
+#test: mixed_hard_40
+#data
+<html><body><form><input></form></body></html>
+#params
+html.remove_flow_tags=true
+html.remove_interactive_tags=true
+html.remove_empty_tags=true
+#expected
+
+
+#test: interm_01_remove_flow_and_metadata
+#data
+<!DOCTYPE html><html><head><meta name="desc" content="x"><title>T</title></head><body><div>A</div><span>B</span></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: interm_02_preserve_flow_remove_script
+#data
+<html><head><script>evil()</script></head><body><div>Keep</div></body></html>
+#params
+html.remove_script=True
+html.remove_flow_tags=False
+#expected
+<html><head></head><body><div>Keep</div></body></html>
+
+#test: interm_03_remove_comments_and_doctype
+#data
+<!DOCTYPE html><html><!--C--><body>Hi</body></html>
+#params
+html.remove_comments=True
+html.remove_doctype=True
+#expected
+<html><head></head><body>Hi</body></html>
+
+#test: interm_04_preserve_comments_extract
+#data
+<!DOCTYPE html><!--Note--><html><body>Text</body></html>
+#params
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--Note-->Text
+
+#test: interm_05_remove_specifics_and_attrs
+#data
+<html><body><widget id="w1" data-test="x">X</widget><div class="c">D</div></body></html>
+#params
+html.remove_specific_tags=["widget"]
+html.remove_specific_attributes=["class"]
+#expected
+<html><head></head><body>X<div>D</div></body></html>
+
+#test: interm_06_remove_tags_and_contents_mix
+#data
+<html><body><ad>Ads</ad><p>Para</p></body></html>
+#params
+html.remove_tags_and_contents=ad
+html.remove_flow_tags=False
+#expected
+<html><head></head><body><p>Para</p></body></html>
+
+#test: interm_07_complex_nested_removals
+#data
+<!DOCTYPE html><html><head><meta name="a"><style>css</style></head><body><section><article><p>Keep</p></article></section></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_flow_tags=True
+html.remove_sectioning_tags=False
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: interm_08_flow_false_section_true
+#data
+<html><body><div>Div</div><article>Art <p>Para</p></article></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body><div>Div</div></body></html>
+
+#test: interm_09_phrasing_and_embedded
+#data
+<html><body><span>X<img src="i"/><em>Y</em></span></body></html>
+#params
+html.remove_phrasing_tags=True
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_10_interactive_false_embedded_true
+#data
+<html><body><button>Click</button><video>V</video></body></html>
+#params
+html.remove_interactive_tags=False
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body><button>Click</button></body></html>
+
+#test: interm_11_palpable_and_heading
+#data
+<html><body><h1>Title</h1><div>Content</div><em>Note</em></body></html>
+#params
+html.remove_palpable=True
+html.remove_heading_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_12_unwrap_and_content
+#data
+<html><body><wrapper><inner>X</inner></wrapper></body></html>
+#params
+html.remove_specific_tags=["wrapper"]
+html.remove_content_tags=inner
+#expected
+<html><head></head><body><inner></inner></body></html>
+
+#test: interm_13_attrs_and_empty
+#data
+<html><body><div empty=""><span> </span></div><p>Text</p></body></html>
+#params
+html.remove_specific_attributes=["empty"]
+html.remove_empty_tags=True
+#expected
+<html><body><p>Text</p></body></html>
+
+#test: interm_14_tags_and_contents_multiple
+#data
+<html><body><a>Link</a><b>Bold</b><c>See</c></body></html>
+#params
+html.remove_tags_and_contents=["a","c"]
+html.remove_flow_tags=False
+#expected
+<html><head></head><body><b>Bold</b></body></html>
+
+#test: interm_15_mixed_wildcard_specifics
+#data
+<html><body><x1>One</x1><xy>Two</xy><xz>Three</xz></body></html>
+#params
+html.remove_specific_tags=x?
+#expected
+<html><head></head><body>One Two Three</body></html>
+
+#test: interm_16_mixed_wildcard_content
+#data
+<html><body><tagA>A</tagA><tagB>B</tagB></body></html>
+#params
+html.remove_content_tags=tag?
+#expected
+<html><head></head><body><taga></taga><tagb></tagb></body></html>
+
+#test: interm_17_remove_doctype_and_comments
+#data
+<!DOCTYPE html><!--C--><html><body><!--D-->Body</body></html>
+#params
+html.remove_doctype=True
+html.remove_comments=True
+#expected
+<html><head></head><body>Body</body></html>
+
+#test: interm_18_preserve_phrasing_remove_flow
+#data
+<html><body><div><span>Keep</span></div></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_phrasing_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_19_section_content_and_embedded
+#data
+<html><body><section><audio>S</audio><p>P</p></section></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body><section><p>P</p></section></body></html>
+
+#test: interm_20_complex_attrs_wild
+#data
+<html><body><img src="i" data-id="1" alt="A"><img src="j" data-foo="2"></body></html>
+#params
+html.remove_specific_attributes=["data-*"]
+#expected
+<html><head></head><body><img src="i" alt="A"><img src="j"></body></html>
+
+#test: interm_21_nested_remove_tags_and_contents
+#data
+<html><body><outer><inner>Keep<sub>Sub</sub></inner></outer></body></html>
+#params
+html.remove_tags_and_contents=inner
+#expected
+<html><head></head><body><outer></outer></body></html>
+
+#test: interm_22_unwrap_and_remove_children
+#data
+<html><body><wrap><a>1</a><b>2</b></wrap></body></html>
+#params
+html.remove_specific_tags=wrap
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><b>2</b></body></html>
+
+#test: interm_23_remove_content_and_empty
+#data
+<html><body><box>XX</box><box></box></body></html>
+#params
+html.remove_content_tags=box
+html.remove_empty_tags=True
+#expected
+
+
+#test: interm_24_mixed_section_and_heading
+#data
+<html><body><nav><h2>Nav</h2><p>Para</p></nav></body></html>
+#params
+html.remove_sectioning_tags=True
+html.remove_heading_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_25_flow_embedded_interactive
+#data
+<html><body><div><img/><a>LINK</a><p>Text</p></div></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_embedded_tags=True
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div><p>Text</p></div></body></html>
+
+#test: interm_26_remove_specifics_recursive
+#data
+<html><body><f><f1>X</f1><f2>Y</f2></f></body></html>
+#params
+html.remove_specific_tags=f*
+#expected
+<html><head></head><body>X Y</body></html>
+
+#test: interm_27_content_and_doctype_false
+#data
+<!DOCTYPE html><html><body><c>Data</c></body></html>
+#params
+html.remove_content_tags=c
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><html><head></head><body><c></c></body></html>
+
+#test: interm_28_complex_combined_empty
+#data
+<html><body><a></a><b> <c></c> </b><d>Text</d></body></html>
+#params
+html.remove_empty_tags=True
+html.remove_specific_tags=["c"]
+#expected
+<html><body><d>Text</d></body></html>
+
+#test: interm_29_attrs_phrasing
+#data
+<html><body><span title="t">S</span><em data-x="1">E</em></body></html>
+#params
+html.remove_specific_attributes=["data-*"]
+html.remove_phrasing_tags=False
+#expected
+<html><head></head><body><span title="t">S</span><em>E</em></body></html>
+
+#test: interm_30_remove_tags_and_contents_and_content
+#data
+<html><body><x>A<x>Y</x></x><y>Z</y></body></html>
+#params
+html.remove_tags_and_contents=x
+html.remove_content_tags=y
+#expected
+<html><head></head><body><y></y></body></html>
+
+#test: interm_31_mixed_case_wildcards
+#data
+<html><body><Test1>1</Test1><test2>2</test2></body></html>
+#params
+html.remove_specific_tags=Test?
+#expected
+<html><head></head><body>1 2</body></html>
+
+#test: interm_32_complex_doctype_comments_extract
+#data
+<!DOCTYPE html><!--A--><html><body>Hi<!--B--></body></html>
+#params
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--A-->Hi<!--B-->
+
+#test: interm_33_preserve_sectioning_unwrap
+#data
+<html><body><section><div>X</div><section>Y</section></section></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_34_content_attrs_nested
+#data
+<html><body><c data-a="x">X<span>Y</span></c></body></html>
+#params
+html.remove_content_tags=c
+html.remove_specific_attributes=["data-*"]
+#expected
+<html><head></head><body><c></c></body></html>
+
+#test: interm_35_remove_palpable_and_embedded
+#data
+<html><body><article><img/><p>P</p><a>A</a></article></body></html>
+#params
+html.remove_palpable=True
+html.remove_embedded_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_36_remove_heading_and_phrasing
+#data
+<html><body><h3>H</h4><span>S</span></body></html>
+#params
+html.remove_heading_tags=True
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: interm_37_complex_wildcards_all
+#data
+<html><body><ab>A</ab><ac>C</ac><ad>D</ad></body></html>
+#params
+html.remove_specific_tags=a[bc]
+html.remove_content_tags=a[d]
+#expected
+<html><head></head><body>A C<ad></ad></body></html>
+
+#test: interm_38_unwrap_and_empty
+#data
+<html><body><u><v></v><w>X</w></u></body></html>
+#params
+html.remove_specific_tags=["u"]
+html.remove_empty_tags=True
+#expected
+<html><body><w>X</w></body></html>
+
+#test: interm_39_all_false_extract
+#data
+<!DOCTYPE html><!--C--><html><head><meta><title>T</title></head><body><div>D</div></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_metadata_tags=False
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--C--><meta><title>T</title><div>D</div>
+
+#test: interm_40_full_mix
+#data
+<!DOCTYPE html><!--C--><html><head><meta name="a"/><script>S</script></head><body><div><x>1</x><y id="b">2</y></div><!--D--></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_script=True
+html.remove_specific_attributes=["id"]
+html.remove_specific_tags=["x"]
+html.remove_comments=False
+html.remove_doctype=True
+#expected
+<!--C--><html><head></head><body><div>1<y>2</y></div><!--D--></body></html>
+
+
+#test: hard_01_deep_nesting_flow_false_sectioning_true
+#data
+<!DOCTYPE html><html><body><section><div><article><div>Keep</div></article></div></section></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: hard_02_phrasing_embedded_mixed
+#data
+<html><body><span><img src="i"/><em>X</em><code>Y</code></span></body></html>
+#params
+html.remove_phrasing_tags=True
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_03_interactive_false_embedded_true_phrasing_false
+#data
+<html><body><a href="#">L</a><button>B</button><video>V</video><i>I</i></body></html>
+#params
+html.remove_interactive_tags=False
+html.remove_embedded_tags=True
+html.remove_phrasing_tags=False
+#expected
+<html><head></head><body><a href="#">L</a><button>B</button><i>I</i></body></html>
+
+#test: hard_04_palpable_and_flow_conflict
+#data
+<html><body><article><aside>A</aside><div>D</div></article></body></html>
+#params
+html.remove_palpable=True
+html.remove_flow_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_05_remove_comments_doctype_extract
+#data
+<!DOCTYPE html><!--C1--><html><head><!--C2--></head><body><!--C3-->T<!--C4--></body></html>
+#params
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--C1--><!--C2--><!--C3-->T<!--C4-->
+
+#test: hard_06_remove_comments_true_content_false
+#data
+<!DOCTYPE html><!--X--><html><body><div>Text</div></body></html>
+#params
+html.remove_comments=True
+html.remove_flow_tags=False
+#expected
+<!DOCTYPE html><html><head></head><body><div>Text</div></body></html>
+
+#test: hard_07_wildcard_specifics_tags_glob
+#data
+<html><body><custom1>A</custom1><custom2>B</custom2><other>C</other></body></html>
+#params
+html.remove_specific_tags=custom*
+#expected
+<html><head></head><body>A B<other>C</other></body></html>
+
+#test: hard_08_wildcard_specifics_charclass
+#data
+<html><body><x1>1</x1><x2>2</x2><x3>3</x3></body></html>
+#params
+html.remove_specific_tags=x[13]
+#expected
+<html><head></head><body>1<x2>2</x2>3</body></html>
+
+#test: hard_09_remove_tags_and_contents_glob
+#data
+<html><body><ad>A</ad><ad1>B</ad1><ae>C</ae><p>P</p></body></html>
+#params
+html.remove_tags_and_contents=ad*
+#expected
+<html><head></head><body><ae>C</ae><p>P</p></body></html>
+
+#test: hard_10_remove_content_tags_glob
+#data
+<html><body><keep>A</keep><kill>B</kill><killall>C</killall></body></html>
+#params
+html.remove_content_tags=kill*
+#expected
+<html><head></head><body><keep>A</keep><kill></kill><killall></killall></body></html>
+
+#test: hard_11_attrs_wildcard_and_specifics
+#data
+<html><body><div data-x="1" data-y="2" foo="z">T</div></body></html>
+#params
+html.remove_specific_attributes=["data-*"]
+html.remove_specific_tags=foo
+#expected
+<html><head></head><body><div foo="z">T</div></body></html>
+
+#test: hard_12_empty_and_content
+#data
+<html><body><box></box><box> </box><box>X</box></body></html>
+#params
+html.remove_empty_tags=True
+html.remove_content_tags=box
+#expected
+
+
+#test: hard_13_tags_and_contents_and_unwrap
+#data
+<html><body><w><x>1</x><y>2</y></w></body></html>
+#params
+html.remove_tags_and_contents=w
+html.remove_specific_tags=y
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_14_nested_unwrap_multiple
+#data
+<html><body><a><b><c>Z</c></b></a></body></html>
+#params
+html.remove_specific_tags=["a","b"]
+#expected
+<html><head></head><body><c>Z</c></body></html>
+
+#test: hard_15_complex_mixed_keep_sectioning
+#data
+<html><body><section><div><p>A</p></div><article><p>B</p></article></section></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_sectioning_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_16_remove_phrasing_and_attrs
+#data
+<html><body><span id="s">S</span><em data-s="x">E</em></body></html>
+#params
+html.remove_phrasing_tags=True
+html.remove_specific_attributes=["data-*"]
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_17_keep_phrasing_remove_flow
+#data
+<html><body><div><span>X</span><p>Y</p></div></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_phrasing_tags=False
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_18_deep_remove_tags_and_contents
+#data
+<html><body><a><b><c><d>D</d></c></b></a><e>E</e></body></html>
+#params
+html.remove_tags_and_contents=["b","e"]
+#expected
+<html><head></head><body><a></a></body></html>
+
+#test: hard_19_mixed_extract_comments_doctype
+#data
+<!DOCTYPE html><!--A--><html><body><p>P</p><!--B--></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--A--><p>P</p><!--B-->
+
+#test: hard_20_attrs_and_empty_tags
+#data
+<html><body><n data-n=""><m> </m><o>O</o></body></html>
+#params
+html.remove_specific_attributes=["data-*"]
+html.remove_empty_tags=True
+#expected
+<html><body><n><o>O</o></n></body></html>
+
+#test: hard_21_complex_section_phrasing
+#data
+<html><body><section><span>S</span><article><i>I</i></article></section></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><section><article></article></section></body></html>
+
+#test: hard_22_embedded_and_interactive
+#data
+<html><body><iframe>F</iframe><audio>A</audio><button>B</button></body></html>
+#params
+html.remove_embedded_tags=True
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_23_palpable_false_flow_true
+#data
+<html><body><div><p>P</p><article>A</article></div></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_palpable=False
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_24_unwrap_content_and_attrs
+#data
+<html><body><wrap data-x="1"><inner>X<sub>Y</sub></inner></wrap></body></html>
+#params
+html.remove_specific_tags=wrap
+html.remove_content_tags=inner
+html.remove_specific_attributes=["data-*"]
+#expected
+<html><head></head><body><inner></inner></body></html>
+
+#test: hard_25_deep_wildcard_specifics
+#data
+<html><body><alpha1>A</alpha1><alpha2>B</alpha2><aleph>C</aleph></body></html>
+#params
+html.remove_specific_tags=alpha?
+#expected
+<html><head></head><body>A B<aleph>C</aleph></body></html>
+
+#test: hard_26_mixed_tags_and_contents_and_empty
+#data
+<html><body><x>X</x><y></y><z>Z</z></body></html>
+#params
+html.remove_tags_and_contents=["x","z"]
+html.remove_empty_tags=True
+#expected
+
+
+#test: hard_27_phrasing_false_embedded_false
+#data
+<html><body><i>I</i><img/><b>B</b></body></html>
+#params
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+#expected
+<i>I</i><img><b>B</b>
+
+#test: hard_28_palpable_and_interactive
+#data
+<html><body><p>P</p><a>A</a><div>D</div><label>L</label></body></html>
+#params
+html.remove_palpable=True
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_29_complex_nested_mixed
+#data
+<html><body><outer><keep><drop>D</drop><keep2>K</keep2></keep></outer></body></html>
+#params
+html.remove_specific_tags=["drop"]
+html.remove_tags_and_contents=keep2
+#expected
+<html><head></head><body><outer><keep>D</keep></outer></body></html>
+
+#test: hard_30_comments_doctype_and_flow
+#data
+<!DOCTYPE html><!--X--><html><body><div>D</div></body></html>
+#params
+html.remove_comments=False
+html.remove_doctype=False
+html.remove_flow_tags=True
+#expected
+<!DOCTYPE html><!--X--><html><head></head><body></body></html>
+
+#test: hard_31_remove_doctype
+#data
+<!DOCTYPE html><html><body>Hi</body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body>Hi</body></html>
+
+#test: hard_32_mixed_content_and_phrasing
+#data
+<html><body><c>C</c><code>X</code><p>P</p></body></html>
+#params
+html.remove_content_tags=["c","p"]
+html.remove_phrasing_tags=False
+#expected
+<html><head></head><body><c></c><code>X</code><p></p></body></html>
+
+#test: hard_33_wildcard_attrs_and_specifics
+#data
+<html><body><div data-a="1" data-b="2" extra="E">T</div><span>E</span></body></html>
+#params
+html.remove_specific_attributes=data-*
+html.remove_specific_tags=span
+#expected
+<html><head></head><body><div extra="E">T</div>E</body></html>
+
+#test: hard_34_deep_unwrap_and_empty
+#data
+<html><body><A><B><C></C></B></A><D>D</D></body></html>
+#params
+html.remove_specific_tags=["a","b"]
+html.remove_empty_tags=True
+#expected
+<html><body><d>D</d></body></html>
+
+#test: hard_35_embedded_false_palpable_true
+#data
+<html><body><canvas>C</canvas><p>P</p><article>A</article></body></html>
+#params
+html.remove_embedded_tags=False
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_36_sectioning_and_flow
+#data
+<html><body><section><div><p>P</p></div></section></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: hard_37_attrs_and_content_and_comments
+#data
+<!DOCTYPE html><!--X--><html><body><d data="v">V</d></body></html>
+#params
+html.remove_specific_attributes=["data"]
+html.remove_content_tags=d
+html.remove_comments=False
+html.remove_doctype=True
+#expected
+<!--X--><html><head></head><body><d></d></body></html>
+
+#test: hard_38_tags_and_contents_and_phrasing
+#data
+<html><body><t>T</t><span>S</span><p>P</p></body></html>
+#params
+html.remove_tags_and_contents=t
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: hard_39_complex_all_mix
+#data
+<!DOCTYPE html><!--A--><html><head><meta><script>S</script></head><body><div id="x"><a>A</a><img/><b>B</b></div><!--B--></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_script=True
+html.remove_specific_attributes=["id"]
+html.remove_flow_tags=False
+html.remove_interactive_tags=True
+html.remove_embedded_tags=True
+html.remove_comments=False
+html.remove_doctype=True
+#expected
+<!--A--><html><head></head><body><div><b>B</b></div><!--B--></body></html>
+
+#test: hard_40_empty_recursive_and_unwrap
+#data
+<html><body><u><v><w></w></v><x>X</x></u></body></html>
+#params
+html.remove_specific_tags=u
+html.remove_empty_tags=True
+#expected
+<html><body><x>X</x></body></html>
+
+
+#test: simple_01_preserve_p
+#data
+<html><body><p>Hello</p></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<p>Hello</p>
+
+#test: simple_02_preserve_div
+#data
+<html><body><div>Div</div></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<div>Div</div>
+
+#test: simple_03_preserve_article
+#data
+<html><body><article>Art</article></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<article>Art</article>
+
+#test: simple_04_preserve_header
+#data
+<html><body><header>H</header></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<header>H</header>
+
+#test: simple_05_preserve_h1
+#data
+<html><body><h1>Title</h1></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<h1>Title</h1>
+
+#test: simple_06_preserve_h2
+#data
+<html><body><h2>Sub</h2></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<h2>Sub</h2>
+
+#test: simple_07_preserve_i
+#data
+<html><body><i>Italic</i></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<i>Italic</i>
+
+#test: simple_08_preserve_b
+#data
+<html><body><b>Bold</b></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<b>Bold</b>
+
+#test: simple_09_preserve_code
+#data
+<html><body><code>X</code></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<code>X</code>
+
+#test: simple_10_preserve_img_and_text
+#data
+<html><body><img src="i"/>Text</body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<img src="i">Text
+
+#test: simple_11_preserve_link
+#data
+<html><body><a href="#">Link</a></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<a href="#">Link</a>
+
+#test: simple_12_preserve_span_em
+#data
+<html><body><span><em>E</em></span></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<span><em>E</em></span>
+
+#test: simple_13_preserve_section
+#data
+<html><body><section>S</section></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<section>S</section>
+
+#test: simple_14_preserve_aside
+#data
+<html><body><aside>A</aside></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<aside>A</aside>
+
+#test: simple_15_preserve_hgroup
+#data
+<html><body><hgroup>G</hgroup></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<hgroup>G</hgroup>
+
+#test: simple_16_preserve_footer
+#data
+<html><body><footer>F</footer></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<footer>F</footer>
+
+#test: simple_17_preserve_pre
+#data
+<html><body><pre>Pre</pre></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<pre>Pre</pre>
+
+#test: simple_18_preserve_ul_li
+#data
+<html><body><ul><li>L1</li></ul></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<ul><li>L1</li></ul>
+
+#test: simple_19_preserve_ol_li
+#data
+<html><body><ol><li>L2</li></ol></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<ol><li>L2</li></ol>
+
+#test: simple_20_preserve_nav
+#data
+<html><body><nav>N</nav></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<nav>N</nav>
+
+#test: simple_21_preserve_math
+#data
+<html><body><math>M</math></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<math>M</math>
+
+#test: simple_22_preserve_svg_path
+#data
+<html><body><svg><path/></svg></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<svg><path></path></svg>
+
+#test: simple_23_preserve_canvas
+#data
+<html><body><canvas>C</canvas></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<canvas>C</canvas>
+
+#test: simple_24_preserve_form
+#data
+<html><body><form>F</form></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<form>F</form>
+
+#test: simple_25_preserve_input
+#data
+<html><body><input type="text" value="v"/></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<input type="text" value="v">
+
+#test: simple_26_preserve_textarea
+#data
+<html><body><textarea>T</textarea></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<textarea>T</textarea>
+
+#test: simple_27_preserve_select_option
+#data
+<html><body><select><option>O</option></select></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<select><option>O</option></select>
+
+#test: simple_28_preserve_details
+#data
+<html><body><details>D</details></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<details>D</details>
+
+#test: simple_29_preserve_label
+#data
+<html><body><label>L</label></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<label>L</label>
+
+#test: simple_30_preserve_comment_and_text
+#data
+<html><body><!--C-->X</body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+html.remove_comments=False
+#expected
+<!--C-->X
+
+#test: simple_31_preserve_empty_comment
+#data
+<html><head><!----></head><body>Y</body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+html.remove_comments=False
+#expected
+<!---->Y
+
+#test: simple_32_preserve_meta
+#data
+<html><head><meta charset="utf-8"/></head><body></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<meta charset="utf-8">
+
+#test: simple_33_preserve_link
+#data
+<html><head><link rel="stylesheet"/></head><body></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<link rel="stylesheet">
+
+#test: simple_34_ignore_doctype
+#data
+<!DOCTYPE html><html><body><p>Doc</p></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<p>Doc</p>
+
+#test: simple_35_preserve_script_and_p
+#data
+<html><body><script>JS</script><p>P</p></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<script>JS</script><p>P</p>
+
+#test: simple_36_preserve_style_and_div
+#data
+<html><body><style>CSS</style><div>D</div></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<style>CSS</style><div>D</div>
+
+#test: simple_37_preserve_nested_span
+#data
+<html><body><a><span>S</span></a></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<a><span>S</span></a>
+
+#test: simple_38_preserve_section_and_header
+#data
+<html><body><section><header>H</header></section></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<section><header>H</header></section>
+
+#test: simple_39_preserve_footer_and_article
+#data
+<html><body><footer>F</footer><article>A</article></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<footer>F</footer><article>A</article>
+
+#test: simple_40_preserve_article_section
+#data
+<html><body><article><p>1</p><section>2</section></article></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+html.remove_palpable=False
+html.remove_metadata_tags=False
+html.remove_script=False
+#expected
+<article><p>1</p><section>2</section></article>
+
+
+#test: intermediate_01_remove_script_and_metadata
+#data
+<!DOCTYPE html><html><head><title>Doc</title><meta charset="utf-8"/><script>JS</script></head><body><p>Hello</p></body></html>
+#params
+html.remove_script=True
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body><p>Hello</p></body></html>
+
+#test: intermediate_02_remove_flow
+#data
+<html><body>Start<div>Middle</div>End</body></html>
+#params
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Start End</body></html>
+
+#test: intermediate_03_remove_sectioning
+#data
+<html><body><section><header>H</header><article>A</article><p>P</p></section></body></html>
+#params
+html.remove_sectioning_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_04_remove_heading
+#data
+<html><body><h1>H1</h1><h2>H2</h2></body></html>
+#params
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_05_remove_phrasing
+#data
+<html><body><b>Bold</b> and <i>Ital</i> and <span>Span</span></body></html>
+#params
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body> and  and </body></html>
+
+#test: intermediate_06_remove_embedded
+#data
+<html><body><img src="i"/><embed src="e"/>Text</body></html>
+#params
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body>Text</body></html>
+
+#test: intermediate_07_remove_interactive
+#data
+<html><body><a href="#">Link</a><button>Btn</button><p>P</p></body></html>
+#params
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: intermediate_08_remove_palpable
+#data
+<html><body><div><p>Text</p><span>More</span></div></body></html>
+#params
+html.remove_palpable=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_09_remove_comments
+#data
+<html><body><!--C-->X</body></html>
+#params
+html.remove_comments=True
+#expected
+<html><head></head><body>X</body></html>
+
+#test: intermediate_10_remove_doctype
+#data
+<!DOCTYPE html><html><body><p>Doc</p></body></html>
+#params
+html.remove_doctype=True
+#expected
+<html><head></head><body><p>Doc</p></body></html>
+
+#test: intermediate_11_remove_specific_tags
+#data
+<html><body><div><custom>X</custom><other>Y</other></div></body></html>
+#params
+html.remove_specific_tags=["custom"]
+#expected
+<html><head></head><body><div>X<other>Y</other></div></body></html>
+
+#test: intermediate_12_remove_specifics_wildcard
+#data
+<html><body><span><tagA>A</tagA><tagB>B</tagB></span></body></html>
+#params
+html.remove_specific_tags=["tag?"]
+#expected
+<html><head></head><body><span>A B</span></body></html>
+
+#test: intermediate_13_remove_tags_and_contents
+#data
+<html><body><div>Keep<remove>X</remove>End</div></body></html>
+#params
+html.remove_tags_and_contents=remove
+#expected
+<html><head></head><body><div>Keep End</div></body></html>
+
+#test: intermediate_14_remove_tags_and_contents_list
+#data
+<html><body><div>1<r>R</r>2<o>O</o>3</div></body></html>
+#params
+html.remove_tags_and_contents=["r","o"]
+#expected
+<html><head></head><body><div>1 2 3</div></body></html>
+
+#test: intermediate_15_remove_content_tags
+#data
+<html><body><custom>C</custom><other>O</other></body></html>
+#params
+html.remove_content_tags=["custom"]
+#expected
+<html><head></head><body><custom></custom><other>O</other></body></html>
+
+#test: intermediate_16_remove_content_wildcard
+#data
+<html><body><x1>a</x1><x2>b</x2></body></html>
+#params
+html.remove_content_tags=x?
+#expected
+<html><head></head><body><x1></x1><x2></x2></body></html>
+
+#test: intermediate_17_remove_specific_attributes
+#data
+<html><body><img src="1" alt="a"/><a href="#">L</a></body></html>
+#params
+html.remove_specific_attributes=["src","href"]
+#expected
+<html><head></head><body><img alt="a"><a>L</a></body></html>
+
+#test: intermediate_18_remove_specific_attributes_wildcard
+#data
+<html><body><tag data-one="1" data-two="2" keep="k"/></body></html>
+#params
+html.remove_specific_attributes=data-*
+#expected
+<html><head></head><body><tag keep="k"></tag></body></html>
+
+#test: intermediate_19_remove_empty_tags_true
+#data
+<html><body><div><empty></empty><p>P</p></div></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><div><p>P</p></div></body></html>
+
+#test: intermediate_20_remove_empty_tags_recursive
+#data
+<html><body><a><b><c></c></b><p>P</p></a></body></html>
+#params
+html.remove_empty_tags=True
+#expected
+<html><body><a><p>P</p></a></body></html>
+
+#test: intermediate_21_mixed_remove_flow_and_specifics
+#data
+<html><body>F<flow>W</flow><keep>K<spec>S</spec></keep></body></html>
+#params
+html.remove_flow_tags=True
+html.remove_specific_tags=spec
+#expected
+<html><head></head><body>F<flow>W</flow><keep>K S</keep></body></html>
+
+#test: intermediate_22_mixed_remove_phrasing_and_embedded
+#data
+<html><body><b>B</b><img src="i"/><i>I</i><p>P</p></body></html>
+#params
+html.remove_phrasing_tags=True
+html.remove_embedded_tags=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: intermediate_23_mixed_preserve_pal_comment_doctype
+#data
+<!DOCTYPE html><!--C--><html><body><div>Text<!--C2--></div></body></html>
+#params
+html.remove_palpable=False
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--C--><div>Text<!--C2--></div>
+
+#test: intermediate_24_mixed_flow_false_interactive_true
+#data
+<html><body><a>A</a><div>D</div></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><div>D</div></body></html>
+
+#test: intermediate_25_mixed_specifics_and_empty
+#data
+<html><body><x><y>Y</y><z>Z</z></x></body></html>
+#params
+html.remove_specific_tags=["y"]
+html.remove_empty_tags=False
+#expected
+<html><head></head><body><x>Y<z>Z</z></x></body></html>
+
+#test: intermediate_26_mixed_tags_contents_and_attrs
+#data
+<html><body><tag a="1" b="2"><r>R</r>Text</tag></body></html>
+#params
+html.remove_tags_and_contents=r
+html.remove_specific_attributes=["b"]
+#expected
+<html><head></head><body><tag a="1">Text</tag></body></html>
+
+#test: intermediate_27_mixed_content_and_specifics
+#data
+<html><body><c1>Data1</c1><c2>Data2</c2></body></html>
+#params
+html.remove_content_tags=["c1"]
+html.remove_specific_tags=c2
+#expected
+<html><head></head><body><c1></c1>Data2</body></html>
+
+#test: intermediate_28_mixed_all_sectioning_phrasing
+#data
+<html><body><section><h1>H</h1><p>P</p><span>S</span></section></body></html>
+#params
+html.remove_sectioning_tags=True
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_29_mixed_embedded_interactive
+#data
+<html><body><video>V</video><audio>A</audio><button>B</button></body></html>
+#params
+html.remove_embedded_tags=True
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_30_mixed_heading_and_flow
+#data
+<html><body><h1>T</h1><div>D</div></body></html>
+#params
+html.remove_heading_tags=True
+html.remove_flow_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_31_mixed_heading_phrasing
+#data
+<html><body><h2>H2</h2><em>E</em><strong>S</strong></body></html>
+#params
+html.remove_heading_tags=True
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: intermediate_32_mixed_metadata_script
+#data
+<html><head><meta name="x"/><script>J</script></head><body><p>P</p></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_script=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: intermediate_33_mixed_doctype_presence
+#data
+<!DOCTYPE html><html><head><title>Doc</title></head><body><p>P</p></body></html>
+#params
+html.remove_doctype=False
+html.remove_metadata_tags=True
+#expected
+<!DOCTYPE html><html><head></head><body><p>P</p></body></html>
+
+#test: intermediate_34_mixed_doctype_and_comments
+#data
+<!DOCTYPE html><!--C--><html><head></head><body>X</body></html>
+#params
+html.remove_doctype=False
+html.remove_comments=True
+#expected
+<!DOCTYPE html><html><head></head><body>X</body></html>
+
+#test: intermediate_35_mixed_all_false_simple
+#data
+<html><body><div>D</div><!--C--><p>P</p></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_comments=False
+#expected
+<div>D</div><!--C--><p>P</p>
+
+#test: intermediate_36_mixed_specifics_tags_and_attrs
+#data
+<html><body><tag1 a1="v1">T1</tag1><tag2 a2="v2">T2</tag2></body></html>
+#params
+html.remove_specific_tags=["tag1"]
+html.remove_specific_attributes=["a2"]
+#expected
+<html><head></head><body>T1<tag2>T2</tag2></body></html>
+
+#test: intermediate_37_mixed_tags_contents_and_flow
+#data
+<html><body>1<rem>R</rem>2<div>D</div>3</body></html>
+#params
+html.remove_tags_and_contents=rem
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>1 2 3</body></html>
+
+#test: intermediate_38_mixed_content_and_empty
+#data
+<html><body><a>1</a><b></b><c>3</c></body></html>
+#params
+html.remove_content_tags=["a"]
+html.remove_empty_tags=True
+#expected
+<html><body><c>3</c></body></html>
+
+#test: intermediate_39_mixed_specifics_wildcards
+#data
+<html><body><xA>1</xA><xB>2</xB><y>Y</y></body></html>
+#params
+html.remove_specific_tags=["x?"]
+#expected
+<html><head></head><body>1 2<y>Y</y></body></html>
+
+#test: intermediate_40_mixed_complex
+#data
+<!DOCTYPE html><html><head><meta/><script>J</script><title>T</title></head><body><!--C--><div><p>P</p><img src="i"/></div><custom>C<inner>I</inner></custom></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_script=True
+html.remove_comments=True
+html.remove_embedded_tags=True
+html.remove_specific_tags=["inner"]
+#expected
+<!DOCTYPE html><html><head></head><body><div><p>P</p></div><custom>C I</custom></body></html>
+
+
+#test: difficult_01_nested_wildcard_specifics
+#data
+<html><body><a><c1>1</c1><c2><d>2</d></c2><e>3</e></a></body></html>
+#params
+html.remove_specific_tags=["c*"]
+#expected
+<html><head></head><body><a>1<d>2</d><e>3</e></a></body></html>
+
+#test: difficult_02_remove_tags_contents_and_flow
+#data
+<html><body>Pre<skip>X<inner>Y</inner>Z</skip><div>D</div>Post</body></html>
+#params
+html.remove_tags_and_contents=skip
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>Pre Post</body></html>
+
+#test: difficult_03_content_and_specifics_and_empty
+#data
+<html><body><w>W</w><x><y>Y</y><z>Z</z></x><u></u></body></html>
+#params
+html.remove_content_tags=["x"]
+html.remove_specific_tags=["y"]
+html.remove_empty_tags=True
+#expected
+<html><body><w>W</w></body></html>
+
+#test: difficult_04_all_true_composite
+#data
+<!DOCTYPE html><html><head><meta/><script>S</script><style>ST</style></head><body><section><h1>H</h1><p>P<img/></p><!--C--></section></body></html>
+#params
+html.remove_metadata_tags=True
+html.remove_script=True
+html.remove_flow_tags=True
+html.remove_sectioning_tags=True
+html.remove_heading_tags=True
+html.remove_embedded_tags=True
+html.remove_comments=True
+#expected
+<!DOCTYPE html><html><head></head><body></body></html>
+
+#test: difficult_05_preserve_false_many
+#data
+<!DOCTYPE html><!--C--><html><head><meta/><script>S</script></head><body><div>D</div><span>S</span></body></html>
+#params
+html.remove_metadata_tags=False
+html.remove_script=False
+html.remove_comments=False
+html.remove_flow_tags=False
+#expected
+<!--C--><meta><script>S</script><div>D</div><span>S</span>
+
+#test: difficult_06_wildcard_attrs_complex
+#data
+<html><body><tag dataOne="1" dataTwo="2" aria-label="L" keep="K"/></body></html>
+#params
+html.remove_specific_attributes=["data*","aria?label"]
+#expected
+<html><head></head><body><tag keep="K"></tag></body></html>
+
+#test: difficult_07_recursive_empty_after_content
+#data
+<html><body><a><b><c></c></b><d>1</d></a></body></html>
+#params
+html.remove_content_tags=["d"]
+html.remove_empty_tags=True
+#expected
+
+
+#test: difficult_08_complex_preserve
+#data
+<!DOCTYPE html><!--Top--><html><head><meta/><title>T</title></head><body><!--B1--><div><p>P</p><!--B2--></div></body></html>
+#params
+html.remove_doctype=False
+html.remove_comments=False
+html.remove_metadata_tags=True
+html.remove_specific_tags=["title"]
+#expected
+<!DOCTYPE html><!--Top--><html><head></head><body><!--B1--><div><p>P</p><!--B2--></div></body></html>
+
+#test: difficult_09_mixed_tags_contents_and_attrs
+#data
+<html><body><outer a="1" b="2"><inner>C</inner><r>R</r>Text</outer></body></html>
+#params
+html.remove_tags_and_contents=["r"]
+html.remove_specific_attributes=b
+#expected
+<html><head></head><body><outer a="1"><inner>C</inner>Text</outer></body></html>
+
+#test: difficult_10_multiple_wildcards
+#data
+<html><body><x01>A</x01><x02>B</x02><yA>C</yA><yB>D</yB></body></html>
+#params
+html.remove_specific_tags=["x*","*yB"]
+#expected
+<html><head></head><body>A B<ya>C</ya>D</body></html>
+
+#test: difficult_11_complex_sectioning_and_phrasing
+#data
+<html><body><section><h1>H</h1><span>S</span><footer>F</footer></section></body></html>
+#params
+html.remove_sectioning_tags=True
+html.remove_phrasing_tags=True
+html.remove_heading_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: difficult_12_embedded_interactive_remove
+#data
+<html><body><video>V</video><audio>A</audio><iframe>I</iframe><button>B</button><p>P</p></body></html>
+#params
+html.remove_embedded_tags=True
+html.remove_interactive_tags=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: difficult_13_content_and_tags_and_empty
+#data
+<html><body><a1>1</a1><a2>2</a2><b><c>C</c></b></body></html>
+#params
+html.remove_content_tags=["a*"]
+html.remove_tags_and_contents=c
+html.remove_empty_tags=True
+#expected
+
+
+#test: difficult_14_doctype_and_preserve
+#data
+<!DOCTYPE html><html><head><meta/><script>S</script></head><body><p>P</p></body></html>
+#params
+html.remove_doctype=True
+html.remove_metadata_tags=False
+#expected
+<html><head><meta><script>S</script></head><body><p>P</p></body></html>
+
+#test: difficult_15_wildcard_and_flow
+#data
+<html><body>1<div1>X</div1><div2>Y</div2>2</body></html>
+#params
+html.remove_flow_tags=True
+html.remove_specific_tags=div?
+#expected
+<html><head></head><body>1 X Y 2</body></html>
+
+#test: difficult_16_mixed_false_extract
+#data
+<!DOCTYPE html><!--C--><html><head><meta/><title>T</title></head><body><p>P</p></body></html>
+#params
+html.remove_doctype=False
+html.remove_comments=False
+html.remove_metadata_tags=False
+html.remove_flow_tags=False
+#expected
+<!DOCTYPE html><!--C--><meta><title>T</title><p>P</p>
+
+#test: difficult_17_remove_content_preserve_flow
+#data
+<html><body><div><c>1</c><d>2</d></div></body></html>
+#params
+html.remove_content_tags=["c"]
+html.remove_flow_tags=False
+#expected
+<html><head></head><body><div><c></c><d>2</d></div></body></html>
+
+#test: difficult_18_remove_tags_contents_and_comments
+#data
+<html><body><!--X--><tag>1<rm>R</rm>2</tag></body></html>
+#params
+html.remove_tags_and_contents=rm
+html.remove_comments=True
+#expected
+<html><head></head><body><tag>1 2</tag></body></html>
+
+#test: difficult_19_complex_attrs_and_content
+#data
+<html><body><t a1="1" data-x="X"><c>V</c></t></body></html>
+#params
+html.remove_content_tags=c
+html.remove_specific_attributes=["a1","data-*"]
+#expected
+<html><head></head><body><t><c></c></t></body></html>
+
+#test: difficult_20_deeply_nested_all
+#data
+<html><body><a><b><c><d>D</d></c></b><e>E</e></a></body></html>
+#params
+html.remove_content_tags=["e"]
+html.remove_specific_tags=["d"]
+html.remove_empty_tags=True
+#expected
+<html><body><a><b><c>D</c></b></a></body></html>
+
+#test: difficult_21_wildcard_complex_attrs
+#data
+<html><body><img src="s" srcset="ss" sizes="sz" keep="k"/></body></html>
+#params
+html.remove_specific_attributes=["s*"]
+#expected
+<html><head></head><body><img keep="k"></body></html>
+
+#test: difficult_22_mixed_sectioning_and_specifics
+#data
+<html><body><nav><section><sec1>1</sec1><sec2>2</sec2></section></nav></body></html>
+#params
+html.remove_sectioning_tags=True
+html.remove_specific_tags=["sec?"]
+#expected
+<html><head></head><body></body></html>
+
+#test: difficult_23_embedded_phrasing_and_empty
+#data
+<html><body><img/><b>B</b><span></span></body></html>
+#params
+html.remove_embedded_tags=True
+html.remove_phrasing_tags=True
+html.remove_empty_tags=True
+#expected
+
+
+#test: difficult_24_remove_doctype_and_tags_contents
+#data
+<!DOCTYPE html><html><body><x>1<y>2</y>3</x></body></html>
+#params
+html.remove_doctype=True
+html.remove_tags_and_contents=y
+#expected
+<html><head></head><body><x>1 3</x></body></html>
+
+#test: difficult_25_mixed_false_and_true
+#data
+<html><body><div>D</div><!--C--><p>P</p><img/></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body><div>D</div><!--C--><p>P</p></body></html>
+
+#test: difficult_26_complex_unwrap_and_empty
+#data
+<html><body><w><u><v>V</v></u></w><x></x></body></html>
+#params
+html.remove_specific_tags=["u"]
+html.remove_empty_tags=True
+#expected
+<html><body><w><v>V</v></w></body></html>
+
+#test: difficult_27_tags_and_contents_and_attrs
+#data
+<html><body><a tag="A"><b attr="B">T</b>C<d>D</d></a></body></html>
+#params
+html.remove_tags_and_contents=["b"]
+html.remove_specific_attributes="a*"
+#expected
+<html><head></head><body><a tag="A">C<d>D</d></a></body></html>
+
+#test: difficult_28_deep_phrasing_and_sectioning
+#data
+<html><body><section><span><em>E</em></span></section></body></html>
+#params
+html.remove_sectioning_tags=True
+html.remove_phrasing_tags=True
+#expected
+<html><head></head><body></body></html>
+
+#test: difficult_29_remove_interactive_and_empty
+#data
+<html><body><a>A</a><b></b><button>B</button></body></html>
+#params
+html.remove_interactive_tags=True
+html.remove_empty_tags=True
+#expected
+
+
+#test: difficult_30_mixed_complex_wildcards
+#data
+<html><body><t1>1</t1><t2>2</t2><tx>3</tx></body></html>
+#params
+html.remove_specific_tags=["t[12]","t?"]
+#expected
+<html><head></head><body>1 2 3</body></html>
+
+#test: difficult_31_content_and_remove_all
+#data
+<html><body><c1>C1</c1><c2>C2</c2><c3>C3</c3></body></html>
+#params
+html.remove_content_tags=["c*"]
+html.remove_flow_tags=True
+#expected
+<html><head></head><body><c1></c1><c2></c2><c3></c3></body></html>
+
+#test: difficult_32_tags_and_contents_and_flow
+#data
+<html><body>1<rem1>R1</rem1>2<rem2>R2</rem2>3<div>D</div>4</body></html>
+#params
+html.remove_tags_and_contents=["rem*"]
+html.remove_flow_tags=True
+#expected
+<html><head></head><body>1 2 3 4</body></html>
+
+#test: difficult_33_deep_remove_doctype_comments
+#data
+<!DOCTYPE html><!--Top--><html><body><!--Inner--><p>P</p></body></html>
+#params
+html.remove_doctype=True
+html.remove_comments=True
+#expected
+<html><head></head><body><p>P</p></body></html>
+
+#test: difficult_34_attrs_and_empty_and_specifics
+#data
+<html><body><a x="1" y=""><b></b></a></body></html>
+#params
+html.remove_specific_attributes=["y"]
+html.remove_empty_tags=True
+#expected
+
+
+#test: difficult_35_complex_unwrap_and_attrs
+#data
+<html><body><outer><inner attr="v">V</inner></outer></body></html>
+#params
+html.remove_specific_tags="inner"
+html.remove_specific_attributes="attr"
+#expected
+<html><head></head><body><outer><inner attr="v">V</inner></outer></body></html>
+
+#test: difficult_36_mixed_false_extract_complex
+#data
+<!DOCTYPE html><!--C--><html><head><meta/><script>S</script></head><body><div><p>P</p></div></body></html>
+#params
+html.remove_doctype=False
+html.remove_comments=False
+html.remove_metadata_tags=False
+html.remove_script=False
+html.remove_flow_tags=False
+#expected
+<!DOCTYPE html><!--C--><meta><script>S</script><div><p>P</p></div>
+
+#test: difficult_37_recursive_specifics_and_empty
+#data
+<html><body><a><b><c><d>D</d></c></b></a></body></html>
+#params
+html.remove_specific_tags=["c"]
+html.remove_empty_tags=True
+#expected
+<html><body><a><b><d>D</d></b></a></body></html>
+
+#test: difficult_38_wildcard_attrs_and_tags
+#data
+<html><body><t attr-one="1" attr-two="2"><rem>A</rem></t></body></html>
+#params
+html.remove_specific_attributes=["attr-*"]
+html.remove_tags_and_contents="rem"
+#expected
+<html><head></head><body><t><rem>A</rem></t></body></html>
+
+#test: difficult_39_deep_embedded_and_content
+#data
+<html><body><div><canvas>C</canvas><img/>X</div></body></html>
+#params
+html.remove_embedded_tags=True
+html.remove_content_tags=["div"]
+#expected
+<html><head></head><body><div></div></body></html>
+
+#test: difficult_40_all_off_extract_complex
+#data
+<!DOCTYPE html><!--C--><html><head><meta/><script>S</script><style>ST</style></head><body><section><h1>H</h1><p>P</p></section><img/></body></html>
+#params
+html.remove_script=False
+html.remove_metadata_tags=False
+html.remove_flow_tags=False
+html.remove_embedded_tags=False
+html.remove_phrasing_tags=False
+html.remove_comments=False
+#expected
+<!--C--><meta><script>S</script><style>ST</style><section><h1>H</h1><p>P</p></section><img>
+
+#test: false_01_preserve_flow
+#data
+<html><body>Hello <div>World</div>!</body></html>
+#params
+html.remove_flow_tags=False
+#expected
+Hello <div>World</div>!
+
+#test: false_02_preserve_script
+#data
+<html><head><script>js()</script></head><body>Body</body></html>
+#params
+html.remove_script=False
+#expected
+<script>js()</script>Body
+
+#test: false_03_preserve_metadata
+#data
+<html><head><meta name="x" content="y"/><title>T</title></head><body/></html>
+#params
+html.remove_metadata_tags=False
+#expected
+<meta name="x" content="y"><title>T</title>
+
+#test: false_04_preserve_sectioning
+#data
+<html><body><section>Sec <p>P</p> End</section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section>Sec P End</section>
+
+#test: false_05_preserve_heading
+#data
+<html><body><h1>H1</h1> and <h2>H2</h2></body></html>
+#params
+html.remove_heading_tags=False
+#expected
+<h1>H1</h1> and <h2>H2</h2>
+
+#test: false_06_preserve_phrasing
+#data
+<html><body>Text <span>S</span> more <em>E</em>.</body></html>
+#params
+html.remove_phrasing_tags=False
+#expected
+Text <span>S</span> more <em>E</em>.
+
+#test: false_07_preserve_embedded
+#data
+<html><body><img src="x"/><video>V</video> done</body></html>
+#params
+html.remove_embedded_tags=False
+#expected
+<img src="x"><video>V</video> done
+
+#test: false_08_preserve_interactive
+#data
+<html><body><button>B</button> and <input value="i"/></body></html>
+#params
+html.remove_interactive_tags=False
+#expected
+<button>B</button> and <input value="i">
+
+#test: false_09_preserve_palpable
+#data
+<html><body><article>A<aside>S</aside></article></body></html>
+#params
+html.remove_palpable=False
+#expected
+<article>A<aside>S</aside></article>
+
+#test: false_10_preserve_comments_and_doctype
+#data
+<!DOCTYPE html><!--C--><html><body>Hi</body></html>
+#params
+html.remove_comments=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><!--C-->Hi
+
+#test: false_11_flow_and_heading
+#data
+<html><body><div>Flow</div> and <h3>Head</h3></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_heading_tags=False
+#expected
+<div>Flow</div> and <h3>Head</h3>
+
+#test: false_12_flow_and_phrasing
+#data
+<html><body><span>In</span> <div>Flow</div> <em>Em</em></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_phrasing_tags=False
+#expected
+<span>In</span><div>Flow</div><em>Em</em>
+
+#test: false_13_sectioning_and_embedded
+#data
+<html><body><section>S<img src="i"/></section></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_embedded_tags=False
+#expected
+<section>S<img src="i"></section>
+
+#test: false_14_heading_and_interactive
+#data
+<html><body><h4>H</h4><button>Go</button></body></html>
+#params
+html.remove_heading_tags=False
+html.remove_interactive_tags=False
+#expected
+<h4>H</h4><button>Go</button>
+
+#test: false_15_phrasing_and_palpable
+#data
+<html><body><p>P<em>E</em></p></body></html>
+#params
+html.remove_phrasing_tags=False
+html.remove_palpable=False
+#expected
+<p>P<em>E</em></p>
+
+#test: false_16_embedded_and_metadata
+#data
+<html><head><link/><meta/><script/></head><body><img/></body></html>
+#params
+html.remove_embedded_tags=False
+html.remove_metadata_tags=False
+#expected
+<link><meta><script></head><body><img/></body></html></script>
+
+#test: false_17_interactive_and_script
+#data
+<html><body><script>S</script><input/><a>Link</a></body></html>
+#params
+html.remove_interactive_tags=False
+html.remove_script=False
+#expected
+<script>S</script><input><a>Link</a>
+
+#test: false_18_palpable_and_flow
+#data
+<html><body><article>A<div>D</div></article></body></html>
+#params
+html.remove_palpable=False
+html.remove_flow_tags=False
+#expected
+<article>A<div>D</div></article>
+
+#test: false_19_preserve_comments_only
+#data
+<html><!--X--><body>Y</body></html>
+#params
+html.remove_comments=False
+#expected
+<!--X-->Y
+
+#test: false_20_preserve_doctype_only
+#data
+<!DOCTYPE html><html><body>Z</body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Z
+
+#test: false_21_flow_phrasing_embedded
+#data
+<html><body><span>S</span><div>D</div><img/></body></html>
+#params
+html.remove_flow_tags=False
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+#expected
+<span>S</span><div>D</div><img>
+
+#test: false_22_metadata_sectioning_script
+#data
+<!DOCTYPE html><html><head><meta/></head><body><section>S<script/></section></body></html>
+#params
+html.remove_metadata_tags=False
+html.remove_sectioning_tags=False
+html.remove_script=False
+#expected
+<meta><section>S<script></section></body></html></script></section>
+
+#test: false_23_heading_interactive_comments
+#data
+<html><!--C--><body><h2>H</h2><button>B</button></body></html>
+#params
+html.remove_heading_tags=False
+html.remove_interactive_tags=False
+html.remove_comments=False
+#expected
+<!--C--><h2>H</h2><button>B</button>
+
+#test: false_24_palpable_doctype_flow
+#data
+<!DOCTYPE html><html><body><article>A<div>D</div></article></body></html>
+#params
+html.remove_palpable=False
+html.remove_doctype=False
+html.remove_flow_tags=False
+#expected
+<!DOCTYPE html><article>A<div>D</div></article>
+
+#test: false_25_nested_flow
+#data
+<html><body><div><div>Inner</div></div></body></html>
+#params
+html.remove_flow_tags=False
+#expected
+<div><div>Inner</div></div>
+
+#test: false_26_nested_sectioning
+#data
+<html><body><section><section>Deep</section></section></body></html>
+#params
+html.remove_sectioning_tags=False
+#expected
+<section><section>Deep</section></section>
+
+#test: false_27_mixed_img_span_a
+#data
+<html><body><img/><span>S</span><a>Link</a></body></html>
+#params
+html.remove_embedded_tags=False
+html.remove_phrasing_tags=False
+html.remove_interactive_tags=False
+#expected
+<img><span>S</span><a>Link</a>
+
+#test: false_28_headings_and_sections
+#data
+<html><body><h3>H</h3><section>S</section><p>P</p></body></html>
+#params
+html.remove_heading_tags=False
+html.remove_sectioning_tags=False
+#expected
+<h3>H</h3><section>S</section>P
+
+#test: false_29_comments_and_flow
+#data
+<html><!--Cm--><body><div>D</div></body></html>
+#params
+html.remove_comments=False
+html.remove_flow_tags=False
+#expected
+<!--Cm--><div>D</div>
+
+#test: false_30_doctype_and_metadata
+#data
+<!DOCTYPE html><html><head><meta m="v"/></head><body/></html>
+#params
+html.remove_doctype=False
+html.remove_metadata_tags=False
+#expected
+<!DOCTYPE html><meta m="v">
+
+#test: false_31_script_and_comments
+#data
+<html><!--C--><body><script>foo()</script><p>P</p></body></html>
+#params
+html.remove_script=False
+html.remove_comments=False
+#expected
+<!--C--><script>foo()</script>P
+
+#test: false_32_script_and_doctype
+#data
+<!DOCTYPE html><html><body><script>js</script><div>D</div></body></html>
+#params
+html.remove_script=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><script>js</script>D
+
+#test: false_33_metadata_and_flow
+#data
+<html><head><meta/></head><body><div>D</div></body></html>
+#params
+html.remove_metadata_tags=False
+html.remove_flow_tags=False
+#expected
+<meta><div>D</div>
+
+#test: false_34_sectioning_and_heading
+#data
+<html><body><h5>H</h5><section>S</section><p>P</p></body></html>
+#params
+html.remove_sectioning_tags=False
+html.remove_heading_tags=False
+#expected
+<h5>H</h5><section>S</section>P
+
+#test: false_35_phrasing_embedded_interactive
+#data
+<html><body><span>S</span><img/><button>B</button><div>X</div></body></html>
+#params
+html.remove_phrasing_tags=False
+html.remove_embedded_tags=False
+html.remove_interactive_tags=False
+#expected
+<span>S</span><img><button>B</button>X
+
+#test: false_36_embedded_and_palpable
+#data
+<html><body><iframe/><div>D</div><p>P</p></body></html>
+#params
+html.remove_embedded_tags=False
+html.remove_palpable=False
+#expected
+<iframe><div>D</div><p>P</p></body></html></iframe>
+
+#test: false_37_interactive_and_palpable
+#data
+<html><body><a>A</a><button>B</button><span>S</span></body></html>
+#params
+html.remove_interactive_tags=False
+html.remove_palpable=False
+#expected
+<a>A</a><button>B</button><span>S</span>
+
+#test: false_38_palpable_and_comments
+#data
+<html><!--C--><body><p>P</p><div>D</div></body></html>
+#params
+html.remove_palpable=False
+html.remove_comments=False
+#expected
+<!--C--><p>P</p><div>D</div>
+
+#test: false_39_keep_head_meta_flow_sec
+#data
+<!DOCTYPE html><html><head><meta/><title>T</title></head><body><div>D</div><section>S</section></body></html>
+#params
+html.remove_metadata_tags=False
+html.remove_flow_tags=False
+html.remove_sectioning_tags=False
+html.remove_doctype=False
+#expected
+<!DOCTYPE html><meta><title>T</title><div>D</div><section>S</section>
+
+#test: false_40_preserve_doctype_only_deep
+#data
+<!DOCTYPE html><html><head><title>Deep</title></head><body><div><p>P</p></div></body></html>
+#params
+html.remove_doctype=False
+#expected
+<!DOCTYPE html>Deep P
+
+
+#test: default_remove_simple_script
+#data
+<html><body>Pre<script>alert("X")</script>Post</body></html>
+#params
+
+#expected
+Pre Post
+
+#test: preserve_simple_script
+#data
+<html><body>Pre<script>alert("X")</script>Post</body></html>
+#params
+html.remove_script=False
+#expected
+Pre<script>alert("X")</script>Post
+
+#test: default_remove_simple_template
+#data
+<html><body>Foo<template>Bar</template>Baz</body></html>
+#params
+
+#expected
+Foo Baz
+
+#test: preserve_simple_template
+#data
+<html><body>Foo<template>Bar</template>Baz</body></html>
+#params
+html.remove_script=False
+#expected
+Foo<template>Bar</template>Baz
+
+#test: default_remove_nested_script
+#data
+<div>1<script>2<script>3</script>4</script>5</div>
+#params
+
+#expected
+1 4 5
+
+#test: preserve_nested_script
+#data
+<div>1<script>2<script>3</script>4</script>5</div>
+#params
+html.remove_script=False
+#expected
+1<script>2<script>3</script>4 5
+
+#test: default_remove_multiple_scripts
+#data
+A<script>one</script>B<script>two</script>C
+#params
+
+#expected
+A B C
+
+#test: preserve_multiple_scripts
+#data
+A<script>one</script>B<script>two</script>C
+#params
+html.remove_script=False
+#expected
+A<script>one</script>B<script>two</script>C
+
+#test: default_remove_script_at_start
+#data
+<script>Hi</script>Hello
+#params
+
+#expected
+Hello
+
+#test: preserve_script_at_end
+#data
+Hello<script>Bye</script>
+#params
+html.remove_script=False
+#expected
+Hello<script>Bye</script>
+
+#test: default_remove_script_with_attrs
+#data
+<span>X</span><script src="app.js">run()</script><span>Y</span>
+#params
+
+#expected
+X Y
+
+#test: preserve_script_with_attrs
+#data
+<span>X</span><script src="app.js">run()</script><span>Y</span>
+#params
+html.remove_script=False
+#expected
+X<script src="app.js">run()</script>Y
+
+#test: default_remove_script_and_template
+#data
+Start<script>foo</script><template>bar</template>End
+#params
+
+#expected
+Start End
+
+#test: preserve_script_and_template
+#data
+Start<script>foo</script><template>bar</template>End
+#params
+html.remove_script=False
+#expected
+Start<script>foo</script><template>bar</template>End
+
+#test: default_merge_spaces_around_script
+#data
+<p>Pre<script>X</script>Post</p>
+#params
+
+#expected
+Pre Post
+
+#test: preserve_no_extra_space_around_script
+#data
+<p>Pre<script>X</script>Post</p>
+#params
+html.remove_script=False
+#expected
+Pre<script>X</script>Post
+
+#test: default_remove_script_inside_div
+#data
+<div>Alpha<script>ignore</script>Omega</div>
+#params
+
+#expected
+Alpha Omega
+
+#test: preserve_script_inside_div
+#data
+<div>Alpha<script>keep</script>Omega</div>
+#params
+html.remove_script=False
+#expected
+Alpha<script>keep</script>Omega
+
+#test: default_remove_template_with_inner_tags
+#data
+<section>Foo<template><p>X</p></template>Bar</section>
+#params
+
+#expected
+Foo Bar
+
+#test: preserve_template_with_inner_tags
+#data
+<section>Foo<template><p>X</p></template>Bar</section>
+#params
+html.remove_script=False
+#expected
+Foo<template><p>X</p></template>Bar

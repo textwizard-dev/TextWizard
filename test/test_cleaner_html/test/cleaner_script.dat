@@ -1,0 +1,964 @@
+#test: remove_script_true_01
+#data
+<html><body><script>alert('Hi');</script><p>Content</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Content</p></body></html>
+
+#test: remove_script_true_02
+#data
+<html><body><script>alert('Test');</script></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_script_true_03
+#data
+<html><body><p>Before</p><script>console.log('Hi');</script><p>After</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Before</p><p>After</p></body></html>
+
+#test: remove_script_true_04
+#data
+<html><body><div><script>var a=1;</script></div><div>Div content</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div></div><div>Div content</div></body></html>
+
+#test: remove_script_true_05
+#data
+<html><body><template>Template content</template><p>Paragraph</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Paragraph</p></body></html>
+
+#test: remove_script_true_06
+#data
+<html><body><p>No script here</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>No script here</p></body></html>
+
+#test: remove_script_true_07
+#data
+<html><body><SCRIPT>alert('Uppercase');</SCRIPT><p>Text</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Text</p></body></html>
+
+#test: remove_script_true_08
+#data
+<html><body><script>Keep these</script><script>Remove these</script><p>Final</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Final</p></body></html>
+
+#test: remove_script_true_09
+#data
+<html><body><script>alert('One');</script><script>alert('Two');</script></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_script_true_10
+#data
+<html><body><div><script>alert('Inside div');</script><p>Inside div</p></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Inside div</p></div></body></html>
+
+#test: remove_script_true_11
+#data
+<html><body><article><script>alert('Article');</script><p>Article text</p></article></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><article><p>Article text</p></article></body></html>
+
+#test: remove_script_true_12
+#data
+<html><body><script>empty</script></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_script_true_13
+#data
+<html><body><div><script>remove</script></div><div><script>also remove</script></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div></div><div></div></body></html>
+
+#test: remove_script_true_14
+#data
+<html><head><script>in head</script></head><body><p>Content</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Content</p></body></html>
+
+#test: remove_script_true_15
+#data
+<html><body><script>One</script><script>Two</script><script>Three</script></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body></body></html>
+
+#test: remove_script_true_16
+#data
+<html><body><p>Start</p><template>Template content here</template><p>End</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Start</p><p>End</p></body></html>
+
+#test: remove_script_true_17
+#data
+<html><body><div><SCRIPT>alert('Mixed case');</SCRIPT></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div></div></body></html>
+
+#test: remove_script_true_18
+#data
+<html><body><script>Extra text</script><p>Content with <b>bold</b></p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Content with <b>bold</b></p></body></html>
+
+#test: remove_script_true_19
+#data
+<html><body><p>Before script</p><script>Remove this</script><p>After script</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Before script</p><p>After script</p></body></html>
+
+#test: remove_script_true_20
+#data
+<html><body><div><p>Test</p><script>alert('Test');</script></div><footer>Footer</footer></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Test</p></div><footer>Footer</footer></body></html>
+
+
+#test: remove_script_true_21
+#data
+<html><body><p>Intermediate 21: <script>alert("Hi");</script> Content here</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Intermediate 21:  Content here</p></body></html>
+
+#test: remove_script_true_22
+#data
+<html><body><div><script>console.log("Test");</script>Div content</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div>Div content</div></body></html>
+
+#test: remove_script_true_23
+#data
+<html><body><p>Start <script>Do something</script> and finish</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Start  and finish</p></body></html>
+
+#test: remove_script_true_24
+#data
+<html><body><div><script>Remove this</script></div><div>Keep this</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div></div><div>Keep this</div></body></html>
+
+#test: remove_script_true_25
+#data
+<html><body><p>Text before <script>ignore me</script> text after</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Text before  text after</p></body></html>
+
+#test: remove_script_true_26
+#data
+<html><body><script>Script in body</script><p>Paragraph</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Paragraph</p></body></html>
+
+#test: remove_script_true_27
+#data
+<html><body><p><script>Remove</script>Inline text</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Inline text</p></body></html>
+
+#test: remove_script_true_28
+#data
+<html><body><div>Before<script>Alert;</script></div><div>After</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div>Before</div><div>After</div></body></html>
+
+#test: remove_script_true_29
+#data
+<html><body><p>Multiple <script>One;</script><script>Two;</script> scripts</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Multiple  scripts</p></body></html>
+
+#test: remove_script_true_30
+#data
+<html><body><p>Test <script>alert("A");</script><script>alert("B");</script>End</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Test End</p></body></html>
+
+#test: remove_script_true_31
+#data
+<html><head><script>Header script</script></head><body><p>Content31</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Content31</p></body></html>
+
+#test: remove_script_true_32
+#data
+<html><body><div><script>Inside div</script><p>Div text</p></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Div text</p></div></body></html>
+
+#test: remove_script_true_33
+#data
+<html><body><p>Text with <script>embedded</script> inline script</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Text with  inline script</p></body></html>
+
+#test: remove_script_true_34
+#data
+<html><body><div><p>Nested <script>Remove nested</script> text</p></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Nested  text</p></div></body></html>
+
+#test: remove_script_true_35
+#data
+<html><body><p>Before<script>junk</script></p><p>After</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Before</p><p>After</p></body></html>
+
+#test: remove_script_true_36
+#data
+<html><body><template>Template content</template><p>Paragraph</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Paragraph</p></body></html>
+
+#test: remove_script_true_37
+#data
+<html><body><div><SCRIPT>alert('Mixed');</SCRIPT></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div></div></body></html>
+
+#test: remove_script_true_38
+#data
+<html><body><p>Start of text <script>should be removed</script></p><p>Continuing text</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Start of text </p><p>Continuing text</p></body></html>
+
+#test: remove_script_true_39
+#data
+<html><body><div><p>Content</p><script>Remove</script></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Content</p></div></body></html>
+
+#test: remove_script_true_40
+#data
+<html><body><footer>Footer text<script>ScriptFooter</script></footer></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><footer>Footer text</footer></body></html>
+
+#test: remove_script_true_41
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"><script>Remove in head</script></head><body><h1>Heading 41</h1><p>Paragraph 41</p></body></html>
+#params
+html.remove_script=True
+#expected
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><h1>Heading 41</h1><p>Paragraph 41</p></body></html>
+
+#test: remove_script_true_42
+#data
+<html><body><p>Complex 42: <script>alert("Remove");</script>Content with <span>inline</span> elements.</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Complex 42: Content with <span>inline</span> elements.</p></body></html>
+
+#test: remove_script_true_43
+#data
+<html><body><section><script>Script in section</script><article>Article 43</article></section></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><section><article>Article 43</article></section></body></html>
+
+#test: remove_script_true_44
+#data
+<html><body><p>Paragraph with <script>junk</script> multiple <script>scripts</script> inside</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Paragraph with  multiple  inside</p></body></html>
+
+#test: remove_script_true_45
+#data
+<html><body><div><p>Start</p><script>Remove</script><p>End</p></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><p>Start</p><p>End</p></div></body></html>
+
+#test: remove_script_true_46
+#data
+<html><body><header><script>Remove header script</script>Header Content</header><main>Main Content</main></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><header>Header Content</header><main>Main Content</main></body></html>
+
+#test: remove_script_true_47
+#data
+<html><body><div>Before<script>junk</script>After</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div>Before After</div></body></html>
+
+#test: remove_script_true_48
+#data
+<html><body><p>Remove scripts: <script>one</script><script>two</script><span>Keep span</span></p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Remove scripts: <span>Keep span</span></p></body></html>
+
+#test: remove_script_true_49
+#data
+<html><body><p>Before script</p><script>Remove this script</script><p>After script</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Before script</p><p>After script</p></body></html>
+
+#test: remove_script_true_50
+#data
+<html><body><div><header>Header</header><script>Remove script</script><footer>Footer</footer></div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div><header>Header</header><footer>Footer</footer></div></body></html>
+
+#test: remove_script_true_51
+#data
+<html><body><article><script>Script inside article</script><p>Article text</p></article></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><article><p>Article text</p></article></body></html>
+
+#test: remove_script_true_52
+#data
+<html><body><p>Complex 52: <script>should vanish</script> and more text</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Complex 52:  and more text</p></body></html>
+
+#test: remove_script_true_53
+#data
+<html><body><p>Remove script test 53 <script>dummy</script></p><p>Second paragraph</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Remove script test 53 </p><p>Second paragraph</p></body></html>
+
+#test: remove_script_true_54
+#data
+<html><body><div><script>Remove</script>Div text 54</div></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><div>Div text 54</div></body></html>
+
+#test: remove_script_true_55
+#data
+<html><body><p>Test 55 with <SCRIPT>MixedCase</SCRIPT> tag</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Test 55 with  tag</p></body></html>
+
+#test: remove_script_true_56
+#data
+<html><body><template>Template content 56</template><p>Paragraph 56</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Paragraph 56</p></body></html>
+
+#test: remove_script_true_57
+#data
+<html><body><p>Multiple script removals <script>One</script> and <script>Two</script></p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Multiple script removals  and </p></body></html>
+
+#test: remove_script_true_58
+#data
+<html><body><p>Test with script in between <script>Remove me</script> continuing text</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Test with script in between  continuing text</p></body></html>
+
+#test: remove_script_true_59
+#data
+<html><body><p>Before <script>remove this</script> and after</p></body></html>
+#params
+html.remove_script=True
+#expected
+<html><head></head><body><p>Before  and after</p></body></html>
+
+#test: remove_script_true_60
+#data
+<!DOCTYPE html><html><body><iframe src="example.html"></iframe><script>Remove script</script><p>Final text 60</p></body></html>
+#params
+html.remove_script=True
+#expected
+<!DOCTYPE html><html><head></head><body><iframe src="example.html"></iframe><p>Final text 60</p></body></html>
+
+
+
+#test: remove_script_false_01
+#data
+<html><body><script>alert('Keep');</script><p>Content</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>alert('Keep');</script>Content
+
+#test: remove_script_false_02
+#data
+<html><head><script>Head script</script></head><body><p>Body text</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Head script</script>Body text
+
+#test: remove_script_false_03
+#data
+<html><body><p>Before</p><script>Keep this</script><p>After</p></body></html>
+#params
+html.remove_script=False
+#expected
+Before<script>Keep this</script>After
+
+#test: remove_script_false_04
+#data
+<html><body><div><script>Inside div</script>Div content</div></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Inside div</script>Div content
+
+#test: remove_script_false_05
+#data
+<html><body><script>Script outside</script></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Script outside</script>
+
+#test: remove_script_false_06
+#data
+<html><body><p>No script tag present</p></body></html>
+#params
+html.remove_script=False
+#expected
+No script tag present
+
+#test: remove_script_false_07
+#data
+<html><body><p><script>MixedCase</script>Inline text</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>MixedCase</script>Inline text
+
+#test: remove_script_false_08
+#data
+<html><body><p>Multiple <script>First</script><script>Second</script> scripts</p></body></html>
+#params
+html.remove_script=False
+#expected
+Multiple <script>First</script><script>Second</script> scripts
+
+#test: remove_script_false_09
+#data
+<html><body><template>Template content</template><p>After Template</p></body></html>
+#params
+html.remove_script=False
+#expected
+<template>Template content</template>After Template
+
+#test: remove_script_false_10
+#data
+<html><body><div>Before <script>Keep this</script> After</div></body></html>
+#params
+html.remove_script=False
+#expected
+Before <script>Keep this</script> After
+
+#test: remove_script_false_11
+#data
+<html><body><script>Alpha</script><script>Beta</script></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Alpha</script><script>Beta</script>
+
+#test: remove_script_false_12
+#data
+<html><body><div><script>Inside div</script></div></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Inside div</script>
+
+#test: remove_script_false_13
+#data
+<html><body><p>Before<script>Junk</script>After</p></body></html>
+#params
+html.remove_script=False
+#expected
+Before<script>Junk</script>After
+
+#test: remove_script_false_14
+#data
+<html><head><title>Title</title><script>Head keep</script></head><body><p>Body</p></body></html>
+#params
+html.remove_script=False
+#expected
+Title<script>Head keep</script>Body
+
+#test: remove_script_false_15
+#data
+<html><body><p>Paragraph</p><noscript>Noscript text</noscript></body></html>
+#params
+html.remove_script=False
+#expected
+Paragraph Noscript text
+
+#test: remove_script_false_16
+#data
+<html><body><div>Mixed <script>Script one</script> text <script>Script two</script> end</div></body></html>
+#params
+html.remove_script=False
+#expected
+Mixed <script>Script one</script> text <script>Script two</script> end
+
+#test: remove_script_false_17
+#data
+<html><body><script>Single</script></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Single</script>
+
+#test: remove_script_false_18
+#data
+<html><body><p>Before <script>Script content</script></p><p>After</p></body></html>
+#params
+html.remove_script=False
+#expected
+Before <script>Script content</script>After
+
+#test: remove_script_false_19
+#data
+<html><body><p>Some text</p><template>Template block</template></body></html>
+#params
+html.remove_script=False
+#expected
+Some text<template>Template block</template>
+
+#test: remove_script_false_20
+#data
+<html><body><script>Keep script</script><template>Keep template</template><p>Text</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Keep script</script><template>Keep template</template>Text
+
+
+#test: remove_script_false_21
+#data
+<html><body><p>Intermediate 21 text</p><script>Console.log("21")</script></body></html>
+#params
+html.remove_script=False
+#expected
+Intermediate 21 text<script>Console.log("21")</script>
+
+#test: remove_script_false_22
+#data
+<html><body><div>Div content 22</div><script>alert("22 script")</script></body></html>
+#params
+html.remove_script=False
+#expected
+Div content 22<script>alert("22 script")</script>
+
+#test: remove_script_false_23
+#data
+<html><body><p>Start 23</p><script>Keep me 23</script><p>End 23</p></body></html>
+#params
+html.remove_script=False
+#expected
+Start 23<script>Keep me 23</script>End 23
+
+#test: remove_script_false_24
+#data
+<html><body><template>Template 24 content</template><p>After 24</p></body></html>
+#params
+html.remove_script=False
+#expected
+<template>Template 24 content</template>After 24
+
+#test: remove_script_false_25
+#data
+<html><body><p>Intermediate 25</p><script>Check 25</script></body></html>
+#params
+html.remove_script=False
+#expected
+Intermediate 25<script>Check 25</script>
+
+#test: remove_script_false_26
+#data
+<html><body><script>Script alone 26</script></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Script alone 26</script>
+
+#test: remove_script_false_27
+#data
+<html><body><p>Block 27</p><script>console.log("27")</script><p>Block 2</p></body></html>
+#params
+html.remove_script=False
+#expected
+Block 27<script>console.log("27")</script>Block 2
+
+#test: remove_script_false_28
+#data
+<html><body><div><script>Inside 28</script> plus text</div></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Inside 28</script> plus text
+
+#test: remove_script_false_29
+#data
+<html><body><p>Multiple scripts 29</p><script>One29</script><script>Two29</script></body></html>
+#params
+html.remove_script=False
+#expected
+Multiple scripts 29<script>One29</script><script>Two29</script>
+
+#test: remove_script_false_30
+#data
+<html><body><template>Template30</template><script>Script30</script><p>Text30</p></body></html>
+#params
+html.remove_script=False
+#expected
+<template>Template30</template><script>Script30</script>Text30
+
+#test: remove_script_false_31
+#data
+<html><body><script>Alpha31</script><p>Beta31</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Alpha31</script>Beta31
+
+#test: remove_script_false_32
+#data
+<html><body><p>Intermediate 32 text</p><noscript>NScript32</noscript></body></html>
+#params
+html.remove_script=False
+#expected
+Intermediate 32 text NScript32
+
+#test: remove_script_false_33
+#data
+<html><body><div><script>DivScript33</script>Div text 33</div></body></html>
+#params
+html.remove_script=False
+#expected
+<script>DivScript33</script>Div text 33
+
+#test: remove_script_false_34
+#data
+<html><body><p>Inter 34 start</p><script>alert("34 script");</script></body></html>
+#params
+html.remove_script=False
+#expected
+Inter 34 start<script>alert("34 script");</script>
+
+#test: remove_script_false_35
+#data
+<html><body><p>Block 35</p><template>TPL 35</template></body></html>
+#params
+html.remove_script=False
+#expected
+Block 35<template>TPL 35</template>
+
+#test: remove_script_false_36
+#data
+<html><body><script>Scr36</script><script>Scr36 second</script></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Scr36</script><script>Scr36 second</script>
+
+#test: remove_script_false_37
+#data
+<html><body><p>Intermediate37 <script>Log37</script> more text</p></body></html>
+#params
+html.remove_script=False
+#expected
+Intermediate37 <script>Log37</script> more text
+
+#test: remove_script_false_38
+#data
+<html><body><p>Keep script 38</p><script>Code 38</script></body></html>
+#params
+html.remove_script=False
+#expected
+Keep script 38<script>Code 38</script>
+
+#test: remove_script_false_39
+#data
+<html><body><div>Div 39</div><script>alert("39")</script><p>Paragraph 39</p></body></html>
+#params
+html.remove_script=False
+#expected
+Div 39<script>alert("39")</script>Paragraph 39
+
+#test: remove_script_false_40
+#data
+<html><body><p>Intermediate 40</p><template>Template 40</template><p>After 40</p></body></html>
+#params
+html.remove_script=False
+#expected
+Intermediate 40<template>Template 40</template>After 40
+
+
+#test: remove_script_false_41
+#data
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><script>Complex41</script><h1>Heading41</h1></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Complex41</script>Heading41
+
+#test: remove_script_false_42
+#data
+<html><body><p>Complex42 part1</p><script>Console42</script><p>part2</p></body></html>
+#params
+html.remove_script=False
+#expected
+Complex42 part1<script>Console42</script>part2
+
+#test: remove_script_false_43
+#data
+<html><body><section><script>Sec43</script><article>Art43</article></section></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Sec43</script>Art43
+
+#test: remove_script_false_44
+#data
+<html><body><p>Complex44 <script>One44</script> and <script>Two44</script> done</p></body></html>
+#params
+html.remove_script=False
+#expected
+Complex44 <script>One44</script> and <script>Two44</script> done
+
+#test: remove_script_false_45
+#data
+<html><body><div><p>Start45</p><script>Remove?No.</script><p>End45</p></div></body></html>
+#params
+html.remove_script=False
+#expected
+Start45<script>Remove?No.</script>End45
+
+#test: remove_script_false_46
+#data
+<html><body><header>Head46<script>Inside46</script></header><main>Main46</main></body></html>
+#params
+html.remove_script=False
+#expected
+Head46<script>Inside46</script>Main46
+
+#test: remove_script_false_47
+#data
+<html><body><p>Text47 before</p><script>Keep47</script><p>after</p></body></html>
+#params
+html.remove_script=False
+#expected
+Text47 before<script>Keep47</script>after
+
+#test: remove_script_false_48
+#data
+<html><body><template>Tmpl48</template><p>Complex48 text</p><script>Script48</script></body></html>
+#params
+html.remove_script=False
+#expected
+<template>Tmpl48</template>Complex48 text<script>Script48</script>
+
+#test: remove_script_false_49
+#data
+<html><body><p>Before49</p><script>console.log("49")</script><p>After49</p></body></html>
+#params
+html.remove_script=False
+#expected
+Before49<script>console.log("49")</script>After49
+
+#test: remove_script_false_50
+#data
+<html><body><div><script>Complex50 script</script><footer>Footer50</footer></div></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Complex50 script</script>Footer50
+
+#test: remove_script_false_51
+#data
+<html><body><article><script>Art51</script><p>Article51 text</p></article></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Art51</script>Article51 text
+
+#test: remove_script_false_52
+#data
+<html><body><p>Complex 52 <script>Scr52</script> more data</p></body></html>
+#params
+html.remove_script=False
+#expected
+Complex 52 <script>Scr52</script> more data
+
+#test: remove_script_false_53
+#data
+<html><body><p>Remove script? No. 53 <script>dummy53</script></p><p>Second part53</p></body></html>
+#params
+html.remove_script=False
+#expected
+Remove script? No. 53 <script>dummy53</script>Second part53
+
+#test: remove_script_false_54
+#data
+<html><body><template>Tpl54</template><script>Scr54</script><p>Para54</p></body></html>
+#params
+html.remove_script=False
+#expected
+<template>Tpl54</template><script>Scr54</script>Para54
+
+#test: remove_script_false_55
+#data
+<html><body><p>Test55 with <SCRIPT>MixedCase55</SCRIPT> tag</p></body></html>
+#params
+html.remove_script=False
+#expected
+Test55 with <script>MixedCase55</script> tag
+
+#test: remove_script_false_56
+#data
+<html><body><script>Scr56</script><script>Another56</script><p>End56</p></body></html>
+#params
+html.remove_script=False
+#expected
+<script>Scr56</script><script>Another56</script>End56
+
+#test: remove_script_false_57
+#data
+<html><body><p>Multiple script false57 <script>One57</script> plus <script>Two57</script></p></body></html>
+#params
+html.remove_script=False
+#expected
+Multiple script false57 <script>One57</script> plus <script>Two57</script>
+
+#test: remove_script_false_58
+#data
+<html><body><p>Between text <script>Scr58</script> continuing text</p></body></html>
+#params
+html.remove_script=False
+#expected
+Between text <script>Scr58</script> continuing text
+
+#test: remove_script_false_59
+#data
+<html><body><div>Pre59</div><script>Scr59</script><div>Post59</div></body></html>
+#params
+html.remove_script=False
+#expected
+Pre59<script>Scr59</script>Post59
+
+#test: remove_script_false_60
+#data
+<!DOCTYPE html><html><body><p>Final text60</p><script>Keep script60</script><template>Keep template60</template></body></html>
+#params
+html.remove_script=False
+#expected
+Final text60<script>Keep script60</script><template>Keep template60</template>

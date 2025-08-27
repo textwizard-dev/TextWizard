@@ -1,0 +1,483 @@
+#test: spec_attr_easy_01
+#data
+<html><body><p id="p1" class="foo">Text</p></body></html>
+#params
+html.remove_specific_attributes=id
+#expected
+<html><head></head><body><p class="foo">Text</p></body></html>
+
+#test: spec_attr_easy_02
+#data
+<html><body><div style="color:red;">Content</div></body></html>
+#params
+html.remove_specific_attributes=style
+#expected
+<html><head></head><body><div>Content</div></body></html>
+
+#test: spec_attr_easy_03
+#data
+<html><body><img src="image.jpg" alt="desc"></body></html>
+#params
+html.remove_specific_attributes=alt
+#expected
+<html><head></head><body><img src="image.jpg"></body></html>
+
+#test: spec_attr_easy_04
+#data
+<html><body><a href="link.html" title="Link">Click</a></body></html>
+#params
+html.remove_specific_attributes=title
+#expected
+<html><head></head><body><a href="link.html">Click</a></body></html>
+
+#test: spec_attr_easy_05
+#data
+<html><body><p data-val="123">Data</p></body></html>
+#params
+html.remove_specific_attributes=data-val
+#expected
+<html><head></head><body><p>Data</p></body></html>
+
+#test: spec_attr_easy_06
+#data
+<html><body><div custom="yes">Custom</div></body></html>
+#params
+html.remove_specific_attributes=custom
+#expected
+<html><head></head><body><div>Custom</div></body></html>
+
+#test: spec_attr_easy_07
+#data
+<html><body><span title="T1" title2="T2">Sample</span></body></html>
+#params
+html.remove_specific_attributes=["title", "title2"]
+#expected
+<html><head></head><body><span>Sample</span></body></html>
+
+#test: spec_attr_easy_08
+#data
+<html><body><p class="red bold">Text</p></body></html>
+#params
+html.remove_specific_attributes=class
+#expected
+<html><head></head><body><p>Text</p></body></html>
+
+#test: spec_attr_easy_09
+#data
+<html><body><div data-info="abc">Content</div></body></html>
+#params
+html.remove_specific_attributes=["data-info"]
+#expected
+<html><head></head><body><div>Content</div></body></html>
+
+#test: spec_attr_easy_10
+#data
+<html><body><img src="a.jpg" alt="A" title="Image A"></body></html>
+#params
+html.remove_specific_attributes=["alt","title"]
+#expected
+<html><head></head><body><img src="a.jpg"></body></html>
+
+#test: spec_attr_easy_11
+#data
+<html><body><a href="x.html" custom="val">Link</a></body></html>
+#params
+html.remove_specific_attributes=custom
+#expected
+<html><head></head><body><a href="x.html">Link</a></body></html>
+
+#test: spec_attr_easy_12
+#data
+<html><body><p data-num="42" data-extra="foo">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["data-num","data-extra"]
+#expected
+<html><head></head><body><p>Paragraph</p></body></html>
+
+#test: spec_attr_easy_13
+#data
+<html><body><div style="display:block;">Block</div></body></html>
+#params
+html.remove_specific_attributes=style
+#expected
+<html><head></head><body><div>Block</div></body></html>
+
+#test: spec_attr_easy_14
+#data
+<html><body><span custom1="one">One</span><span custom2="two">Two</span></body></html>
+#params
+html.remove_specific_attributes=["custom1","custom2"]
+#expected
+<html><head></head><body><span>One</span><span>Two</span></body></html>
+
+#test: spec_attr_easy_15
+#data
+<html><body><p>Simple</p></body></html>
+#params
+html.remove_specific_attributes=id
+#expected
+<html><head></head><body><p>Simple</p></body></html>
+
+#test: spec_attr_easy_16
+#data
+<html><body><div data-test="yes" data-sample="no">Content</div></body></html>
+#params
+html.remove_specific_attributes=data-test
+#expected
+<html><head></head><body><div data-sample="no">Content</div></body></html>
+
+#test: spec_attr_easy_17
+#data
+<html><body><img src="img.png" alt="Image" border="1"></body></html>
+#params
+html.remove_specific_attributes=["border"]
+#expected
+<html><head></head><body><img src="img.png" alt="Image"></body></html>
+
+#test: spec_attr_easy_18
+#data
+<html><body><a href="link.html" rel="nofollow">Link</a></body></html>
+#params
+html.remove_specific_attributes=rel
+#expected
+<html><head></head><body><a href="link.html">Link</a></body></html>
+
+#test: spec_attr_easy_19
+#data
+<html><body><p id="p1" data-x="x" style="color:red;">Test</p></body></html>
+#params
+html.remove_specific_attributes=["id","data-x"]
+#expected
+<html><head></head><body><p style="color:red;">Test</p></body></html>
+
+#test: spec_attr_easy_20
+#data
+<html><body><div customAttr="value">Div</div></body></html>
+#params
+html.remove_specific_attributes=customAttr
+#expected
+<html><head></head><body><div>Div</div></body></html>
+
+#test: spec_attr_intermediate_21
+#data
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div id="div1" data-info="abc" class="x">Content</div></body></html>
+#params
+html.remove_specific_attributes=["id", "data-info"]
+#expected
+<!DOCTYPE html><html><head><title>Doc21</title></head><body><div class="x">Content</div></body></html>
+
+#test: spec_attr_intermediate_22
+#data
+<html><body>
+<p style="font-size:12px;" custom="yes" align="center">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["custom", "align"]
+#expected
+<html><head></head><body><p style="font-size:12px;">Paragraph</p></body></html>
+
+#test: spec_attr_intermediate_23
+#data
+<html><body><img src="pic.jpg" alt="Photo" title="Image Title" data-src="lazy.jpg"></body></html>
+#params
+html.remove_specific_attributes=["title", "data-src"]
+#expected
+<html><head></head><body><img src="pic.jpg" alt="Photo"></body></html>
+
+#test: spec_attr_intermediate_24
+#data
+<html><body><a href="page.html" data-id="123" data-token="xyz">Link</a></body></html>
+#params
+html.remove_specific_attributes=data-*
+#expected
+<html><head></head><body><a href="page.html">Link</a></body></html>
+
+#test: spec_attr_intermediate_25
+#data
+<html><body><div custom1="one" custom2="two" other="keep">Div</div></body></html>
+#params
+html.remove_specific_attributes=["custom*"]
+#expected
+<html><head></head><body><div other="keep">Div</div></body></html>
+
+#test: spec_attr_intermediate_26
+#data
+<html><body><span data-num="5" data-alpha="a">Span</span></body></html>
+#params
+html.remove_specific_attributes=data-*
+#expected
+<html><head></head><body><span>Span</span></body></html>
+
+#test: spec_attr_intermediate_27
+#data
+<html><body><p id="p1" class="red bold" data-info="xyz">Text</p></body></html>
+#params
+html.remove_specific_attributes=["id", "class"]
+#expected
+<html><head></head><body><p data-info="xyz">Text</p></body></html>
+
+#test: spec_attr_intermediate_28
+#data
+<html><body><div data-val="10" customAttr="remove" style="margin:0;">Div content</div></body></html>
+#params
+html.remove_specific_attributes=["customAttr","style"]
+#expected
+<html><head></head><body><div data-val="10">Div content</div></body></html>
+
+#test: spec_attr_intermediate_29
+#data
+<html><body><header title="Header" data-role="main">Header</header></body></html>
+#params
+html.remove_specific_attributes=title
+#expected
+<html><head></head><body><header data-role="main">Header</header></body></html>
+
+#test: spec_attr_intermediate_30
+#data
+<html><body><a href="link.html" rel="nofollow" target="_blank">Click here</a></body></html>
+#params
+html.remove_specific_attributes=["rel", "target"]
+#expected
+<html><head></head><body><a href="link.html">Click here</a></body></html>
+
+#test: spec_attr_intermediate_31
+#data
+<html><body><p style="color:blue;" align="left" data-custom="foo">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["align","data-custom"]
+#expected
+<html><head></head><body><p style="color:blue;">Paragraph</p></body></html>
+
+#test: spec_attr_intermediate_32
+#data
+<html><body><img src="x.png" alt="X" width="100" height="200"></body></html>
+#params
+html.remove_specific_attributes=["width","height"]
+#expected
+<html><head></head><body><img src="x.png" alt="X"></body></html>
+
+#test: spec_attr_intermediate_33
+#data
+<html><body><div customOne="A" customTwo="B" keep="yes">Content</div></body></html>
+#params
+html.remove_specific_attributes=custom*
+#expected
+<html><head></head><body><div keep="yes">Content</div></body></html>
+
+#test: spec_attr_intermediate_34
+#data
+<html><body><span data-x="1" data-y="2" title="Test">Text</span></body></html>
+#params
+html.remove_specific_attributes=["data-x", "title"]
+#expected
+<html><head></head><body><span data-y="2">Text</span></body></html>
+
+#test: spec_attr_intermediate_35
+#data
+<html><body><p id="p1" class="one two three">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["class"]
+#expected
+<html><head></head><body><p id="p1">Paragraph</p></body></html>
+
+#test: spec_attr_intermediate_36
+#data
+<html><body><a href="link" data-value="10" customAttr="remove">Link</a></body></html>
+#params
+html.remove_specific_attributes=["data-*","custom*"]
+#expected
+<html><head></head><body><a href="link">Link</a></body></html>
+
+#test: spec_attr_intermediate_37
+#data
+<html><body><div style="padding:5px;" data-test="yes" extra="keep">Content</div></body></html>
+#params
+html.remove_specific_attributes=["style","data-*"]
+#expected
+<html><head></head><body><div extra="keep">Content</div></body></html>
+
+#test: spec_attr_intermediate_38
+#data
+<html><body><span custom1="a" custom2="b" custom3="c">Test</span></body></html>
+#params
+html.remove_specific_attributes=["custom[12]"]
+#expected
+<html><head></head><body><span custom3="c">Test</span></body></html>
+
+#test: spec_attr_intermediate_39
+#data
+<html><body><div id="div1" data-num="5" role="main" aria-label="label">Div</div></body></html>
+#params
+html.remove_specific_attributes=["id","aria-*"]
+#expected
+<html><head></head><body><div data-num="5" role="main">Div</div></body></html>
+
+#test: spec_attr_intermediate_40
+#data
+<html><body><p title="T" data-extra="X" style="font-size:12px;">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["title","data-extra"]
+#expected
+<html><head></head><body><p style="font-size:12px;">Paragraph</p></body></html>
+
+#test: spec_attr_complex_41
+#data
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div id="d1" customAttr="remove" data-info="abc" style="margin:0;">Content here</div></body></html>
+#params
+html.remove_specific_attributes=["id", "custom*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc41</title></head><body><div data-info="abc" style="margin:0;">Content here</div></body></html>
+
+#test: spec_attr_complex_42
+#data
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><p class="bold italic" data-num="42" custom="no">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["custom","data-*","class"]
+#expected
+<!DOCTYPE html><html><head><title>Doc42</title></head><body><p>Paragraph</p></body></html>
+
+#test: spec_attr_complex_43
+#data
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><a href="link.html" rel="nofollow" data-role="nav" customX="xvalue">Click</a></body></html>
+#params
+html.remove_specific_attributes=["rel", "data-*", "custom?"]
+#expected
+<!DOCTYPE html><html><head><title>Doc43</title></head><body><a href="link.html">Click</a></body></html>
+
+#test: spec_attr_complex_44
+#data
+<html><body><div style="border:1px solid;" customTag="remove" data-sample="val">Div Content</div></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-sample"]
+#expected
+<html><head></head><body><div style="border:1px solid;">Div Content</div></body></html>
+
+#test: spec_attr_complex_45
+#data
+<html><body><header id="h1" role="banner" data-active="true" customAttrib="remove">Header</header></body></html>
+#params
+html.remove_specific_attributes=["id", "custom*","data-active"]
+#expected
+<html><head></head><body><header role="banner">Header</header></body></html>
+
+#test: spec_attr_complex_46
+#data
+<html><body><section data-num="7" style="padding:10px;" customFlag="yes">Section Content</section></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-*"]
+#expected
+<html><head></head><body><section style="padding:10px;">Section Content</section></body></html>
+
+#test: spec_attr_complex_47
+#data
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><article data-id="47" customAttr="remove" class="art">Article Text</article></body></html>
+#params
+html.remove_specific_attributes=["custom*","class"]
+#expected
+<!DOCTYPE html><html><head><title>Doc47</title></head><body><article data-id="47">Article Text</article></body></html>
+
+#test: spec_attr_complex_48
+#data
+<html><body><div data-info="x" customOne="a" customTwo="b" extra="keep">Content</div></body></html>
+#params
+html.remove_specific_attributes=["custom*"]
+#expected
+<html><head></head><body><div data-info="x" extra="keep">Content</div></body></html>
+
+#test: spec_attr_complex_49
+#data
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><span id="s1" data-val="99" rel="link" customParam="toRemove">Text</span></body></html>
+#params
+html.remove_specific_attributes=["id","custom*","rel"]
+#expected
+<!DOCTYPE html><html><head><title>Doc49</title></head><body><span data-val="99">Text</span></body></html>
+
+#test: spec_attr_complex_50
+#data
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><p style="font-weight:bold;" data-x="1" data-y="2" custom="remove" class="cls">Paragraph</p></body></html>
+#params
+html.remove_specific_attributes=["custom","class","data-*"]
+#expected
+<!DOCTYPE html><html><head><title>Doc50</title></head><body><p style="font-weight:bold;">Paragraph</p></body></html>
+
+#test: spec_attr_complex_51
+#data
+<html><body><div id="outer" customOuter="yes"><p data-info="inside" customInner="no">Inner Text</p></div></body></html>
+#params
+html.remove_specific_attributes=["custom*"]
+#expected
+<html><head></head><body><div id="outer"><p data-info="inside">Inner Text</p></div></body></html>
+
+#test: spec_attr_complex_52
+#data
+<html><body><img src="pic.jpg" alt="A picture" data-size="large" customAttr="delete"></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-size"]
+#expected
+<html><head></head><body><img src="pic.jpg" alt="A picture"></body></html>
+
+#test: spec_attr_complex_53
+#data
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><a href="link.html" target="_blank" rel="noopener" data-test="ok" customFlag="yes">Link</a></body></html>
+#params
+html.remove_specific_attributes=["target","custom*","data-test"]
+#expected
+<!DOCTYPE html><html><head><title>Doc53</title></head><body><a href="link.html" rel="noopener">Link</a></body></html>
+
+#test: spec_attr_complex_54
+#data
+<html><body>
+<div style="margin:0;" customA="1" customB="2" data-x="x">Content</div></body></html>
+#params
+html.remove_specific_attributes=["custom?"]
+#expected
+<html><head></head><body><div style="margin:0;" data-x="x">Content</div></body></html>
+
+#test: spec_attr_complex_55
+#data
+<!DOCTYPE html><html><head><title>Doc55</title></head><body><header id="h1" aria-label="label" custom="remove">Header</header></body></html>
+#params
+html.remove_specific_attributes=["id","custom"]
+#expected
+<!DOCTYPE html><html><head><title>Doc55</title></head><body><header aria-label="label">Header</header></body></html>
+
+#test: spec_attr_complex_56
+#data
+<html><body><p style="font-size:14px;" data-info="info" customTag="delete">Paragraph complex</p></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-info"]
+#expected
+<html><head></head><body><p style="font-size:14px;">Paragraph complex</p></body></html>
+
+#test: spec_attr_complex_57
+#data
+<html><body>
+<div id="div" custom1="a" custom2="b" data-extra="test" role="main">Content here</div></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-*"]
+#expected
+<html><head></head><body><div id="div" role="main">Content here</div></body></html>
+
+#test: spec_attr_complex_58
+#data
+<html><body>
+<span title="Test" customAttr="remove" data-val="123" alt="desc">Span Text</span></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-*","alt"]
+#expected
+<html><head></head><body><span title="Test">Span Text</span></body></html>
+
+#test: spec_attr_complex_59
+#data
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><article data-id="59" customInfo="delete" class="artClass">Article Text</article></body></html>
+#params
+html.remove_specific_attributes=["custom*","class"]
+#expected
+<!DOCTYPE html><html><head><title>Doc59</title></head><body><article data-id="59">Article Text</article></body></html>
+
+#test: spec_attr_complex_60
+#data
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><footer customAttr="footer" style="background:#ccc;" data-note="important">Footer Text</footer></body></html>
+#params
+html.remove_specific_attributes=["custom*","data-note"]
+#expected
+<!DOCTYPE html><html><head><title>Doc60</title></head><body><footer style="background:#ccc;">Footer Text</footer></body></html>

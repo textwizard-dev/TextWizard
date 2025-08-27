@@ -1,0 +1,675 @@
+#test: remove_columns_easy_01
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=0
+#expected
+name,age
+Alice,30
+Bob,25
+
+#test: remove_columns_easy_02
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=2
+#expected
+id,name
+1,Alice
+2,Bob
+
+#test: remove_columns_easy_03
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=name
+#expected
+id,age
+1,30
+2,25
+
+#test: remove_columns_easy_04
+#data
+id,name,age
+1,Alice,30
+2,Bob,25
+#params
+csv.delimiter=,
+csv.remove_columns=age
+#expected
+id,name
+1,Alice
+2,Bob
+
+#test: remove_columns_easy_05
+#data
+a;b;c;d
+x;y;z;w
+#params
+csv.delimiter=;
+csv.remove_columns=1
+#expected
+a;c;d
+x;z;w
+
+#test: remove_columns_easy_06
+#data
+a;b;c;d
+x;y;z;w
+#params
+csv.delimiter=;
+csv.remove_columns=d
+#expected
+a;b;c
+x;y;z
+
+#test: remove_columns_easy_07
+#data
+col1|col2|col3
+v1|v2|v3
+#params
+csv.delimiter=|
+csv.remove_columns=1
+#expected
+col1|col3
+v1|v3
+
+#test: remove_columns_easy_08
+#data
+col1|col2|col3
+v1|v2|v3
+#params
+csv.delimiter=|
+csv.remove_columns=col3
+#expected
+col1|col2
+v1|v2
+
+#test: remove_columns_easy_09
+#data
+x	y	z
+1	2	3
+4	5	6
+#params
+csv.delimiter=\t
+csv.remove_columns=0
+#expected
+y	z
+2	3
+5	6
+
+#test: remove_columns_easy_10
+#data
+x	y	z
+1	2	3
+4	5	6
+#params
+csv.delimiter=\t
+csv.remove_columns=z
+#expected
+x	y
+1	2
+4	5
+
+#test: remove_columns_easy_11
+#data
+id,name,age,city
+1,Alice,30,NY
+2,Bob,25,LA
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+name,age,city
+Alice,30,NY
+Bob,25,LA
+
+#test: remove_columns_easy_12
+#data
+id,name,age,city
+1,Alice,30,NY
+2,Bob,25,LA
+#params
+csv.delimiter=,
+csv.remove_columns=["city"]
+#expected
+id,name,age
+1,Alice,30
+2,Bob,25
+
+#test: remove_columns_easy_13
+#data
+id;name;age;city
+1;Alice;30;NY
+2;Bob;25;LA
+#params
+csv.delimiter=;
+csv.remove_columns=[1]
+#expected
+id;age;city
+1;30;NY
+2;25;LA
+
+#test: remove_columns_easy_14
+#data
+id;name;age;city
+1;Alice;30;NY
+2;Bob;25;LA
+#params
+csv.delimiter=;
+csv.remove_columns=["id"]
+#expected
+name;age;city
+Alice;30;NY
+Bob;25;LA
+
+#test: remove_columns_easy_15
+#data
+A|B|C|D
+a|b|c|d
+#params
+csv.delimiter=|
+csv.remove_columns=[2]
+#expected
+A|B|D
+a|b|d
+
+#test: remove_columns_easy_16
+#data
+A|B|C|D
+a|b|c|d
+#params
+csv.delimiter=|
+csv.remove_columns=["A"]
+#expected
+B|C|D
+b|c|d
+
+#test: remove_columns_easy_17
+#data
+a	b	c	d
+x	y	z	w
+#params
+csv.delimiter=\t
+csv.remove_columns=[3]
+#expected
+a	b	c
+x	y	z
+
+#test: remove_columns_easy_18
+#data
+a	b	c	d
+x	y	z	w
+#params
+csv.delimiter=\t
+csv.remove_columns=["b"]
+#expected
+a	c	d
+x	z	w
+
+#test: remove_columns_easy_19
+#data
+only
+single
+#params
+csv.delimiter=,
+csv.remove_columns=0
+#expected
+
+
+#test: remove_columns_easy_20
+#data
+only,col
+first,second
+#params
+csv.delimiter=,
+csv.remove_columns=col
+#expected
+only
+first
+
+
+#test: remove_columns_mid_01
+#data
+id;name;comment;age
+1;John;"hello, world";30
+2;Jane;"foo,bar";25
+#params
+csv.delimiter=;
+csv.remove_columns=["name","comment"]
+#expected
+id;age
+1;30
+2;25
+
+#test: remove_columns_mid_02
+#data
+id,name,city,age,salary
+1,Alice,New York,30,50000
+2,Bob,Los Angeles,25,40000
+#params
+csv.delimiter=,
+csv.remove_columns=[0,4]
+#expected
+name,city,age
+Alice,New York,30
+Bob,Los Angeles,25
+
+#test: remove_columns_mid_03
+#data
+A|B|C|B
+a|1|x|2
+#params
+csv.delimiter=|
+csv.remove_columns=["B"]
+#expected
+A|C|B
+a|x|2
+
+#test: remove_columns_mid_04
+#data
+col1,col2,col3,col4
+v1,v2,v3,v4
+#params
+csv.delimiter=,
+csv.remove_columns=[1,"col4"]
+#expected
+col1,col3
+v1,v3
+
+#test: remove_columns_mid_05
+#data
+x;y;z;x
+1;2;3;4
+#params
+csv.delimiter=;
+csv.remove_columns=[0,"x"]
+#expected
+y;z
+2;3
+
+#test: remove_columns_mid_06
+#data
+id	name	name2	age
+1	A	B	30
+2	C	D	25
+#params
+csv.delimiter=\t
+csv.remove_columns=["name","name2"]
+#expected
+id	age
+1	30
+2	25
+
+#test: remove_columns_mid_07
+#data
+"first,part",second,third
+"a,1",b,c
+#params
+csv.delimiter=,
+csv.remove_columns=["first,part","third"]
+#expected
+second
+b
+
+#test: remove_columns_mid_08
+#data
+id;v1;v2;v3;v4
+1;10;20;30;40
+#params
+csv.delimiter=;
+csv.remove_columns=[1,3]
+#expected
+id;v2;v4
+1;20;40
+
+#test: remove_columns_mid_09
+#data
+u|v|w|x|y|z
+1|2|3|4|5|6
+#params
+csv.delimiter=|
+csv.remove_columns=[0,2,5]
+#expected
+v|x|y
+2|4|5
+
+#test: remove_columns_mid_10
+#data
+a	b	c	d	e
+1	2	3	4	5
+#params
+csv.delimiter=\t
+csv.remove_columns=[2,4]
+#expected
+a	b	d
+1	2	4
+
+#test: remove_columns_mid_11
+#data
+id,name,age,city,salary
+1,Ann,30,NY,100
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2,4]
+#expected
+name,city
+Ann,NY
+
+#test: remove_columns_mid_12
+#data
+X;Y;Z;W
+foo;bar;baz;qux
+#params
+csv.delimiter=;
+csv.remove_columns=["Y","W"]
+#expected
+X;Z
+foo;baz
+
+#test: remove_columns_mid_13
+#data
+a|b|c|d|e|f
+1|2|3|4|5|6
+#params
+csv.delimiter=|
+csv.remove_columns=[1,2,3]
+#expected
+a|e|f
+1|5|6
+
+#test: remove_columns_mid_14
+#data
+a	b	c	d	e
+x	y	z	w	v
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,4]
+#expected
+b	c	d
+y	z	w
+
+#test: remove_columns_mid_15
+#data
+id,name,score1,score2,score3
+1,Alice,10,20,30
+#params
+csv.delimiter=,
+csv.remove_columns=["score1","score3"]
+#expected
+id,name,score2
+1,Alice,20
+
+#test: remove_columns_mid_16
+#data
+id;name;age;notes
+1;Bob;25;"n/a"
+#params
+csv.delimiter=;
+csv.remove_columns=[3]
+#expected
+id;name;age
+1;Bob;25
+
+#test: remove_columns_mid_17
+#data
+colA|colB|colC|colD
+A|B|C|D
+#params
+csv.delimiter=|
+csv.remove_columns=["colA","colC"]
+#expected
+colB|colD
+B|D
+
+#test: remove_columns_mid_18
+#data
+a,b,c,d,e
+1,2,3,4,5
+#params
+csv.delimiter=,
+csv.remove_columns=[1,3]
+#expected
+a,c,e
+1,3,5
+
+#test: remove_columns_mid_19
+#data
+x;y;z
+1;2;3
+#params
+csv.delimiter=;
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_mid_20
+#data
+A	B	C
+foo	bar	baz
+#params
+csv.delimiter=\t
+csv.remove_columns=["A","B","C"]
+#expected
+
+
+#test: remove_columns_hard_01
+#data
+a,b,a,c
+1,2,3,4
+#params
+csv.delimiter=,
+csv.remove_columns=[0,"a"]
+#expected
+b,c
+2,4
+
+#test: remove_columns_hard_02
+#data
+id,name,name,age
+1,X,X,30
+2,Y,Y,25
+#params
+csv.delimiter=,
+csv.remove_columns=["name"]
+#expected
+id,name,age
+1,X,30
+2,Y,25
+
+#test: remove_columns_hard_03
+#data
+;;;
+;;;
+#params
+csv.delimiter=;
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_hard_04
+#data
+a|b|c|b
+x|1|2|3
+#params
+csv.delimiter=|
+csv.remove_columns=[3]
+#expected
+a|b|c
+x|1|2
+
+#test: remove_columns_hard_05
+#data
+a	b	c	b
+1	2	3	4
+#params
+csv.delimiter=\t
+csv.remove_columns=["b"]
+#expected
+a	c	b
+1	3	4
+
+#test: remove_columns_hard_06
+#data
+col1,col2,col3
+"1,2",x,y
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+col2,col3
+x,y
+
+#test: remove_columns_hard_07
+#data
+id,name,complex,age
+1,A,"x,y,z",30
+#params
+csv.delimiter=,
+csv.remove_columns=["complex"]
+#expected
+id,name,age
+1,A,30
+
+#test: remove_columns_hard_08
+#data
+a;b;c;d;e;f
+1;2;3;4;5;6
+#params
+csv.delimiter=;
+csv.remove_columns=[1,3,5]
+#expected
+a;c;e
+1;3;5
+
+#test: remove_columns_hard_09
+#data
+x|y|z
+only|one|row
+#params
+csv.delimiter=|
+csv.remove_columns=[0,1,2]
+#expected
+
+#test: remove_columns_hard_10
+#data
+solo
+one
+#params
+csv.delimiter=,
+csv.remove_columns=["solo"]
+#expected
+
+#test: remove_columns_hard_11
+#data
+a,b
+1,2
+#params
+csv.delimiter=,
+csv.remove_columns=[-1]
+#expected
+a,b
+1,2
+
+#test: remove_columns_hard_12
+#data
+a,b,c
+1,2,3
+#params
+csv.delimiter=,
+csv.remove_columns=[10]
+#expected
+a,b,c
+1,2,3
+
+#test: remove_columns_hard_13
+#data
+a	b	c
+foo	bar	baz
+#params
+csv.delimiter=\t
+csv.remove_columns=[0,2,5]
+#expected
+b
+bar
+
+#test: remove_columns_hard_14
+#data
+hdr1,hdr2,hdr3
+val1,val2,val3
+#params
+csv.delimiter=,
+csv.remove_columns=[1,"hdr2",2]
+#expected
+hdr1
+val1
+
+#test: remove_columns_hard_15
+#data
+id;name;age;city;salary
+1;A;30;NY;100
+#params
+csv.delimiter=;
+csv.remove_columns=[0,2,4]
+#expected
+name;city
+A;NY
+
+#test: remove_columns_hard_16
+#data
+c1|c2|c3|c4
+v1|v2|"v|3"|v4
+#params
+csv.delimiter=|
+csv.remove_columns=["c3"]
+#expected
+c1|c2|c4
+v1|v2|v4
+
+#test: remove_columns_hard_17
+#data
+a,b,c
+"","x",""
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2]
+#expected
+b
+x
+
+#test: remove_columns_hard_18
+#data
+a,b,c
+ , ,
+#params
+csv.delimiter=,
+csv.remove_columns=[0,2]
+#expected
+b
+
+#test: remove_columns_hard_19
+#data
+onlycol
+val
+#params
+csv.delimiter=,
+csv.remove_columns=[0]
+#expected
+
+#test: remove_columns_hard_20
+#data
+h1,h2,h3,h4,h5,h6,h7
+1,2,3,4,5,6,7
+#params
+csv.delimiter=,
+csv.remove_columns=[1,3,5]
+#expected
+h1,h3,h5,h7
+1,3,5,7
