@@ -1,4 +1,3 @@
-# tests/test_text_extractor_snapshot.py
 from __future__ import annotations
 
 import re
@@ -11,14 +10,13 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 import unittest
-import textwizard as tw  # project API
+import textwizard as tw 
 
 # ── Switches ───────────────────────────────────────────────────────────────────
 UPDATE = 0           # 1 = create/update baselines, 0 = use existing baselines
 SAVE_ARTIFACTS = 0   # 1 = write artifacts to disk, 0 = skip writing artifacts
 OCR_LANG = "eng"    
 
-# Optional: set TESSDATA_PREFIX automatically on Windows if not set
 if os.name == "nt" and "TESSDATA_PREFIX" not in os.environ:
     default_tess = r"C:\Program Files\Tesseract-OCR"
     if Path(default_tess).exists():
@@ -98,7 +96,7 @@ CASES = [
     dict(rel="file1.docx", ext="docx", ocr=True,  min_ratio=0.93),
 ]
 
-INPUT_MODES = ("path", "bytes", "str")  # Path object, raw bytes, string path
+INPUT_MODES = ("path", "bytes", "str") 
 
 # ── Tests ──────────────────────────────────────────────────────────────────────
 class TestTextExtractorSnapshots(unittest.TestCase):

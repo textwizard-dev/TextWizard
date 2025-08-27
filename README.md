@@ -1,11 +1,13 @@
-<img src="asset/TextWizard Banner.png" alt="TextWizard Banner" width="800" height="300">
+<img src="https://raw.githubusercontent.com/textwizard-dev/textwizard/main/asset/TextWizard%20Banner.png"
+     alt="TextWizard Banner" width="800" height="300">
 
 ---
 
 # TextWizard
-[![PyPI Latest Release](https://img.shields.io/pypi/v/textwizard.svg)](https://pypi.org/project/textwizard/)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/textwizard.svg?label=PyPI%20downloads)](https://pypi.org/project/textwizard/)
-[![License - BSD 3-Clause](https://img.shields.io/pypi/dm/textwizard.svg?label=PyPI%20downloads)](https://github.com/textwizard-dev/textwizard/blob/main/LICENSE)
+[![PyPI - Version](https://img.shields.io/pypi/v/textwizard)](https://pypi.org/project/textwizard/)
+[![PyPI - Downloads/month](https://img.shields.io/pypi/dm/textwizard?label=PyPI%20downloads)](https://pypistats.org/packages/textwizard)
+[![License](https://img.shields.io/pypi/l/textwizard)](https://github.com/textwizard-dev/textwizard/blob/main/LICENSE)
+
 
 **TextWizard** is a Python library to **extract**, **clean**, and **analyze** text from PDFs, DOCX, images, CSV, HTML/XML, and more. It includes local OCR (Tesseract), cloud OCR with Azure Document Intelligence, multi-backend NER, language detection, lexical statistics, and HTML utilities.
 
@@ -695,7 +697,7 @@ World
 
 ## License
 
-[AGPL-3.0-or-later]([_static](docs_source/_static)LICENSE).
+[AGPL-3.0-or-later](LICENSE).
 
 ## RESOURCES
 

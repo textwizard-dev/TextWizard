@@ -10,15 +10,16 @@ TextWizard
 
 .. image:: https://img.shields.io/pypi/v/textwizard.svg
    :target: https://pypi.org/project/textwizard/
-   :alt: PyPI Latest Release
+   :alt: PyPI - Version
 
 .. image:: https://img.shields.io/pypi/dm/textwizard.svg?label=PyPI%20downloads
-   :target: https://pypi.org/project/textwizard/
-   :alt: PyPI Downloads
+   :target: https://pypistats.org/packages/textwizard
+   :alt: PyPI - Downloads/month
 
-.. image:: https://img.shields.io/pypi/l/textwizard
-   :target: _static/LICENSE
-   :alt: License - BSD 3-Clause
+.. image:: https://img.shields.io/pypi/l/textwizard.svg
+   :target: https://github.com/textwizard-dev/textwizard/blob/main/LICENSE
+   :alt: License
+
 
 **TextWizard** is a Python library to **extract**, **clean**, and **analyze** text from PDFs, DOCX, images, CSV, HTML/XML, and more. It includes local OCR (Tesseract), cloud OCR with Azure Document Intelligence, multi-backend NER, language detection, lexical statistics, and HTML utilities.
 
@@ -570,8 +571,8 @@ Resources
 =========
 
 - `PyPI Package <https://pypi.org/project/textwizard/>`_
-- Documentation (this site)
-- GitHub Repository
+- `Documentation <https://textwizard.readthedocs.io/en/latest/>`_
+- `GitHub Repository <https://github.com/textwizard-dev/TextWizard>`_
 
 .. _contact_author:
 
