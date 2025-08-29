@@ -1,8 +1,8 @@
 from datetime import date
 
-project = "textwizard"
+project = "TextWizard"
 author = "Mattia Rubino"
-release = "0.1.0"
+release = "1.1.0"
 copyright = f"{date.today().year} {author}"
 
 pypi_slug = "textwizard"

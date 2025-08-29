@@ -16,5 +16,5 @@ Modules
    lang_detect
    analyze_text_statistics
    text_similarity
-   beutifull_html
+   beautiful_html
    html_to_markdown

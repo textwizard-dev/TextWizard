@@ -58,14 +58,8 @@ Quick start
    import textwizard as tw
 
    text = tw.extract_text("example.pdf")
-   print(text[:500])
+   print(text)
 
-**Output**
-
-.. code-block:: text
-
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-   (first 500 chars)
 
 API overview
 ============
@@ -96,7 +90,7 @@ API overview
      - Lexical metrics (entropy, Zipf, Gini, …)
    * - ``text_similarity``
      - Similarity: ``cosine``, ``jaccard``, ``levenshtein``
-   * - ``beutifull_html``
+   * - ``beautiful_html``
      - Pretty-print HTML
    * - ``html_to_markdown``
      - Convert HTML → Markdown
@@ -126,14 +120,8 @@ Basic:
 
    import textwizard as tw
    txt = tw.extract_text("docs/report.pdf")
-   print(txt[:200])
+   print(txt)
 
-**Output**
-
-.. code-block:: text
-
-   Executive Summary — This report outlines the quarterly performance across regions...
-   (first 200 chars)
 
 From bytes:
 
@@ -144,15 +132,8 @@ From bytes:
 
    raw = Path("img.png").read_bytes()
    txt_img = tw.extract_text(raw, extension="png")
-   print(txt_img[:120])
+   print(txt_img)
 
-**Output**
-
-.. code-block:: text
-
-   Sample figure caption — resolution test chart 2025…
-
-Paged selection and OCR:
 
 .. code-block:: python
 
@@ -160,14 +141,8 @@ Paged selection and OCR:
 
    sel = tw.extract_text("docs/big.pdf", pages=[1, 3, "5-7"])
    ocr_txt = tw.extract_text("scan.tiff", ocr=True, language_ocr="ita")
-   print(sel[:120]); print(ocr_txt[:120])
+   print(sel); print(ocr_txt)
 
-**Output**
-
-.. code-block:: text
-
-   Introduction and Scope… (selected pages)
-   Documento acquisito con OCR… (prima riga)
 
 Supported Formats
 -----------------
@@ -239,8 +214,8 @@ Example
        hybrid=True,
    )
 
-   print(res.text[:200])
-   print(res.pretty_tables[:1])
+   print(res.text)
+   print(res.pretty_tables)
    print(res.key_value)
 
 **Output**
@@ -515,7 +490,7 @@ Pretty-print HTML
      <img alt="Logo" src="/static/logo.png">
    </body>
    """
-   print(tw.beutifull_html(
+   print(tw.beautiful_html(
        html=html,
        indent=4,
        alphabetical_attributes=True,

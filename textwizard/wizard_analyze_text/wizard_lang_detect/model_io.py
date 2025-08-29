@@ -14,7 +14,7 @@ import zstandard as zstd
 import marisa_trie
 from pathlib import Path
 
-from textwizard.wizard_analyze_text.wizzard_lang_detect._utils import SEP
+from textwizard.wizard_analyze_text.wizard_lang_detect._utils import SEP
 
 _THIS_DIR     = Path(__file__).resolve().parent
 PROFILES_DIR  = _THIS_DIR / "profiles_trie_kn"

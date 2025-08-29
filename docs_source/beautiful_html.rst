@@ -1,5 +1,5 @@
 ================
-Beutifull HTML
+Beautiful HTML
 ================
 
 Pretty-print raw HTML **without changing semantics**. The formatter parses *html*,
@@ -55,7 +55,7 @@ Basic pretty-print
    </body>
    """
 
-   pretty = tw.beutifull_html(
+   pretty = tw.beautiful_html(
        html=html,
        indent=4,
        alphabetical_attributes=True,
@@ -100,7 +100,7 @@ Quote policies & best quote char
    import textwizard as tw
 
    html = '<a data-title=\'He said "hi"\'>x</a>'
-   out = tw.beutifull_html(
+   out = tw.beautiful_html(
        html,
        quote_attr_values="always",
        quote_char='"',
@@ -131,7 +131,7 @@ Void elements and trailing solidus
    import textwizard as tw
 
    html = "<br><img src=x>"
-   out = tw.beutifull_html(
+   out = tw.beautiful_html(
        html,
        use_trailing_solidus=True,
        space_before_trailing_solidus=False,
@@ -161,7 +161,7 @@ Whitespace & mixed content
    import textwizard as tw
 
    html = "<p>Hello <b>world</b>!</p>"
-   out = tw.beutifull_html(
+   out = tw.beautiful_html(
        html,
        expand_mixed_content=True,   # puts <b> on its own line
        strip_whitespace=False,

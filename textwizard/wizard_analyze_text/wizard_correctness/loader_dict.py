@@ -21,7 +21,7 @@ import marisa_trie
 import platformdirs
 import zstandard as zstd
 
-from textwizard.wizard_analyze_text.wizzard_correctness._utils import REMOTE_BASE, LANG_INFO
+from textwizard.wizard_analyze_text.wizard_correctness._utils import REMOTE_BASE, LANG_INFO
 from textwizard.utils.errors.errors import (
     DictionaryUnsupportedError,
     DictionaryUnavailableError,

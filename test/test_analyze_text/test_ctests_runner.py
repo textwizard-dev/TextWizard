@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
 
-from textwizard.wizard_analyze_text.wizzard_correctness.correctness import CorrectnessAnalyzer
+from textwizard.wizard_analyze_text.wizard_correctness.correctness import CorrectnessAnalyzer
 
 HERE = Path(__file__).resolve().parent
 CTESTS_DIR = HERE / "test"

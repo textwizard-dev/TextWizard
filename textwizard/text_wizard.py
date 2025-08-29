@@ -12,9 +12,9 @@ from textwizard.utils.errors.errors_handle import handle_errors
 from textwizard.wizard_ner.wizard_ner import WizardNER, EntitiesResult
 
 
-from textwizard.wizard_analyze_text.wizzard_correctness.correctness import CorrectnessAnalyzer
-from textwizard.wizard_analyze_text.wizzard_lang_detect.model_io import load_model, Model
-from textwizard.wizard_analyze_text.wizzard_lang_detect.detect_lang import detect_lang as _detect_lang
+from textwizard.wizard_analyze_text.wizard_correctness.correctness import CorrectnessAnalyzer
+from textwizard.wizard_analyze_text.wizard_lang_detect.model_io import load_model, Model
+from textwizard.wizard_analyze_text.wizard_lang_detect.detect_lang import detect_lang as _detect_lang
 
 from textwizard.wizard_analyze_text.statistical import StatisticalAnalyzer
 from textwizard.wizard_analyze_text.similarity import TextSimilarity
@@ -769,7 +769,7 @@ class TextWizard:
 
         return TextSimilarity(method)(a, b)
 
-    def beutifull_html(
+    def beautiful_html(
             self,
             html: str,
             indent: int = 2,
@@ -855,30 +855,6 @@ class TextWizard:
             - This formatter does not alter the DOM structure: it only affects whitespace,
               attribute ordering, quoting, and serialization cosmetics.
             
-            Example
-            -------
-            >>> pretty = beutifull_html(
-            ...     html="<body><button id='x' disabled>Go <b>now</b></button></body>",
-            ...     indent=4,
-            ...     quote_attr_values="always",
-            ...     minimize_boolean_attributes=True,
-            ...     alphabetical_attributes=True,
-            ...     expand_mixed_content=True,
-            ... )
-            >>> print(pretty)
-            <!DOCTYPE html>
-            <html>
-                <head>
-                </head>
-                <body>
-                    <button disabled id="x">
-                        Go
-                        <b>
-                            now
-                        </b>
-                    </button>
-                </body>
-            </html>
             """
 
         from textwizard.utils.tw_html_parser.beautify_html import beautify_html

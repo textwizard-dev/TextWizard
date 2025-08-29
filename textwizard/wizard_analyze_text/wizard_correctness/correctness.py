@@ -13,8 +13,8 @@ import marisa_trie
 import regex as _re
 import zstandard as zstd
 
-from textwizard.wizard_analyze_text.wizzard_correctness.loader_dict import load_trie
-from textwizard.wizard_analyze_text.wizzard_correctness._unicode_tokenizer import (
+from textwizard.wizard_analyze_text.wizard_correctness.loader_dict import load_trie
+from textwizard.wizard_analyze_text.wizard_correctness._unicode_tokenizer import (
     tokenize_words,
     normalize_text,
     NUM_RE as _NUM_RE,

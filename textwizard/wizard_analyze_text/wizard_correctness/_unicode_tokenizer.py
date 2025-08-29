@@ -84,7 +84,7 @@ def _is_skip_space(ch: str) -> bool:
 
 @lru_cache(maxsize=1)
 def _get_ja_trie(dict_dir_str: Optional[str]):
-    from textwizard.wizard_analyze_text.wizzard_correctness.loader_dict import load_trie
+    from textwizard.wizard_analyze_text.wizard_correctness.loader_dict import load_trie
     return load_trie(
         "ja",
         path_dict=Path(dict_dir_str) if dict_dir_str else None,

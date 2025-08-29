@@ -28,7 +28,6 @@ class TextExtractor:
     """
 
     def __init__(self) -> None:
-        # Instanzio una sola volta ciascun reader
         self._pdf = PdfReader()
         self._doc = DocReader()
         self._docx = DocxReader()

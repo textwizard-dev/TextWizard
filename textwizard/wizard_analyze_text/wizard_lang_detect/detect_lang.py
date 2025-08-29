@@ -7,14 +7,14 @@ from typing import List, Tuple
 import math
 import regex as rx
 
-from textwizard.wizard_analyze_text.wizzard_lang_detect._utils import (
+from textwizard.wizard_analyze_text.wizard_lang_detect._utils import (
     normalize_text, LANG_PRIOR, RARE_LATIN, RARE_CYRILLIC, RX_LETTERS,
     HARD_DIACRITICS, CYR_EXCLUSIVE, IBERIAN_SET
 )
-from textwizard.wizard_analyze_text.wizzard_lang_detect.gating_scoring import (
+from textwizard.wizard_analyze_text.wizard_lang_detect.gating_scoring import (
     candidate_langs, score_text, _evidence_strength
 )
-from textwizard.wizard_analyze_text.wizzard_lang_detect.hints import (
+from textwizard.wizard_analyze_text.wizard_lang_detect.hints import (
     HINTS, iberian_hints, precomputed_flags
 )
 

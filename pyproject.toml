@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "textwizard"
-version = "1.0.0"
+version = "1.1.0"
 description = "Extract, clean, and analyze text from PDFs, Office docs, images, CSV/HTML. Local OCR (Tesseract), Azure DI, NER (spaCy/Stanza), language detection, spell-check, statistics, and HTML tools."
 license = { file = "LICENSE" }
 

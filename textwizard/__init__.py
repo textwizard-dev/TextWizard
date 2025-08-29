@@ -16,7 +16,7 @@ correctness_text   = _wizard.correctness_text
 lang_detect        = _wizard.lang_detect
 analyze_text_statistics    = _wizard.analyze_text_statistics
 text_similarity    = _wizard.text_similarity
-beutifull_html     = _wizard.beutifull_html
+beautiful_html     = _wizard.beautiful_html
 html_to_markdown   = _wizard.html_to_markdown
 
 
@@ -35,6 +35,6 @@ __all__ = [
     'lang_detect',
     'analyze_text_statistics',
     'text_similarity',
-    'beutifull_html',
+    'beautiful_html',
     'html_to_markdown'
 ]

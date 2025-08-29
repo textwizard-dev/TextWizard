@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional
 import regex as rx
 
-from textwizard.wizard_analyze_text.wizzard_lang_detect._utils import RX_WORD
+from textwizard.wizard_analyze_text.wizard_lang_detect._utils import RX_WORD
 
 # Iberico
 _RX_GL_XVOW = rx.compile(r"\bx[aeiouáéíóú]\w*", flags=rx.VERSION1)

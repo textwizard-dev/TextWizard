@@ -4,10 +4,10 @@ from functools import lru_cache
 from typing import List, Tuple
 
 from test.test_analyze_text.utils_test import SAMPLE_TEXTS
-from textwizard.wizard_analyze_text.wizzard_lang_detect.detect_lang import (
+from textwizard.wizard_analyze_text.wizard_lang_detect.detect_lang import (
     detect_lang
 )
-from textwizard.wizard_analyze_text.wizzard_lang_detect.model_io import  PROFILES_DIR,load_model
+from textwizard.wizard_analyze_text.wizard_lang_detect.model_io import  PROFILES_DIR,load_model
 TOP_K = 3  
 
 NOT_SUPPORT_2 = [

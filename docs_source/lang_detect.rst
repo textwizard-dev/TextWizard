@@ -2,8 +2,7 @@
 Language Detection
 ==================
 
-Character n-gram detector with smart gating, priors, and linguistic hints.  
-**Supports 161 languages.** Returns either a single top-1 **ISO code** or a **ranked list** with probabilities.
+Language identification via character n-gram profiles. Candidate gating guided by priors and linguistic cues, then probability estimation for each language. Supports 161 languages. Returns a top-1 ISO code or a probability-ordered list.
 
 Parameters
 ==========

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Iterator
 
 
-#$ cd /mnt/d/WORK/TextWizard/textwizard/wizard_analyze_text/wizzard_correctness/input_dictionaries
+#$ cd /mnt/d/WORK/TextWizard/textwizard/wizard_analyze_text/wizard_correctness/input_dictionaries
 #$ hunspell-reader words kn_IN.dic --sort --unique --lower_case -o kn.txt
 SRC_DIR  = Path(r"D:\WORK\TextWizard\corpus\dictionaries\xx")
 DEST_DIR = Path(r"D:\WORK\TextWizard\corpus\dictionaries")

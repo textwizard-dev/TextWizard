@@ -8,7 +8,7 @@ from collections import Counter
 import math
 import regex as rx
 
-from textwizard.wizard_analyze_text.wizzard_lang_detect._utils import (
+from textwizard.wizard_analyze_text.wizard_lang_detect._utils import (
     RX_WORD, RX_LETTERS, PAD, ST, EN,
     LangConfig, DEFAULT_CFG, PER_LANG, scripts_for_lang,
     effective_neutral_for_lang, line_script_share,
@@ -17,8 +17,8 @@ from textwizard.wizard_analyze_text.wizzard_lang_detect._utils import (
     CYR_EXCLUSIVE, letter_hist, is_cyr,
 )
 
-from textwizard.wizard_analyze_text.wizzard_lang_detect.hints import iberian_hints as _iberian_hints
-from textwizard.wizard_analyze_text.wizzard_lang_detect.hints import south_slavic_hints as _south_slavic_hints
+from textwizard.wizard_analyze_text.wizard_lang_detect.hints import iberian_hints as _iberian_hints
+from textwizard.wizard_analyze_text.wizard_lang_detect.hints import south_slavic_hints as _south_slavic_hints
 
 ORDERS_TO_USE = (2, 3, 4, 5)
 AFFIX_ON_ALPHA = True

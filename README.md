@@ -29,8 +29,8 @@
 - [Language detection](#language-detection)
 - [Text statistics](#text-statistics)
 - [Text similarity](#text-similarity)
-- [HTML tools](#html-tools)
-- [Migration notes](#migration-notes)
+- [Beautiful HTML](#beautiful-html)
+- [HTML to Markdown](#html-to-markdown)
 - [License](#license)
 - [Resources](#resources)
 
@@ -464,8 +464,7 @@ print(check)
 
 ## Language detection
 
-Character n-gram detector with smart gating, priors, and linguistic hints.  
-**Supports 161 ISO-639-1 languages.** Returns either a single top-1 code or a ranked list with probabilities.
+Language identification via character n-gram profiles. Candidate gating guided by priors and linguistic cues, then probability estimation for each language. Supports 161 languages. Returns a top-1 ISO code or a probability-ordered list.
 
 ### Parameters
 
@@ -598,7 +597,7 @@ print(s1, s2, s3)
 ~~~
 ---
 
-## Beutifull HTML
+## Beautiful HTML
 
 Pretty-print raw HTML without changing its semantics. Controls indentation, attribute quoting/sorting, whitespace normalization, and optional DOCTYPE insertion.
 
@@ -635,7 +634,7 @@ html = """
 </body>
 """
 
-pretty = tw.beutifull_html(
+pretty = tw.beautiful_html(
     html=html,
     indent=4,
     alphabetical_attributes=True,
@@ -672,7 +671,7 @@ print(pretty)
 </html>
 ~~~
 
-## HTML → Markdown
+## HTML to Markdown
 
 ### Parameters
 

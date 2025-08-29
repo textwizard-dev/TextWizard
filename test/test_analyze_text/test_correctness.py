@@ -19,7 +19,7 @@ from typing import Dict, List, Tuple
 import marisa_trie
 import zstandard as zstd
 
-from textwizard.wizard_analyze_text.wizzard_correctness.correctness import CorrectnessAnalyzer
+from textwizard.wizard_analyze_text.wizard_correctness.correctness import CorrectnessAnalyzer
 
 # ---- configure ----
 DICT_DIR = Path(r"D:\WORK\TextWizard\corpus\dictionaries")

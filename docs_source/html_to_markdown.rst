@@ -58,7 +58,7 @@ Links, lists, code
    """
    print(tw.html_to_markdown(html))
 
-**Output (placeholder)**
+**Output**
 
 .. code-block:: markdown
 
